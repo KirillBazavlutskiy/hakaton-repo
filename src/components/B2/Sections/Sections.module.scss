@@ -1,0 +1,13 @@
+.container {
+  @apply p-[20px] flex flex-col items-center gap-[20px];
+
+  .buttons {
+    @apply flex items-center gap-[30px] px-[40px] py-[20px]
+    flex-col md:flex-row
+    bg-gray-100/25 rounded-3xl;
+
+    .active {
+      @apply text-blue-500
+    }
+  }
+}

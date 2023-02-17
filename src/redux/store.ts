@@ -1,12 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {createWrapper} from "next-redux-wrapper";
-import counterReducer from './Slices/CounterSlice'
 import {TypedUseSelectorHook, useSelector} from "react-redux";
+
+import languageReducer from './Slices/LanguageSlice'
 
 export const makeStore = () => {
     const store = configureStore({
         reducer: {
-            counter: counterReducer,
+            language: languageReducer,
         }
     })
     return store;

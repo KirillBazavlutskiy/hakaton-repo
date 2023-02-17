@@ -1,0 +1,12 @@
+.container {
+  @apply w-full;
+  .block {
+    @apply w-full flex flex-col items-center mt-[20px];
+  }
+  .gridBlock {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 30px;
+  }
+}

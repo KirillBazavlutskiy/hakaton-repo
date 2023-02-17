@@ -1,0 +1,77 @@
+.container {
+  @apply relative h-[90px] flex justify-between items-center z-[50] px-[20px];
+
+  .logo {
+    @apply flex items-center gap-[10px];
+
+    svg {
+      @apply w-[60px];
+    }
+
+    p {
+      @apply text-[18px];
+    }
+  }
+
+  .navbar {
+    @apply  hidden md:flex items-center gap-[20px];
+
+    a {
+      @apply transition-colors;
+
+      &:hover {
+        @apply text-gray-100;
+      }
+    }
+
+    button {
+      &:hover {
+        @apply text-blue-100;
+      }
+    }
+
+    a:last-child {
+      @apply py-[10px] px-[20px] text-[#000] bg-yellow-400;
+
+      &:hover {
+        @apply bg-blue-400 text-[#fff];
+      }
+    }
+  }
+
+  .burger {
+    @apply block md:hidden
+    w-[40px] h-[30px] transition-colors
+    flex flex-col justify-between;
+
+    .slice {
+      @apply w-full h-[3px] rounded-full bg-[#fff];
+    }
+  }
+
+  .slice1.clicked {
+    transform: rotate(45deg) translate(9.5px, 9.5px);
+    transition: ease-out .2s;
+  }
+  .slice2.clicked {
+    opacity: 0;
+    transition: ease-out .2s;
+  }
+  .slice3.clicked {
+    transform: rotate(-45deg) translate(9.5px, -9.5px);
+    transition: ease-out .2s;
+  }
+
+  .slice1.unclicked {
+    transform: rotate(0);
+    transition: ease-out .2s;
+  }
+  .slice2.unclicked {
+    opacity: 1;
+    transition: ease-out .2s;
+  }
+  .slice3.unclicked {
+    transform: rotate(0) translate(0);
+    transition: ease-out .2s;
+  }
+}

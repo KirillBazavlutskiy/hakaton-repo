@@ -1,12 +1,12 @@
 import React, {FC} from "react";
 import Head from "next/head";
 
-interface MainContainerProps {
+interface PageContainerProps {
     children: React.ReactNode;
     keywords: string;
     title: string;
 }
-const PageContainer: FC<MainContainerProps> = ({ children, keywords , title}) => {
+const PageContainer: FC<PageContainerProps> = ({ children, keywords , title}) => {
     return (
         <>
             <Head>

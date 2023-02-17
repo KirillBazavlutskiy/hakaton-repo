@@ -1,0 +1,7 @@
+.container {
+  @apply w-full p-[20px];
+
+  .posts {
+    @apply w-full h-[200px] flex justify-between items-center;
+  }
+}

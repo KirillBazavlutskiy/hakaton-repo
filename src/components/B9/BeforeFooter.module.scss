@@ -1,0 +1,9 @@
+.container {
+  @apply w-full py-[50px] flex flex-col items-center;
+  h1 {
+    @apply w-1/3 text-center;
+  }
+  button {
+    @apply bg-yellow-400 text-black font-semibold px-[20px] py-[10px] mt-[20px];
+  }
+}
