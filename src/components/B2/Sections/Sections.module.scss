@@ -15,7 +15,7 @@
       @apply text-3xl;
     }
     .bBlock {
-      @apply w-full flex items-center justify-around gap-[30px] px-[40px] py-[30px] bg-gray-100/25 rounded-3xl;
+      @apply w-full flex flex-col md:flex-row items-center justify-around gap-[30px] md:px-[40px] py-[30px] bg-gray-100/25 rounded-3xl;
     }
   }
   .projects {

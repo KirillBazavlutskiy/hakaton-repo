@@ -1,12 +1,12 @@
 .container {
-  @apply py-[20px] px-[20px] lg:px-[100px];
+  @apply lg:w-[48%] lg:h-2/6 w-full mb-[20px] xl:mb-0 xl:w-[48%] xl:h-full;
 
   .inner {
-    @apply w-full flex flex-col md:flex-row items-center justify-between px-[20px] py-[30px] rounded-2xl gap-[20px]
+    @apply w-full flex flex-col items-center justify-between px-[20px] py-[30px] rounded-2xl gap-[20px]
     bg-gradient-to-r from-red-500/25 to-blue-500/25;
 
     .buttons {
-      @apply flex flex-col sm:flex-row items-center gap-[20px];
+      @apply flex flex-col sm:flex-row items-center gap-[20px] mt-[40px];
 
       .way {
         @apply px-6 py-3 bg-[#5B18E2] rounded-xl;

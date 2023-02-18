@@ -1,7 +1,16 @@
 .container {
   @apply py-[20px]  px-[20px] lg:px-[100px] lg:mt-[50px] text-left;
   h1 {
-    @apply lg:text-6xl;
-    line-height: 80px;
+    @apply md:text-6xl;
+  }
+  @media screen and (min-width: 0px) {
+    h1 {
+      line-height: normal;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    h1 {
+      line-height: 80px;
+    }
   }
 }

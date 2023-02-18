@@ -7,10 +7,9 @@ import Header from "@/components/B1/Header/Header";
 import BeforeFooter from "@/components/B9/BeforeFooter";
 import IntroText from "@/components/B1/IntroText/IntroText";
 import Sections from "@/components/B2/Sections/Sections";
-import Donate from "@/components/B5/Donate";
 import Ellipse from "@/components/Style/Ellipse";
 import WhatHasAlreadyBeenDone from "@/components/B4/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
-import HumanitarianAid from "@/components/B6/HumanitarianAid/HumanitarianAid";
+import B56 from '@/components/B5B6/B56'
 
 const Index = () => {
     return (
@@ -30,11 +29,8 @@ const Index = () => {
             <section id="B4">
                 <WhatHasAlreadyBeenDone />
             </section>
-            <section id="B5">
-                <Donate/>
-            </section>
-            <section id="B6">
-                <HumanitarianAid />
+            <section id="B56">
+                <B56/>
             </section>
             <section id="B7">
                 <OurPartners/>
