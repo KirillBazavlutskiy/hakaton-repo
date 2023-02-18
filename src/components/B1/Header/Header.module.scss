@@ -1,5 +1,5 @@
 .container {
-  @apply relative h-[90px] flex justify-between items-center z-[50] px-[20px];
+  @apply relative h-[90px] flex justify-between items-center z-[50] px-[20px] lg:px-[100px];
 
   .logo {
     @apply flex items-center gap-[10px];

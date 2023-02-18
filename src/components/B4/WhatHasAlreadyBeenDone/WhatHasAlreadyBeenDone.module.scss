@@ -1,5 +1,5 @@
 .container {
-  @apply p-[40px];
+  @apply py-[20px] px-[20px] lg:px-[100px];
 
   h1 {
     @apply text-left sm:text-center md:text-left mb-[20px];

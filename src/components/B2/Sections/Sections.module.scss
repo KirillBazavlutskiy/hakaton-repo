@@ -1,5 +1,5 @@
 .container {
-  @apply p-[20px] flex flex-col items-center gap-[20px];
+  @apply py-[20px] px-[20px] lg:px-[100px] flex flex-col items-center gap-[20px];
 
   .buttons {
     @apply flex items-center gap-[30px] px-[40px] py-[20px]
