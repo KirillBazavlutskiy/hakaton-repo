@@ -7,6 +7,12 @@ interface IAdmin {
     isMaster: boolean;
 }
 
+export interface IOffer {
+    "name": string,
+    "contact": string,
+    "offer": string
+}
+
 export default class AdminService {
     static Login = async (password: string): Promise<void> => {
         const res = await $api.get<IAdmin>(`https://ntu.egartsites.pp.ua/api/Auth/Token?password=${password}`);
@@ -27,7 +33,7 @@ export default class AdminService {
         return data;
     }
 
-    // static ChechAuth = async (): Promise<void> => {
-    //     const { data: { isSuper } } = await $api.get<{isMaster}>
-    // }
+    static AddOffer = async (offer: IOffer): Promise<void> => {
+        await $api.post('/api/HelpOffer/Add', {...offer});
+    }
 }

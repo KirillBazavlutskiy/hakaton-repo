@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-type userType = 'user' | 'admin' | 'superadmin'
+export type userType = 'user' | 'admin' | 'superadmin'
 interface IUserInit {
-    user: userType;
+    user: string;
 }
 
 const initialState: IUserInit = {
@@ -13,7 +13,7 @@ const AdminSlice = createSlice({
     name: 'admin',
     initialState,
     reducers: {
-        changeUserType(state, action: PayloadAction<userType>) {
+        changeUserType(state, action: PayloadAction<string>) {
             state.user = action.payload;
         }
     }

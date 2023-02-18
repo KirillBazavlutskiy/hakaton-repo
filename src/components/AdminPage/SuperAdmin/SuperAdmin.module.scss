@@ -1,11 +1,19 @@
 .container {
   @apply p-[20px];
 
-  ul {
-    @apply p-[10px];
+  .adminList {
+    @apply mb-[20px];
 
-    li {
-      @apply text-lg;
+    h2 {
+      @apply mb-[10px];
+    }
+
+    ul {
+      @apply flex gap-[10px] items-center;
+
+      li {
+        @apply text-lg;
+      }
     }
   }
 
@@ -17,7 +25,7 @@
     }
 
     button {
-      @apply w-full py-3 bg-blue-500 text-[#fff];
+      @apply w-auto py-3 px-4 bg-blue-500 text-[#fff];
     }
   }
 }
