@@ -33,7 +33,7 @@ interface Child {
     media_url: string,
 }
 
-const Index = () => {
+const Index: FC = () => {
     const [state, setState] = useState<IPost[]>();
 
     const getData = async () => {

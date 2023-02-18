@@ -1,20 +1,13 @@
 import {FC, useState} from 'react';
 import s from './HumanitarianAid.module.scss';
-
-interface IForm {
-    name: string;
-    phone: string;
-    email: string;
-    provide: string;
-}
+import AdminService, {IOffer} from "@/Services/AdminService";
 
 const HumanitarianAid: FC = () => {
 
-    const [userForm, setUserForm] = useState<IForm>({
+    const [userForm, setUserForm] = useState<IOffer>({
         name: '',
-        phone: '',
-        email: '',
-        provide: ''
+        contact: '',
+        offer: ''
     });
 
     return (
@@ -26,7 +19,13 @@ const HumanitarianAid: FC = () => {
                         <p>If u can help and provide something of the current list above, please fill out the form below</p>
                         <a href="#">List of current Needs</a>
                     </div>
-                    <form className={s.formSide}>
+                    <form
+                        className={s.formSide}
+                        onSubmit={async e => {
+                            e.preventDefault();
+                            await AdminService.AddOffer(userForm);
+                        }
+                    }>
                         <div className={s.inputs}>
                             <label>
                                 <input
@@ -37,24 +36,18 @@ const HumanitarianAid: FC = () => {
                             </label>
                             <label>
                                 <input
-                                    value={userForm.phone}
-                                    onChange={e => setUserForm({...userForm, phone: e.target.value})}
+                                    value={userForm.contact}
+                                    onChange={e => setUserForm({...userForm, contact: e.target.value})}
                                     type="text"
-                                    placeholder='Phone'/>
-                            </label>
-                            <label>
-                                <input
-                                    value={userForm.email}
-                                    onChange={e => setUserForm({...userForm, email: e.target.value})}
-                                    type="text"
-                                    placeholder='E-mail'/>
+                                    placeholder='Contacts'/>
                             </label>
                         </div>
                         <textarea
-                            value={userForm.provide}
-                            onChange={e => setUserForm({...userForm, provide: e.target.value})}
+                            value={userForm.offer}
+                            onChange={e => setUserForm({...userForm, offer: e.target.value})}
                             placeholder='What you can provide'>
                         </textarea>
+                        <button type='submit'>Send</button>
                     </form>
                 </div>
             </div>

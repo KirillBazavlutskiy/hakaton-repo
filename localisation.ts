@@ -1,7 +1,7 @@
 import OurLastestNews from "@/components/B3/OurLastestNews";
 
 // @ts-ignore
-const localisation = {
+export const localisation = {
     firstH1Text:{
         ua: "Підтримайте українську\n" +
             "Армію, територіальну оборону\n" +

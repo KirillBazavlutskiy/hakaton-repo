@@ -18,13 +18,16 @@ const SuperAdmin: FC = () => {
 
     return (
         <div className={s.container}>
-            <h2>Паролі адмінів:</h2>
-            <ul className={s.adminList}>
-                {
-                    admins.map(a => <li>{a}</li>)
-                }
-            </ul>
-            <form onSubmit={async () => {
+            <div className={s.adminList}>
+                <h2>Паролі адмінів:</h2>
+                <ul>
+                    {
+                        admins.map(a => <li>{a}</li>)
+                    }
+                </ul>
+            </div>
+            <form onSubmit={async (event) => {
+                event.preventDefault();
                 await AdminService.AddAdmin(passwd)
                 fetchAdmins();
                 setPasswd('');
@@ -36,6 +39,7 @@ const SuperAdmin: FC = () => {
                 />
                 <button type='submit'>Додати адміна</button>
             </form>
+
         </div>
     );
 };
