@@ -1,14 +1,14 @@
 import type { AppProps } from 'next/app';
-import { wrapper } from '@/redux/store';
+import { store } from '../redux/store';
 import '@/styles/globals.css';
-import {SessionProvider} from "next-auth/react";
+import {Provider} from "react-redux";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-      <SessionProvider>
-        <Component {...pageProps} />
-      </SessionProvider>
+        <Provider store={store}>
+            <Component {...pageProps} />
+        </Provider>
   )
 }
 
-export default wrapper.withRedux(App);
+export default App;

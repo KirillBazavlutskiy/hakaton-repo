@@ -1,21 +1,18 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {createWrapper} from "next-redux-wrapper";
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 
-import languageReducer from './Slices/LanguageSlice'
+import languageReducer from './Slices/LanguageSlice';
+import userReducer from './Slices/AdminSlice';
 
-export const makeStore = () => {
-    const store = configureStore({
-        reducer: {
-            language: languageReducer,
-        }
-    })
-    return store;
-}
+const rootReducer = combineReducers({
+    language: languageReducer,
+    status: userReducer,
+})
 
-export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore['getState']>;
+export const store = configureStore({
+    reducer: rootReducer,
+})
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-
-export const wrapper = createWrapper<AppStore>(makeStore, { debug: true });
