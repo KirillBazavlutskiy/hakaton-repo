@@ -1,5 +1,5 @@
 .container {
-  @apply w-full;
+  @apply w-full py-[20px] px-[20px] lg:px-[100px];
   .block {
     @apply w-full flex flex-col items-center mt-[20px];
   }

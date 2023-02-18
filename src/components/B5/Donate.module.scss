@@ -1,5 +1,5 @@
 .container {
-  @apply p-[20px] pt-0;
+  @apply py-[20px] px-[20px] lg:px-[100px];
 
   .inner {
     @apply w-full flex flex-col md:flex-row items-center justify-between px-[20px] py-[30px] rounded-2xl gap-[20px]

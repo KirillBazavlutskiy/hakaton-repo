@@ -1,5 +1,5 @@
 .container {
-  @apply w-full p-[20px];
+  @apply w-full py-[20px] px-[20px] lg:px-[100px];
 
   .posts {
     @apply w-full h-[200px] flex justify-between items-center;

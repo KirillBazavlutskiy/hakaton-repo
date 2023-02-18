@@ -4,7 +4,7 @@ const IntroText: FC = () => {
     return (
         <div className={s.container}>
             <h1>
-                Support the Ukrainian Army, territorial defense fighters, refugees, hospitals, animals shelters
+                Support the Ukrainian <br/> Army, territorial defense <br/> fighters, refugees, <br/> hospitals, animals shelters
             </h1>
         </div>
     );
