@@ -16,7 +16,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({  menuActive }) => {
             <a href="#B2">Projects</a>
             <a href="#B3">News</a>
             <a href="#B7">Partners</a>
-            <button onClick={() => dispatch(changeLanguage(language === 'EN' ? 'UA' : 'EN'))}>{language}</button>
+            <button onClick={() => dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'))}>{language}</button>
             <a href="#B5">Donate</a>
         </div>
     );
