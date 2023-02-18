@@ -16,7 +16,7 @@
 }
 
 h1 {
-  @apply text-[22px] sm:text-[26px] lg:text-[30px];
+  @apply text-[22px] sm:text-[26px] lg:text-6xl;
 }
 
 h2 {

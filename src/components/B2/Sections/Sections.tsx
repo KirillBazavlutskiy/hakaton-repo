@@ -13,22 +13,28 @@ const Sections: FC = () => {
 
     return (
         <div className={s.container}>
+            <h1>Our Projects</h1>
             <div className={s.buttons}>
-                {
-                    tabs.map((n, i) => (
-                        <button className={activeTab === i ? s.active : s.notActive} key={i} onClick={() => setActiveTab(i)}>{n.name}</button>
-                    ))
-                }
+                <div className={s.bBlock}>
+                    {
+                        tabs.map((n, i) => (
+                            <button className={activeTab === i ? s.active : s.notActive} key={i} onClick={() => setActiveTab(i)}>{n.name}</button>
+                        ))
+                    }
+                </div>
+
             </div>
             <div className={s.projects}>
-                {
-                    tabs.map((n, i) => (
-                        <h2
-                            style={{ display: activeTab === i ? 'block' : 'none' }}
-                            key={i}
-                        >{n.text}</h2>
-                    ))
-                }
+                <div className={s.block}>
+                    {
+                        tabs.map((n, i) => (
+                            <h2
+                                style={{ display: activeTab === i ? 'block' : 'none' }}
+                                key={i}
+                            >{n.text}</h2>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
