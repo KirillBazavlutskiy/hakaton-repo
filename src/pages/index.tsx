@@ -1,3 +1,5 @@
+import {FC} from "react";
+
 import PageContainer from "@/components/PageContainer";
 import OurLastestNews from "@/components/B3/OurLastestNews";
 import OurPartners from "@/components/B7/OurPartners";

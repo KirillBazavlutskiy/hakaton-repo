@@ -1,7 +1,22 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import s from './HumanitarianAid.module.scss';
 
+interface IForm {
+    name: string;
+    phone: string;
+    email: string;
+    provide: string;
+}
+
 const HumanitarianAid: FC = () => {
+
+    const [userForm, setUserForm] = useState<IForm>({
+        name: '',
+        phone: '',
+        email: '',
+        provide: ''
+    });
+
     return (
         <div className={s.container}>
             <div className={s.inner}>
@@ -14,16 +29,32 @@ const HumanitarianAid: FC = () => {
                     <form className={s.formSide}>
                         <div className={s.inputs}>
                             <label>
-                                <input type="text" placeholder='Name'/>
+                                <input
+                                    value={userForm.name}
+                                    onChange={e => setUserForm({...userForm, name: e.target.value})}
+                                    type="text"
+                                    placeholder='Name'/>
                             </label>
                             <label>
-                                <input type="text" placeholder='Phone'/>
+                                <input
+                                    value={userForm.phone}
+                                    onChange={e => setUserForm({...userForm, phone: e.target.value})}
+                                    type="text"
+                                    placeholder='Phone'/>
                             </label>
                             <label>
-                                <input type="text" placeholder='E-mail'/>
+                                <input
+                                    value={userForm.email}
+                                    onChange={e => setUserForm({...userForm, email: e.target.value})}
+                                    type="text"
+                                    placeholder='E-mail'/>
                             </label>
                         </div>
-                        <textarea placeholder='What you can provide'></textarea>
+                        <textarea
+                            value={userForm.provide}
+                            onChange={e => setUserForm({...userForm, provide: e.target.value})}
+                            placeholder='What you can provide'>
+                        </textarea>
                     </form>
                 </div>
             </div>
