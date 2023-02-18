@@ -37,7 +37,8 @@ const Index: FC = () => {
     const [state, setState] = useState<IPost[]>();
 
     const getData = async () => {
-        const data = await fetch(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=IGQVJYRGFpU1Q0bGhKTTNibFRNOEY4cTZAfeWVhWnlFYnZAxVkpEOVNvT29FMmFmS1RSSXRxdFY2ajE2Rk9uc1dmYmZAmSlFzSEl1aGNzdm5CMjJCVC1Id3NrYWlEU3NLc2xTaEVEQlBiTWd5YWpCT3prUgZDZD`);
+        const url = `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`;
+        const data = await fetch(url);
         return await data.json();
     }
 
