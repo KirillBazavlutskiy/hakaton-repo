@@ -30,6 +30,9 @@ p {
 *::-webkit-scrollbar {
   display: none;
 }
+h1,h2,h3,h4,p,button {
+  font-weight: 300;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;

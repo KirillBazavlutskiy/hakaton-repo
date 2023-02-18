@@ -31,7 +31,7 @@ const OurPartners = () => {
                             {link: liberto},
                             {link: bf},
                             {link: limac}
-                        ].map(res => <Image src={res.link}/>)
+                        ].map(res => <Image src={res.link} alt="partner"/>)
                     }
                 </div>
             </div>
