@@ -9,7 +9,6 @@ const IntroText: FC = () => {
     return (
         <div className={s.container}>
             <h1>
-                {localisation.firstH1Text[language]}
                 Support the Ukrainian <br/> Army, territorial defense <br/> fighters, refugees, <br/> hospitals, animals shelters
             </h1>
         </div>
