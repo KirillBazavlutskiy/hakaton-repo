@@ -37,7 +37,7 @@ const Index = () => {
     const [state, setState] = useState<IPost[]>();
 
     const getData = async () => {
-        const data = await fetch(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=IGQVJVcUFGNFhYLXZAqUWdjQTdqbHJxUjJrVV9iLUlUME15eWhaUk9oRkFLNWJGYWRtTlROTlg1VW1xZADFuYXprdFFPOHo3cWhoVmg1czJ5TThHbExvN0EyWTFxY1VEWDF2WmV5NE5hU0tuUlk5ZA25JYwZDZD`);
+        const data = await fetch(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=IGQVJYRGFpU1Q0bGhKTTNibFRNOEY4cTZAfeWVhWnlFYnZAxVkpEOVNvT29FMmFmS1RSSXRxdFY2ajE2Rk9uc1dmYmZAmSlFzSEl1aGNzdm5CMjJCVC1Id3NrYWlEU3NLc2xTaEVEQlBiTWd5YWpCT3prUgZDZD`);
         return await data.json();
     }
 
