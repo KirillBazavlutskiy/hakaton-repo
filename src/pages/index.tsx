@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useEffect, useState} from "react";
 
 import PageContainer from "@/components/PageContainer";
 import OurLastestNews from "@/components/B3/OurLastestNews";
@@ -10,8 +10,48 @@ import Sections from "@/components/B2/Sections/Sections";
 import Ellipse from "@/components/Style/Ellipse";
 import WhatHasAlreadyBeenDone from "@/components/B4/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import B56 from '@/components/B5B6/B56'
+import axios from 'axios';
+import { GetStaticProps } from 'next';
+
+export interface IPost {
+    id: string,
+    username: string,
+    caption: string,
+    media_type: string,
+    media_url: string,
+    timestamp: string,
+    permalink: string,
+    children: Children
+}
+
+interface Children {
+    data: Child[]
+}
+
+interface Child {
+    id: string,
+    media_url: string,
+}
 
 const Index = () => {
+    const [state, setState] = useState<IPost[]>();
+
+    const getData = async () => {
+        const data = await fetch(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=IGQVJVcUFGNFhYLXZAqUWdjQTdqbHJxUjJrVV9iLUlUME15eWhaUk9oRkFLNWJGYWRtTlROTlg1VW1xZADFuYXprdFFPOHo3cWhoVmg1czJ5TThHbExvN0EyWTFxY1VEWDF2WmV5NE5hU0tuUlk5ZA25JYwZDZD`);
+        return await data.json();
+    }
+
+    useEffect(() => {
+        getData()
+				.then(res => {
+					setState(res.data);                    
+				})
+				.catch(() => {
+					console.log('err');
+				});
+    }, []);
+    
+
     return (
         <PageContainer title={"Головна"} keywords={""}>
             <Ellipse top={50} left='auto' right={70} width={900} height={900} color1={'#a09af1'} color2={'transparent'} />
@@ -24,7 +64,9 @@ const Index = () => {
                 <Sections />
             </section>
             <section id="B3">
-                <OurLastestNews/>
+                {
+                    state && <OurLastestNews posts={state} />
+                }
             </section>
             <section id="B4">
                 <WhatHasAlreadyBeenDone />
