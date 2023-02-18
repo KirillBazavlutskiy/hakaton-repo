@@ -16,6 +16,9 @@ const $api = axios.create({
 
 $api.interceptors.request.use((config) => {
     config.withCredentials = true;
+    if (document.cookie) {
+        config.headers.Authorization = `Bearer ${document.cookie}`;
+    }
     return config;
 });
 

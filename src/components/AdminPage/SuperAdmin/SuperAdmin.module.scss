@@ -1,0 +1,23 @@
+.container {
+  @apply p-[20px];
+
+  ul {
+    @apply p-[10px];
+
+    li {
+      @apply text-lg;
+    }
+  }
+
+  form {
+    @apply flex flex-col usm:flex-row;
+
+    input {
+      @apply w-full p-[5px] text-[#000];
+    }
+
+    button {
+      @apply w-full py-3 bg-blue-500 text-[#fff];
+    }
+  }
+}

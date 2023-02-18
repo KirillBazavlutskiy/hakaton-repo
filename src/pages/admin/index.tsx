@@ -1,30 +1,17 @@
-import { FC , useState} from 'react';
-import AdminService from "@/Services/AuthService";
+import { FC } from 'react';
 import {useAppSelector} from "@/redux/store";
-
-const AdminLogin: FC = () => {
-    const [adminLoginPswd, setAdminPswd] = useState<string>('');
-
-    return (
-        <div>
-            <h1>Login as admin</h1>
-            <input
-                type="text"
-                value={adminLoginPswd}
-                onChange={e => setAdminPswd(e.target.value)}
-            />
-            <button onClick={() => AdminService.Login(adminLoginPswd)}>Login</button>
-        </div>
-    )
-}
+import Login from "@/components/AdminPage/Login/Login";
+import SuperAdmin from "@/components/AdminPage/SuperAdmin/SuperAdmin";
 
 const Admin: FC = () => {
+
+
     const { user } = useAppSelector(state => state.status)
     return (
         <div>
-            {user === 'user' && <AdminLogin />}
-            {user === 'superadmin' && <h1>Super Admin Page</h1>}
-            {/*{user === 'admin'  }*/}
+            {user === 'user' && <Login />}
+            {user === 'superadmin' && <SuperAdmin />}
+            {user === 'admin' && <h1>Admin Page</h1>}
         </div>
     );
 };
