@@ -1,15 +1,16 @@
 import {FC, useEffect, useState} from "react";
 
+import { Layout } from '@/layouts/Layout';
+import IntroText from "@/components/IntroText/IntroText";
+
 import OurLastestNews from "@/components/B3/OurLastestNews";
 import OurPartners from "@/components/B7/OurPartners";
 import BeforeFooter from "@/components/B9/BeforeFooter";
-import IntroText from "@/components/B1/IntroText/IntroText";
 import Sections from "@/components/B2/Sections/Sections";
 import Ellipse from "@/components/Style/Ellipse";
 import WhatHasAlreadyBeenDone from "@/components/B4/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import B56 from '@/components/B5B6/B56'
 
-import { Layout } from '@/layouts/Layout';
 
 export interface IPost {
     id: string,
