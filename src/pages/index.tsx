@@ -1,17 +1,15 @@
 import {FC, useEffect, useState} from "react";
 
-import PageContainer from "@/components/PageContainer";
 import OurLastestNews from "@/components/B3/OurLastestNews";
 import OurPartners from "@/components/B7/OurPartners";
-import Header from "@/components/B1/Header/Header";
 import BeforeFooter from "@/components/B9/BeforeFooter";
 import IntroText from "@/components/B1/IntroText/IntroText";
 import Sections from "@/components/B2/Sections/Sections";
 import Ellipse from "@/components/Style/Ellipse";
 import WhatHasAlreadyBeenDone from "@/components/B4/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import B56 from '@/components/B5B6/B56'
-import axios from 'axios';
-import { GetStaticProps } from 'next';
+
+import { Layout } from '@/layouts/Layout';
 
 export interface IPost {
     id: string,
@@ -37,7 +35,7 @@ const Index: FC = () => {
     const [state, setState] = useState<IPost[]>();
 
     const getData = async () => {
-        const url = `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`;
+        const url = `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=IGQVJYVDdyMm16ekFQYVl4OWxQZAmVVNHZATQ0sxVXF0eS1FckVvVHE1OTVEX00xTEFXR01EQngzM1hTelFEVXA2d1psMEx1Y2RWdUJiakM0Y0ZAodzlYRlY1b3RFUVp2WDREWFZANbllEblplZAExyZA3pDaAZDZD`;
         const data = await fetch(url);
         return await data.json();
     }
@@ -54,10 +52,9 @@ const Index: FC = () => {
     
 
     return (
-        <PageContainer title={"Головна"} keywords={""}>
+        <Layout title={"Головна"} keywords={""}>
             <Ellipse top={50} left='auto' right={70} width={900} height={900} color1={'#a09af1'} color2={'transparent'} />
             <Ellipse top={1000} left={30} right='auto' width={400} height={300} color1={'#a09af1'} color2={'transparent'} />
-            <Header />
             <section id="B1">
                 <IntroText />
             </section>
@@ -81,7 +78,7 @@ const Index: FC = () => {
             <section id="B9">
                 <BeforeFooter/>
             </section>
-        </PageContainer>
+        </Layout>
     )
 }
 
