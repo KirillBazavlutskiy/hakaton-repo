@@ -8,12 +8,17 @@
 .container {
   grid-area: content;
 
-  @apply py-[120px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+  @apply px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+  @apply py-[40px] xl:py-[120px] lg:py-[80px] md:py-[60px];
 
   h1 {
     line-height: 140%;
     font-size: 64px;
     font-weight: 600;
     max-width: 920px;
+
+    @media (max-width: 1024px) {
+      font-size: 52px;
+    }
   }
 }
