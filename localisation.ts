@@ -1,4 +1,4 @@
-import OurLastestNews from "@/components/B3/OurLastestNews";
+import OurLastestNews from "@/components/OurLastestNews/OurLastestNews";
 
 // @ts-ignore
 export const localisation = {
