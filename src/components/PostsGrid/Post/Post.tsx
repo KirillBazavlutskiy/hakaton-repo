@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { IPost } from '@/pages';
+import { IPost } from '@/components/OurLastestNews/OurLastestNews';
 import s from './Post.module.css';
 
 

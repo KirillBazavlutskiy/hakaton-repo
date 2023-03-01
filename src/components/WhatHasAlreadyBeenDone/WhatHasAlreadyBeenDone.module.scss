@@ -1,0 +1,114 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1440px) auto;
+  grid-template-areas:
+    ". content .";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  grid-area: content;
+
+  @apply py-[80px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+
+  .content {
+    display: flex;
+    justify-items: flex-start;
+    gap: 80px;
+
+    width: 100%;
+
+    @apply flex-col md:flex-row;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @apply w-full md:w-1/2 md:items-start;
+      @apply gap-[20px] 2xl:gap-[50px] xl:gap-[45px] lg:gap-[40px] md:gap-[35px] sm:gap-[30px];
+
+      .collected {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        h3 {
+          font-weight: 400;
+          line-height: 110%;
+
+          color: #00C2FF;
+
+          backdrop-filter: blur(0.5px);
+
+          @apply text-[50px] 2xl:text-[70px] xl:text-[65px] lg:text-[60px] md:text-[55px];
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 160%;
+
+          color: #FFFFFF;
+
+          opacity: 0.6;
+        }
+      }
+
+      a {
+        font-weight: 400;
+        line-height: 110%;
+
+        text-decoration-line: underline;
+
+        color: #FFED00;
+
+        backdrop-filter: blur(0.5px);
+
+        @apply text-[50px] 2xl:text-[70px] xl:text-[65px] lg:text-[60px] md:text-[55px];
+      }
+    }
+
+    .statistic {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(auto, 1fr));
+      column-gap: 20px;
+      row-gap: 30px;
+
+      @apply w-full md:w-1/2;
+
+      .counter {
+        display: flex;
+        flex-direction: column;
+
+        @apply items-center md:items-start justify-center;
+
+        h3 {
+          font-weight: 400;
+          line-height: 110%;
+          
+          color: #FFFFFF;
+          
+          backdrop-filter: blur(0.5px);
+
+          @apply text-[38px] 2xl:text-[54px] xl:text-[50px] lg:text-[46px] md:text-[42px];
+        }
+
+        span {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 160%;          
+          
+          color: #FFFFFF;
+          
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

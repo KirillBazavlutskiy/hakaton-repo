@@ -1,4 +1,4 @@
-import { IPost } from '@/pages';
+import { IPost } from '@/components/OurLastestNews/OurLastestNews';
 import { PostsGrid } from './PostsGrid/PostsGrid';
 
 interface InstagramProps {

@@ -1,4 +1,4 @@
-import { IPost } from '@/pages/index';
+import { IPost } from '@/components/OurLastestNews/OurLastestNews';
 import { Post } from './Post/Post';
 import s from './PostsGrid.module.css';
 

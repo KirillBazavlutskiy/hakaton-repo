@@ -1,0 +1,215 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1440px) auto;
+  grid-template-areas:
+    ". content .";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  grid-area: content;
+
+  @apply py-[20px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+
+  .bar {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    @apply py-[30px] px-[80px];
+
+    .scrolled {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      width: 100%;
+      overflow-x: scroll;
+
+      color: #00C2FF;
+      font-weight: 400;
+      line-height: 140%;
+
+      @apply text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px];
+
+      .active {
+        font-weight: 600;
+      }
+
+      button {
+        white-space: nowrap;
+      }
+    }
+
+    &::after {
+      left: 50%;
+      top: 50%;
+      background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
+    }
+
+    &::before {
+      left: 70%;
+      top: 70%;
+      background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 1657px;
+      height: 383px;
+
+      opacity: 0.2;
+      transform: translate(-50%, -50%);
+
+      z-index: -10;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+
+    @apply px-[10px] xl:px-[80px] lg:px-[60px] md:px-[40px] sm:px-[25px];
+
+    .swiper {
+      overflow: hidden;
+      border-radius: 15px;
+
+      @apply max-w-[35vh] xl:max-w-[100vh] lg:max-w-[80vh] md:max-w-[65vh] sm:max-w-[50vh];
+
+      .slideWrapper {
+        width: 100%;
+
+        .slideBlock {
+          @apply w-[40vh] xl:w-[100vh] lg:w-[80vh] md:w-[65vh] sm:w-[50vh];
+
+          aspect-ratio: 16/10;
+          background-size: contain !important;
+        }
+      }
+    }
+
+    .block {
+      position: relative;
+
+      border-radius: 15px;
+
+      color: #ffffff;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 140%;
+
+      overflow: hidden;
+
+      @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];
+      @apply pt-[20px] 2xl:pt-[50px] xl:pt-[45px] lg:pt-[40px] md:pt-[35px] sm:pt-[30px];
+      @apply pb-[60px] 2xl:pb-[90px] xl:pb-[85px] lg:pb-[80px] md:pb-[75px] sm:pb-[70px];
+
+      &::after {
+        left: 40%;
+        top: 40%;
+        background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
+      }
+
+      &::before {
+        left: 70%;
+        top: 60%;
+        background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+
+        width: 1400px;
+        height: 1100px;
+
+        opacity: 0.2;
+        transform: translate(-50%, -50%);
+
+        z-index: -10;
+      }
+    }
+
+    .statistic {
+      position: relative;
+
+      .donate {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 130px;
+        height: 130px;
+
+        background-color: #FFED00;
+        border-radius: 100%;
+
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        color: #00012F;
+
+        @apply translate-y-[-55%] rotate-[-11deg];
+        @apply translate-x-[-50%] 2xl:translate-x-[190%] xl:translate-x-[160%] lg:translate-x-[120%] md:translate-x-[-100%];
+      }
+
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        row-gap: 50px;
+        column-gap: 100px;
+
+        padding: 20px;
+
+        @apply pt-[100px] 2xl:pt-[10px] xl:pt-[15px] lg:pt-[20px] md:pt-[75px] sm:pt-[85px];
+
+        .counter {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          h3 {
+            font-weight: 400;
+            font-size: 54px;
+            line-height: 100%;
+
+            color: #FFFFFF;
+
+            backdrop-filter: blur(0.5px);
+          }
+
+          span {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+
+            color: #FFFFFF;
+
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}
