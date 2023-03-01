@@ -3,12 +3,12 @@ import {FC, useEffect, useState} from "react";
 import { Layout } from '@/layouts/Layout';
 import IntroText from "@/components/IntroText/IntroText";
 import OurProjects from "@/components/OurProjects/OurProjects";
+import WhatHasAlreadyBeenDone from "@/components/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 
 import OurLastestNews from "@/components/B3/OurLastestNews";
 import OurPartners from "@/components/B7/OurPartners";
 import BeforeFooter from "@/components/B9/BeforeFooter";
 import Ellipse from "@/components/Style/Ellipse";
-import WhatHasAlreadyBeenDone from "@/components/B4/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import B56 from '@/components/B5B6/B56'
 
 
