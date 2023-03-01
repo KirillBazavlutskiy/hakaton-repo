@@ -4,12 +4,14 @@ import { Layout } from '@/layouts/Layout';
 import IntroText from "@/components/IntroText/IntroText";
 import OurProjects from "@/components/OurProjects/OurProjects";
 import WhatHasAlreadyBeenDone from "@/components/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
+import WantToDonate from '@/components/WantToDonate/WantToDonate';
+import HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';
 
 import OurLastestNews from "@/components/B3/OurLastestNews";
 import OurPartners from "@/components/B7/OurPartners";
 import BeforeFooter from "@/components/B9/BeforeFooter";
 import Ellipse from "@/components/Style/Ellipse";
-import B56 from '@/components/B5B6/B56'
+
 
 
 export interface IPost {
@@ -71,7 +73,8 @@ const Index: FC = () => {
                 <WhatHasAlreadyBeenDone />
             </section>
             <section id="B56">
-                <B56/>
+                <WantToDonate />
+                <HumanitarianAid />
             </section>
             <section id="B7">
                 <OurPartners/>
