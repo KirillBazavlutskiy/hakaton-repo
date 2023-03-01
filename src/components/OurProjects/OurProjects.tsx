@@ -83,6 +83,7 @@ const OurProjects: FC = () => {
                                 style={{ display: activeTab === i ? 'block' : 'none' }}
                                 key={i}
                             >
+                                <a href="#B56" className={s.donate}>Donate</a>
                                 <div className={s.wrapper}>
                                     {
                                         el.statistic.map((el, i) => (

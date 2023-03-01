@@ -31,7 +31,7 @@ export function Header({ className, ...props }: HeaderProps): JSX.Element {
                     <a href="#B4">✅</a>
                     <a href="#B7">Partners</a>
                     <button onClick={() => dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'))}>{language}</button>
-                    <a href="#B5">Donate</a>
+                    <a href="#B56">Donate</a>
                 </nav>
                 <div className={s.burger} onClick={() => setHeaderMenu(prev => !prev)}>
                     <div
