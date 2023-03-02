@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { RoundedButton } from '../RoundedButton/RoundedButton';
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import s from './OurProjects.module.scss';
@@ -83,7 +84,9 @@ const OurProjects: FC = () => {
                                 style={{ display: activeTab === i ? 'block' : 'none' }}
                                 key={i}
                             >
-                                <a href="#B56" className={s.donate}>Donate</a>
+                                <RoundedButton className={s.donate}>
+                                    <a href="#B56">Donate</a>
+                                </RoundedButton>
                                 <div className={s.wrapper}>
                                     {
                                         el.statistic.map((el, i) => (

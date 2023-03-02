@@ -1,43 +1,182 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1440px) auto;
+  grid-template-areas:
+    ". content .";
+
+  @apply mb-[20px] pt-[40px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+}
+
 .container {
-  @apply lg:w-[48%] lg:h-full w-full;
+  position: relative;
+
+  width: 100%;
+
+  grid-area: content;
+
+
+  @apply flex-col md:flex-row;
+  @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];
+  @apply pt-[20px] 2xl:pt-[50px] xl:pt-[45px] lg:pt-[40px] md:pt-[35px] sm:pt-[30px];
+  @apply pb-[110px] md:pb-[130px];
+
+  .gradient {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 72px;
+
+    border-radius: 6px;
+
+    z-index: -2;
+    overflow: hidden;
+
+    &::after {
+      width: 1470px;
+      height: 990px;
+  
+      left: 70%;
+      top: 60%;
+      background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
+    }
+  
+    &::before {
+      width: 1300px;
+      height: 1180px;
+  
+      left: 20%;
+      top: 50%;
+      background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
+    }
+  
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+  
+      opacity: 0.2;
+      transform: translate(-50%, -50%);
+  
+      z-index: -10;
+    }
+  }
 
   .inner {
-    @apply relative w-full p-[20px] rounded-2xl flex flex-col gap-[20px]
-    bg-gradient-to-r from-red-500/25 to-blue-500/25;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    width: 100%;
 
     .blocks {
-      @apply w-full flex flex-col sm:flex-row gap-[20px];
+      display: flex;
+      width: 100%;
+
+      @apply flex-col md:flex-row gap-[30px] 2xl:gap-[130px] xl:gap-[100px] lg:gap-[75px] md:gap-[55px] sm:gap-[40px];
 
       .infoSide {
-        @apply w-full sm:w-1/2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+
+        @apply w-full md:w-[40%];
+
+        p {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 30px;
+
+          color: #FFFFFF;
+        }
+
+        a {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 30px;
+          
+          text-decoration-line: underline;
+          
+          color: #FFED00;
+        }
       }
 
       .formSide {
-        @apply w-full sm:w-1/2 h-[120px] flex gap-[10px];
+        display: flex;
+        gap: 20px;
+
+        @apply w-full md:w-[60%] flex-col sm:flex-row;
 
         .inputs {
-          @apply w-1/2 flex flex-col gap-[5px] text-[#fff];
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
 
-          label {
-            @apply w-full h-1/2;
+          color: #fff;
+          font-weight: 500;
+          line-height: 24px;
 
-            input {
-              @apply w-full h-full pl-[5px]
-              bg-transparent border-2 border-gray-600;
+          @apply w-full sm:w-1/2;
+
+          input {
+            width: 100%;
+            padding: 13px 16px;
+
+            background: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+
+            &::placeholder {
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 24px;
+              color: rgba(255, 255, 255, 0.5);
             }
           }
         }
+
         textarea {
+          min-height: 150px;
+          padding: 13px 16px;
+
+          background: none;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+
+          color: #fff;
+          font-weight: 500;
+          line-height: 24px;
+
           resize: none;
-          @apply w-1/2 p-[5px] text-[#fff]
-          bg-transparent border-2 border-gray-600;
+          
+          @apply w-full sm:w-1/2;
+
+          &::placeholder {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 0.5);
+          }
         }
 
-        button {
-          transform: translate(50%, 50%) rotate(-30deg);
-          @apply absolute bottom-0 right-0 bg-yellow-500 text-[fff]
-          flex justify-center items-center text-lg
-          rounded-full w-[100px] h-[100px]
+        .submit {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+  
+          @apply translate-y-[10%] md:translate-y-[-20%];
+          @apply translate-x-[-140%] 2xl:translate-x-[50%] xl:translate-x-[40%] lg:translate-x-[40%] md:translate-x-[40%] sm:translate-x-[-200%];
+
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 100%;
+            
+            font-size: inherit;
+            font-weight: inherit;
+            color: inherit;
+          }
         }
       }
     }

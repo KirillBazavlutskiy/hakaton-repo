@@ -9,7 +9,8 @@ interface IAdmin {
 
 export interface IOffer {
     "name": string,
-    "contact": string,
+    "phone": string,
+    "email": string,
     "offer": string
 }
 

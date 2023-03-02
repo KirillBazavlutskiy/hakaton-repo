@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 130px;
+  height: 130px;
+
+  background-color: #FFED00;
+  border-radius: 100%;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #00012F;
+
+  @apply rotate-[-11deg];
+}
