@@ -22,7 +22,7 @@
 
     border-radius: 15px;
 
-    @apply pt-[30px] px-[80px] flex flex-col items-center;
+    @apply py-[30px] px-[80px] flex flex-col items-center;
 
     .scrolled {
       gap: 40px;
@@ -42,20 +42,6 @@
 
       button {
         white-space: nowrap;
-      }
-    }
-    .scrollBtn {
-      @apply w-full flex flex-row items-center justify-between;
-      svg {
-        @apply xl:h-[60px];
-      }
-      .points {
-        .notChecked {
-          @apply text-6xl;
-        }
-        .checked {
-          @apply text-7xl text-yellow-400;
-        }
       }
     }
 
@@ -83,6 +69,20 @@
       transform: translate(-50%, -50%);
 
       z-index: -10;
+    }
+  }
+  .scrollBtn {
+    @apply xl:w-full xl:px-[100px] flex flex-row items-center justify-between;
+    svg {
+      @apply xl:h-[60px];
+    }
+    .points {
+      .notChecked {
+        @apply text-6xl;
+      }
+      .checked {
+        @apply text-7xl text-yellow-400;
+      }
     }
   }
 
