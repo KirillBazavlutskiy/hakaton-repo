@@ -6,9 +6,9 @@ import OurProjects from "@/components/OurProjects/OurProjects";
 import WhatHasAlreadyBeenDone from "@/components/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import WantToDonate from '@/components/WantToDonate/WantToDonate';
 import HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';
+import OurPartners from "@/components/OurPartners/OurPartners";
 
 import OurLastestNews from "@/components/OurLastestNews/OurLastestNews";
-import OurPartners from "@/components/B7/OurPartners";
 import BeforeFooter from "@/components/B9/BeforeFooter";
 import Ellipse from "@/components/Style/Ellipse";
 

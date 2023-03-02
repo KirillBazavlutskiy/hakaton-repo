@@ -1,5 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1440px) auto;
+  grid-template-areas:
+    ". content .";
+}
+
 .container {
-  @apply w-full py-[20px] px-[20px] lg:px-[100px];
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  width: 100%;
+
+  grid-area: content;
+
+  @apply py-[80px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
+  
   .block {
     @apply w-full flex flex-col items-center mt-[20px];
   }
