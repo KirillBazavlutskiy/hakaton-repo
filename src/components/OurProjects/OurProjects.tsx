@@ -8,6 +8,10 @@ import s from './OurProjects.module.scss';
 const OurProjects: FC = () => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
+    //State for scroll position in bar
+    const [scrollPosition, setScrollPosition] = useState<number>(0);
+    //Variable == current scroll position
+    let scrollValue = scrollPosition;
 
     const tabs = [
         { name: 'Stay Sage Kids', text: "1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", url: "https://static.dw.com/image/57844523_605.jpg", statistic: [{ key: "Fed settlers", value: 5000 }, { key: "Fed settlers", value: 5000 }, { key: "Fed settlers", value: 5000 }] },
@@ -31,14 +35,27 @@ const OurProjects: FC = () => {
                                     >
                                         {n.name}
                                     </button>
-                                    {
-                                        i < tabs.length - 1
-                                            ? <span>·</span>
-                                            : <></>
-                                    }
+                                    {i < tabs.length - 1 ? <span>·</span> : <></>}
                                 </>
                             ))
                         }
+                    </div>
+                    <div className={s.scrollBtn}>
+                        <button onClick={() => setScrollPosition(--scrollValue)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"/>
+                            </svg>
+                        </button>
+                        <div className={s.points}>
+                            <button className={scrollPosition === 0 ? s.checked : s.notChecked} onClick={() => setScrollPosition(0)}>.</button>
+                            <button className={scrollPosition === 1 ? s.checked : s.notChecked} onClick={() => setScrollPosition(1)}>.</button>
+                            <button className={scrollPosition === 2 ? s.checked : s.notChecked} onClick={() => setScrollPosition(2)}>.</button>
+                        </div>
+                        <button onClick={() => setScrollPosition(++scrollValue)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <div className={s.content}>
