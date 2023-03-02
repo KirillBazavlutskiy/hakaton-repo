@@ -3,13 +3,13 @@ import {FC, useEffect, useState} from "react";
 import { Layout } from '@/layouts/Layout';
 import IntroText from "@/components/IntroText/IntroText";
 import OurProjects from "@/components/OurProjects/OurProjects";
+import OurLastestNews from "@/components/OurLastestNews/OurLastestNews";
 import WhatHasAlreadyBeenDone from "@/components/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone";
 import WantToDonate from '@/components/WantToDonate/WantToDonate';
 import HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';
 import OurPartners from "@/components/OurPartners/OurPartners";
+import OfficialAidRequest from "@/components/OfficialAidRequest/OfficialAidRequest";
 
-import OurLastestNews from "@/components/OurLastestNews/OurLastestNews";
-import BeforeFooter from "@/components/B9/BeforeFooter";
 import Ellipse from "@/components/Style/Ellipse";
 
 const Index: FC = () => {
@@ -34,10 +34,10 @@ const Index: FC = () => {
                 <HumanitarianAid />
             </section>
             <section id="B7">
-                <OurPartners/>
+                <OurPartners />
             </section>
             <section id="B9">
-                <BeforeFooter/>
+                <OfficialAidRequest />
             </section>
         </Layout>
     )
