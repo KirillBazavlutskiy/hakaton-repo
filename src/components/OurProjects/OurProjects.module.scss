@@ -78,10 +78,10 @@
     }
     .points {
       .notChecked {
-        @apply text-6xl;
+        @apply text-6xl text-[#2D2E52];
       }
       .checked {
-        @apply text-7xl text-yellow-400;
+        @apply text-6xl p-[3px] text-white;
       }
     }
   }
