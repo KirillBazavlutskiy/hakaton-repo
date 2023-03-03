@@ -2,7 +2,7 @@ import {FC, useEffect} from 'react';
 import {useAppSelector} from "@/redux/store";
 import Login from "@/components/AdminPage/Login/Login";
 import SuperAdmin from "@/components/AdminPage/SuperAdmin/SuperAdmin";
-import AdminService from "@/Services/AdminService";
+import AdminService from "@/services/AdminService";
 
 const Admin: FC = () => {
 

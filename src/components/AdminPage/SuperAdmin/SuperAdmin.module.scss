@@ -1,31 +1,69 @@
 .container {
   @apply p-[20px];
 
-  .adminList {
+  .admins {
     @apply mb-[20px];
 
-    h2 {
-      @apply mb-[10px];
+    p {
+      @apply my-[10px];
     }
 
-    ul {
-      @apply flex gap-[10px] items-center;
+    span {
+      @apply mr-[10px]
+    }
 
-      li {
-        @apply text-lg;
+    form {
+      @apply flex flex-col sm:flex-row;
+
+      input {
+        @apply w-full p-[5px] text-[#000];
+      }
+
+      button {
+        @apply w-full sm:w-[200px] py-2 px-4 bg-blue-500 text-[#fff];
       }
     }
   }
 
-  form {
-    @apply flex flex-col usm:flex-row;
+  .projects {
 
-    input {
-      @apply w-full p-[5px] text-[#000];
+    .projectsList {
+      @apply grid grid-rows-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] mb-[20px];
+
+      .projectItem {
+
+        .projectImg {
+          @apply w-full h-auto md:h-[300px] flex items-center justify-center overflow-hidden;
+
+          img {
+            @apply min-w-full min-h-full
+          }
+        }
+
+        .projectInfo {
+          @apply pt-[10px];
+        }
+      }
     }
 
-    button {
-      @apply w-auto py-3 px-4 bg-blue-500 text-[#fff];
+    form {
+      @apply flex flex-col;
+
+      label {
+        @apply w-full flex flex-col;
+
+        input {
+          @apply w-full p-[5px] text-[#000] mb-[10px];
+        }
+
+        textarea {
+          @apply h-[200px] max-h-[400px] p-[5px] text-[#000] mb-[10px];
+        }
+      }
+
+      button {
+        @apply w-full sm:w-[200px] py-2 px-4 bg-blue-500 text-[#fff] mx-auto;
+      }
     }
   }
 }

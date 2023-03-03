@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {FC, useState} from 'react';
 import cn from "classnames";
 
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
@@ -14,7 +14,7 @@ import Image from "next/image";
 
 interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
 
-export function Header({ className, ...props }: HeaderProps): JSX.Element {
+export const Header: FC<HeaderProps> = ({ className, ...props }) => {
     const [headerMenu, setHeaderMenu] = useState<boolean>(false);
     const dispatch = useDispatch();
     const { language } = useAppSelector(state => state.language);

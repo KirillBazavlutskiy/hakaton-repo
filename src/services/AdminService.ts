@@ -7,6 +7,14 @@ interface IAdmin {
     isMaster: boolean;
 }
 
+export interface IProject {
+    // id: string
+    name: string;
+    description_EN: string;
+    description_UA: string;
+    imageUrl: string;
+}
+
 export interface IOffer {
     "name": string,
     "phone": string,
@@ -25,7 +33,6 @@ export default class AdminService {
 
     static AddAdmin = async (password: string): Promise<boolean> => {
         const res = await $api.get(`https://ntu.egartsites.pp.ua/api/Auth/AddSlavePassword?password=${password}`);
-        console.log(res);
         return 200 < res.status && res.status < 300;
     }
 
@@ -36,5 +43,22 @@ export default class AdminService {
 
     static AddOffer = async (offer: IOffer): Promise<void> => {
         await $api.post('/api/HelpOffer/Add', {...offer});
+    }
+
+    static GetProjects = async (): Promise<IProject[]> => {
+        try {
+            const { data } = await $api.get<IProject[]>('/api/OurProject');
+            return data;
+        } catch (e) {
+            return [];
+        }
+    }
+
+    static AddProject = async (project: IProject) => {
+        return await $api.post('/api/OurProject', project);
+    }
+
+    static DeleteProject = async (id: number) => {
+        await $api.delete(`/api/OurProject?id=${id}`);
     }
 }
