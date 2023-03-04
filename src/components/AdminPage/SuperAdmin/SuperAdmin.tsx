@@ -1,7 +1,7 @@
 import {useEffect, FC, useState} from 'react';
 import AdminService, {IProject} from "@/services/AdminService";
 import s from './SuperAdmin.module.scss';
-import Image from "next/image";
+import * as process from "process";
 
 const SuperAdmin: FC = () => {
 
@@ -62,7 +62,7 @@ const SuperAdmin: FC = () => {
                                         <img src={p.imageUrl} alt={p.name}/>
                                     </div>
                                     <div className={s.projectInfo}>
-                                        <p>{p.name}</p>
+                                        <h2>{p.name}</h2>
                                         <p>{p.description_EN}</p>
                                         <p>{p.description_UA}</p>
                                     </div>

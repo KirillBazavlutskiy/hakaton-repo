@@ -5,6 +5,7 @@ import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 
 import s from './Layout.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 import {FC, ReactNode} from "react";
 
 interface LayoutProps {
