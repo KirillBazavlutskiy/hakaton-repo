@@ -25,6 +25,7 @@
     @apply py-[30px] px-[80px] flex flex-col items-center;
 
     .scrolled {
+      justify-content: center;
       gap: 40px;
 
       width: 100%;
@@ -34,7 +35,7 @@
       font-weight: 400;
       line-height: 140%;
 
-      @apply text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px] flex items-center justify-between;
+      @apply text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px] flex items-center;
 
       .active {
         font-weight: 600;

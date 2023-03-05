@@ -15,8 +15,6 @@ import Ellipse from "@/components/Style/Ellipse";
 const Index: FC = () => {
     return (
         <Layout title={"Головна"} keywords={""}>
-            <Ellipse top={50} left='auto' right={70} width={900} height={900} color1={'#a09af1'} color2={'transparent'} />
-            <Ellipse top={1000} left={30} right='auto' width={400} height={300} color1={'#a09af1'} color2={'transparent'} />
             <section id="B1">
                 <IntroText />
             </section>

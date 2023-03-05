@@ -17,10 +17,13 @@
 
   width: 100%;
 
+  // border-radius: 6px;
+  // overflow: hidden;
+
   grid-area: content;
 
   @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];
-  @apply py-[10px] 2xl:py-[40px] xl:py-[35px] lg:py-[30px] md:py-[25px] sm:py-[20px];
+  @apply py-[30px] 2xl:py-[40px] xl:py-[35px] lg:py-[30px] md:py-[25px] sm:py-[20px];
 
   &::after {
     width: 1270px;
