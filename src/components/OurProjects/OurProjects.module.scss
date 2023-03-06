@@ -22,7 +22,11 @@
 
     border-radius: 15px;
 
-    @apply py-[30px] px-[80px] flex flex-col items-center;
+    @apply py-[30px] px-[30px] flex items-center justify-between;
+
+    svg {
+      @apply w-[50px] stroke-white h-[50px];
+    }
 
     .scrolled {
       gap: 40px;
