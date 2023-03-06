@@ -1,6 +1,8 @@
 import $api from "@/http/init";
+import Cookies from "universal-cookie";
 import {store} from "@/redux/store";
 import {changeUserType} from "@/redux/Slices/AdminSlice";
+import {toast} from "react-toastify";
 
 interface IAdmin {
     token: string;
@@ -25,9 +27,30 @@ export interface IOffer {
 export default class AdminService {
     static Login = async (password: string): Promise<void> => {
         const res = await $api.get<IAdmin>(`https://ntu.egartsites.pp.ua/api/Auth/Token?password=${password}`);
-        if (res.data) {
-            document.cookie = `${res.data.token}`;
-            store.dispatch(changeUserType(res.status !== 401 ? res.data.isMaster ? 'superadmin' : 'admin' : 'user'));
+        if (res !== undefined) {
+            const cookies = new Cookies();
+            cookies.set('token', res.data.token);
+            cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');
+            store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
+        } else {
+            toast.error('Помилка!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }
+
+    static ChechAuth = async (): Promise<void> => {
+        const res = await $api.get('/api/Auth/CheckAuth');
+        const cookies = new Cookies();
+        if (res?.status === 200) {
+            store.dispatch(changeUserType(cookies.get('status')));
         }
     }
 

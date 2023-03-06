@@ -26,7 +26,6 @@
   }
 
   .projects {
-
     .projectsList {
       @apply grid grid-rows-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] mb-[20px];
 
@@ -36,7 +35,7 @@
           @apply w-full h-auto md:h-[300px] flex items-center justify-center overflow-hidden;
 
           img {
-            @apply min-w-full min-h-full
+            @apply min-w-full min-h-full w-max h-max;
           }
         }
 

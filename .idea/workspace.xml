@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/init.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/Slices/AdminSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/Slices/AdminSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
     </list>
     <list id="3493f346-12f8-4f64-8d28-d9ade28a7a66" name="Changes by vanap" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +90,9 @@
       <workItem from="1677789835417" duration="2343000" />
       <workItem from="1677840664926" duration="5788000" />
       <workItem from="1677846971693" duration="3446000" />
+      <workItem from="1677858241546" duration="1229000" />
+      <workItem from="1677868258507" duration="8443000" />
+      <workItem from="1677929085936" duration="12000" />
     </task>
     <servers />
   </component>
