@@ -1,0 +1,17 @@
+.projectItem {
+  .projectImg {
+    @apply w-full h-auto md:h-[300px] flex items-center justify-center  overflow-hidden;
+
+    img {
+      @apply min-w-full min-h-full w-max h-max;
+    }
+  }
+
+  .projectInfo {
+    @apply mt-[10px];
+  }
+
+  button {
+    @apply w-full py-2 px-4 bg-blue-500 text-[#fff] mt-[20px];
+  }
+}

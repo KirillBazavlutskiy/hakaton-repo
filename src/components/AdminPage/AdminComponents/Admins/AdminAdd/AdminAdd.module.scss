@@ -1,0 +1,11 @@
+.addAdminForm {
+  @apply flex flex-col sm:flex-row;
+
+  input {
+    @apply w-full p-[5px] text-[#000];
+  }
+
+  button {
+    @apply w-full sm:w-[200px] py-2 px-4 bg-blue-500 text-[#fff];
+  }
+}

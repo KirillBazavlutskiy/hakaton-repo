@@ -1,0 +1,19 @@
+.addProject {
+  @apply flex flex-col;
+
+  label {
+    @apply w-full flex flex-col;
+
+    input {
+      @apply w-full p-[5px] text-[#000] mb-[10px];
+    }
+
+    textarea {
+      @apply h-[200px] max-h-[400px] p-[5px] text-[#000] mb-[10px];
+    }
+  }
+
+  button {
+    @apply w-full sm:w-[200px] py-2 px-4 bg-blue-500 text-[#fff] mx-auto;
+  }
+}

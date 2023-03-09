@@ -3,30 +3,11 @@ import Cookies from "universal-cookie";
 import {store} from "@/redux/store";
 import {changeUserType} from "@/redux/Slices/AdminSlice";
 import {toast} from "react-toastify";
-
-interface IAdmin {
-    token: string;
-    isMaster: boolean;
-}
-
-export interface IProject {
-    // id: string
-    name: string;
-    description_EN: string;
-    description_UA: string;
-    imageUrl: string;
-}
-
-export interface IOffer {
-    "name": string,
-    "phone": string,
-    "email": string,
-    "offer": string
-}
+import {IAdmin, IOffer, IProject} from "@/models";
 
 export default class AdminService {
     static Login = async (password: string): Promise<void> => {
-        const res = await $api.get<IAdmin>(`https://ntu.egartsites.pp.ua/api/Auth/Token?password=${password}`);
+        const res = await $api.get<IAdmin>(`/api/Auth/Token?password=${password}`);
         if (res !== undefined) {
             const cookies = new Cookies();
             cookies.set('token', res.data.token);
@@ -55,12 +36,12 @@ export default class AdminService {
     }
 
     static AddAdmin = async (password: string): Promise<boolean> => {
-        const res = await $api.get(`https://ntu.egartsites.pp.ua/api/Auth/AddSlavePassword?password=${password}`);
+        const res = await $api.get(`/api/Auth/AddSlavePassword?password=${password}`);
         return 200 < res.status && res.status < 300;
     }
 
     static GetAdmins = async (): Promise<string[]> => {
-        const { data } = await $api.get<string[]>('https://ntu.egartsites.pp.ua/api/Auth/ListSlavePassword');
+        const { data } = await $api.get<string[]>('/api/Auth/ListSlavePassword');
         return data;
     }
 
@@ -77,11 +58,11 @@ export default class AdminService {
         }
     }
 
-    static AddProject = async (project: IProject) => {
+    static AddProject = async (project: any) => {
         return await $api.post('/api/OurProject', project);
     }
 
-    static DeleteProject = async (id: number) => {
+    static DeleteProject = async (id: string) => {
         await $api.delete(`/api/OurProject?id=${id}`);
     }
 }
