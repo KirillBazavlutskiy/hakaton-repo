@@ -4,7 +4,8 @@ import { RoundedButton } from '../RoundedButton/RoundedButton';
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import s from './OurProjects.module.scss';
-import AdminService, {IProject} from "@/services/AdminService";
+import AdminService from "@/services/AdminService";
+import { IProject } from "@/models";
 
 const OurProjects: FC = () => {
 
