@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
-import AdminService, { IOffer } from "@/services/AdminService";
+import AdminService from "@/services/AdminService";
+
+import { IOffer } from "@/models";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import { RoundedButton } from '../RoundedButton/RoundedButton';
