@@ -13,8 +13,13 @@ import fce from '../../images/fce.png';
 import liberto from '../../images/liberto.png';
 import bf from '../../images/bf.png';
 import limac from '../../images/limac.png';
+import Slider from './Slider/Slider';
 
 const OurPartners = () => {
+    const links = [
+        { link: ukmed }, { link: wck }, { link: uklon }, { link: novap }, { link: reckitt }, { link: nph }, { link: fce },
+        { link: ukmed }, { link: wck }, { link: uklon }, { link: novap }, { link: reckitt }, { link: nph }, { link: fce },
+    ]
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
@@ -22,22 +27,8 @@ const OurPartners = () => {
                     Our partners
                 </SectionCaption>
                 <div className={s.block}>
-                    <div className={s.gridBlock}>
-                        {
-                            [
-                                { link: ukmed },
-                                { link: wck },
-                                { link: uklon },
-                                { link: novap },
-                                { link: reckitt },
-                                { link: nph },
-                                { link: fce },
-                                { link: liberto },
-                                { link: bf },
-                                { link: limac }
-                            ].map(res => <Image src={res.link} alt="partner" />)
-                        }
-                    </div>
+                    <Slider links={links} direction={'toRight'} />
+                    <Slider links={links} direction={'toLeft'} />
                 </div>
             </div>
         </div>
