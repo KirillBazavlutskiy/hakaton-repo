@@ -4,7 +4,7 @@ import SwiperCore, { EffectCoverflow, Pagination } from 'swiper';
 import { Provider } from "react-redux";
 import { store } from '@/redux/store';
 
-import '@/styles/globals.css';
+import "@/styles/globals.css";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 

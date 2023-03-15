@@ -1,118 +1,141 @@
-import {FC, useEffect, useState} from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { FC, useEffect, useState } from 'react';
+import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
 import { RoundedButton } from '../RoundedButton/RoundedButton';
+import cn from "classnames";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
-import s from './OurProjects.module.scss';
 import AdminService from "@/services/AdminService";
 import { IProject } from "@/models";
+
+import s from './OurProjects.module.scss';
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const OurProjects: FC = () => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
-    //State for scroll position in bar
-    const [scrollPosition, setScrollPosition] = useState<number>(0);
-    //Variable == current scroll position
-    let scrollValue = scrollPosition;
 
-    const [tabs, setTabs] = useState<IProject[]>([]);
-
-    useEffect(() => {
-        AdminService.GetProjects()
-            .then((responce) => setTabs(responce))
-            .catch((error) => console.log(error));
-    },[])
-
-    const scrollNameProjectsFunction = () => {
-        let buttons:any = [];
-
-        if (scrollValue === 0) {
-            tabs.slice(scrollValue, scrollValue+3).forEach((res, i) => {
-                buttons.push(
-                    <button className={activeTab === i ? s.active : s.notActive} onClick={() => setActiveTab(i)} key={i}>
-                        {res.name}
-                    </button>
-                );
-
-                if (i < tabs.length - 1) {
-                    buttons.push(<span key={`sep-${i}`}>·</span>);
-                }
-            });
+    const [tabs, setTabs] = useState<IProject[]>([
+        {
+            id: "1",
+            name: "project 1",
+            description_EN: "description_en1",
+            description_UA: "description_ua1",
+            imageUrl: "url"
+        },
+        {
+            id: "2",
+            name: "project 2",
+            description_EN: "description_en2",
+            description_UA: "description_ua2",
+            imageUrl: "url"
+        },
+        {
+            id: "3",
+            name: "project 3",
+            description_EN: "description_en3",
+            description_UA: "description_ua3",
+            imageUrl: "url"
+        },
+        {
+            id: "4",
+            name: "project 4",
+            description_EN: "description_en4",
+            description_UA: "description_ua4",
+            imageUrl: "url"
+        },
+        {
+            id: "5",
+            name: "project 5",
+            description_EN: "description_en5",
+            description_UA: "description_ua5",
+            imageUrl: "url"
+        },
+        {
+            id: "6",
+            name: "project 6",
+            description_EN: "description_en6",
+            description_UA: "description_ua6",
+            imageUrl: "url"
+        },
+        {
+            id: "7",
+            name: "project 7",
+            description_EN: "description_en7",
+            description_UA: "description_ua7",
+            imageUrl: "url"
+        },
+        {
+            id: "8",
+            name: "project 8",
+            description_EN: "description_en8",
+            description_UA: "description_ua8",
+            imageUrl: "url"
+        },
+        {
+            id: "9",
+            name: "project 9",
+            description_EN: "description_en9",
+            description_UA: "description_ua9",
+            imageUrl: "url"
+        },
+        {
+            id: "10",
+            name: "project 10",
+            description_EN: "description_en10",
+            description_UA: "description_ua10",
+            imageUrl: "url"
         }
-        else {
-            tabs.slice(scrollValue*3, (scrollValue*3)+3).forEach((res, i) => {
-                buttons.push(
-                    <button className={activeTab === i ? s.active : s.notActive} onClick={() => setActiveTab(i)} key={i}>
-                        {res.name}
-                    </button>
-                );
+    ]);
 
-                if (i < tabs.length - 1) {
-                    buttons.push(<span key={`sep-${i}`}>·</span>);
-                }
-            });
+    // useEffect(() => {
+    //     AdminService.GetProjects()
+    //         .then((responce) => setTabs(responce))
+    //         .catch((error) => console.log(error));
+    // }, [])
+
+    const projectNameArrayGrouping = (): IProject[][] => {
+        const arr: IProject[][] = [];
+        for (let i = 0; i < tabs.length / 3; i++) {
+            arr.push([]);
+            for (let j = i * 3; j < i * 3 + 3; j++) {
+                arr[i].push(tabs[j]);
+            }
         }
-
-        return buttons;
+        return arr;
     }
 
-    const scrollImageProjectsFunction = () => {
-        let slides:any = [];
+    const projectNamesMapping = () => {
+        const arr: IProject[][] = projectNameArrayGrouping();
+        console.log(arr);
 
-        if (scrollValue === 0) {
-            tabs.slice(scrollValue, scrollValue+3).forEach((el, i) => {
-                slides.push(
-                    <SwiperSlide className={s.slideWrapper} key={i}>
-                        <div className={s.slideBlock} style={{ background: `url(${el.imageUrl})` }}></div>
-                    </SwiperSlide>
-                );
-            });
-        }
-        else {
-            tabs.slice(scrollValue*3, (scrollValue*3)+3).forEach((el, i) => {
-                slides.push(
-                    <SwiperSlide className={s.slideWrapper} key={i}>
-                        <div className={s.slideBlock} style={{ background: `url(${el.imageUrl})` }}></div>
-                    </SwiperSlide>
-                );
-            });
-        }
-
-        return slides;
+        return (
+            arr.map((subArray: IProject[], i) => (
+                <SwiperSlide className={s.slideWrapper} key={i}>
+                    <div className={s.bar}>
+                        <div className={s.scrolled}>
+                            {projectsGroupMapping(subArray, i)}
+                        </div>
+                    </div>
+                </SwiperSlide>)
+            )
+        )
     }
 
-    const scrollDescriptionProjectsFunction = () => {
-        let paragraphs:any = [];
-
-        if (scrollValue === 0) {
-            tabs.slice(scrollValue, scrollValue+3).forEach((n, i) => {
-                paragraphs.push(
-                    <p
-                        style={{ display: activeTab === i ? 'block' : 'none' }}
-                        key={i}
-                    >
-                        {n.description_UA}
-                    </p>
-                );
-            });
-        }
-        else {
-            tabs.slice(scrollValue*3, (scrollValue*3)+3).forEach((n, i) => {
-                paragraphs.push(
-                    <p
-                        style={{ display: activeTab === i ? 'block' : 'none' }}
-                        key={i}
-                    >
-                        {n.description_UA}
-                    </p>
-                );
-            });
-        }
-
-        return paragraphs;
+    const projectsGroupMapping = (arr: IProject[], index: number) => {
+        return (
+            arr.map((el: IProject, i) => (
+                el?.name &&
+                <>
+                    {i !== 0 && <span>•</span>}
+                    <div className={cn(s.tab, {[s.active]: activeTab === i + index * 3})} onClick={() => setActiveTab(i + index * 3)} key={i + index * 3}>
+                        {el.name}
+                    </div>
+                </>
+            ))
+        )
     }
-
-
 
     return (
         <div className={s.wrapper}>
@@ -120,35 +143,52 @@ const OurProjects: FC = () => {
                 <SectionCaption>
                     Our Projects
                 </SectionCaption>
-                <div className={s.bar}>
-                    <button onClick={() => scrollValue === 0 ? setScrollPosition((tabs.length/3)-1) : setScrollPosition(--scrollValue)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </button>
-                    <div className={s.scrolled}>
-                        {scrollNameProjectsFunction()}
-                    </div>
-                    <button onClick={() => scrollValue === (tabs.length/3)-1 ? setScrollPosition(0) : setScrollPosition(++scrollValue)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </button>
-                </div>
+                <Swiper
+                    modules={[Navigation]}
+                    loop={true}
+                    effect={"coverflow"}
+                    centeredSlides={true}
+                    slidesPerView={"auto"}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: -200,
+                        depth: 200,
+                        modifier: 2,
+                        slideShadows: false,
+                    }}
+                    navigation={{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }}
+
+                    className={s.swiper}
+                >
+                    <div className="swiper-button-next"></div>
+                    {projectNamesMapping()}
+                    <div className="swiper-button-prev"></div>
+                </Swiper>
                 <div className={s.content}>
                     <Swiper
-                        grabCursor={true}
+                        modules={[Autoplay]}
                         centeredSlides={true}
                         slidesPerView={"auto"}
+                        autoplay={{ delay: 4000 }}
 
-                        pagination={true}
                         className={s.swiper}
                     >
-                        {scrollImageProjectsFunction()}
+                        <SwiperSlide className={s.slideWrapper}>
+                            <div className={s.slideBlock} style={{ background: "url(https://static.dw.com/image/57844523_605.jpg)" }}></div>
+                        </SwiperSlide>
+                        <SwiperSlide className={s.slideWrapper}>
+                            <div className={s.slideBlock} style={{ background: "url(https://nung.edu.ua/sites/default/files/2022-03/viber_2022-03-09_18-02-07-497.jpg)" }}></div>
+                        </SwiperSlide>
+                        <SwiperSlide className={s.slideWrapper}>
+                            <div className={s.slideBlock} style={{ background: "url(https://aam.com.ua/wp-content/uploads/56n.jpg)" }}></div>
+                        </SwiperSlide>
                     </Swiper>
                     <div className={s.block}>
                         {
-                            scrollDescriptionProjectsFunction()
+                            tabs[activeTab].description_EN
                         }
                     </div>
                     {
