@@ -1,17 +1,33 @@
 .projectItem {
-  .projectImg {
-    @apply w-full h-auto md:h-[300px] flex items-center justify-center  overflow-hidden;
+  @apply bg-[#fff] flex flex-col gap-[20px] justify-between
+  rounded-[15px] overflow-hidden
+  p-0 md:p-[20px];
 
-    img {
-      @apply min-w-full min-h-full w-max h-max;
-    }
+  img {
+    @apply w-auto h-auto rounded-none md:rounded-[15px];
   }
 
   .projectInfo {
-    @apply mt-[10px];
-  }
+    @apply flex flex-col;
 
-  button {
-    @apply w-full py-2 px-4 bg-blue-500 text-[#fff] mt-[20px];
+    h2 {
+      @apply text-[#000] font-bold
+      px-[10px] usm:px-[15px] md:px-0;
+    }
+
+    p {
+      @apply text-[#000] font-semibold
+      px-[10px] usm:px-[15px] md:px-0;
+    }
+
+    button {
+      @apply mt-[20px] py-2 self-center
+      bg-blue-500 text-[#fff] transition-colors
+      w-full md:w-[200px] rounded-none md:rounded-[15px];
+
+      &:hover {
+        @apply bg-blue-700;
+      }
+    }
   }
 }

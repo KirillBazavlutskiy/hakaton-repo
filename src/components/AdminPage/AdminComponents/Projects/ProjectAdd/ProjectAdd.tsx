@@ -24,19 +24,19 @@ const ProjectAdd: FC<ProjectAddProps> = ({ fetchProjects }) => {
             setProject({ name: '', description_EN: '', description_UA: '', imageUrl: '' })
         }} className={s.addProject}>
             <label>
-                Назва
+                <span>Назва</span>
                 <input type="text" value={project.name} onChange={e => setProject(prev => ({ ...prev, name: e.target.value }))}/>
             </label>
             <label>
-                Опис англійською
+                <span>Опис англійською</span>
                 <textarea value={project.description_EN} onChange={e => setProject(prev => ({ ...prev, description_EN: e.target.value }))}/>
             </label>
             <label>
-                Опис українською
+                <span>Опис українською</span>
                 <textarea value={project.description_UA} onChange={e => setProject(prev => ({ ...prev, description_UA: e.target.value }))}/>
             </label>
             <label>
-                Посилання на фото
+                <span>Посилання на фото</span>
                 <input type="text" value={project.imageUrl} onChange={e => setProject(prev => ({ ...prev, imageUrl: e.target.value }))}/>
             </label>
             <button type='submit'>Відправити</button>

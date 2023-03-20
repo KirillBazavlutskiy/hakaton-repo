@@ -1,7 +1,7 @@
 .adminsList {
-  @apply my-[10px];
+  @apply grid grid-cols-3 md:grid-cols-5 my-[10px];
 
-  span {
-    @apply mr-[10px];
+  p {
+    @apply w-full;
   }
 }

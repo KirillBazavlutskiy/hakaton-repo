@@ -14,7 +14,7 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects, fetchProjects }) => {
     return (
         <div className={s.projectsList}>
             {
-                projects.map((p, index) => <ProjectAdminItem project={p} fetchProjects={fetchProjects} />)
+                projects.map((p, index) => <ProjectAdminItem key={p.id} project={p} fetchProjects={fetchProjects} />)
             }
         </div>
     );

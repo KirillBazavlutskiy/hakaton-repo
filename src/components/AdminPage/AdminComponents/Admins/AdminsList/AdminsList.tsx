@@ -9,7 +9,7 @@ const AdminsList: FC<AdminsListProps> = ({ admins }) => {
     return (
         <div className={s.adminsList}>
             {
-                admins.map(a => <span key={a}>{a}</span>)
+                admins.map(a => <p key={a}>{a}</p>)
             }
         </div>
     );

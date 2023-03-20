@@ -11,20 +11,18 @@ interface ProjectAdminItem {
 const ProjectAdminItem: FC<ProjectAdminItem> = ({ project, fetchProjects }) => {
     return (
         <div key={project.name} className={s.projectItem}>
-            <div className={s.projectImg}>
-                <img src={project.imageUrl} alt={project.name}/>
-            </div>
+            <img src={project.imageUrl} alt={project.name}/>
             <div className={s.projectInfo}>
                 <h2>{project.name}</h2>
                 <p>{project.description_EN}</p>
                 <p>{project.description_UA}</p>
+                <button
+                    onClick={async () => {
+                        await AdminService.DeleteProject(project.id);
+                        await fetchProjects();
+                    }
+                    }>Видалити</button>
             </div>
-            <button
-                onClick={async () => {
-                    await AdminService.DeleteProject(project.id);
-                    await fetchProjects();
-                }
-                }>Видалити</button>
         </div>
     )
 };

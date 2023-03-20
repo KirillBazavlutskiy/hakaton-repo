@@ -1,19 +1,34 @@
 .addProject {
-  @apply flex flex-col;
+  @apply flex flex-col bg-[#fff] rounded-[20px] p-[20px];
 
   label {
     @apply w-full flex flex-col;
 
+    span {
+      @apply text-[#000] ml-[10px] font-semibold;
+    }
+
+    input, textarea {
+      @apply p-[10px] text-[#000] mb-[10px] font-semibold
+      border-[1px] border-gray-500 rounded-[10px];
+    }
+
     input {
-      @apply w-full p-[5px] text-[#000] mb-[10px];
+      @apply w-full;
     }
 
     textarea {
-      @apply h-[200px] max-h-[400px] p-[5px] text-[#000] mb-[10px];
+      @apply h-[200px] max-h-[400px];
     }
   }
 
   button {
-    @apply w-full sm:w-[200px] py-2 px-4 bg-blue-500 text-[#fff] mx-auto;
+    @apply mt-[20px] py-2 self-center
+    bg-blue-500 text-[#fff] transition-colors
+    w-full md:w-[200px] rounded-[10px];
+
+    &:hover {
+      @apply bg-blue-700;
+    }
   }
 }
