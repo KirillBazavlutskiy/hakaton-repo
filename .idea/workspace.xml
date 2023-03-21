@@ -7,17 +7,7 @@
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdmin/SuperAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
     </list>
     <list id="3493f346-12f8-4f64-8d28-d9ade28a7a66" name="Changes by vanap" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +96,8 @@
       <workItem from="1678979238610" duration="963000" />
       <workItem from="1679311052670" duration="205000" />
       <workItem from="1679345054494" duration="3245000" />
-      <workItem from="1679348359390" duration="285000" />
+      <workItem from="1679348359390" duration="399000" />
+      <workItem from="1679394377194" duration="534000" />
     </task>
     <servers />
   </component>

@@ -8,22 +8,21 @@
   }
 
   .projectInfo {
-    @apply flex flex-col;
+    @apply flex flex-col
+    p-[10px] usm:p-[15px] md:p-0;
 
     h2 {
-      @apply text-[#000] font-bold
-      px-[10px] usm:px-[15px] md:px-0;
+      @apply text-[#000] font-bold;
     }
 
     p {
-      @apply text-[#000] font-semibold
-      px-[10px] usm:px-[15px] md:px-0;
+      @apply text-[#000] font-semibold;
     }
 
     button {
       @apply mt-[20px] py-2 self-center
       bg-blue-500 text-[#fff] transition-colors
-      w-full md:w-[200px] rounded-none md:rounded-[15px];
+      w-full md:w-[200px] rounded-[15px];
 
       &:hover {
         @apply bg-blue-700;
