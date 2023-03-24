@@ -108,7 +108,6 @@ const OurProjects: FC = () => {
 
     const projectNamesMapping = () => {
         const arr: IProject[][] = projectNameArrayGrouping();
-        console.log(arr);
 
         return (
             arr.map((subArray: IProject[], i) => (

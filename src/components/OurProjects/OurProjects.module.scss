@@ -110,6 +110,7 @@
 
       .slideWrapper {
         width: 100%;
+        overflow: hidden;
 
         .slideBlock {
           @apply w-[40vh] xl:w-[100vh] lg:w-[80vh] md:w-[65vh] sm:w-[50vh];
@@ -122,6 +123,8 @@
 
     .block {
       position: relative;
+
+      width: 100%;
 
       border-radius: 15px;
 
@@ -230,6 +233,4 @@
 
 .swiper {
   width: 100%;
-
-  overflow: visible !important;
 }

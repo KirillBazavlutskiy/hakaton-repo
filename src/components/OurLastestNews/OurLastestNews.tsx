@@ -28,23 +28,23 @@ interface Child {
 
 const OurLastestNews = ({ key }: any) => {
     const [state, setState] = useState<IPost[]>();
-    console.log(key);
+    // console.log(key);
 
-    const getData = async () => {
-        const url = `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${key}`;
-        const data = await fetch(url);
-        return await data.json();
-    }
+    // const getData = async () => {
+    //     const url = `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${key}`;
+    //     const data = await fetch(url);
+    //     return await data.json();
+    // }
 
-    useEffect(() => {
-        getData()
-            .then(res => {
-                setState(res.data);
-            })
-            .catch(() => {
-                console.log('err');
-            });
-    }, []);
+    // useEffect(() => {
+    //     getData()
+    //         .then(res => {
+    //             setState(res.data);
+    //         })
+    //         .catch(() => {
+    //             console.log('err');
+    //         });
+    // }, []);
 
     return (
         <>
