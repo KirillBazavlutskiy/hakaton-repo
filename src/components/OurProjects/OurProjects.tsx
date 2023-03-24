@@ -9,6 +9,7 @@ import AdminService from "@/services/AdminService";
 import { IProject } from "@/models";
 
 import s from './OurProjects.module.scss';
+import React from 'react';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -123,18 +124,25 @@ const OurProjects: FC = () => {
     }
 
     const projectsGroupMapping = (arr: IProject[], index: number) => {
-        return (
-            arr.map((el: IProject, i) => (
-                el?.name &&
-                <>
+        return arr.map((el: IProject, i) => {
+            if (!el?.name) {
+                return null;
+            }
+
+            const tabClasses = cn(s.tab, { [s.active]: activeTab === i + index * 3 });
+
+            const handleClick = () => setActiveTab(i + index * 3);
+
+            return (
+                <React.Fragment key={i + index * 3}>
                     {i !== 0 && <span>•</span>}
-                    <div className={cn(s.tab, {[s.active]: activeTab === i + index * 3})} onClick={() => setActiveTab(i + index * 3)} key={i + index * 3}>
+                    <div className={tabClasses} onClick={handleClick}>
                         {el.name}
                     </div>
-                </>
-            ))
-        )
-    }
+                </React.Fragment>
+            );
+        });
+    };
 
     return (
         <div className={s.wrapper}>
