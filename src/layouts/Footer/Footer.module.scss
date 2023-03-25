@@ -78,6 +78,21 @@
     align-items: center;
     gap: 35px;
 
+    .lang {
+      @apply flex items-center justify-start gap-[10px] cursor-pointer relative;
+      
+      .text {
+        @apply flex w-[30px] justify-center;
+      }
+
+      .droppedBox {
+        position: absolute;
+        left: 0; bottom: -100%;
+        display: none;
+        @apply w-[30px] justify-center;
+      }
+    }
+
     button {
       &:hover {
         text-decoration: line-through;
@@ -92,7 +107,7 @@
       border: 2px solid #FFED00;
   
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: #00012F;
   
       &:hover {

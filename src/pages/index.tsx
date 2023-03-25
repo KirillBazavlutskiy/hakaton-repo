@@ -18,9 +18,9 @@ const Index: FC = () => {
             <section id="B1">
                 <IntroText />
             </section>
-            {/*<section id="B2">*/}
-            {/*    <OurProjects />*/}
-            {/*</section>*/}
+            <section id="B2">
+               <OurProjects />
+            </section>
             <section id="B3">
                 <OurLastestNews />
             </section>
