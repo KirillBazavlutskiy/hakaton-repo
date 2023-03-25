@@ -27,7 +27,7 @@ const WhatHasAlreadyBeenDone: FC = () => {
         <div className={s.wrappercounter}>
             <div className={s.container}>
                 <SectionCaption>
-                    What has already been done? ✅
+                    What has already been done
                 </SectionCaption>
                 <div className={s.content}>
                     <div className={s.info}>

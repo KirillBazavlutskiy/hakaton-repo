@@ -6,19 +6,109 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+
   grid-area: content;
 
   @apply px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
-  @apply py-[40px] xl:py-[120px] lg:py-[80px] md:py-[60px];
+  @apply py-[30px] xl:py-[80px] lg:py-[60px] md:py-[40px];
 
   h1 {
     line-height: 140%;
-    font-size: 64px;
+    font-size: 52px;
     font-weight: 600;
-    max-width: 920px;
+    text-align: center;
+  }
 
-    @media (max-width: 1024px) {
-      font-size: 52px;
+  .btn {
+    padding: 25px 25px 30px 25px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000;
+
+    background-color: #FFED00;
+    box-shadow: 5px 5px 0 #ABA01A;
+    border-radius: 10px;
+
+    &:hover {
+      transition: 0.2s ease-in-out;
+      box-shadow: 0px 0px 20px #ABA01A;
+    }
+
+    &::after {
+      display: inline-block;
+      content: "";
+
+      height: 100%;
+      width: 22px;
+
+      margin-left: 15px;
+      transform: translateY(4px);
+
+      background: url("../../images/icons/btn_arrow.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .listBlock {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    .img {
+      position: absolute;
+      top: -15%; right: 10%; bottom: -15%; left: 40%;
+
+      background: radial-gradient(50% 50% at 50% 50%, rgba(6, 7, 46, 0) 0%, #00012F 100%),
+                  url("https://www.unicef.org/eca/sites/unicef.org.eca/files/styles/hero_desktop/public/UN0599391.jpg?itok=Iqi4FLgG");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      z-index: -1;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      list-style: none;
+  
+      padding-left: 15%;
+  
+      li {
+        position: relative;
+  
+        width: 100%;
+        max-width: 400px;
+  
+        line-height: 140%;
+        font-size: 24px;
+        font-weight: 200;
+        color: #FFED00;
+  
+        padding-left: 40px;
+  
+        &::before {
+          position: absolute;
+          left: 0; top: 4px;
+  
+          content: "";
+          width: 26px;
+          height: 26px;
+  
+          background: url("../../images/icons/tryzub.svg");
+          background-position: center 2px;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
     }
   }
 }
