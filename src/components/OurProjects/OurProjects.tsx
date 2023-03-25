@@ -27,7 +27,7 @@ const OurProjects: FC = () => {
 
     useEffect(() => {
         AdminService.GetProjects()
-            .then((response) => { setTabs(response); console.log(response) })
+            .then((response) => setTabs(response))
             .catch((error) => console.log(error));
     }, [])
 
@@ -119,12 +119,12 @@ const OurProjects: FC = () => {
                         className={s.swiper}
                     >
                         <SwiperSlide className={s.slideWrapper}>
-                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab].imageUrl})` }}></div>
+                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab]?.imageUrl})` }}></div>
                         </SwiperSlide>
                     </Swiper>
                     <div className={s.block}>
                         {
-                            tabs[activeTab].description_EN
+                            tabs[activeTab]?.description_EN
                         }
                     </div>
                     {
