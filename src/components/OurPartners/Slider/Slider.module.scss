@@ -54,12 +54,12 @@ $animationSpeed: 20s;
   }
 
   .toRight {
-    background-color: #00c3ff9a;
+    background-color: #00c3ffc0;
     animation: scrollToRight $animationSpeed linear infinite;
   }
 
   .toLeft {
-    background-color: #ffee009a;
+    background-color: #ffee00c0;
     animation: scrollToLeft $animationSpeed linear infinite;
   }
 

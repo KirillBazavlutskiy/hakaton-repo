@@ -8,7 +8,7 @@ const OfficialAidRequest = () => {
                 <SectionCaption className={s.caption}>
                     Template for official aid request for organisations
                 </SectionCaption>
-                <a href="#">Fill the form</a>
+                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">Fill the form</a>
             </div>
         </div>
     );
