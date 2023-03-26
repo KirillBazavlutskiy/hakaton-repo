@@ -11,6 +11,7 @@ import OurPartners from "@/components/OurPartners/OurPartners";
 import OfficialAidRequest from "@/components/OfficialAidRequest/OfficialAidRequest";
 
 import Ellipse from "@/components/Style/Ellipse";
+import OurTeam from "@/components/OurTeam/OurTeam";
 
 const Index: FC = () => {
     return (
@@ -34,6 +35,9 @@ const Index: FC = () => {
             <section id="B7">
                 <OurPartners />
             </section>
+            <section id='B8'>
+                <OurTeam />
+            </ section>
             <section id="B9">
                 <OfficialAidRequest />
             </section>

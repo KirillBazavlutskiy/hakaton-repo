@@ -1,0 +1,12 @@
+.cardContainer {
+  @apply flex flex-col gap-[12px] items-center;
+
+  .personImg {
+    @apply relative bg-[#fff] rounded-[12px] overflow-hidden
+    w-[180px] h-[180px];
+
+    img {
+      @apply absolute bottom-[-10px];
+    }
+  }
+}
