@@ -1,4 +1,5 @@
 .wrapper {
+  //height: 450px;
   display: grid;
   grid-template-columns: auto minmax(320px, 1440px) auto;
   grid-template-areas:
@@ -67,6 +68,13 @@
       align-items: flex-start;
       gap: 15px;
 
+      button {
+        @apply w-[250px] h-[40px] bg-yellow-400 text-black rounded-lg font-[500];
+      }
+      //button:first-child {
+      //  background-color: #348AB8;
+      //}
+
       .way {
         display: block;
 
@@ -89,15 +97,48 @@
     @apply w-full md:w-1/2;
     @apply items-center md:items-start;
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+    .block {
 
-      li {
-        a {
-          text-decoration: underline;
+      display: flex;
+      //align-items: center;
+      justify-content: space-between;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        li {
+          .notActiveBtn {
+            color: white;
+          }
+          .activeBtn {
+            color: yellow;
+            text-decoration: underline;
+          }
         }
+      }
+      .payActive {
+        @apply w-4/6 flex flex-col ml-[30px];
+        .payBlock {
+          @apply w-[300px] h-[50px] bg-transparent border border-yellow-300 rounded-xl flex items-center pl-2 mb-[10px];
+          overflow-x: scroll;
+          position: relative;
+          .copyBtn {
+            height: 100%;
+            padding: 0 10px;
+            background-color: #25152f;
+            //@apply border-l border-yellow-300;
+            position: sticky;
+            right: 0;
+          }
+          p {
+            font-size: 17px;
+          }
+        }
+      }
+      .payNotActive {
+        display: none;
       }
     }
   }
