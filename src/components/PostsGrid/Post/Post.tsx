@@ -1,11 +1,34 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { IPost } from '@/components/OurLastestNews/OurLastestNews';
-import s from './Post.module.css';
+import { IPost } from '@/pages/index';
+import s from './Post.module.scss';
 
 
 export function Post({ ...props }: IPost): JSX.Element {
-    console.log(props);
+    const contentMapping = () => {
+        if (props.media_type == 'CAROUSEL_ALBUM') {
+            return (
+                <Swiper
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={"auto"}
+
+                    pagination={true}
+                    className="mySwiper"
+                >
+                    {props.children.data.map((c, i) =>
+                        <SwiperSlide key={i}>
+                            <img src={c.media_url} alt="" />
+                        </SwiperSlide>
+                    )}
+                </Swiper>
+            )
+        }
+
+        return props.media_type == 'VIDEO'
+            ? <video loop autoPlay muted><source src={props.media_url} type="video/mp4" /></video>
+            : <img src={props.media_url} alt={props.caption} />
+    }
 
     return (
         <a className={s.container} href={props.permalink} target='_blank'>
@@ -17,30 +40,9 @@ export function Post({ ...props }: IPost): JSX.Element {
                     </div>
                     <span className={s.username}>{props.username}</span>
                 </div>
-                {
-                    props.media_type == 'VIDEO'
-                        ? <video loop autoPlay muted><source src={props.media_url} type="video/mp4" /></video>
-                        : props.media_type == 'CAROUSEL_ALBUM'
-                            ? <Swiper
-                                grabCursor={true}
-                                centeredSlides={true}
-                                slidesPerView={"auto"}
-                                
-                                pagination={true}
-                                className="mySwiper"
-                            >
-                                {props.children.data.map((c, i) => {
-                                    return (
-                                        <SwiperSlide key={i}>
-                                            <img className={s.img} src={c.media_url} alt="" />
-                                        </SwiperSlide>
-                                    );
-                                })}
-                            </Swiper>
-                            : <img className={s.img} src={props.media_url} alt={props.caption} />
-
-                }
-
+                <div className={s.contentWrapper}>
+                    {contentMapping()}
+                </div>
                 <div className={s.bottom}>
                     <span className={s.caption}>{props.caption ? props.caption : 'no description'}</span>
                 </div>

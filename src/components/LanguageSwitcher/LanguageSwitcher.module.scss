@@ -1,0 +1,28 @@
+.lang {
+    @apply flex items-center justify-start gap-[10px] cursor-pointer relative ml-[40px] text-[16px] font-light mt-[4px];
+    
+    .text {
+      @apply flex w-[30px] justify-center;
+    }
+
+    .arrowDown {
+        transform: rotateX(0deg);
+        transition: .2s;
+    }
+
+    .arrowUp {
+        transform: rotateX(180deg);
+        transition: .2s;
+    }
+
+    .droppedBox {
+      position: absolute;
+      left: 0; bottom: -100%;
+      display: none;
+      @apply w-[30px] justify-center;
+    }
+
+    .active {
+        display: flex;
+    }
+  }

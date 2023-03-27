@@ -1,0 +1,120 @@
+.container {
+    position: relative;
+
+    display: block;
+    max-width: 300px;
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px 0 rgb(0 0 0 / 10%);
+    // background-color: white;
+
+    transition: var(--transition);
+    color: #fff;
+
+    .container:hover {
+        box-shadow: 0 4px 20px 0 rgb(0 0 0 / 15%);
+    }
+
+    &::after {
+        left: 0%;
+        top: 0%;
+        background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
+    }
+
+    &::before {
+        left: 100%;
+        top: 100%;
+        background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+
+        width: 1200px;
+        height: 800px;
+
+        opacity: 0.2;
+        transform: translate(-50%, -50%);
+
+        z-index: -10;
+    }
+
+    .block {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .top {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 10px;
+
+            padding: 16px 12px 10px;
+
+            .avatarStroke {
+                width: 34px;
+                height: 34px;
+
+                padding: 1px;
+
+                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+                border-radius: 100%;
+
+                .avatar {
+                    width: 100%;
+                    height: 100%;
+
+                    background-image: url("../../../images/logo-min.png");
+                    background-color: #fff;
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                    border: 1px solid #00012F;
+                    border-radius: 100%;
+                }
+            }
+
+            .username {
+                font-size: 12px;
+            }
+        }
+
+        .contentWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            aspect-ratio: 4 / 5;
+
+            overflow: hidden;
+
+            img,
+            video {
+                width: 100%;
+            }
+        }
+
+        .bottom {
+            padding: 15px 12px;
+
+            .caption {
+                display: block;
+
+                width: 270px;
+                overflow: hidden;
+                opacity: 0.8;
+
+                font-size: 14px;
+                font-weight: 300;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
