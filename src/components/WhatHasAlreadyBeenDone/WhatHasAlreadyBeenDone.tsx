@@ -11,8 +11,9 @@ const WhatHasAlreadyBeenDone: FC = () => {
     useEffect(() => {
         let heightSectionB1 = document.getElementById("B1")?.offsetHeight;
         let heightSectionB2 = document.getElementById("B2")?.offsetHeight;
+        let heightSectionB3 = document.getElementById("B3")?.offsetHeight;
         
-        let height = (heightSectionB1 && heightSectionB2) ? heightSectionB1 + heightSectionB2 + 90 - window.innerHeight : 0;
+        let height = (heightSectionB1 && heightSectionB2 && heightSectionB3) ? heightSectionB1 + heightSectionB2 + heightSectionB3 + 90 - window.innerHeight : 0;
         
         setHeightToAnimate(height);
     }, []);
