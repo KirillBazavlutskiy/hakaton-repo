@@ -1,4 +1,4 @@
-import { IPost } from '@/components/OurLastestNews/OurLastestNews';
+import { IPost } from '@/pages/index';
 import { Post } from './Post/Post';
 import s from './PostsGrid.module.css';
 
@@ -7,10 +7,8 @@ interface PostsGridProps {
 }
 
 export function PostsGrid({ posts }: PostsGridProps): JSX.Element {
-    console.log(posts)
     return (
         <div className={s.grid}>
-            
             {posts && posts.map((p, i) => {
                 if(i < 3) {
                     return (
