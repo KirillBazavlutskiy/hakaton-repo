@@ -44,10 +44,10 @@ const Index: FC = ({ response }: any) => {
                 <IntroText />
             </section>
             <section id="B2">
-               <OurProjects />
+                <OurProjects />
             </section>
             <section id="B3">
-                <OurLastestNews instagramData={instagramData} />
+                {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
             </section>
             <section id="B4">
                 <WhatHasAlreadyBeenDone />
@@ -72,11 +72,20 @@ const Index: FC = ({ response }: any) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { data: response } = await axios.get(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
+    try {
+        const { data: response } = await axios.get(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
 
-    return {
-        props: {
-            response
-        }
-    };
+        return {
+            props: {
+                response
+            }
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            props: {
+                response: []
+            }
+        };
+    }
 }
