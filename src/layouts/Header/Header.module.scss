@@ -47,21 +47,6 @@
       }
     }
 
-    .lang {
-      @apply flex items-center justify-start gap-[10px] cursor-pointer relative ml-[40px] text-[16px] font-light mt-[4px];
-      
-      .text {
-        @apply flex w-[30px] justify-center;
-      }
-
-      .droppedBox {
-        position: absolute;
-        left: 0; bottom: -100%;
-        display: none;
-        @apply w-[30px] justify-center;
-      }
-    }
-
     .donate {
       padding: 8px 16px;
 
