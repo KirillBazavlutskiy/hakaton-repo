@@ -1,0 +1,78 @@
+name: Next.js
+
+on:
+  push:
+    branches: [ master ]    
+    paths-ignore:
+      - '.github/**'
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      short-name: hackathon_react
+    name: Build and upload 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 16.19.1
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Archive
+      run: tar -czvf ./pack.tar.gz -C ./.next .
+    - name: Copy archive via SSH
+      uses: appleboy/scp-action@master
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        source: "./pack.tar.gz"
+        target: "/tmp/${{ env.short-name }}"
+        strip_components: 1
+        rm : 1
+        overwrite : 1
+  run:
+    runs-on: ubuntu-20.04
+    needs: build
+    env:
+      short-name: hackathon_react
+    name: Run
+    steps:
+    - name: Stop service
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        script: pm2 stop ${{ env.short-name }}
+    - name: Copy files from archive
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        script: tar -xzvf /tmp/${{ env.short-name }}/pack.tar.gz -C /var/www/${{ env.short-name }} .
+    - name: Set files properties
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        script: |
+          chown -R www-data /var/www/${{ env.short-name }}
+          chgrp -R www-data /var/www/${{ env.short-name }}
+    - name: Run app
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        script: pm2 start ${{ env.short-name }}
