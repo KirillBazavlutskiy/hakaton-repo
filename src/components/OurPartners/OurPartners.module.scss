@@ -18,52 +18,12 @@
   border-radius: 6px;
 
   grid-area: content;
-
-  overflow: hidden;
-
-  @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];
-  @apply py-[20px] 2xl:py-[50px] xl:py-[45px] lg:py-[40px] md:py-[35px] sm:py-[30px];
   
-  &::after {
-    width: 1470px;
-    height: 990px;
-
-    left: 70%;
-    top: 60%;
-    background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
-  }
-
-  &::before {
-    width: 1300px;
-    height: 1180px;
-
-    left: 20%;
-    top: 50%;
-    background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
-  }
-
-  &::after,
-  &::before {
-    content: "";
-    position: absolute;
-
-    opacity: 0.2;
-    transform: translate(-50%, -50%);
-
-    z-index: -10;
-  }
-
   .block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
     width: 100%;
-  }
-
-  .gridBlock {
-    width: 100%;
-    display: grid;
-
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-
-    @apply gap-[20px] sm:gap-[30px];
-    @apply p-[20px] sm:p-[30px];
   }
 }

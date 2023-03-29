@@ -1,0 +1,79 @@
+@mixin white-gradient {
+  background: linear-gradient(to right,  #00012F 0%,rgba(255,255,255,0) 100%);
+}
+
+$animationSpeed: 20s;
+
+// Animation
+@keyframes scrollToRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 7))}
+}
+
+@keyframes scrollToLeft {
+  0% { transform: translateX(calc(-250px * 7))}
+  100% { transform: translateX(0); }
+}
+
+
+// Styling
+.slider {
+  background: none;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+  
+  .slide_track {
+    display: flex;
+    align-items: center;
+    width: calc(250px * 14);
+  }
+
+  .toRight {
+    background-color: #00c3ffc0;
+    animation: scrollToRight $animationSpeed linear infinite;
+  }
+
+  .toLeft {
+    background-color: #ffee00c0;
+    animation: scrollToLeft $animationSpeed linear infinite;
+  }
+
+  .toRight:hover,
+  .toLeft:hover {
+    animation-play-state: paused;
+  }
+  
+  .slide {
+    display: flex;
+    align-items: center;
+
+    height: 100px;
+    width: 250px;
+    margin-right: 50px;
+  }
+}

@@ -5,15 +5,17 @@ import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 
 import s from './Layout.module.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {FC, ReactNode} from "react";
 
 interface LayoutProps {
-    children: React.ReactNode,
+    children: ReactNode,
     keywords: string,
     title?: string,
     className?: string,
 }
 
-export function Layout({ children, keywords, title, className }: LayoutProps): JSX.Element {
+export const Layout: FC<LayoutProps> = ({ children, keywords, title, className }) => {
     return (
         <>
             <Head>

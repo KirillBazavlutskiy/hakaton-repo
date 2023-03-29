@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export type userType = 'user' | 'admin' | 'superadmin'
 interface IUserInit {
     user: string;
 }

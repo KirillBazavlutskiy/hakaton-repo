@@ -17,24 +17,30 @@
   .bar {
     position: relative;
 
-    width: 100%;
+    max-width: 100%;
     overflow: hidden;
 
     border-radius: 15px;
 
-    @apply py-[30px] px-[80px] flex flex-col items-center;
+    @apply py-[30px] px-[60px];
+
+    svg {
+      @apply w-[50px] stroke-white h-[50px];
+    }
 
     .scrolled {
-      gap: 40px;
-
-      width: 100%;
       overflow-x: scroll;
 
       color: #00C2FF;
       font-weight: 400;
       line-height: 140%;
 
-      @apply text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px] flex items-center justify-between;
+      @apply w-full text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px] flex gap-[40px] items-center justify-between sm:px-[40px];
+
+      .tab {
+        cursor: pointer;
+        white-space: nowrap;
+      }
 
       .active {
         font-weight: 600;
@@ -97,25 +103,28 @@
     @apply px-[10px] xl:px-[80px] lg:px-[60px] md:px-[40px] sm:px-[25px];
 
     .swiper {
-      overflow: hidden;
+      overflow: hidden !important;
       border-radius: 15px;
 
       @apply max-w-[35vh] xl:max-w-[100vh] lg:max-w-[80vh] md:max-w-[65vh] sm:max-w-[50vh];
 
       .slideWrapper {
         width: 100%;
+        overflow: hidden;
 
         .slideBlock {
           @apply w-[40vh] xl:w-[100vh] lg:w-[80vh] md:w-[65vh] sm:w-[50vh];
 
           aspect-ratio: 16/10;
-          background-size: contain !important;
+          background-size: cover !important;
         }
       }
     }
 
     .block {
       position: relative;
+
+      width: 100%;
 
       border-radius: 15px;
 
@@ -166,7 +175,7 @@
         top: 0;
 
         @apply translate-y-[-55%];
-        @apply translate-x-[-50%] 2xl:translate-x-[190%] xl:translate-x-[160%] lg:translate-x-[120%] md:translate-x-[-100%];
+        @apply translate-x-[100%] 2xl:translate-x-[440%] xl:translate-x-[400%] lg:translate-x-[340%] md:translate-x-[270%] sm:translate-x-[230%];
 
         a {
           display: flex;
@@ -220,4 +229,8 @@
       }
     }
   }
+}
+
+.swiper {
+  width: 100%;
 }

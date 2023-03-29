@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
-import AdminService, { IOffer } from "@/Services/AdminService";
+import AdminService from "@/services/AdminService";
+
+import { IOffer } from "@/models";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import { RoundedButton } from '../RoundedButton/RoundedButton';
@@ -26,7 +28,7 @@ const HumanitarianAid: FC = () => {
                     <div className={s.blocks}>
                         <div className={s.infoSide}>
                             <p>If u can help and provide something of the current list above, please fill out the form below</p>
-                            <a href="#">List of current Needs</a>
+                            <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">List of current Needs</a>
                         </div>
                         <form
                             className={s.formSide}

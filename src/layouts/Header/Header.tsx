@@ -1,23 +1,19 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
+import Image from "next/image";
 import cn from "classnames";
 
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
-
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "@/redux/store";
-import { changeLanguage } from "@/redux/Slices/LanguageSlice";
+import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 
 import s from './Header.module.scss';
-import Logo from "../../images/logo.png";
-import Image from "next/image";
+import Logo from "@/images/logo.png";
 
 
 interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
 
-export function Header({ className, ...props }: HeaderProps): JSX.Element {
+export const Header: FC<HeaderProps> = ({ className, ...props }) => {
     const [headerMenu, setHeaderMenu] = useState<boolean>(false);
-    const dispatch = useDispatch();
-    const { language } = useAppSelector(state => state.language);
+    
 
     return (
         <header className={cn(s.wrapper, className)} {...props}>
@@ -26,12 +22,14 @@ export function Header({ className, ...props }: HeaderProps): JSX.Element {
                     <Image src={Logo} alt="logo" />
                 </div>
                 <nav className={s.navbar}>
-                    <a href="#B2">Projects</a>
-                    <a href="#B3">News</a>
-                    <a href="#B4">✅</a>
-                    <a href="#B7">Partners</a>
-                    <button onClick={() => dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'))}>{language}</button>
-                    <a href="#B56">Donate</a>
+                    <div className={s.menu}>
+                        <a href="#B2">Projects</a>
+                        <a href="#B3">News</a>
+                        <a href="#B4">Statistic</a>
+                        <a href="#B7">Partners</a>
+                    </div>
+                    <LanguageSwitcher />
+                    <a href="#B56" className={s.donate}>Donate</a>
                 </nav>
                 <div className={s.burger} onClick={() => setHeaderMenu(prev => !prev)}>
                     <div

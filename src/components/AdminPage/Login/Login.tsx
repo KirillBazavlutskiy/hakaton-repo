@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import AdminService from "@/Services/AdminService";
+import AdminService from "@/services/AdminService";
 import s from './Login.module.scss';
 
 const Login: FC = () => {

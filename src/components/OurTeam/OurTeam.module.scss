@@ -1,0 +1,17 @@
+.container {
+  @apply px-[20px] sm:px-[40px] md:px-[60px] lg:px-[80px] xl:px-[130px]
+  mt-[140px] mb-[90px];
+
+  h2 {
+    @apply text-[40px] font-medium;
+  }
+
+  h3 {
+    @apply text-[20px] font-medium
+  }
+
+  .teamList {
+    @apply w-full grid gap-x-[44px] gap-y-[50px] mt-[81px]
+    grid-cols-1 usm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  }
+}

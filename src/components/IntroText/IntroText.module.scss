@@ -6,19 +6,119 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   grid-area: content;
 
+  @apply gap-[50px] md:gap-[70px] lg:gap-[90px];
   @apply px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
-  @apply py-[40px] xl:py-[120px] lg:py-[80px] md:py-[60px];
+  @apply py-[60px] xl:py-[140px] lg:py-[100px] md:py-[80px];
+  @apply mb-[20px];
 
   h1 {
-    line-height: 140%;
-    font-size: 64px;
-    font-weight: 600;
-    max-width: 920px;
+    max-width: 900px;
+    margin: 0 auto;
 
-    @media (max-width: 1024px) {
-      font-size: 52px;
+    font-weight: 800;
+    text-align: center;
+
+    @apply leading-[44px] md:leading-[48px] lg:leading-[52px];
+    @apply text-[24px] md:text-[26px] lg:text-[28px];
+  }
+
+  .info {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+
+      @apply pl-[0%] md:pl-[10%];
+      @apply w-full items-center md:items-start;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    
+        list-style: none;
+    
+        li {    
+          line-height: 28px;
+          font-weight: 300;
+          color: #FFED00;
+    
+          @apply relative w-full pl-[35px];
+          @apply text-[18px] md:text-[19px] lg:text-[20px];
+    
+          &::before {
+            position: absolute;
+            left: 0; top: 2px;
+    
+            content: "";
+            width: 24px;
+            height: 24px;
+    
+            background: url("../../images/icons/tryzub.svg");
+            background-position: center 2px;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+
+      .btn {
+        padding: 17px 15px 23px 15px;
+    
+        line-height: 130%;
+ 
+        background-color: #FFED00;
+        box-shadow: 5px 5px 0 #ABA01A;
+        border-radius: 10px;
+
+        @apply whitespace-nowrap text-black font-medium;
+        @apply text-[14px] md:text-[15px] lg:text-[16px];
+    
+        &:hover {
+          transition: 0.2s ease-in-out;
+          box-shadow: 0px 0px 20px #ABA01A;
+        }
+    
+        &::after {
+          display: inline-block;
+          content: "";
+    
+          height: 100%;
+          width: 22px;
+    
+          margin-left: 15px;
+          transform: translateY(4px);
+    
+          background: url("../../images/icons/btn_arrow.svg");
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+
+    .img {
+      @apply absolute right-[0%];
+      @apply top-[-5%] lg:top-[-15%];
+      @apply bottom-[20%] md:bottom-[15%] lg:bottom-[-15%];
+      @apply left-[0%] md:left-[20%] lg:left-[40%];
+
+      background: radial-gradient(50% 50% at 50% 50%, rgba(6, 7, 46, 0) 0%, #00012F 100%),
+                  url("https://www.unicef.org/eca/sites/unicef.org.eca/files/styles/hero_desktop/public/UN0599391.jpg?itok=Iqi4FLgG");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @apply z-[-1];     
     }
   }
 }

@@ -15,8 +15,9 @@ const HeaderMenu: FC<HeaderMenuProps> = ({  menuActive }) => {
         <div className={`${s.container} ${menuActive ? s.active : s.notActive}`}>
             <a href="#B2">Projects</a>
             <a href="#B3">News</a>
+            <a href="#B4">Statistic</a>
             <a href="#B7">Partners</a>
-            <button onClick={() => dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'))}>{language}</button>
+            <button onClick={() => dispatch(changeLanguage(language === 'EN' ? 'UA' : 'EN'))}>{language}</button>
             <a href="#B5">Donate</a>
         </div>
     );

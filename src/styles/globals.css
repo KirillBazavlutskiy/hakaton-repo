@@ -41,3 +41,26 @@ body {
   background-color: #00012F;
   overflow-x: hidden;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  background-position: center;
+}
+
+.swiper-button-next {
+  background-image: url(../images/icons/arrow_right.svg);
+  transform: translateX(-50%);
+
+}
+
+.swiper-button-prev {
+  background-image: url(../images/icons/arrow_left.svg);
+  transform: translateX(50%);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}

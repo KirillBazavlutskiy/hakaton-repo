@@ -1,23 +1,83 @@
-import { FC, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { FC, useEffect, useState } from 'react';
+import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
 import { RoundedButton } from '../RoundedButton/RoundedButton';
+import cn from "classnames";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
+import AdminService from "@/services/AdminService";
+import { IProject } from "@/models";
+
 import s from './OurProjects.module.scss';
+import React from 'react';
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const OurProjects: FC = () => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
-    //State for scroll position in bar
-    const [scrollPosition, setScrollPosition] = useState<number>(0);
-    //Variable == current scroll position
-    let scrollValue = scrollPosition;
 
-    const tabs = [
-        { name: 'Stay Sage Kids', text: "1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", url: "https://static.dw.com/image/57844523_605.jpg", statistic: [{ key: "Fed settlers", value: 5000 }, { key: "Fed settlers", value: 5000 }, { key: "Fed settlers", value: 5000 }] },
-        { name: 'Medical Aid', text: "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", url: "https://nung.edu.ua/sites/default/files/2022-03/viber_2022-03-09_18-02-07-497.jpg", statistic: [{ key: "Fed settlers", value: 4000 }, { key: "Fed settlers", value: 4000 }, { key: "Fed settlers", value: 4000 }] },
-        { name: 'Humanitarian Aid Support', text: "3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", url: "https://aam.com.ua/wp-content/uploads/56n.jpg", statistic: [{ key: "Fed settlers", value: 3000 }, { key: "Fed settlers", value: 3000 }, { key: "Fed settlers", value: 3000 }] }
-    ]
+    const [tabs, setTabs] = useState<IProject[]>([{
+        name: "Error of projects preload",
+        description_EN: "Ops! Something went wrong...",
+        description_UA: "Ой! Щось пійшло не так!",
+        imageUrl: "",
+        id: "error",
+    }]);
+
+    useEffect(() => {
+        AdminService.GetProjects()
+            .then((response) => setTabs(response))
+            .catch((error) => console.log(error));
+    }, [])
+
+    const projectNamesMapping = () => {
+        const arr: IProject[][] = projectNameArrayGrouping();
+
+        return (
+            arr.map((subArray: IProject[], i) => (
+                <SwiperSlide className={s.slideWrapper} key={i}>
+                    <div className={s.bar}>
+                        <div className={s.scrolled}>
+                            {projectsGroupMapping(subArray, i)}
+                        </div>
+                    </div>
+                </SwiperSlide>)
+            )
+        )
+    }
+
+    const projectNameArrayGrouping = (): IProject[][] => {
+        const arr: IProject[][] = [];
+        for (let i = 0; i < tabs.length / 3; i++) {
+            arr.push([]);
+            for (let j = i * 3; j < i * 3 + 3; j++) {
+                arr[i].push(tabs[j]);
+            }
+        }
+        return arr;
+    }
+
+    const projectsGroupMapping = (arr: IProject[], index: number) => {
+        return arr.map((el: IProject, i) => {
+            if (!el?.name) {
+                return null;
+            }
+
+            const tabClasses = cn(s.tab, { [s.active]: activeTab === i + index * 3 });
+
+            const handleClick = () => setActiveTab(i + index * 3);
+
+            return (
+                <React.Fragment key={i + index * 3}>
+                    {i !== 0 && <span>•</span>}
+                    <div className={tabClasses} onClick={handleClick}>
+                        {el.name}
+                    </div>
+                </React.Fragment>
+            );
+        });
+    };
 
     return (
         <div className={s.wrapper}>
@@ -25,75 +85,46 @@ const OurProjects: FC = () => {
                 <SectionCaption>
                     Our Projects
                 </SectionCaption>
-                <div className={s.bar}>
-                    <div className={s.scrolled}>
-                        {
-                            tabs.map((n, i) => (
-                                <>
-                                    <button
-                                        className={activeTab === i ? s.active : s.notActive} onClick={() => setActiveTab(i)} key={i}
-                                    >
-                                        {n.name}
-                                    </button>
-                                    {i < tabs.length - 1 ? <span>·</span> : <></>}
-                                </>
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className={s.scrollBtn}>
-                    <button onClick={() => (scrollValue === 0 ? console.log("We haven't more progects") : setScrollPosition(--scrollValue))}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                <Swiper
+                    modules={[Navigation]}
+                    loop={true}
+                    effect={"coverflow"}
+                    centeredSlides={true}
+                    slidesPerView={"auto"}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: -200,
+                        depth: 200,
+                        modifier: 2,
+                        slideShadows: false,
+                    }}
+                    navigation={{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }}
 
-                    </button>
-                    <div className={s.points}>
-                        <button className={scrollValue === 0 ? s.checked : s.notChecked} onClick={() => setScrollPosition(0)}>.</button>
-                        <button className={scrollValue === 1 ? s.checked : s.notChecked} onClick={() => setScrollPosition(1)}>.</button>
-                        <button className={scrollValue === 2 ? s.checked : s.notChecked} onClick={() => setScrollPosition(2)}>.</button>
-                    </div>
-                    <button onClick={() => (scrollValue === 2 ? console.log("We haven't more progects") : setScrollPosition(++scrollValue))}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-
-                    </button>
-                </div>
+                    className={s.swiper}
+                >
+                    <div className="swiper-button-next"></div>
+                    {projectNamesMapping()}
+                    <div className="swiper-button-prev"></div>
+                </Swiper>
                 <div className={s.content}>
                     <Swiper
-                        grabCursor={true}
+                        modules={[Autoplay]}
                         centeredSlides={true}
                         slidesPerView={"auto"}
+                        autoplay={{ delay: 4000 }}
 
-                        pagination={true}
                         className={s.swiper}
                     >
-                        {tabs.map((el, i) => {
-                            return (
-                                <SwiperSlide
-                                    className={s.slideWrapper}
-                                    key={i}
-                                >
-                                    <div
-                                        className={s.slideBlock}
-                                        style={{ background: `url(${el.url})` }}
-                                    >
-                                    </div>
-                                </SwiperSlide>
-                            );
-                        })}
+                        <SwiperSlide className={s.slideWrapper}>
+                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab]?.imageUrl})` }}></div>
+                        </SwiperSlide>
                     </Swiper>
                     <div className={s.block}>
                         {
-                            tabs.map((n, i) => (
-                                <p
-                                    style={{ display: activeTab === i ? 'block' : 'none' }}
-                                    key={i}
-                                >
-                                    {n.text}
-                                </p>
-                            ))
+                            tabs[activeTab]?.description_EN
                         }
                     </div>
                     {
@@ -106,18 +137,18 @@ const OurProjects: FC = () => {
                                 <RoundedButton className={s.donate}>
                                     <a href="#B56">Donate</a>
                                 </RoundedButton>
-                                <div className={s.wrapper}>
-                                    {
-                                        el.statistic.map((el, i) => (
-                                            <div
-                                                className={s.counter}
-                                            >
-                                                <h3>{el.value}</h3>
-                                                <span>{el.key}</span>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
+                                {/*<div className={s.wrapper}>*/}
+                                {/*    {*/}
+                                {/*        el.statistic.map((el, i) => (*/}
+                                {/*            <div*/}
+                                {/*                className={s.counter}*/}
+                                {/*            >*/}
+                                {/*                <h3>{el.value}</h3>*/}
+                                {/*                <span>{el.key}</span>*/}
+                                {/*            </div>*/}
+                                {/*        ))*/}
+                                {/*    }*/}
+                                {/*</div>*/}
                             </div>
                         ))
                     }
