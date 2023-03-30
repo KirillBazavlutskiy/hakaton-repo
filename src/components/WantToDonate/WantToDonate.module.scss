@@ -119,9 +119,9 @@
         }
       }
       .payActive {
-        @apply w-4/6 flex flex-col ml-[30px];
+        @apply w-4/6 flex flex-col ml-[30px] items-end;
         .payBlock {
-          @apply w-[300px] h-[50px] bg-transparent border border-yellow-300 rounded-xl flex items-center pl-2 mb-[10px];
+          @apply w-[300px] h-[50px] bg-transparent border border-yellow-300 rounded-xl flex items-center justify-between pl-2 mb-[10px];
           overflow-x: scroll;
           position: relative;
           .copyBtn {
@@ -131,6 +131,7 @@
             //@apply border-l border-yellow-300;
             position: sticky;
             right: 0;
+            top: 0;
           }
           p {
             font-size: 17px;

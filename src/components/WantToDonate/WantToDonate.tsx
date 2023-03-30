@@ -7,7 +7,12 @@ const WantToDonate = () => {
 
     const [paymentMethod, setPaymentMethod] = useState(1);
 
-    const [paydata, setPayData] = useState("kdfjvldjfvdfvdffdlvjkdfsdhcskdjchsjkc");
+    const [paydata, setPayData] = useState({
+        payPal: "payPal__receipt__for__donate",
+        btc: "btc__receipt__for__donate",
+        eth: "eth__receipt__for__donate",
+        usdt: "usdt__receipt__for__donate"
+    });
 
     return (
         <div className={s.wrapper}>
@@ -43,8 +48,8 @@ const WantToDonate = () => {
                         </ul>
                         <div className={paymentMethod === 1 ? s.payActive : s.payNotActive}>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata)}}>
+                                <p>{paydata.payPal}</p>
+                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata.payPal)}}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -53,8 +58,8 @@ const WantToDonate = () => {
                                 </button>
                             </div>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata)}>
+                                <p>{paydata.payPal}</p>
+                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata.payPal)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -65,8 +70,8 @@ const WantToDonate = () => {
                         </div>
                         <div className={paymentMethod === 2 ? s.payActive : s.payNotActive}>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata)}}>
+                                <p>{paydata.btc}</p>
+                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata.btc)}}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -75,8 +80,8 @@ const WantToDonate = () => {
                                 </button>
                             </div>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata)}>
+                                <p>{paydata.btc}</p>
+                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata.btc)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,8 +92,8 @@ const WantToDonate = () => {
                         </div>
                         <div className={paymentMethod === 3 ? s.payActive : s.payNotActive}>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata)}}>
+                                <p>{paydata.eth}</p>
+                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata.eth)}}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -97,8 +102,8 @@ const WantToDonate = () => {
                                 </button>
                             </div>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata)}>
+                                <p>{paydata.eth}</p>
+                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata.eth)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -109,8 +114,8 @@ const WantToDonate = () => {
                         </div>
                         <div className={paymentMethod === 4 ? s.payActive : s.payNotActive}>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata)}}>
+                                <p>{paydata.usdt}</p>
+                                <button className={s.copyBtn} onClick={() => {navigator.clipboard.writeText(paydata.usdt)}}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -119,8 +124,8 @@ const WantToDonate = () => {
                                 </button>
                             </div>
                             <div className={s.payBlock}>
-                                <p>{paydata}</p>
-                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata)}>
+                                <p>{paydata.usdt}</p>
+                                <button className={s.copyBtn} onClick={() => navigator.clipboard.writeText(paydata.usdt)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
