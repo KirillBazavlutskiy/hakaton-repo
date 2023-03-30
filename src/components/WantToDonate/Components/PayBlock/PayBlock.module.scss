@@ -1,0 +1,60 @@
+.container {
+  @apply w-[51%] h-full flex flex-col items-center;
+
+  .block {
+    @apply w-full h-full flex items-center justify-between;
+
+    .linksBlock {
+      @apply w-1/4 h-full flex flex-col items-start justify-between;
+
+      .notActiveBtn {
+        transition: .4s;
+      }
+      .notActiveBtn:hover {
+        @apply text-yellow-300;
+        transform: scale(1.1);
+        transition: .4s;
+      }
+      .activeBtn {
+        @apply text-yellow-300;
+        text-decoration: underline;
+        transform: scale(1.1);
+      }
+    }
+    .receiptBlock {
+      @apply w-3/4 h-[120px] max-h-[120px] flex flex-col items-center overflow-y-scroll;
+
+      .receipt {
+        @apply w-full h-[50px] flex items-center justify-between
+        p-[10px] mb-[10px]
+        border border-yellow-300 rounded-xl;
+
+        .textBlock {
+          @apply w-[90%] h-full overflow-x-scroll;
+        }
+        svg {
+          stroke: white;
+          width: 30px;
+          height: 30px;
+          transition: .4s;
+        }
+        svg:hover {
+          transform: scale(1.1);
+          transition: .4s;
+        }
+        svg:active {
+          transform: scale(2);
+          transition: .4s;
+        }
+      }
+    }
+    .receiptBlock::-webkit-scrollbar {
+      width: 5px;
+      display: block;
+    }
+    .receiptBlock::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .5);
+    }
+  }
+}
