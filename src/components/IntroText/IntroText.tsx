@@ -1,7 +1,7 @@
 import { FC } from "react";
 import s from './IntroText.module.scss';
 import { useAppSelector } from "@/redux/store";
-import { localisation } from "../../../localisation";
+import { localisation } from "../../../data/localisation.json";
 const IntroText: FC = () => {
 
     const { language } = useAppSelector(state => state.language);

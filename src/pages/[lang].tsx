@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { GetStaticProps } from 'next';
+import {GetStaticPaths, GetStaticProps} from 'next';
+import {IPost, TranslatedLanguage, Translation} from '@/models';
 import axios from 'axios';
 
 import { Layout } from '@/layouts/Layout';
@@ -11,35 +12,22 @@ import WantToDonate from '@/components/WantToDonate/WantToDonate';
 import HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';
 import OurPartners from "@/components/OurPartners/OurPartners";
 import OfficialAidRequest from "@/components/OfficialAidRequest/OfficialAidRequest";
-
-import Ellipse from "@/components/Style/Ellipse";
 import OurTeam from "@/components/OurTeam/OurTeam";
 
-export interface IPost {
-    id: string,
-    username: string,
-    caption: string,
-    media_type: string,
-    media_url: string,
-    timestamp: string,
-    permalink: string,
-    children: Children
+import fs from "fs";
+import process from "process";
+import path from "path";
+
+interface IndexProps {
+    instagramData: IPost[];
+    localisationText: TranslatedLanguage;
+    language: string;
 }
 
-interface Children {
-    data: Child[]
-}
-
-interface Child {
-    id: string,
-    media_url: string,
-}
-
-const Index: FC = ({ response }: any) => {
-    const instagramData: IPost[] = response.data;
+const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => {
 
     return (
-        <Layout title={"Головна"} keywords={""}>
+        <Layout title={"Головна"} keywords={""} lang={language}>
             <section id="B1">
                 <IntroText />
             </section>
@@ -69,23 +57,45 @@ const Index: FC = ({ response }: any) => {
     )
 }
 
-export default Index;
+export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
 
-export const getStaticProps: GetStaticProps = async () => {
+    const { lang } = context.params as { lang: string };
+    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
+    const data = fs.readFileSync(filePath);
+    const jsonData: Translation = JSON.parse(data.toString());
+
     try {
-        const { data: response } = await axios.get(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
+        const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
 
         return {
             props: {
-                response
+                instagramData: response,
+                localisationText: jsonData[lang || 'en'],
+                language: lang
             }
         };
     } catch (error) {
         console.error(error);
         return {
             props: {
-                response: []
+                instagramData: [],
+                localisationText: jsonData[lang || 'en'],
+                language: lang
             }
         };
     }
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
+    const data = fs.readFileSync(filePath);
+    const keys = Object.keys(JSON.parse(data.toString()));
+
+    const paths = keys.map((key) => ({
+        params: { lang: key },
+    }))
+
+    return { paths, fallback: true }
+}
+
+export default Index;

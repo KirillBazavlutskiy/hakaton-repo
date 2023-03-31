@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import { useAppSelector } from "@/redux/store";
-import { localisation } from "../../../localisation";
+import { localisation } from "../../../data/localisation.json";
 
 import s from './SectionCaption.module.scss';
 
