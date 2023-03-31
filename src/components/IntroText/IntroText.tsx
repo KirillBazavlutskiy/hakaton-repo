@@ -1,15 +1,17 @@
 import { FC } from "react";
 import s from './IntroText.module.scss';
-import { useAppSelector } from "@/redux/store";
-import { localisation } from "../../../data/localisation.json";
-const IntroText: FC = () => {
+import {MainText} from "@/models/text";
 
-    const { language } = useAppSelector(state => state.language);
+interface IntroTextProps {
+    MainText: MainText;
+}
+
+const IntroText: FC<IntroTextProps> = ({ MainText }) => {
 
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
-                <h1>Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary:</h1>
+                <h1>{MainText}</h1>
                 <div className={s.info}>
                     <div className={s.text}>
                         <ul>

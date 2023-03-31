@@ -6,7 +6,7 @@ import cn from "classnames";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import AdminService from "@/services/AdminService";
-import { IProject } from "@/models";
+import { IProject } from "@/models/data";
 
 import s from './OurProjects.module.scss';
 import React from 'react';

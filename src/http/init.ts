@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {store} from "../redux/store";
+import {store} from "@/redux/store";
 import {changeUserType} from "@/redux/Slices/AdminSlice";
 import Cookies from "universal-cookie";
 
