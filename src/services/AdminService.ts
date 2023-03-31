@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import {store} from "@/redux/store";
 import {changeUserType} from "@/redux/Slices/AdminSlice";
 import {toast} from "react-toastify";
-import {IAdmin, IOffer, IProject} from "@/models";
+import {IAdmin, IOffer, IProject} from "@/models/data";
 
 export default class AdminService {
     static Login = async (password: string): Promise<void> => {

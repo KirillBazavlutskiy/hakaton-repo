@@ -1,7 +1,6 @@
 import {FC} from 'react';
 import s from './ProjectsList.module.scss';
-import AdminService from "@/services/AdminService";
-import {IProject} from "@/models";
+import {IProject} from "@/models/data";
 import ProjectAdminItem
     from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem";
 

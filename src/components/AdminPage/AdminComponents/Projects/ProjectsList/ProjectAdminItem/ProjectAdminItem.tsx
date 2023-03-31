@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import s from "./ProjectAdminItem.module.scss";
 import AdminService from "@/services/AdminService";
-import {IProject} from "@/models";
+import {IProject} from "@/models/data";
 
 interface ProjectAdminItem {
     fetchProjects: () => Promise<void>;
