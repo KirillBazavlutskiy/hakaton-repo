@@ -5,7 +5,7 @@
     @apply w-full h-full flex items-center justify-between;
 
     .linksBlock {
-      @apply w-1/4 h-full flex flex-col items-start justify-between;
+      @apply h-full flex flex-col items-start justify-between border-r border-r-white pr-[15px];
 
       .notActiveBtn {
         transition: .4s;
@@ -22,10 +22,10 @@
       }
     }
     .receiptBlock {
-      @apply w-3/4 h-[120px] max-h-[120px] flex flex-col items-center overflow-y-scroll;
+      @apply w-3/4 h-[120px] max-h-[120px] flex flex-col overflow-y-scroll;
 
       .receipt {
-        @apply w-full h-[50px] flex items-center justify-between
+        @apply w-[90%] h-[50px] flex items-center justify-between
         p-[10px] mb-[10px]
         border border-yellow-300 rounded-xl;
 
