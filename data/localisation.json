@@ -1,0 +1,78 @@
+{
+    "en": {
+        "MainText": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
+        "OurProjects": {
+            "main": "Our Projects",
+            "donateButton": "Donate"
+        },
+        "OutLatestNews": "Our Latest news",
+        "WhatHasAlreadyBeenDone": "What has already been done",
+        "IWantToDonate": {
+            "main": "I want to donate",
+            "otherWays": "Other ways to donate"
+        },
+        "IWantToHelpWithHumanitarianAid": {
+            "main": "I want to help with Humanitarian Aid",
+            "fillTheForm": "If u can help and provide something of the current list above, please fill out the form below",
+            "listOfNeeds": "List of current Needs",
+            "form": {
+                "name": "Name",
+                "phone": "Phone",
+                "email": "E-mail",
+                "whatYouCanProvide": "What You Can Provide",
+                "sendButton": "Send"
+            }
+        },
+        "OurPartners": "Our partners",
+        "OurTeam": {
+            "main": "Our Team",
+            "description": "Support the Ukrainian Army, territorial defense fighters, refugees, hospitals, animal shelters❤️"
+        },
+        "LinkToForm": {
+            "main": "Template for official aid request for organisations",
+            "formLink": "Fill the form"
+        },
+        "Bottom": {
+            "privacyPolicy": "Privacy Policy",
+            "donateButton": "Donate"
+        }
+    },
+    "ua": {
+        "MainText": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
+        "OurProjects": {
+            "main": "Наші проекти",
+            "donateButton": "Пожертвувати"
+        },
+        "OutLatestNews": "Наші останні новини",
+        "WhatHasAlreadyBeenDone": "Що вже зроблено",
+        "IWantToDonate": {
+            "main": "Я хочу пожертвувати",
+            "otherWays": "Інші способи пожертвування"
+        },
+        "IWantToHelpWithHumanitarianAid": {
+            "main": "Я хочу допомогти з гуманітарною допомогою",
+            "fillTheForm": "Якщо ви можете допомогти та надати щось із поточного списку вище, будь ласка, заповніть форму нижче",
+            "listOfNeeds": "Список поточних потреб",
+            "form": {
+                "name": "Ім'я",
+                "phone": "Номер телефону",
+                "email": "E-mail",
+                "whatYouCanProvide": "Що ви можете запропонувати",
+                "sendButton": "Відправити"
+            }
+        },
+        "OurPartners": "Наші партнери",
+        "OurTeam": {
+            "main": "Наша команда",
+            "description": "Підтримуйте українську армію, бійців територіальної оборони, біженців, лікарні, притулки для тварин❤️"
+        },
+        "LinkToForm": {
+            "main": "Шаблон офіційного запиту на допомогу для організацій",
+            "formLink": "Заповніть форму"
+        },
+        "Bottom": {
+            "privacyPolicy": "Політика конфіденційності",
+            "donateButton": "Пожертвувати"
+        }
+    }
+}

@@ -9,19 +9,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import {FC, ReactNode} from "react";
 
 interface LayoutProps {
+    lang: string
     children: ReactNode,
     keywords: string,
     title?: string,
     className?: string,
 }
 
-export const Layout: FC<LayoutProps> = ({ children, keywords, title, className }) => {
+export const Layout: FC<LayoutProps> = ({ children, keywords, title, className, lang }) => {
     return (
         <>
             <Head>
                 <title>{title}</title>
                 <meta name="keywords" content={"hakaton-app " + keywords} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta lang={lang} />
             </Head>
             <div className={s.wrapper}>
                 <Header className={s.header} />
