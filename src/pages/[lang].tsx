@@ -95,7 +95,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         params: { lang: key },
     }))
 
-    return { paths, fallback: true }
+    return { paths, fallback: false }
 }
 
 export default Index;

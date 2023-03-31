@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/localisation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localisation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IntroText/IntroText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IntroText/IntroText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostsGrid/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostsGrid/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostsGrid/PostsGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostsGrid/PostsGrid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SectionCaption/SectionCaption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SectionCaption/SectionCaption.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[lang].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[lang].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[lang].tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="SCSS File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -115,7 +103,7 @@
       <workItem from="1679922894518" duration="413000" />
       <workItem from="1679925655672" duration="660000" />
       <workItem from="1680181711730" duration="1006000" />
-      <workItem from="1680286229751" duration="7669000" />
+      <workItem from="1680286229751" duration="8298000" />
     </task>
     <servers />
   </component>
