@@ -1,6 +1,7 @@
 import { FC } from "react";
 import {GetStaticPaths, GetStaticProps} from 'next';
-import {IPost, TranslatedLanguage, Translation} from '@/models';
+import {IPost} from '@/models/data';
+import {TranslatedLanguage, Translation} from "@/models/text";
 import axios from 'axios';
 
 import { Layout } from '@/layouts/Layout';
@@ -29,7 +30,7 @@ const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => 
     return (
         <Layout title={"Головна"} keywords={""} lang={language}>
             <section id="B1">
-                <IntroText />
+                <IntroText MainText={localisationText.MainText} />
             </section>
             <section id="B2">
                 <OurProjects />

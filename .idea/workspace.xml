@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IntroText/IntroText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IntroText/IntroText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostsGrid/PostsGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostsGrid/PostsGrid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/[lang].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[lang].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/changeText.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/changeText.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="SCSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -103,7 +111,7 @@
       <workItem from="1679922894518" duration="413000" />
       <workItem from="1679925655672" duration="660000" />
       <workItem from="1680181711730" duration="1006000" />
-      <workItem from="1680286229751" duration="8298000" />
+      <workItem from="1680286229751" duration="9581000" />
     </task>
     <servers />
   </component>

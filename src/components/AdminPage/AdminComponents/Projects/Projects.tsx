@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from 'react';
 import AdminService from "@/services/AdminService";
-import {IProject} from "@/models";
+import {IProject} from "@/models/data";
 import ProjectsList from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList";
 import ProjectAdd from "@/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd";
 

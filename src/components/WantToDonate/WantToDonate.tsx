@@ -1,7 +1,5 @@
 import s from './WantToDonate.module.scss'
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
 import { SectionCaption } from '../SectionCaption/SectionCaption'
-import {useState} from "react";
 import PayBlock from "@/components/WantToDonate/Components/PayBlock/PayBlock";
 
 const WantToDonate = () => {

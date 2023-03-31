@@ -1,7 +1,4 @@
 import cn from 'classnames';
-
-import { useAppSelector } from "@/redux/store";
-
 import s from './RoundedButton.module.scss';
 
 interface RoundedButtonProps {

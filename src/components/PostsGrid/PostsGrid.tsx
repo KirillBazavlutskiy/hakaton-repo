@@ -1,4 +1,4 @@
-import { IPost } from '@/models';
+import { IPost } from '@/models/data';
 import { Post } from './Post/Post';
 import s from './PostsGrid.module.css';
 
