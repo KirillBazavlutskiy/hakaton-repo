@@ -33,26 +33,26 @@ const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => 
                 <IntroText MainText={localisationText.MainText} />
             </section>
             <section id="B2">
-                <OurProjects />
+                <OurProjects OurProjects={localisationText.OurProjects}/>
             </section>
             <section id="B3">
                 {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
             </section>
             <section id="B4">
-                <WhatHasAlreadyBeenDone />
+                <WhatHasAlreadyBeenDone WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone}/>
             </section>
             <section id="B56">
-                <WantToDonate />
-                <HumanitarianAid />
+                <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>
+                <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
             </section>
             <section id="B7">
-                <OurPartners />
+                <OurPartners OurPartners={localisationText.OurPartners}/>
             </section>
             <section id='B8'>
-                <OurTeam />
+                <OurTeam OurTeam={localisationText.OurTeam}/>
             </ section>
             <section id="B9">
-                <OfficialAidRequest />
+                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
             </section>
         </Layout>
     )

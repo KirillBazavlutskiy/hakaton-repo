@@ -1,14 +1,20 @@
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import s from './OfficialAidRequest.module.scss'
+import {LinkToForm} from "@/models/text";
+import {FC} from "react";
 
-const OfficialAidRequest = () => {
+interface OfficialAidRequestProps {
+    OfficialAid: LinkToForm;
+}
+
+const OfficialAidRequest:FC<OfficialAidRequestProps> = ({OfficialAid}) => {
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
                 <SectionCaption className={s.caption}>
-                    Template for official aid request for organisations
+                    {OfficialAid.main}
                 </SectionCaption>
-                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">Fill the form</a>
+                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">{OfficialAid.formLink}</a>
             </div>
         </div>
     );

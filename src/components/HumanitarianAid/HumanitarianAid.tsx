@@ -7,8 +7,13 @@ import { SectionCaption } from '../SectionCaption/SectionCaption';
 import { RoundedButton } from '../RoundedButton/RoundedButton';
 
 import s from './HumanitarianAid.module.scss';
+import {IWantToHelpWithHumanitarianAid} from "@/models/text";
 
-const HumanitarianAid: FC = () => {
+interface HumanitarianAidProps {
+    HumanitarianAid: IWantToHelpWithHumanitarianAid;
+}
+
+const HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {
 
     const [userForm, setUserForm] = useState<IOffer>({
         name: '',
@@ -23,12 +28,12 @@ const HumanitarianAid: FC = () => {
                 <div className={s.gradient}></div>
                 <div className={s.inner}>
                     <SectionCaption>
-                        I want to help with Humanitarian Aid
+                        {HumanitarianAid.main}
                     </SectionCaption>
                     <div className={s.blocks}>
                         <div className={s.infoSide}>
-                            <p>If u can help and provide something of the current list above, please fill out the form below</p>
-                            <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">List of current Needs</a>
+                            <p>{HumanitarianAid.fillTheForm}</p>
+                            <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">{HumanitarianAid.listOfNeeds}</a>
                         </div>
                         <form
                             className={s.formSide}
@@ -42,25 +47,25 @@ const HumanitarianAid: FC = () => {
                                     value={userForm.name}
                                     onChange={e => setUserForm({ ...userForm, name: e.target.value })}
                                     type="text"
-                                    placeholder='Name' />
+                                    placeholder={HumanitarianAid.form.name} />
                                 <input
                                     value={userForm.phone}
                                     onChange={e => setUserForm({ ...userForm, phone: e.target.value })}
                                     type="text"
-                                    placeholder='Phone' />
+                                    placeholder={HumanitarianAid.form.phone} />
                                 <input
                                     value={userForm.email}
                                     onChange={e => setUserForm({ ...userForm, email: e.target.value })}
                                     type="text"
-                                    placeholder='E-mail' />
+                                    placeholder={HumanitarianAid.form.email} />
                             </div>
                             <textarea
                                 value={userForm.offer}
                                 onChange={e => setUserForm({ ...userForm, offer: e.target.value })}
-                                placeholder='What you can provide'>
+                                placeholder={HumanitarianAid.form.whatYouCanProvide}>
                             </textarea>
                             <RoundedButton className={s.submit}>
-                                <button type='submit'>Send</button>
+                                <button type='submit'>{HumanitarianAid.form.sendButton}</button>
                             </RoundedButton>
                         </form>
                     </div>

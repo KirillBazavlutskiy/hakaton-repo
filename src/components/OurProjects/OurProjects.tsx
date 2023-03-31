@@ -10,10 +10,15 @@ import { IProject } from "@/models/data";
 
 import s from './OurProjects.module.scss';
 import React from 'react';
+import {OurProjects} from "@/models/text";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-const OurProjects: FC = () => {
+interface IntroTextProps {
+    OurProjects: OurProjects;
+}
+
+const OurProjects: FC<IntroTextProps> = (OurProjects) => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
 
@@ -83,7 +88,7 @@ const OurProjects: FC = () => {
         <div className={s.wrapper}>
             <div className={s.container}>
                 <SectionCaption>
-                    Our Projects
+                    {OurProjects.OurProjects.main}
                 </SectionCaption>
                 <Swiper
                     modules={[Navigation]}
@@ -135,20 +140,8 @@ const OurProjects: FC = () => {
                                 key={i}
                             >
                                 <RoundedButton className={s.donate}>
-                                    <a href="#B56">Donate</a>
+                                    <a href="#B56">{OurProjects.OurProjects.donateButton}</a>
                                 </RoundedButton>
-                                {/*<div className={s.wrapper}>*/}
-                                {/*    {*/}
-                                {/*        el.statistic.map((el, i) => (*/}
-                                {/*            <div*/}
-                                {/*                className={s.counter}*/}
-                                {/*            >*/}
-                                {/*                <h3>{el.value}</h3>*/}
-                                {/*                <span>{el.key}</span>*/}
-                                {/*            </div>*/}
-                                {/*        ))*/}
-                                {/*    }*/}
-                                {/*</div>*/}
                             </div>
                         ))
                     }

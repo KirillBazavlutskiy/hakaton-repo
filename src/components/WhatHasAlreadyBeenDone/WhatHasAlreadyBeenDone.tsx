@@ -2,9 +2,13 @@ import { FC, useEffect, useState } from "react";
 import Counter from '../Counter/Counter';
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import s from './WhatHasAlreadyBeenDone.module.scss';
+import {WhatHasAlreadyBeenDone} from "@/models/text";
 
+interface WhatHasAlreadyBeenDoneProps {
+    WhatHasAlreadyBeenDone: WhatHasAlreadyBeenDone;
+}
 
-const WhatHasAlreadyBeenDone: FC = () => {
+const WhatHasAlreadyBeenDone: FC<WhatHasAlreadyBeenDoneProps> = (WhatHasAlreadyBeenDone) => {
     const [heightToAnimate, setHeightToAnimate] = useState<number>(1000);
     const [currentPageYOffset, setCurrentPageYOffset] = useState<number>(0);
 
@@ -28,7 +32,7 @@ const WhatHasAlreadyBeenDone: FC = () => {
         <div className={s.wrappercounter}>
             <div className={s.container}>
                 <SectionCaption>
-                    What has already been done
+                    {WhatHasAlreadyBeenDone.WhatHasAlreadyBeenDone}
                 </SectionCaption>
                 <div className={s.content}>
                     <div className={s.info}>

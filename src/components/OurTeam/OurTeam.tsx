@@ -12,8 +12,13 @@ import Person7 from './TeamPhotos/Person7.png';
 import Person8 from './TeamPhotos/Person8.png';
 import Person9 from './TeamPhotos/Person9.png';
 import Person10 from './TeamPhotos/Person10.png';
+import {OurTeam} from "@/models/text";
 
-const OurTeam: FC = () => {
+interface OurTeamProps {
+    OurTeam: OurTeam;
+}
+
+const OurTeam: FC<OurTeamProps> = ({OurTeam}) => {
 
     const [photos] = useState([
         {
@@ -60,8 +65,8 @@ const OurTeam: FC = () => {
 
     return (
         <div className={s.container}>
-            <h2>Our Team</h2>
-            <h3>Support the Ukrainian Army, territorial defense fighters, refugees, hospitals, animal shelters❤️</h3>
+            <h2>{OurTeam.main}</h2>
+            <h3>{OurTeam.description}</h3>
             <div className={s.teamList}>
                 {
                     photos.map((p) => <PersonCard title={p.title} photoSrc={p.photoSrc} />)

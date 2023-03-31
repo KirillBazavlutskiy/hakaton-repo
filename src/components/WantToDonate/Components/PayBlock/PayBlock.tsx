@@ -1,8 +1,13 @@
 import styles from './PayBlock.module.scss';
 import { SectionCaption } from "@/components/SectionCaption/SectionCaption";
-import { useState } from "react";
+import {FC, useState} from "react";
+import {IWantToDonate} from "@/models/text";
 
-const PayBlock = () => {
+interface PayBlockProps {
+    PayBlock: IWantToDonate;
+}
+
+const PayBlock:FC<PayBlockProps> = (PayBlock) => {
 
     const receipt__copy__function = (receipt:string) => {
         navigator.clipboard.writeText(receipt);
@@ -30,7 +35,7 @@ const PayBlock = () => {
     return (
         <div className={styles.container}>
             <SectionCaption>
-                Other ways to donate
+                {PayBlock.PayBlock.otherWays}
             </SectionCaption>
             <div className={styles.block}>
                 <div className={styles.linksBlock}>

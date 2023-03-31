@@ -14,8 +14,14 @@ import liberto from '../../images/liberto.png';
 import bf from '../../images/bf.png';
 import limac from '../../images/limac.png';
 import Slider from './Slider/Slider';
+import {FC} from "react";
+import {OurPartners} from "@/models/text";
 
-const OurPartners = () => {
+interface OurPartnersProps {
+    OurPartners: OurPartners;
+}
+
+const OurPartners:FC<OurPartnersProps> = ({OurPartners}) => {
     const links = [
         { link: ukmed }, { link: wck }, { link: uklon }, { link: novap }, { link: reckitt }, { link: nph }, { link: fce },
         { link: ukmed }, { link: wck }, { link: uklon }, { link: novap }, { link: reckitt }, { link: nph }, { link: fce },
@@ -24,7 +30,7 @@ const OurPartners = () => {
         <div className={s.wrapper}>
             <div className={s.container}>
                 <SectionCaption>
-                    Our partners
+                    {OurPartners}
                 </SectionCaption>
                 <div className={s.block}>
                     <Slider links={links} direction={'toRight'} />
