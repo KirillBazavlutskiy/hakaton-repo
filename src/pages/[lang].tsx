@@ -73,7 +73,8 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
                 instagramData: response,
                 localisationText: jsonData[lang || 'en'],
                 language: lang
-            }
+            },
+            revalidate: 600,
         };
     } catch (error) {
         console.error(error);
@@ -82,7 +83,8 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
                 instagramData: [],
                 localisationText: jsonData[lang || 'en'],
                 language: lang
-            }
+            },
+            revalidate: 600,
         };
     }
 }
@@ -96,7 +98,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
         params: { lang: key },
     }))
 
-    return { paths, fallback: false }
+    return {
+        paths,
+        fallback: false
+    }
 }
 
 export default Index;

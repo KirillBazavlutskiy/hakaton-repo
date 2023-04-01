@@ -11,7 +11,7 @@ const IntroText: FC<IntroTextProps> = ({ MainText }) => {
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
-                <h1>{MainText}</h1>
+                <h1>{MainText.main}</h1>
                 <div className={s.info}>
                     <div className={s.text}>
                         <ul>
@@ -22,7 +22,7 @@ const IntroText: FC<IntroTextProps> = ({ MainText }) => {
                             <li>Shelters for animals</li>
                             <li>Shelters for vulnerable people</li>
                         </ul>
-                        <a href="#" className={s.btn}>Help us maintain the valanteer fund</a>
+                        <a href="#" className={s.btn}>{MainText.button}</a>
                     </div>
                     <div className={s.img}></div>
                 </div>

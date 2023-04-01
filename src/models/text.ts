@@ -1,4 +1,7 @@
-export type MainText = string;
+export type MainText = {
+    main: string;
+    button: string;
+};
 export type OurProjects = {
     main: string;
     donateButton: string;

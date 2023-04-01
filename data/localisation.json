@@ -1,6 +1,9 @@
 {
     "en": {
-        "MainText": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
+        "MainText": {
+            "main": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
+            "button": "Help us maintain the valanteer fund"
+        },
         "OurProjects": {
             "main": "Our Projects",
             "donateButton": "Donate"
@@ -38,7 +41,10 @@
         }
     },
     "ua": {
-        "MainText": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
+        "MainText": {
+            "main": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
+            "button": "Допоможіть нам підтримувати благодійний фонд"
+        },
         "OurProjects": {
             "main": "Наші проекти",
             "donateButton": "Пожертвувати"
