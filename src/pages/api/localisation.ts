@@ -4,16 +4,16 @@ import fs from 'fs';
 import path from "path";
 import process from "process";
 
-const changeTextHandler = (req: NextApiRequest, res: NextApiResponse) => {
+const localisationHandler = (req: NextApiRequest, res: NextApiResponse) => {
 
     const { method, body } = req;
+    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
 
     switch (method) {
         case 'PUT':
             try {
                 const data = JSON.parse(body);
                 if (data as Translation) {
-                    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
                     fs.writeFileSync(filePath, JSON.stringify(data));
                     res.status(200).json({ message: 'Successfully Updated!' });
                 } else {
@@ -21,7 +21,7 @@ const changeTextHandler = (req: NextApiRequest, res: NextApiResponse) => {
                 }
             } catch (error) {
                 console.log(error);
-                res.status(500).json({ message: 'Failed to update!' })
+                res.status(500).json({ message: 'Failed to update!' });
             }
             break;
         default:
@@ -31,4 +31,4 @@ const changeTextHandler = (req: NextApiRequest, res: NextApiResponse) => {
     }
 }
 
-export default changeTextHandler;
+export default localisationHandler;

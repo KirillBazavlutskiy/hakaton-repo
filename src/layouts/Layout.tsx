@@ -7,6 +7,7 @@ import { Footer } from './Footer/Footer';
 import s from './Layout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {FC, ReactNode} from "react";
+import {BottomText, HeaderText} from "@/models/text";
 
 interface LayoutProps {
     lang: string
@@ -14,9 +15,11 @@ interface LayoutProps {
     keywords: string,
     title?: string,
     className?: string,
+    headerText: HeaderText;
+    bottomText: BottomText;
 }
 
-export const Layout: FC<LayoutProps> = ({ children, keywords, title, className, lang }) => {
+export const Layout: FC<LayoutProps> = ({ children, keywords, title, className, lang, headerText, bottomText }) => {
     return (
         <>
             <Head>
@@ -26,11 +29,11 @@ export const Layout: FC<LayoutProps> = ({ children, keywords, title, className, 
                 <meta lang={lang} />
             </Head>
             <div className={s.wrapper}>
-                <Header className={s.header} />
+                <Header className={s.header} headerText={headerText} />
                 <div className={cn(s.body)}>
                     {children}
                 </div>
-                <Footer className={s.footer} />
+                <Footer className={s.footer} footerText={bottomText} />
             </div>
         </>
     );

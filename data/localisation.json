@@ -1,5 +1,12 @@
 {
     "en": {
+        "HeaderText": {
+            "projects": "Projects",
+            "news": "News",
+            "statistic": "Statistic",
+            "partners": "Partners",
+            "donate": "Donate"
+        },
         "MainText": {
             "main": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
             "button": "Help us maintain the valanteer fund"
@@ -35,12 +42,19 @@
             "main": "Template for official aid request for organisations",
             "formLink": "Fill the form"
         },
-        "Bottom": {
+        "BottomText": {
             "privacyPolicy": "Privacy Policy",
             "donateButton": "Donate"
         }
     },
     "ua": {
+        "HeaderText": {
+            "projects": "Проекти",
+            "news": "Новини",
+            "statistic": "Статистика",
+            "partners": "Партнери",
+            "donate": "Пожертвувати"
+        },
         "MainText": {
             "main": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
             "button": "Допоможіть нам підтримувати благодійний фонд"
@@ -76,7 +90,7 @@
             "main": "Шаблон офіційного запиту на допомогу для організацій",
             "formLink": "Заповніть форму"
         },
-        "Bottom": {
+        "BottomText": {
             "privacyPolicy": "Політика конфіденційності",
             "donateButton": "Пожертвувати"
         }

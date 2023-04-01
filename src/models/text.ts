@@ -1,3 +1,10 @@
+export type HeaderText = {
+    projects: string;
+    news: string;
+    statistic: string;
+    partners: string;
+    donate: string;
+}
 export type MainText = {
     main: string;
     button: string;
@@ -33,12 +40,13 @@ export type LinkToForm = {
     main: string;
     formLink: string;
 };
-export type Bottom = {
+export type BottomText = {
     privacyPolicy: string;
     donateButton: string;
 };
 
 export interface TranslatedLanguage {
+    HeaderText: HeaderText;
     MainText: MainText;
     OurProjects: OurProjects;
     OutLatestNews: OurLatestNews;
@@ -46,9 +54,9 @@ export interface TranslatedLanguage {
     IWantToDonate: IWantToDonate
     IWantToHelpWithHumanitarianAid: IWantToHelpWithHumanitarianAid;
     OurPartners: OurPartners;
-    OurTeam: OurTeam
-    LinkToForm: LinkToForm
-    Bottom: Bottom
+    OurTeam: OurTeam;
+    LinkToForm: LinkToForm;
+    BottomText: BottomText;
 }
 
 export interface Translation {

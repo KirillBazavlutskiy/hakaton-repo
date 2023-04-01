@@ -27,8 +27,10 @@ interface IndexProps {
 
 const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => {
 
+    console.log(localisationText)
+
     return (
-        <Layout title={"Головна"} keywords={""} lang={language}>
+        <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
             <section id="B1">
                 <IntroText MainText={localisationText.MainText} />
             </section>

@@ -7,13 +7,15 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 
 import s from './Header.module.scss';
 import Logo from "@/images/logo.png";
+import {HeaderText} from "@/models/text";
 
 
-interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
+interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    headerText: HeaderText;
+}
 
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
     const [headerMenu, setHeaderMenu] = useState<boolean>(false);
-    
 
     return (
         <header className={cn(s.wrapper, className)} {...props}>
@@ -23,13 +25,13 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                 </div>
                 <nav className={s.navbar}>
                     <div className={s.menu}>
-                        <a href="#B2">Projects</a>
-                        <a href="#B3">News</a>
-                        <a href="#B4">Statistic</a>
-                        <a href="#B7">Partners</a>
+                        <a href="#B2">{props.headerText.projects}</a>
+                        <a href="#B3">{props.headerText.news}</a>
+                        <a href="#B4">{props.headerText.news}</a>
+                        <a href="#B7">{props.headerText.statistic}</a>
                     </div>
                     <LanguageSwitcher />
-                    <a href="#B56" className={s.donate}>Donate</a>
+                    <a href="#B56" className={s.donate}>{props.headerText.donate}</a>
                 </nav>
                 <div className={s.burger} onClick={() => setHeaderMenu(prev => !prev)}>
                     <div
@@ -52,7 +54,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                     />
                 </div>
             </div>
-            <HeaderMenu menuActive={headerMenu} />
+            <HeaderMenu menuActive={headerMenu} headerText={props.headerText} />
         </header>
     );
 };
