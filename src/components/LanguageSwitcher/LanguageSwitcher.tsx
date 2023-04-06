@@ -8,6 +8,7 @@ import { changeLanguage } from "@/redux/Slices/LanguageSlice";
 
 import s from './LanguageSwitcher.module.scss';
 import LangArrow from "@/images/icons/lang_arrow.svg"
+import Link from 'next/link';
 
 
 const LanguageSwitcher: FC = () => {
@@ -17,13 +18,17 @@ const LanguageSwitcher: FC = () => {
 
     return (
         <div className={s.lang} onClick={() => setStatus(prev => !prev)}>
-            <span className={s.text}>{language}</span>
+            <Link href="/" locale={language}>
+                <span className={s.text}>{language.toUpperCase()}</span>
+            </Link>
             <Image className={cn(s.arrowDown, {[s.arrowUp]: status})} src={LangArrow} alt="" />
 
-            <span
-                className={cn(s.droppedBox, {[s.active]: status})}
-                onClick={() => dispatch(changeLanguage(language === 'EN' ? 'UA' : 'EN'))}
-            >{language == 'EN' ? 'UA' : 'EN'}</span>
+            <Link href="/" locale={language === 'en' ? 'ua' : 'en'}>
+                <span
+                    className={cn(s.droppedBox, {[s.active]: status})}
+                    onClick={() => dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'))}
+                >{language == 'en' ? 'UA' : 'EN'}</span>
+            </Link>
         </div>
     );
 };

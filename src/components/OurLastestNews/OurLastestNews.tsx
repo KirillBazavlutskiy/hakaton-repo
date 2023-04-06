@@ -5,6 +5,7 @@ import { PostsGrid } from '../PostsGrid/PostsGrid';
 import s from "./OurLatestNews.module.scss";
 
 const OurLastestNews = (props: any) => {
+    
     return (
         <div className={s.wrapper}>
             <div className={s.container}>

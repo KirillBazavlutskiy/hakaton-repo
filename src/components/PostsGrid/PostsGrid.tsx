@@ -9,7 +9,7 @@ interface PostsGridProps {
 export function PostsGrid({ posts }: PostsGridProps): JSX.Element {
     return (
         <div className={s.grid}>
-            {posts && posts.map((p, i) => {
+            {posts.length > 0 && posts.map((p, i) => {
                 if(i < 3) {
                     return (
                         <Post

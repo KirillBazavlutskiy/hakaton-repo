@@ -22,17 +22,17 @@ export function Footer({ className, ...props }: FooterProps): JSX.Element {
                     <a href='#'>{props.footerText.privacyPolicy}</a>
                 </div>
                 <div className={s.contacts}>
-                    <a href='#'>
+                    <a className={s.icon} href='#'>
                         <Image src={Telegram} alt="telegram-icon" />
                     </a>
-                    <a href='https://www.instagram.com/stay.safe.ukraine/'>
+                    <a className={s.icon} href='https://www.instagram.com/stay.safe.ukraine/'>
                         <Image src={Instagram} alt="instagram-icon" />
                     </a>
-                    <a href='mailto:info@staysafe.in.ua'>info@staysafe.in.ua</a>
+                    <a className={s.mail} href='mailto:info@staysafe.in.ua'>info@staysafe.in.ua</a>
                 </div>
                 <div className={s.functionalBlock}>
                     <LanguageSwitcher />
-                    <a href="#B56">{props.footerText.donateButton}</a>
+                    <a className={s.donate} href="#B56">{props.footerText.donateButton}</a>
                 </div>
             </div>
         </footer>

@@ -8,13 +8,14 @@ import "@/styles/globals.css";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-import { Poppins } from '@next/font/google';
+import { Inter } from '@next/font/google';
 import {ToastContainer} from "react-toastify";
 
-const poppins = Poppins({
+const poppins = Inter({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['italic','normal'],
-  subsets: ['latin'],
+  style: ['normal'],
+  preload: true,
+  subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'latin-ext'],
   fallback: ['system-ui', 'arial'],
 });
 
