@@ -15,7 +15,7 @@
             "main": "Our Projects",
             "donateButton": "Donate"
         },
-        "OutLatestNews": "Our Latest news",
+        "OurLatestNews": "Our Latest news",
         "WhatHasAlreadyBeenDone": "What has already been done",
         "IWantToDonate": {
             "main": "I want to donate",
@@ -63,7 +63,7 @@
             "main": "Наші проекти",
             "donateButton": "Пожертвувати"
         },
-        "OutLatestNews": "Наші останні новини",
+        "OurLatestNews": "Наші останні новини",
         "WhatHasAlreadyBeenDone": "Що вже зроблено",
         "IWantToDonate": {
             "main": "Я хочу пожертвувати",

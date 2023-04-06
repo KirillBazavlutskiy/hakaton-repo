@@ -1,16 +1,19 @@
-import { FC, useEffect, useState } from 'react';
-import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react"
-import { RoundedButton } from '../RoundedButton/RoundedButton';
+import React, { FC, useEffect, useState } from 'react';
 import cn from "classnames";
 
+import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { SectionCaption } from '../SectionCaption/SectionCaption';
+import { RoundedButton } from '../RoundedButton/RoundedButton';
+
 import AdminService from "@/services/AdminService";
+import { OurProjects } from "@/models/text";
 import { IProject } from "@/models/data";
 
 import s from './OurProjects.module.scss';
-import React from 'react';
-import {OurProjects} from "@/models/text";
+
+
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 

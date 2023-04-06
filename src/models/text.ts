@@ -49,7 +49,7 @@ export interface TranslatedLanguage {
     HeaderText: HeaderText;
     MainText: MainText;
     OurProjects: OurProjects;
-    OutLatestNews: OurLatestNews;
+    OurLatestNews: OurLatestNews;
     WhatHasAlreadyBeenDone: WhatHasAlreadyBeenDone;
     IWantToDonate: IWantToDonate
     IWantToHelpWithHumanitarianAid: IWantToHelpWithHumanitarianAid;
