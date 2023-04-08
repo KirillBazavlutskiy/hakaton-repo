@@ -33,7 +33,7 @@ const HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {
                     <div className={s.blocks}>
                         <div className={s.infoSide}>
                             <p>{HumanitarianAid.fillTheForm}</p>
-                            <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">{HumanitarianAid.listOfNeeds}</a>
+                            <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit" target="_blank">{HumanitarianAid.listOfNeeds}</a>
                         </div>
                         <form
                             className={s.formSide}
