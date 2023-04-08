@@ -5,8 +5,8 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 import s from './Footer.module.scss';
 
 import Logo from "../../images/logo-min.png";
-import Telegram from "../../images/telegram.png";
-import Instagram from "../../images/instagram.png";
+import Facebook from "../../images/icons/facebook.svg";
+import Instagram from "../../images/icons/instagram.svg";
 import {BottomText} from "@/models/text";
 
 interface FooterProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -22,13 +22,13 @@ export function Footer({ className, ...props }: FooterProps): JSX.Element {
                     <a href='#'>{props.footerText.privacyPolicy}</a>
                 </div>
                 <div className={s.contacts}>
-                    <a className={s.icon} href='#'>
-                        <Image src={Telegram} alt="telegram-icon" />
+                    <a className={s.icon} href='https://www.facebook.com/staysafe.in.ua' target="_blank">
+                        <Image src={Facebook} alt="facebook-icon" />
                     </a>
-                    <a className={s.icon} href='https://www.instagram.com/stay.safe.ukraine/'>
+                    <a className={s.icon} href='https://www.instagram.com/stay.safe.ukraine/' target="_blank">
                         <Image src={Instagram} alt="instagram-icon" />
                     </a>
-                    <a className={s.mail} href='mailto:info@staysafe.in.ua'>info@staysafe.in.ua</a>
+                    <a className={s.mail} href='mailto:info@staysafe.in.ua' target="_blank">info@staysafe.in.ua</a>
                 </div>
                 <div className={s.functionalBlock}>
                     <LanguageSwitcher />
