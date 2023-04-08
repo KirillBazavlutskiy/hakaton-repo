@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from "classnames";
 
-import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
+import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
@@ -15,7 +15,7 @@ import s from './OurProjects.module.scss';
 
 
 
-SwiperCore.use([EffectCoverflow, Pagination]);
+SwiperCore.use([Pagination]);
 
 interface IntroTextProps {
     OurProjects: OurProjects;
@@ -96,9 +96,9 @@ const OurProjects: FC<IntroTextProps> = (OurProjects) => {
                 <Swiper
                     modules={[Navigation]}
                     loop={true}
-                    effect={"coverflow"}
-                    centeredSlides={true}
-                    slidesPerView={"auto"}
+                    effect={"slide"}
+                    centeredSlides={false}
+                    slidesPerView={1}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: -200,
