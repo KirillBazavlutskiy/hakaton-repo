@@ -91,19 +91,19 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
     }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
-    const data = fs.readFileSync(filePath);
-    const keys = Object.keys(JSON.parse(data.toString()));
+// export const getStaticPaths: GetStaticPaths = async () => {
+//     const filePath = path.join(process.cwd(), 'data', 'localisation.json');
+//     const data = fs.readFileSync(filePath);
+//     const keys = Object.keys(JSON.parse(data.toString()));
 
-    const paths = keys.map((key) => ({
-        params: { lang: key },
-    }))
+//     const paths = keys.map((key) => ({
+//         params: { lang: key },
+//     }))
 
-    return {
-        paths,
-        fallback: true
-    }
-}
+//     return {
+//         paths,
+//         fallback: true
+//     }
+// }
 
 export default Index;
