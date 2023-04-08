@@ -101,27 +101,82 @@
 
       .formSide {
         display: flex;
-        gap: 20px;
+        gap: 30px;
 
         @apply w-full md:w-[60%] flex-col sm:flex-row;
 
         .inputs {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 30px;
 
           color: #fff;
           font-weight: 500;
           line-height: 24px;
 
-          @apply w-full sm:w-1/2;
+          @apply w-full sm:w-1/2 justify-between;
 
-          input {
-            width: 100%;
+          .inputWrapper {
+            @apply relative;
+
+            .validationError {
+              @apply absolute bottom-[-24px] left-0 text-[#FF0000] font-semibold text-[12px];
+            }
+
+            .input {
+              width: 100%;
+              padding: 13px 16px;
+  
+              background: none;
+              border: 2px solid rgba(255, 255, 255, 0.2);
+              color: rgba(255, 255, 255, 0.2);
+
+              font-weight: 400;
+
+              &:focus {
+                @apply font-medium text-[#FFF];
+              }
+  
+              &::placeholder {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 24px;
+                color: rgba(255, 255, 255, 0.5);
+              }
+            }
+
+            .inputError {
+              border: 2px solid #FF0000;
+              color: #FF0000;
+            }
+          }
+        }
+
+        .textareaWrapper {
+          @apply relative w-full sm:w-1/2;
+
+          .validationError {
+            @apply absolute bottom-[-24px] left-0 text-[#FF0000] font-semibold text-[12px];
+          }
+
+          .textarea {
             padding: 13px 16px;
-
+            min-height: 120px;
+  
             background: none;
             border: 2px solid rgba(255, 255, 255, 0.2);
+  
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 400;
+            line-height: 24px;
+  
+            resize: none;
+            
+            @apply w-full h-full;
+  
+            &:focus {
+              @apply font-medium text-[#FFF];
+            }
 
             &::placeholder {
               font-weight: 500;
@@ -130,28 +185,9 @@
               color: rgba(255, 255, 255, 0.5);
             }
           }
-        }
-
-        textarea {
-          min-height: 150px;
-          padding: 13px 16px;
-
-          background: none;
-          border: 2px solid rgba(255, 255, 255, 0.2);
-
-          color: #fff;
-          font-weight: 500;
-          line-height: 24px;
-
-          resize: none;
-          
-          @apply w-full sm:w-1/2;
-
-          &::placeholder {
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 24px;
-            color: rgba(255, 255, 255, 0.5);
+          .textareaError {
+            border: 2px solid #FF0000;
+            color: #FF0000;
           }
         }
 
