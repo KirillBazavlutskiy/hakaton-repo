@@ -69,6 +69,18 @@ collected.wrapper {
 
         @apply text-[50px] 2xl:text-[70px] xl:text-[65px] lg:text-[60px] md:text-[55px] relative;
 
+        &:hover {
+          transition: ease-in-out .4s;
+          text-shadow: 0 0 25px #ffee00ac;
+        }
+
+        &::after {
+          content: "";
+
+          background: url(../../images/icons/click.svg);
+          @apply absolute right-[-110px] top-[-40px] bg-no-repeat bg-center w-[96px] h-[72px];
+        }
+
         .markedLine {
           @apply absolute left-[-5px] right-[-5px] bottom-0;
           @apply h-[21px];
