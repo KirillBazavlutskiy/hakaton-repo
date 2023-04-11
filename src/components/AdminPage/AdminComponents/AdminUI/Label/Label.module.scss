@@ -1,0 +1,23 @@
+.container {
+  @apply relative;
+  p {
+    @apply font-extrabold text-[32px] text-[#fff];
+  }
+
+  input, textarea {
+    @apply w-full bg-[#f1f0ea]/30
+    text-[#fff] text-[20px] font-normal rounded-[7px];
+  }
+
+  input {
+    @apply py-[12px] px-[10px];
+  }
+
+  textarea {
+    @apply p-[20px] resize-none
+  }
+
+  span {
+    @apply absolute bottom-[20px] right-[20px];
+  }
+}

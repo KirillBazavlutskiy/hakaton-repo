@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/localisation.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/localisation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RoundedButton/RoundedButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoundedButton/RoundedButton.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/text.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[lang].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[lang].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/changeText.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/localisation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/init.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/localisation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/localisation.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="SCSS File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -115,6 +109,9 @@
       <workItem from="1680286229751" duration="12570000" />
       <workItem from="1680299019680" duration="380000" />
       <workItem from="1680342501779" duration="1359000" />
+      <workItem from="1681122892552" duration="998000" />
+      <workItem from="1681124063342" duration="398000" />
+      <workItem from="1681232575031" duration="11492000" />
     </task>
     <servers />
   </component>

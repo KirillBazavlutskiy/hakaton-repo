@@ -3,7 +3,7 @@ import {store} from "@/redux/store";
 import {changeUserType} from "@/redux/Slices/AdminSlice";
 import Cookies from "universal-cookie";
 
-export const BASE_URL = 'https://ntu.egartsites.pp.ua';
+export const BASE_URL = 'https://ss.egartsites.pp.ua/api';
 
 const $api = axios.create({
     baseURL: BASE_URL,
