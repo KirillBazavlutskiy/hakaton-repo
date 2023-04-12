@@ -2,18 +2,14 @@ import styles from './PayBlock.module.scss';
 import { SectionCaption } from "@/components/SectionCaption/SectionCaption";
 import {FC, useState} from "react";
 import {IWantToDonate} from "@/models/text";
-import QRCode from "react-qr-code";
+import QRCode from 'react-qr-code';
 
 interface PayBlockProps {
     PayBlock: IWantToDonate;
 }
 
 const PayBlock:FC<PayBlockProps> = (PayBlock) => {
-
-    const receipt__copy__function = (receipt:string) => {
-        navigator.clipboard.writeText(receipt);
-
-    }
+    //Массив
     const [payReceiptsArray, setPayReceiptsArray] = useState([
         {name: "PayPal", receipt: "paypal__receipt", network: null},
 
@@ -23,19 +19,24 @@ const PayBlock:FC<PayBlockProps> = (PayBlock) => {
 
         {name: "Tether", receipt: "USDT__receipt", network: "THR"},
     ])
-    const [activeButton, setActiveButton] = useState<string>("PayPal")
+    //TODO: аменить на запрос из базы данных
 
-    let activeValue = payReceiptsArray
-        .filter(responce => responce.name === activeButton)
-        .map(responce => responce)
+    //Переменная, хранящая активное значеине кнопки
+    const [activeButton, setActiveButton] = useState<string>("PayPal")
 
     return (
         <div className={styles.container}>
             <div className={styles.block}>
                 <div className={styles.linksBlock}>
+                    {/*Вывод кнопок (фильтрация прописана на тот случай, если способов оплаты в одной платежной системе больше одной)*/}
                     {payReceiptsArray
+                        //Получаем все поля name из массива
                         .map(item => item.name)
+
+                        //Фильтруем(для вывода только одного способа оплаты)
                         .filter((name, index, self) => self.indexOf(name) === index)
+
+                        //Выводим кнопки, со значениями отфильтрованного массива
                         .map(name =>
                         <button
                             className={activeButton === name ? styles.activeBtn : styles.notActiveBtn}
@@ -46,12 +47,18 @@ const PayBlock:FC<PayBlockProps> = (PayBlock) => {
                 </div>
                 <div className={styles.secondBlock}>
                     <div className={styles.qrCode}>
-                        <QRCode value={'hey'} size={120} fgColor={"#000000"}/>
+                        {/*Компонент установленного модуля, для конвертации string данных в qr-код*/}
+                        <QRCode scale="120" value="hello"/>
+                        {/*TODO: Решить проблему с отображением QR-кода*/}
                     </div>
-                    <div className={styles.receiptBlock}>
-                        {payReceiptsArray
-                            .filter(responce => responce.name === activeButton)
-                            .map(responce =>
+                    {/*Общий вывод*/}
+                    {payReceiptsArray
+                        //Фильтрация массива
+                        .filter(responce => responce.name === activeButton)
+
+                        //Вывод отфильтрованного массива
+                        .map(responce =>
+                            <div className={styles.receiptBlock}>
                                 <div className={styles.receipt}>
                                     <div className={styles.textBlock}>
                                         <p>{responce.receipt}</p>
@@ -64,17 +71,11 @@ const PayBlock:FC<PayBlockProps> = (PayBlock) => {
                                         </svg>
                                     </button>
                                 </div>
-                            )
-                        }
-                        {payReceiptsArray
-                            .filter(responce => responce.name === activeButton)
-                            .map(responce =>
                                 <div className={responce.network === null ? styles.notNetwork : styles.activeNetwork}>
                                     <p>{responce.network}</p>
                                 </div>
-                            )
-                        }
-                    </div>
+                            </div>
+                        )}
                 </div>
             </div>
         </div>
