@@ -1,7 +1,7 @@
 import { FC } from "react";
 import {GetStaticPaths, GetStaticProps} from 'next';
 import {IPost} from '@/models/data';
-import {TranslatedLanguage, Translation} from "@/models/text";
+import {Translation} from "@/models/text";
 import axios from 'axios';
 
 import { Layout } from '@/layouts/Layout';
@@ -18,16 +18,18 @@ import OurTeam from "@/components/OurTeam/OurTeam";
 import fs from "fs";
 import process from "process";
 import path from "path";
+import {useRouter} from "next/router";
 
 interface IndexProps {
     instagramData: IPost[];
-    localisationText: TranslatedLanguage;
-    language: string;
+    translation: Translation;
 }
 
-const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => {
+const Index: FC<IndexProps> = ({ instagramData, translation }) => {
 
-    console.log(localisationText)
+    const router = useRouter();
+    const language = router.locale || 'en';
+    const localisationText = translation[language];
 
     return (
         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
@@ -61,8 +63,6 @@ const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => 
 }
 
 export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
-
-    const { lang } = context.params as { lang: string };
     const filePath = path.join(process.cwd(), 'data', 'localisation.json');
     const data = fs.readFileSync(filePath);
     const jsonData: Translation = JSON.parse(data.toString());
@@ -73,8 +73,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
         return {
             props: {
                 instagramData: response,
-                localisationText: jsonData[lang || 'en'],
-                language: lang
+                translation: jsonData,
             },
             revalidate: 600,
         };
@@ -83,26 +82,10 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
         return {
             props: {
                 instagramData: [],
-                localisationText: jsonData[lang || 'en'],
-                language: lang
+                translation: jsonData,
             },
             revalidate: 600,
         };
-    }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    const filePath = path.join(process.cwd(), 'data', 'localisation.json');
-    const data = fs.readFileSync(filePath);
-    const keys = Object.keys(JSON.parse(data.toString()));
-
-    const paths = keys.map((key) => ({
-        params: { lang: key },
-    }))
-
-    return {
-        paths,
-        fallback: false
     }
 }
 

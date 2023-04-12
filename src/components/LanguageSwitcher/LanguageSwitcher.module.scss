@@ -1,28 +1,31 @@
 .lang {
-    @apply flex items-center justify-start gap-[10px] cursor-pointer relative ml-[40px] text-[16px] font-light mt-[4px];
+    @apply cursor-pointer relative ml-[40px] text-[18px];
     
-    .text {
-      @apply flex w-[30px] justify-center;
+    .currentLanguage {
+        @apply relative flex items-center gap-[10px];
+
+        img {
+            @apply transition-all;
+        }
+
+        .arrowDown {
+            @apply rotate-0;
+        }
+
+        .arrowUp {
+            @apply rotate-180;
+        }
     }
 
-    .arrowDown {
-        transform: rotateX(0deg);
-        transition: .2s;
+    .dropBox {
+      @apply absolute flex flex-col items-center transition-all;
     }
 
-    .arrowUp {
-        transform: rotateX(180deg);
-        transition: .2s;
+    .dropBox.hidden {
+        @apply opacity-0 translate-y-[-100%];
     }
 
-    .droppedBox {
-      position: absolute;
-      left: 0; bottom: -100%;
-      display: none;
-      @apply w-[30px] justify-center;
-    }
-
-    .active {
-        display: flex;
+    .dropBox.showed {
+        @apply opacity-100 translate-y-0;
     }
   }

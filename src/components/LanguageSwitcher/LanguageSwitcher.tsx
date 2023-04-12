@@ -2,28 +2,29 @@ import { FC, useState } from 'react';
 import Image from "next/image";
 import cn from "classnames";
 
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "@/redux/store";
-import { changeLanguage } from "@/redux/Slices/LanguageSlice";
-
 import s from './LanguageSwitcher.module.scss';
 import LangArrow from "@/images/icons/lang_arrow.svg"
+import {useRouter} from "next/router";
+import Link from "next/link";
 
 
 const LanguageSwitcher: FC = () => {
-    const dispatch = useDispatch();
-    const { language } = useAppSelector(state => state.language);
-    const [status, setStatus] = useState<boolean>(false);
+
+    const { locale, locales } = useRouter();
+    const [ dropBox, setDropBox ] = useState<boolean>(false);
 
     return (
-        <div className={s.lang} onClick={() => setStatus(prev => !prev)}>
-            <span className={s.text}>{language}</span>
-            <Image className={cn(s.arrowDown, {[s.arrowUp]: status})} src={LangArrow} alt="" />
-
-            <span
-                className={cn(s.droppedBox, {[s.active]: status})}
-                onClick={() => dispatch(changeLanguage(language === 'EN' ? 'UA' : 'EN'))}
-            >{language == 'EN' ? 'UA' : 'EN'}</span>
+        <div className={s.lang} onClick={() => setDropBox(prev => !prev)}>
+            <div className={s.currentLanguage}>
+                <Link href='/' locale={locale} className={s.text}>{locale?.toUpperCase()}</Link>
+                <Image className={dropBox ? s.arrowUp : s.arrowDown} src={LangArrow} alt="" />
+            </div>
+            <div className={cn(s.dropBox, dropBox ? s.showed : s.hidden)}>
+                {
+                    locales?.filter(l => l !== locale)
+                    .map(l => <Link href='/' locale={l} className={s.text}>{l?.toUpperCase()}</Link>)
+                }
+            </div>
         </div>
     );
 };

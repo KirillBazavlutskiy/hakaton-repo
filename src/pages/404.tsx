@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 
 const Error: FC = () => {
     const router = useRouter();
-    useEffect(() => {router.push('/en')})
+    useEffect(() => {router.push('/')})
     return (
         <div />
     );
