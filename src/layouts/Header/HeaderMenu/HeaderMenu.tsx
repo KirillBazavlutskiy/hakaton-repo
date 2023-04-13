@@ -21,7 +21,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({  menuActive, headerText }) => {
             <a href="#B4">{headerText.news}</a>
             <a href="#B7">{headerText.statistic}</a>
             <button onClick={() => {
-                    dispatch(changeLanguage(language === 'EN' ? 'UA' : 'EN'));
+                    dispatch(changeLanguage(language === 'en' ? 'ua' : 'en'));
                     //TODO: Добавить условине для смены URL с EN на UA и наоборот
                 }
             }>
