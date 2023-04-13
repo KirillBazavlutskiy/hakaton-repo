@@ -52,12 +52,13 @@ body {
 .swiper-button-next {
   background-image: url(../images/icons/arrow_right.svg);
   transform: translateX(-50%);
-
+  display: block !important;
 }
 
 .swiper-button-prev {
   background-image: url(../images/icons/arrow_left.svg);
   transform: translateX(50%);
+  display: block !important;
 }
 
 .swiper-button-next::after,

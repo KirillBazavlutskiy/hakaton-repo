@@ -1,7 +1,9 @@
 import { FC } from "react";
+
 import {GetStaticPaths, GetStaticProps} from 'next';
 import {IPost} from '@/models/data';
 import {Translation} from "@/models/text";
+
 import axios from 'axios';
 
 import { Layout } from '@/layouts/Layout';
@@ -18,6 +20,7 @@ import OurTeam from "@/components/OurTeam/OurTeam";
 import fs from "fs";
 import process from "process";
 import path from "path";
+
 import {useRouter} from "next/router";
 
 interface IndexProps {
@@ -37,30 +40,31 @@ const Index: FC<IndexProps> = ({ instagramData, translation }) => {
                 <IntroText MainText={localisationText.MainText} />
             </section>
             <section id="B2">
-                <OurProjects OurProjects={localisationText.OurProjects}/>
+                <OurProjects OurProjects={localisationText.OurProjects} />
             </section>
             <section id="B3">
-                {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
+                {instagramData?.length > 0 && <OurLastestNews caption={localisationText.OurLatestNews} instagramData={instagramData} />}
             </section>
             <section id="B4">
-                <WhatHasAlreadyBeenDone WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone}/>
+                <WhatHasAlreadyBeenDone WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone} />
             </section>
             <section id="B56">
-                <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>
-                <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
+                <WantToDonate IWantToDonate={localisationText.IWantToDonate} />
+                <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid} />
             </section>
             <section id="B7">
-                <OurPartners OurPartners={localisationText.OurPartners}/>
+                <OurPartners OurPartners={localisationText.OurPartners} />
             </section>
             <section id='B8'>
-                <OurTeam OurTeam={localisationText.OurTeam}/>
+                <OurTeam OurTeam={localisationText.OurTeam} />
             </ section>
             <section id="B9">
-                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
+                <OfficialAidRequest OfficialAid={localisationText.LinkToForm} />
             </section>
         </Layout>
     )
 }
+
 
 export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const filePath = path.join(process.cwd(), 'data', 'localisation.json');
@@ -68,7 +72,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const jsonData: Translation = JSON.parse(data.toString());
 
     try {
-        const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
+        const { data: { data: response } }: any = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
 
         return {
             props: {

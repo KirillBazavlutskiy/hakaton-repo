@@ -4,6 +4,7 @@ import cn from "classnames";
 
 import s from './LanguageSwitcher.module.scss';
 import LangArrow from "@/images/icons/lang_arrow.svg"
+
 import {useRouter} from "next/router";
 import Link from "next/link";
 

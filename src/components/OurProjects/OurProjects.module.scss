@@ -106,14 +106,14 @@
       overflow: hidden !important;
       border-radius: 15px;
 
-      @apply max-w-[35vh] xl:max-w-[100vh] lg:max-w-[80vh] md:max-w-[65vh] sm:max-w-[50vh];
+      @apply w-full;
 
       .slideWrapper {
         width: 100%;
         overflow: hidden;
 
         .slideBlock {
-          @apply w-[40vh] xl:w-[100vh] lg:w-[80vh] md:w-[65vh] sm:w-[50vh];
+          @apply w-full;
 
           aspect-ratio: 16/10;
           background-size: cover !important;

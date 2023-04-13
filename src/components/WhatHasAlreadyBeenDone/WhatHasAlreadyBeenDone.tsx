@@ -40,7 +40,7 @@ const WhatHasAlreadyBeenDone: FC<WhatHasAlreadyBeenDoneProps> = (WhatHasAlreadyB
                             <h3>{currentPageYOffset >= heightToAnimate ? <Counter val={2000878} /> : <>0</>}&nbsp;uah</h3>
                             <span>Collected</span>
                         </div>
-                        <a href="#" className={s.report}>
+                        <a href="https://drive.google.com/file/d/1IsdOG6oOJvK909kRTrGS5fkatpJyMi7_/view" target="_blank" className={s.report}>
                             2022&nbsp;Report
                             <div className={s.markedLine}></div>
                             <div className={s.bluredLine}></div>

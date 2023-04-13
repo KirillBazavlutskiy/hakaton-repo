@@ -14,7 +14,7 @@ const OfficialAidRequest:FC<OfficialAidRequestProps> = ({OfficialAid}) => {
                 <SectionCaption className={s.caption}>
                     {OfficialAid.main}
                 </SectionCaption>
-                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">{OfficialAid.formLink}</a>
+                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA" target="_blank">{OfficialAid.formLink}</a>
             </div>
         </div>
     );

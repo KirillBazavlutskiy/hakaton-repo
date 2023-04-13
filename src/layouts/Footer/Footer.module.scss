@@ -54,9 +54,9 @@
     align-items: center;
     gap: 30px;
 
-    a {
+    .icon {
       img {
-        width: 25px;
+        width: 22px;
 
         &:hover {
           transition: .2s all;
@@ -65,7 +65,7 @@
       }
     }
 
-    a:last-child {
+    .mail {
       &:hover {
         transition: .2s all;
         text-decoration: underline;
@@ -93,13 +93,7 @@
       }
     }
 
-    button {
-      &:hover {
-        text-decoration: line-through;
-      }
-    }
-
-    a {
+    .donate {
       padding: 8px 16px;
   
       background-color: #FFED00;
