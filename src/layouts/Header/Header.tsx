@@ -36,20 +36,20 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                 <div className={s.burger} onClick={() => setHeaderMenu(prev => !prev)}>
                     <div
                         className={cn(s.slice, s.slice1, {
-                            [s.clicked]: headerMenu == true,
-                            [s.unclicked]: headerMenu == false
+                            [s.clicked]: headerMenu,
+                            [s.unclicked]: !headerMenu
                         })}
                     />
                     <div
                         className={cn(s.slice, s.slice2, {
-                            [s.clicked]: headerMenu == true,
-                            [s.unclicked]: headerMenu == false
+                            [s.clicked]: headerMenu,
+                            [s.unclicked]: !headerMenu
                         })}
                     />
                     <div
                         className={cn(s.slice, s.slice3, {
-                            [s.clicked]: headerMenu == true,
-                            [s.unclicked]: headerMenu == false
+                            [s.clicked]: headerMenu,
+                            [s.unclicked]: !headerMenu
                         })}
                     />
                 </div>

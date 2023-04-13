@@ -3,9 +3,10 @@
 const nextConfig = {
   reactStrictMode: false,
   i18n: {
-    locales: ['default', 'en', 'ua'],
-    defaultLocale: 'default',
-  },
+    locales: ['en', 'ua'],
+    defaultLocale: 'en',
+    localeDetection: true,
+  }
 };
 
 module.exports = nextConfig;

@@ -24,9 +24,18 @@ const localisationHandler = (req: NextApiRequest, res: NextApiResponse) => {
                 res.status(500).json({ message: 'Failed to update!' });
             }
             break;
+        case 'GET':
+            try {
+                const bufData = fs.readFileSync(filePath);
+                res.status(200).json(JSON.parse(bufData.toString()))
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ message: 'Failed to load!' });
+            }
+            break;
         default:
             res.setHeader('Allow', ['PUT']);
-            res.status(405).json({ message: `Method ${method} is not allowed! Use method PUT instead!` });
+            res.status(405).json({ message: `Method ${method} is not allowed! Use method PUT or GET instead!` });
             break;
     }
 }

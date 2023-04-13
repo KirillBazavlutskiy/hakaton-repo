@@ -1,4 +1,4 @@
-import {FC, useEffect} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {useAppSelector} from "@/redux/store";
 import AdminService from "@/services/AdminService";
 
@@ -7,9 +7,24 @@ import SuperAdminPage from "@/components/AdminPage/SuperAdminPage/SuperAdminPage
 import AdminPage from "@/components/AdminPage/AdminPage/AdminPage";
 
 import 'react-toastify/dist/ReactToastify.css';
+import {Translation} from "@/models/text";
+
+interface localisationState {
+    loading: boolean;
+    localisationText: Translation | null;
+}
 
 const Admin: FC = () => {
     const { user } = useAppSelector(state => state.status)
+
+    const [localisation, setLocalisation] = useState<localisationState>({
+        loading: true,
+        localisationText: null,
+    })
+    const [language, setLanguage] = useState('en');
+
+    useEffect(() => {
+    });
 
     useEffect(() => {
         AdminService.ChechAuth();
