@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/icons/click.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/icons/facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/icons/instagram.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/telegram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/text.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/Slices/LanguageSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/Slices/LanguageSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +118,7 @@
       <workItem from="1681382764834" duration="853000" />
       <workItem from="1681489032123" duration="3573000" />
       <workItem from="1681501559037" duration="2088000" />
-      <workItem from="1681558805858" duration="4659000" />
+      <workItem from="1681558805858" duration="5284000" />
     </task>
     <servers />
   </component>
