@@ -5,11 +5,11 @@ interface ButtonProps {
     children: React.ReactNode;
     color: 'red' | 'yellow' | 'blue';
     size: 'big' | 'small';
-    shadow: boolean;
+    shadow?: boolean;
     onClick: () => void | Promise<void>;
 }
 
-const Button: FC<ButtonProps> = ({children, color, size, shadow, onClick}) => {
+const Button: FC<ButtonProps> = ({children, color, size, shadow = false, onClick}) => {
     return (
         <button
             className={s.button}

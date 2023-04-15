@@ -6,16 +6,15 @@ import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
 import MainScreen from "@/components/AdminPage/AdminComponents/MainScreen/MainScreen";
 import {Translation} from "@/models/text";
 
-interface SuperAdminPageProps<T> {
-    localisation: T;
-    languages: keyof T;
+interface SuperAdminPageProps {
+    Translation: Translation;
 }
 
-const SuperAdminPage: FC = () => {
+const SuperAdminPage: FC<SuperAdminPageProps> = ({ Translation }) => {
     return (
         <div className={s.container}>
             <Admins />
-            <MainScreen />
+            <MainScreen  />
             <Projects />
         </div>
     );

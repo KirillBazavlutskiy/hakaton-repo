@@ -1,5 +1,5 @@
 import { FC } from "react";
-import {GetStaticPaths, GetStaticProps} from 'next';
+import {GetStaticProps} from 'next';
 import {IPost} from '@/models/data';
 import {Translation} from "@/models/text";
 import axios from 'axios';

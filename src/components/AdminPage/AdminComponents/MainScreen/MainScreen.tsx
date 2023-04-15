@@ -1,23 +1,27 @@
-import {FC, useState} from 'react';
+import {FC, useContext} from 'react';
 import s from './MainScreen.module.scss';
 import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
-import Button from "@/components/AdminPage/AdminComponents/AdminUI/Button/Button";
+import {TranslationTextContext} from "@/pages/admin";
 
 const MainScreen: FC = () => {
 
-    const [obj, setObj] = useState({
-        wow: {
-            key: 'test'
-        }
-    });
+    const context = useContext(TranslationTextContext);
 
     return (
         <div className={s.container}>
-            <Button color={'blue'} size={"small"} shadow onClick={() => alert('hi')}>Add Partner</Button>
-            <Label
-                title={'Test'} placeholder={'text here'} type={'textarea'} maxLength={50}
-                state={obj} path={['wow', 'key']} setState={setObj}
-            />
+            {
+                context !== null &&
+                <>
+                    <Label
+                        title={'Main text'} type={'textarea'} maxLength={1000}
+                        state={context.StateTranslate} path={[ context.language, 'MainText', 'main']} setState={context.setTranslate}
+                    />
+                    <Label
+                        title={'Button text'} type={'textarea'} maxLength={40} height={170}
+                        state={context.StateTranslate} path={[ context.language, 'MainText', 'button']} setState={context.setTranslate}
+                    />
+                </>
+            }
         </div>
     );
 };
