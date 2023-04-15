@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/images/icons/click.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/icons/facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/icons/instagram.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminPage/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminPage/AdminPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/telegram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/text.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/Slices/LanguageSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/Slices/LanguageSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "ts.external.directory.path": "C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\OurTeam\TeamPhotos" />
@@ -118,7 +133,7 @@
       <workItem from="1681382764834" duration="853000" />
       <workItem from="1681489032123" duration="3573000" />
       <workItem from="1681501559037" duration="2088000" />
-      <workItem from="1681558805858" duration="4031000" />
+      <workItem from="1681558805858" duration="4659000" />
     </task>
     <servers />
   </component>
