@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/WantToDonate.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/WantToDonate.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/WantToDonate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/WantToDonate.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,9 @@
         <option value="SCSS File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,6 +46,7 @@
     "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
@@ -48,7 +55,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.editor",
-    "ts.external.directory.path": "C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\pashc\\OneDrive\\Рабочий стол\\projects\\hakaton-repo\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -119,6 +126,7 @@
       <workItem from="1681489032123" duration="3573000" />
       <workItem from="1681501559037" duration="2088000" />
       <workItem from="1681558805858" duration="5284000" />
+      <workItem from="1681927035186" duration="11981000" />
     </task>
     <servers />
   </component>

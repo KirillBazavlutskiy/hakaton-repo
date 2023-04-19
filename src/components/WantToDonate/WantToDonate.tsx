@@ -11,17 +11,18 @@ const WantToDonate:FC<WantToDonateProps> = ({IWantToDonate}) => {
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
+                <div className={s.gradient}></div>
                 <div className={s.inner}>
                     <SectionCaption>
                         {IWantToDonate.main}
                     </SectionCaption>
                     <div className={s.buttons}>
                         {/*TODO: liqpay api & mono api*/}
-                        <button>Privat</button>
-                        <button>Mono</button>
+                        <a>Privat</a>
+                        <a>Mono</a>
                     </div>
                 </div>
-                <PayBlock PayBlock={IWantToDonate}/>
+                <PayBlock/>
             </div>
         </div>
     );

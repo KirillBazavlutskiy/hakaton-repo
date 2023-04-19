@@ -1,82 +1,55 @@
-import styles from './PayBlock.module.scss';
-import { SectionCaption } from "@/components/SectionCaption/SectionCaption";
-import {FC, useState} from "react";
-import {IWantToDonate} from "@/models/text";
-import QRCode from 'react-qr-code';
+import styles from './PayBlock.module.scss'
+import {useState} from "react";
+import button from "@/components/AdminPage/AdminComponents/AdminUI/Button/Button";
 
-interface PayBlockProps {
-    PayBlock: IWantToDonate;
-}
 
-const PayBlock:FC<PayBlockProps> = (PayBlock) => {
-    //Массив
-    const [payReceiptsArray, setPayReceiptsArray] = useState([
-        {name: "PayPal", receipt: "paypal__receipt", network: null},
+const PayBlock = () => {
 
-        {name: "Bitcoin", receipt: "BTC__receipt", network: "BTC"},
-
-        {name: "Ethereum", receipt: "ETH__receipt", network: "ETH-20"},
-
-        {name: "Tether", receipt: "USDT__receipt", network: "THR"},
+    const [pay__method, set__pay__method] = useState<Array<any>>([
+        {name: "Bitcoin", receipt: "1NjvdYW1zBygV6siBAbEwrEvmPP8HC5ZUD", network:"BTC", image:"./images/btc.png"},
+        {name: "Ethereum", receipt: "0xce8ec1fa8d14a46d552ee2f971ca4f9dbed3ed56", network:"ETH-20", image:"./images/eth.png"},
+        {name: "Tether", receipt: "TCL2HgoZ6xqWygQVamDcAdHJ8QkGLhhpSP", network:"USDT", image:"./images/usdt.png"},
     ])
-    //TODO: аменить на запрос из базы данных
 
-    //Переменная, хранящая активное значеине кнопки
-    const [activeButton, setActiveButton] = useState<string>("PayPal")
+    const [activeBtn, setActiveBtn] = useState<string>("Bitcoin")
 
     return (
         <div className={styles.container}>
-            <div className={styles.block}>
-                <div className={styles.linksBlock}>
-                    {/*Вывод кнопок (фильтрация прописана на тот случай, если способов оплаты в одной платежной системе больше одной)*/}
-                    {payReceiptsArray
-                        //Получаем все поля name из массива
-                        .map(item => item.name)
-
-                        //Фильтруем(для вывода только одного способа оплаты)
-                        .filter((name, index, self) => self.indexOf(name) === index)
-
-                        //Выводим кнопки, со значениями отфильтрованного массива
-                        .map(name =>
-                        <button
-                            className={activeButton === name ? styles.activeBtn : styles.notActiveBtn}
-                            onClick={() => setActiveButton(name)}>
-                            {name}
+            <div className={styles.leftBlock}>
+                {
+                    pay__method.map(res =>
+                        <button className={activeBtn === res.name ? styles.activeBtn : styles.notActiveBtn}
+                                onClick={() => setActiveBtn(res.name)}>
+                            {res.name}
                         </button>
-                    )}
-                </div>
-                <div className={styles.secondBlock}>
-                    <div className={styles.qrCode}>
-                        {/*Компонент установленного модуля, для конвертации string данных в qr-код*/}
-                        <QRCode scale="120" value="hello"/>
-                        {/*TODO: Решить проблему с отображением QR-кода*/}
-                    </div>
-                    {/*Общий вывод*/}
-                    {payReceiptsArray
-                        //Фильтрация массива
-                        .filter(responce => responce.name === activeButton)
-
-                        //Вывод отфильтрованного массива
-                        .map(responce =>
+                    )
+                }
+            </div>
+            <div className={styles.rightBlock}>
+                {
+                    pay__method
+                        .filter(res => res.name === activeBtn)
+                        .map(res =>
                             <div className={styles.receiptBlock}>
-                                <div className={styles.receipt}>
-                                    <div className={styles.textBlock}>
-                                        <p>{responce.receipt}</p>
+                                <img src={res.image} alt={res.image}/>
+                                <div className={styles.block}>
+                                    <div className={styles.receipt}>
+                                        <p>{res.receipt}</p>
+                                        <button onClick={() => navigator.clipboard.writeText(res.receipt)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                 stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                      d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"/>
+                                            </svg>
+                                        </button>
                                     </div>
-                                    <button onClick={() => navigator.clipboard.writeText(responce.receipt)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             stroke-width="1.5" >
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div className={responce.network === null ? styles.notNetwork : styles.activeNetwork}>
-                                    <p>{responce.network}</p>
+                                    <div className={styles.network}>
+                                        <p>{res.network}</p>
+                                    </div>
                                 </div>
                             </div>
-                        )}
-                </div>
+                        )
+                }
             </div>
         </div>
     );
