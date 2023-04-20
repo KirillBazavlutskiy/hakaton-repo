@@ -47,10 +47,10 @@
       @apply w-full lg:w-1/2 h-1/2 lg:h-full;
 
       .buttons {
-        @apply w-full h-1/2 flex flex-col items-start justify-between;
+        @apply w-full h-1/2 flex flex-col items-start justify-between mt-[30px];
 
         a {
-          @apply w-full lg:w-4/6 h-[40px] lg:h-[60px] bg-yellow-300 text-black rounded-xl flex items-center justify-center;
+          @apply w-full lg:w-3/6 h-[40px] lg:h-[60px] bg-yellow-300 text-black rounded-lg flex items-center justify-center;
         }
       }
     }

@@ -1,17 +1,18 @@
 import styles from './PayBlock.module.scss'
 import {useState} from "react";
-import button from "@/components/AdminPage/AdminComponents/AdminUI/Button/Button";
-
+import btc from './images/btc.png';
+import eth from './images/eth.png';
+import usdt from './images/usdt.png';
 
 const PayBlock = () => {
 
     const [pay__method, set__pay__method] = useState<Array<any>>([
-        {name: "Bitcoin", receipt: "1NjvdYW1zBygV6siBAbEwrEvmPP8HC5ZUD", network:"BTC", image:"./images/btc.png"},
-        {name: "Ethereum", receipt: "0xce8ec1fa8d14a46d552ee2f971ca4f9dbed3ed56", network:"ETH-20", image:"./images/eth.png"},
-        {name: "Tether", receipt: "TCL2HgoZ6xqWygQVamDcAdHJ8QkGLhhpSP", network:"USDT", image:"./images/usdt.png"},
+        {name: "BTC", receipt: "1NjvdYW1zBygV6siBAbEwrEvmPP8HC5ZUD", network:"BTC", image:{btc}},
+        {name: "ETH", receipt: "0xce8ec1fa8d14a46d552ee2f971ca4f9dbed3ed56", network:"ETH-20", image:{eth}},
+        {name: "USDT", receipt: "TCL2HgoZ6xqWygQVamDcAdHJ8QkGLhhpSP", network:"TRC20", image:{usdt}},
     ])
 
-    const [activeBtn, setActiveBtn] = useState<string>("Bitcoin")
+    const [activeBtn, setActiveBtn] = useState<string>("BTC")
 
     return (
         <div className={styles.container}>

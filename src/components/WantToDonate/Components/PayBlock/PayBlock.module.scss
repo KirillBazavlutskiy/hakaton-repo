@@ -2,16 +2,16 @@
   @apply w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-between;
 
   .leftBlock {
-    @apply w-1/3 h-4/6 flex flex-col items-center justify-between border-r border-r-white;
+    @apply w-1/3 h-4/6 flex flex-col items-center justify-evenly border-r border-r-white;
 
     .notActiveBtn {
-      @apply text-white text-[15px] lg:text-[20px];
+      @apply text-white font-semibold text-[15px] lg:text-[20px];
     }
     .notActiveBtn:hover {
       @apply text-yellow-300 transition-all;
     }
     .activeBtn {
-      @apply text-yellow-300 text-[15px] lg:text-[20px] underline;
+      @apply text-yellow-300 font-semibold text-[15px] lg:text-[20px] underline;
     }
   }
   .rightBlock {
@@ -25,7 +25,7 @@
       }
 
       .block {
-        @apply w-full h-[40px] flex lg:justify-between items-center lg:mt-[15px];
+        @apply w-full h-[40px] flex items-center lg:mt-[15px];
 
         .receipt {
           @apply w-4/6 h-full bg-[#00C2FF33] flex justify-between items-center pl-[15px];
@@ -42,7 +42,7 @@
           }
         }
         .network {
-          @apply lg:px-[20px] ml-[20px] sm:ml-0 h-full bg-[#00C2FF33] flex justify-center items-center;
+          @apply lg:px-[20px] ml-[6px] h-full bg-[#00C2FF33] flex justify-center items-center;
         }
       }
     }
