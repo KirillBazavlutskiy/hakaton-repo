@@ -53,7 +53,9 @@
         }
 
         .network {
-          @apply w-1/6 h-[40px] flex items-center bg-[#00C2FF33] justify-center text-center ml-[6px];
+          @apply px-[10px] h-[40px] flex items-center bg-[#00C2FF33] justify-center text-center ml-[6px];
+
+          white-space: nowrap;
 
           p {
             @apply text-sm;
