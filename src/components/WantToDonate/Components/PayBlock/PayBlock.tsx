@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BtcImage from './images/btc.png';
 import EthImage from './images/eth.png';
 import UsdtImage from './images/usdt.png';
+import { toast } from 'react-toastify';
 
 const PayBlock = () => {
 
@@ -15,6 +16,21 @@ const PayBlock = () => {
     ])
 
     const [activeBtn, setActiveBtn] = useState<string>("BTC")
+
+    const copy__button__function = (value:any) => {
+        navigator.clipboard.writeText(value);
+
+        toast.success(`You copied ${activeBtn} receipt`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+    }
 
     return (
         <div className={styles.container}>
@@ -34,11 +50,11 @@ const PayBlock = () => {
                         .filter(res => res.name === activeBtn)
                         .map(res =>
                             <div className={styles.receiptBlock}>
-                                <Image width={150} height={150} src={res.image} alt={res.image}/>
+                                <Image width={120} height={120} src={res.image} alt={res.image}/>
                                 <div className={styles.block}>
                                     <div className={styles.receipt}>
                                         <p>{res.receipt}</p>
-                                        <button onClick={() => navigator.clipboard.writeText(res.receipt)}>
+                                        <button onClick={() => copy__button__function(res.receipt)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                  stroke-width="1.5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
