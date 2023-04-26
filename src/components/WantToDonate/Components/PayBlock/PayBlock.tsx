@@ -1,15 +1,17 @@
 import styles from './PayBlock.module.scss'
 import {useState} from "react";
-import btc from './images/btc.png';
-import eth from './images/eth.png';
-import usdt from './images/usdt.png';
+import Image from 'next/image';
+
+import BtcImage from './images/btc.png';
+import EthImage from './images/eth.png';
+import UsdtImage from './images/usdt.png';
 
 const PayBlock = () => {
 
     const [pay__method, set__pay__method] = useState<Array<any>>([
-        {name: "BTC", receipt: "1NjvdYW1zBygV6siBAbEwrEvmPP8HC5ZUD", network:"BTC", image:{btc}},
-        {name: "ETH", receipt: "0xce8ec1fa8d14a46d552ee2f971ca4f9dbed3ed56", network:"ETH-20", image:{eth}},
-        {name: "USDT", receipt: "TCL2HgoZ6xqWygQVamDcAdHJ8QkGLhhpSP", network:"TRC20", image:{usdt}},
+        {name: "BTC", receipt: "1NjvdYW1zBygV6siBAbEwrEvmPP8HC5ZUD", network:"BTC", image: BtcImage},
+        {name: "ETH", receipt: "0xce8ec1fa8d14a46d552ee2f971ca4f9dbed3ed56", network:"ETH-20", image: EthImage},
+        {name: "USDT", receipt: "TCL2HgoZ6xqWygQVamDcAdHJ8QkGLhhpSP", network:"TRC20", image: UsdtImage},
     ])
 
     const [activeBtn, setActiveBtn] = useState<string>("BTC")
@@ -32,7 +34,7 @@ const PayBlock = () => {
                         .filter(res => res.name === activeBtn)
                         .map(res =>
                             <div className={styles.receiptBlock}>
-                                <img src={res.image} alt={res.image}/>
+                                <Image width={150} height={150} src={res.image} alt={res.image}/>
                                 <div className={styles.block}>
                                     <div className={styles.receipt}>
                                         <p>{res.receipt}</p>
