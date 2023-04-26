@@ -48,3 +48,10 @@ export interface OptionDTO {
     name: string;
     value: string;
 }
+
+export interface CookiesSet {
+    token: string;
+    tokenExpires: Date;
+    sessionId: string;
+    sessionExpires: Date;
+}

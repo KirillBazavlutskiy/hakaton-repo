@@ -1,0 +1,23 @@
+.container {
+  @apply w-full;
+  .header {
+    @apply mb-[30px];
+    h1 {
+      @apply font-medium text-[24px];
+    }
+    h2 {
+      @apply font-medium text-[14px] opacity-80;
+    }
+  }
+
+  .form {
+    @apply w-full flex flex-col items-center gap-[10px] mb-[20px];
+    p {
+      @apply text-[12px] font-medium text-[#fff] opacity-80 cursor-pointer;
+    }
+  }
+
+  button {
+    @apply border-[1px] border-blue-500 px-[20px] py-[5px];
+  }
+}
