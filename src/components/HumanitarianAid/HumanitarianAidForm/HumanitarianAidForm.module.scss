@@ -1,0 +1,79 @@
+.formSide {
+  display: flex;
+  gap: 20px;
+
+  @apply w-full relative md:w-[60%] flex-col sm:flex-row;
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    color: #fff;
+    font-weight: 500;
+    line-height: 24px;
+
+    @apply w-full sm:w-1/2;
+
+    input {
+      width: 100%;
+      padding: 13px 16px;
+
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+
+      &::placeholder {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+    padding: 13px 16px;
+
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    color: #fff;
+    font-weight: 500;
+    line-height: 24px;
+
+    resize: none;
+
+    @apply w-full sm:w-1/2;
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .submit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @apply translate-y-[10%] translate-x-[10%];
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 100%;
+
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+  }
+}

@@ -2,11 +2,11 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 
 import languageReducer from './Slices/LanguageSlice';
-import userReducer from './Slices/AdminSlice';
+import UserSlice from "@/redux/Slices/UserSlice";
 
 const rootReducer = combineReducers({
     language: languageReducer,
-    status: userReducer,
+    status: UserSlice,
 })
 
 export const store = configureStore({

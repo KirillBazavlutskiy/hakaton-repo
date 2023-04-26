@@ -1,0 +1,698 @@
+Index: src/components/HumanitarianAid/HumanitarianAid.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { FC, useState } from 'react';\r\nimport AdminService from \"@/services/AdminService\";\r\n\r\nimport { IOffer } from \"@/models/data\";\r\n\r\nimport { SectionCaption } from '../SectionCaption/SectionCaption';\r\nimport { RoundedButton } from '../RoundedButton/RoundedButton';\r\n\r\nimport s from './HumanitarianAid.module.scss';\r\nimport {IWantToHelpWithHumanitarianAid} from \"@/models/text\";\r\n\r\ninterface HumanitarianAidProps {\r\n    HumanitarianAid: IWantToHelpWithHumanitarianAid;\r\n}\r\n\r\nconst HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {\r\n\r\n    const [userForm, setUserForm] = useState<IOffer>({\r\n        name: '',\r\n        phone: '',\r\n        email: '',\r\n        offer: ''\r\n    });\r\n\r\n    return (\r\n        <div className={s.wrapper}>\r\n            <div className={s.container}>\r\n                <div className={s.gradient}></div>\r\n                <div className={s.inner}>\r\n                    <SectionCaption>\r\n                        {HumanitarianAid.main}\r\n                    </SectionCaption>\r\n                    <div className={s.blocks}>\r\n                        <div className={s.infoSide}>\r\n                            <p>{HumanitarianAid.fillTheForm}</p>\r\n                            <a href=\"https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit\">{HumanitarianAid.listOfNeeds}</a>\r\n                        </div>\r\n                        <form\r\n                            className={s.formSide}\r\n                            onSubmit={async e => {\r\n                                e.preventDefault();\r\n                                await AdminService.AddOffer(userForm);\r\n                            }\r\n                            }>\r\n                            <div className={s.inputs}>\r\n                                <input\r\n                                    value={userForm.name}\r\n                                    onChange={e => setUserForm({ ...userForm, name: e.target.value })}\r\n                                    type=\"text\"\r\n                                    placeholder={HumanitarianAid.form.name} />\r\n                                <input\r\n                                    value={userForm.phone}\r\n                                    onChange={e => setUserForm({ ...userForm, phone: e.target.value })}\r\n                                    type=\"text\"\r\n                                    placeholder={HumanitarianAid.form.phone} />\r\n                                <input\r\n                                    value={userForm.email}\r\n                                    onChange={e => setUserForm({ ...userForm, email: e.target.value })}\r\n                                    type=\"text\"\r\n                                    placeholder={HumanitarianAid.form.email} />\r\n                            </div>\r\n                            <textarea\r\n                                value={userForm.offer}\r\n                                onChange={e => setUserForm({ ...userForm, offer: e.target.value })}\r\n                                placeholder={HumanitarianAid.form.whatYouCanProvide}>\r\n                            </textarea>\r\n                            <RoundedButton className={s.submit}>\r\n                                <button type='submit'>{HumanitarianAid.form.sendButton}</button>\r\n                            </RoundedButton>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default HumanitarianAid;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/HumanitarianAid/HumanitarianAid.tsx b/src/components/HumanitarianAid/HumanitarianAid.tsx
+--- a/src/components/HumanitarianAid/HumanitarianAid.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/components/HumanitarianAid/HumanitarianAid.tsx	(date 1682501769464)
+@@ -1,13 +1,11 @@
+ import { FC, useState } from 'react';
+-import AdminService from "@/services/AdminService";
+-
+-import { IOffer } from "@/models/data";
+ 
+ import { SectionCaption } from '../SectionCaption/SectionCaption';
+-import { RoundedButton } from '../RoundedButton/RoundedButton';
+ 
+ import s from './HumanitarianAid.module.scss';
+ import {IWantToHelpWithHumanitarianAid} from "@/models/text";
++import HumanitarianAidForm from "@/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm";
++import NeedToLogin from "@/components/HumanitarianAid/NeedToLogin/NeedToLogin";
+ 
+ interface HumanitarianAidProps {
+     HumanitarianAid: IWantToHelpWithHumanitarianAid;
+@@ -15,13 +13,6 @@
+ 
+ const HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {
+ 
+-    const [userForm, setUserForm] = useState<IOffer>({
+-        name: '',
+-        phone: '',
+-        email: '',
+-        offer: ''
+-    });
+-
+     return (
+         <div className={s.wrapper}>
+             <div className={s.container}>
+@@ -35,39 +26,7 @@
+                             <p>{HumanitarianAid.fillTheForm}</p>
+                             <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">{HumanitarianAid.listOfNeeds}</a>
+                         </div>
+-                        <form
+-                            className={s.formSide}
+-                            onSubmit={async e => {
+-                                e.preventDefault();
+-                                await AdminService.AddOffer(userForm);
+-                            }
+-                            }>
+-                            <div className={s.inputs}>
+-                                <input
+-                                    value={userForm.name}
+-                                    onChange={e => setUserForm({ ...userForm, name: e.target.value })}
+-                                    type="text"
+-                                    placeholder={HumanitarianAid.form.name} />
+-                                <input
+-                                    value={userForm.phone}
+-                                    onChange={e => setUserForm({ ...userForm, phone: e.target.value })}
+-                                    type="text"
+-                                    placeholder={HumanitarianAid.form.phone} />
+-                                <input
+-                                    value={userForm.email}
+-                                    onChange={e => setUserForm({ ...userForm, email: e.target.value })}
+-                                    type="text"
+-                                    placeholder={HumanitarianAid.form.email} />
+-                            </div>
+-                            <textarea
+-                                value={userForm.offer}
+-                                onChange={e => setUserForm({ ...userForm, offer: e.target.value })}
+-                                placeholder={HumanitarianAid.form.whatYouCanProvide}>
+-                            </textarea>
+-                            <RoundedButton className={s.submit}>
+-                                <button type='submit'>{HumanitarianAid.form.sendButton}</button>
+-                            </RoundedButton>
+-                        </form>
++                        <HumanitarianAidForm HumanitarianAidForm={HumanitarianAid} />
+                     </div>
+                 </div>
+             </div>
+@@ -75,4 +34,4 @@
+     );
+ };
+ 
+-export default HumanitarianAid;
+\ No newline at end of file
++export default HumanitarianAid;
+Index: src/http/init.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import axios from 'axios';\r\nimport {store} from \"@/redux/store\";\r\nimport {changeUserType} from \"@/redux/Slices/AdminSlice\";\r\nimport Cookies from \"universal-cookie\";\r\n\r\nexport const BASE_URL = 'https://ss.egartsites.pp.ua/api';\r\n\r\nconst $api = axios.create({\r\n    baseURL: BASE_URL,\r\n    withCredentials: true,\r\n    headers: {\r\n        \"Access-Control-Allow-Origin\": \"*\",\r\n        \"Access-Control-Allow-Methods\": \"GET, POST, PUT, DELETE, OPTIONS\",\r\n        \"Access-Control-Allow-Headers\": \"Content-Type, Authorization\"\r\n    },\r\n});\r\n\r\nconst cookies = new Cookies();\r\n$api.interceptors.request.use((config) => {\r\n    config.withCredentials = true;\r\n    if (document.cookie) {\r\n        config.headers.Authorization = `Bearer ${cookies.get('token')}`;\r\n    }\r\n    return config;\r\n});\r\n\r\n$api.interceptors.response.use(\r\n    (config) => config,\r\n    async (error) => {\r\n        if (error.response?.status === 401) {\r\n            cookies.set('token', '');\r\n            cookies.set('status', '');\r\n            store.dispatch(changeUserType('user'));\r\n        }\r\n    }\r\n);\r\n\r\nexport default $api;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/http/init.ts b/src/http/init.ts
+--- a/src/http/init.ts	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/http/init.ts	(date 1682501769465)
+@@ -1,7 +1,7 @@
+ import axios from 'axios';
+-import {store} from "@/redux/store";
+-import {changeUserType} from "@/redux/Slices/AdminSlice";
+ import Cookies from "universal-cookie";
++import {toast} from "react-toastify";
++import AuthService from "@/services/AuthService";
+ 
+ export const BASE_URL = 'https://ss.egartsites.pp.ua/api';
+ 
+@@ -18,7 +18,7 @@
+ const cookies = new Cookies();
+ $api.interceptors.request.use((config) => {
+     config.withCredentials = true;
+-    if (document.cookie) {
++    if (cookies.get('token')) {
+         config.headers.Authorization = `Bearer ${cookies.get('token')}`;
+     }
+     return config;
+@@ -27,12 +27,36 @@
+ $api.interceptors.response.use(
+     (config) => config,
+     async (error) => {
+-        if (error.response?.status === 401) {
+-            cookies.set('token', '');
+-            cookies.set('status', '');
+-            store.dispatch(changeUserType('user'));
++        const origReq = error.config;
++        if (error.status === 401 && error.config && !error.config._isRetry) {
++            origReq._isRetry = true;
++            try {
++                await AuthService.RefreshSession();
++            } catch (e) {
++                toast.error('Помилка авторизації!', {
++                    position: "top-right",
++                    autoClose: 1000,
++                    hideProgressBar: false,
++                    closeOnClick: true,
++                    pauseOnHover: true,
++                    draggable: true,
++                    progress: undefined,
++                    theme: "colored",
++                });
++            }
++        } else {
++            toast.error('Помилка!', {
++                position: "top-right",
++                autoClose: 1000,
++                hideProgressBar: false,
++                closeOnClick: true,
++                pauseOnHover: true,
++                draggable: true,
++                progress: undefined,
++                theme: "colored",
++            });
+         }
+     }
+ );
+ 
+-export default $api;
+\ No newline at end of file
++export default $api;
+Index: src/redux/store.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {combineReducers, configureStore} from \"@reduxjs/toolkit\";\r\nimport {TypedUseSelectorHook, useSelector} from \"react-redux\";\r\n\r\nimport languageReducer from './Slices/LanguageSlice';\r\nimport userReducer from './Slices/AdminSlice';\r\n\r\nconst rootReducer = combineReducers({\r\n    language: languageReducer,\r\n    status: userReducer,\r\n})\r\n\r\nexport const store = configureStore({\r\n    reducer: rootReducer,\r\n})\r\n\r\nexport type RootState = ReturnType<typeof rootReducer>;\r\n\r\nexport const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/redux/store.ts b/src/redux/store.ts
+--- a/src/redux/store.ts	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/redux/store.ts	(date 1682501769466)
+@@ -2,11 +2,11 @@
+ import {TypedUseSelectorHook, useSelector} from "react-redux";
+ 
+ import languageReducer from './Slices/LanguageSlice';
+-import userReducer from './Slices/AdminSlice';
++import UserSlice from "@/redux/Slices/UserSlice";
+ 
+ const rootReducer = combineReducers({
+     language: languageReducer,
+-    status: userReducer,
++    status: UserSlice,
+ })
+ 
+ export const store = configureStore({
+Index: src/pages/index.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { FC } from \"react\";\r\nimport {GetStaticProps} from 'next';\r\nimport {IPost} from '@/models/data';\r\nimport {Translation} from \"@/models/text\";\r\nimport axios from 'axios';\r\n\r\nimport { Layout } from '@/layouts/Layout';\r\nimport IntroText from \"@/components/IntroText/IntroText\";\r\nimport OurProjects from \"@/components/OurProjects/OurProjects\";\r\nimport OurLastestNews from \"@/components/OurLastestNews/OurLastestNews\";\r\nimport WhatHasAlreadyBeenDone from \"@/components/WhatHasAlreadyBeenDone/WhatHasAlreadyBeenDone\";\r\nimport WantToDonate from '@/components/WantToDonate/WantToDonate';\r\nimport HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';\r\nimport OurPartners from \"@/components/OurPartners/OurPartners\";\r\nimport OfficialAidRequest from \"@/components/OfficialAidRequest/OfficialAidRequest\";\r\nimport OurTeam from \"@/components/OurTeam/OurTeam\";\r\n\r\nimport fs from \"fs\";\r\nimport process from \"process\";\r\nimport path from \"path\";\r\nimport {useRouter} from \"next/router\";\r\n\r\ninterface IndexProps {\r\n    instagramData: IPost[];\r\n    translation: Translation;\r\n}\r\n\r\nconst Index: FC<IndexProps> = ({ instagramData, translation }) => {\r\n\r\n    const router = useRouter();\r\n    const language = router.locale || 'en';\r\n    const localisationText = translation[language];\r\n\r\n    return (\r\n        <Layout title={\"Головна\"} keywords={\"\"} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>\r\n            <section id=\"B1\">\r\n                <IntroText MainText={localisationText.MainText} />\r\n            </section>\r\n            <section id=\"B2\">\r\n                <OurProjects OurProjects={localisationText.OurProjects}/>\r\n            </section>\r\n            <section id=\"B3\">\r\n                {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}\r\n            </section>\r\n            <section id=\"B4\">\r\n                <WhatHasAlreadyBeenDone WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone}/>\r\n            </section>\r\n            <section id=\"B56\">\r\n                <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>\r\n                <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>\r\n            </section>\r\n            <section id=\"B7\">\r\n                <OurPartners OurPartners={localisationText.OurPartners}/>\r\n            </section>\r\n            <section id='B8'>\r\n                <OurTeam OurTeam={localisationText.OurTeam}/>\r\n            </ section>\r\n            <section id=\"B9\">\r\n                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>\r\n            </section>\r\n        </Layout>\r\n    )\r\n}\r\n\r\nexport const getStaticProps: GetStaticProps<IndexProps> = async (context) => {\r\n    const filePath = path.join(process.cwd(), 'data', 'localisation.json');\r\n    const data = fs.readFileSync(filePath);\r\n    const jsonData: Translation = JSON.parse(data.toString());\r\n\r\n    try {\r\n        const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);\r\n\r\n        return {\r\n            props: {\r\n                instagramData: response,\r\n                translation: jsonData,\r\n            },\r\n            revalidate: 600,\r\n        };\r\n    } catch (error) {\r\n        console.error(error);\r\n        return {\r\n            props: {\r\n                instagramData: [],\r\n                translation: jsonData,\r\n            },\r\n            revalidate: 600,\r\n        };\r\n    }\r\n}\r\n\r\nexport default Index;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/index.tsx b/src/pages/index.tsx
+--- a/src/pages/index.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/pages/index.tsx	(date 1682501769466)
+@@ -1,4 +1,4 @@
+-import { FC } from "react";
++import {FC, useEffect} from "react";
+ import {GetStaticProps} from 'next';
+ import {IPost} from '@/models/data';
+ import {Translation} from "@/models/text";
+@@ -19,6 +19,7 @@
+ import process from "process";
+ import path from "path";
+ import {useRouter} from "next/router";
++import AuthService from "@/services/AuthService";
+ 
+ interface IndexProps {
+     instagramData: IPost[];
+@@ -31,6 +32,10 @@
+     const language = router.locale || 'en';
+     const localisationText = translation[language];
+ 
++    useEffect(() => {
++        AuthService.GetMe();
++    }, [])
++
+     return (
+         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
+             <section id="B1">
+@@ -89,4 +94,4 @@
+     }
+ }
+ 
+-export default Index;
+\ No newline at end of file
++export default Index;
+Index: src/pages/admin/index.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {createContext, Dispatch, FC, SetStateAction, useEffect, useState} from 'react';\r\nimport {useAppSelector} from \"@/redux/store\";\r\nimport AdminService from \"@/services/AdminService\";\r\n\r\nimport Login from \"@/components/AdminPage/Login/Login\";\r\nimport SuperAdminPage from \"@/components/AdminPage/SuperAdminPage/SuperAdminPage\";\r\nimport AdminPage from \"@/components/AdminPage/AdminPage/AdminPage\";\r\n\r\nimport 'react-toastify/dist/ReactToastify.css';\r\nimport {Translation} from \"@/models/text\";\r\nimport path from \"path\";\r\nimport process from \"process\";\r\nimport fs from \"fs\";\r\nimport {GetServerSideProps} from \"next/types\";\r\nimport AdminLanguageSwitcher\r\n    from \"@/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher\";\r\n\r\ninterface AdminIndexProps {\r\n    Translation: Translation;\r\n}\r\n\r\ninterface TranslationTextContext {\r\n    DefaultTranslate: Translation;\r\n    StateTranslate: Translation;\r\n    setTranslate: Dispatch<SetStateAction<Translation>>;\r\n    language: string;\r\n    setLanguage: Dispatch<SetStateAction<string>>;\r\n}\r\n\r\nexport const TranslationTextContext = createContext<TranslationTextContext | null>(null);\r\n\r\nconst Admin: FC<AdminIndexProps> = ({ Translation }) => {\r\n    const { user } = useAppSelector(state => state.status)\r\n\r\n    const TranslationCopy = JSON.parse(JSON.stringify(Translation));\r\n\r\n    const [localisation, setLocalisation] = useState<Translation>(TranslationCopy);\r\n    const [language, setLanguage] = useState('en');\r\n\r\n    useEffect(() => {\r\n        AdminService.ChechAuth();\r\n    }, [])\r\n\r\n    return (\r\n        <TranslationTextContext.Provider value={{\r\n            DefaultTranslate: TranslationCopy,\r\n            StateTranslate: localisation,\r\n            setTranslate: setLocalisation,\r\n            language: language,\r\n            setLanguage: setLanguage,\r\n        }}>\r\n            {user !== 'user' && <AdminLanguageSwitcher />}\r\n            {user === 'user' && <Login />}\r\n            {user === 'superadmin' && <SuperAdminPage Translation={localisation} />}\r\n            {user === 'admin' && <AdminPage Translation={localisation} />}\r\n        </TranslationTextContext.Provider>\r\n    );\r\n};\r\n\r\nexport const getServerSideProps: GetServerSideProps<AdminIndexProps> = async () => {\r\n    const filePath = path.join(process.cwd(), 'data', 'localisation.json');\r\n    const data = await fs.readFileSync(filePath);\r\n    const jsonData: Translation = JSON.parse(data.toString());\r\n\r\n    return {\r\n        props: {\r\n            Translation: jsonData,\r\n        },\r\n    };\r\n}\r\n\r\nexport default Admin;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/admin/index.tsx b/src/pages/admin/index.tsx
+--- a/src/pages/admin/index.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/pages/admin/index.tsx	(date 1682501769465)
+@@ -1,10 +1,8 @@
+ import {createContext, Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+ import {useAppSelector} from "@/redux/store";
+-import AdminService from "@/services/AdminService";
+ 
+ import Login from "@/components/AdminPage/Login/Login";
+-import SuperAdminPage from "@/components/AdminPage/SuperAdminPage/SuperAdminPage";
+-import AdminPage from "@/components/AdminPage/AdminPage/AdminPage";
++import MainPage from "@/components/AdminPage/MainPage/MainPage";
+ 
+ import 'react-toastify/dist/ReactToastify.css';
+ import {Translation} from "@/models/text";
+@@ -14,6 +12,7 @@
+ import {GetServerSideProps} from "next/types";
+ import AdminLanguageSwitcher
+     from "@/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher";
++import AuthService from "@/services/AuthService";
+ 
+ interface AdminIndexProps {
+     Translation: Translation;
+@@ -38,7 +37,7 @@
+     const [language, setLanguage] = useState('en');
+ 
+     useEffect(() => {
+-        AdminService.ChechAuth();
++        AuthService.GetMe();
+     }, [])
+ 
+     return (
+@@ -49,10 +48,9 @@
+             language: language,
+             setLanguage: setLanguage,
+         }}>
+-            {user !== 'user' && <AdminLanguageSwitcher />}
+-            {user === 'user' && <Login />}
+-            {user === 'superadmin' && <SuperAdminPage Translation={localisation} />}
+-            {user === 'admin' && <AdminPage Translation={localisation} />}
++            {user === 'Admin' && <AdminLanguageSwitcher />}
++            {user === 'Guest' && <Login />}
++            {user === 'Admin' && <MainPage Translation={localisation} />}
+         </TranslationTextContext.Provider>
+     );
+ };
+@@ -69,4 +67,4 @@
+     };
+ }
+ 
+-export default Admin;
+\ No newline at end of file
++export default Admin;
+Index: src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss
+===================================================================
+diff --git a/src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss b/src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss
+deleted file mode 100644
+--- a/src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ /dev/null	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
+@@ -1,3 +0,0 @@
+-.container {
+-  @apply p-[20px];
+-}
+\ No newline at end of file
+Index: src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx
+===================================================================
+diff --git a/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx b/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx
+deleted file mode 100644
+--- a/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ /dev/null	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
+@@ -1,23 +0,0 @@
+-import {FC} from 'react';
+-import s from './SuperAdminPage.module.scss';
+-
+-import Admins from "@/components/AdminPage/AdminComponents/Admins/Admins";
+-import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
+-import MainScreen from "@/components/AdminPage/AdminComponents/MainScreen/MainScreen";
+-import {Translation} from "@/models/text";
+-
+-interface SuperAdminPageProps {
+-    Translation: Translation;
+-}
+-
+-const SuperAdminPage: FC<SuperAdminPageProps> = ({ Translation }) => {
+-    return (
+-        <div className={s.container}>
+-            <Admins />
+-            <MainScreen  />
+-            <Projects />
+-        </div>
+-    );
+-};
+-
+-export default SuperAdminPage;
+\ No newline at end of file
+Index: src/redux/Slices/AdminSlice.ts
+===================================================================
+diff --git a/src/redux/Slices/AdminSlice.ts b/src/redux/Slices/AdminSlice.ts
+deleted file mode 100644
+--- a/src/redux/Slices/AdminSlice.ts	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ /dev/null	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
+@@ -1,22 +0,0 @@
+-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+-
+-interface IUserInit {
+-    user: string;
+-}
+-
+-const initialState: IUserInit = {
+-    user: 'user',
+-}
+-
+-const AdminSlice = createSlice({
+-    name: 'admin',
+-    initialState,
+-    reducers: {
+-        changeUserType(state, action: PayloadAction<string>) {
+-            state.user = action.payload;
+-        }
+-    }
+-});
+-
+-export const { changeUserType } = AdminSlice.actions;
+-export default AdminSlice.reducer;
+\ No newline at end of file
+Index: src/services/AdminService.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import $api from \"@/http/init\";\r\nimport Cookies from \"universal-cookie\";\r\nimport {store} from \"@/redux/store\";\r\nimport {changeUserType} from \"@/redux/Slices/AdminSlice\";\r\nimport {toast} from \"react-toastify\";\r\nimport {IAdmin, IOffer, IProject} from \"@/models/data\";\r\n\r\nexport default class AdminService {\r\n    static Login = async (password: string): Promise<void> => {\r\n        const res = await $api.get<IAdmin>(`/api/Auth/Token?password=${password}`);\r\n        if (res !== undefined) {\r\n            const cookies = new Cookies();\r\n            cookies.set('token', res.data.token);\r\n            cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');\r\n            store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));\r\n        } else {\r\n            toast.error('Помилка!', {\r\n                position: \"top-right\",\r\n                autoClose: 1000,\r\n                hideProgressBar: false,\r\n                closeOnClick: true,\r\n                pauseOnHover: true,\r\n                draggable: true,\r\n                progress: undefined,\r\n                theme: \"colored\",\r\n            });\r\n        }\r\n    }\r\n\r\n    static ChechAuth = async (): Promise<void> => {\r\n        const res = await $api.get('/api/Auth/CheckAuth');\r\n        const cookies = new Cookies();\r\n        if (res?.status === 200) {\r\n            store.dispatch(changeUserType(cookies.get('status')));\r\n        }\r\n    }\r\n\r\n    static AddAdmin = async (password: string): Promise<boolean> => {\r\n        const res = await $api.get(`/api/Auth/AddSlavePassword?password=${password}`);\r\n        return 200 < res.status && res.status < 300;\r\n    }\r\n\r\n    static GetAdmins = async (): Promise<string[]> => {\r\n        const { data } = await $api.get<string[]>('/api/Auth/ListSlavePassword');\r\n        return data;\r\n    }\r\n\r\n    static AddOffer = async (offer: IOffer): Promise<void> => {\r\n        await $api.post('/api/HelpOffer/Add', {...offer});\r\n    }\r\n\r\n    static GetProjects = async (): Promise<IProject[]> => {\r\n        try {\r\n            const { data } = await $api.get<IProject[]>('/api/OurProject');\r\n            return data;\r\n        } catch (e) {\r\n            return [];\r\n        }\r\n    }\r\n\r\n    static AddProject = async (project: any) => {\r\n        return await $api.post('/api/OurProject', project);\r\n    }\r\n\r\n    static DeleteProject = async (id: string) => {\r\n        await $api.delete(`/api/OurProject?id=${id}`);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/services/AdminService.ts b/src/services/AdminService.ts
+--- a/src/services/AdminService.ts	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/services/AdminService.ts	(date 1682501769467)
+@@ -1,7 +1,6 @@
+ import $api from "@/http/init";
+ import Cookies from "universal-cookie";
+ import {store} from "@/redux/store";
+-import {changeUserType} from "@/redux/Slices/AdminSlice";
+ import {toast} from "react-toastify";
+ import {IAdmin, IOffer, IProject} from "@/models/data";
+ 
+@@ -12,7 +11,7 @@
+             const cookies = new Cookies();
+             cookies.set('token', res.data.token);
+             cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');
+-            store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
++            // store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
+         } else {
+             toast.error('Помилка!', {
+                 position: "top-right",
+@@ -31,7 +30,7 @@
+         const res = await $api.get('/api/Auth/CheckAuth');
+         const cookies = new Cookies();
+         if (res?.status === 200) {
+-            store.dispatch(changeUserType(cookies.get('status')));
++            // store.dispatch(changeUserType(cookies.get('status')));
+         }
+     }
+ 
+Index: src/components/AdminPage/Login/Login.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {FC, useState} from 'react';\r\nimport AdminService from \"@/services/AdminService\";\r\nimport s from './Login.module.scss';\r\n\r\nconst Login: FC = () => {\r\n    const [adminLoginPswd, setAdminPswd] = useState<string>('');\r\n\r\n    return (\r\n        <div className={s.container}>\r\n            <h2>Login for admin page</h2>\r\n            <form\r\n                onSubmit={(event) => {\r\n                    event.preventDefault();\r\n                    AdminService.Login(adminLoginPswd);\r\n                }\r\n            }>\r\n                <input\r\n                    type=\"text\"\r\n                    value={adminLoginPswd}\r\n                    onChange={e => setAdminPswd(e.target.value)}\r\n                />\r\n                <button type='submit'>Login</button>\r\n            </form>\r\n        </div>\r\n    )\r\n}\r\n\r\nexport default Login;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/Login/Login.tsx b/src/components/AdminPage/Login/Login.tsx
+--- a/src/components/AdminPage/Login/Login.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/components/AdminPage/Login/Login.tsx	(date 1682501769461)
+@@ -1,9 +1,13 @@
+ import {FC, useState} from 'react';
+-import AdminService from "@/services/AdminService";
+ import s from './Login.module.scss';
++import {LoginRequest} from "@/models/auth";
++import AuthService from "@/services/AuthService";
+ 
+ const Login: FC = () => {
+-    const [adminLoginPswd, setAdminPswd] = useState<string>('');
++    const [loginBody, setLoginBody] = useState<LoginRequest>({
++        email: '',
++        password: ''
++    });
+ 
+     return (
+         <div className={s.container}>
+@@ -11,13 +15,26 @@
+             <form
+                 onSubmit={(event) => {
+                     event.preventDefault();
+-                    AdminService.Login(adminLoginPswd);
++                    AuthService.Login(loginBody);
+                 }
+             }>
+                 <input
+                     type="text"
+-                    value={adminLoginPswd}
+-                    onChange={e => setAdminPswd(e.target.value)}
++                    value={loginBody.email}
++                    placeholder={'Email'}
++                    onChange={e => setLoginBody({
++                        ...loginBody,
++                        email: e.target.value
++                    })}
++                />
++                <input
++                    type="text"
++                    value={loginBody.password}
++                    placeholder={'Password'}
++                    onChange={e => setLoginBody({
++                        ...loginBody,
++                        password: e.target.value
++                    })}
+                 />
+                 <button type='submit'>Login</button>
+             </form>
+@@ -25,4 +42,4 @@
+     )
+ }
+ 
+-export default Login;
+\ No newline at end of file
++export default Login;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8fd5431a-7e00-4121-91f4-1f26e7a62ad7\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/layouts/Footer/Footer.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/layouts/Footer/Footer.tsx\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"TypeScript JSX File\" />\r\n        <option value=\"SCSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2LYzsgbG6npywl4tcMJDcwwrBW7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"TODO_SCOPE\": \"All Places\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"last_opened_file_path\": \"C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos\",\r\n    \"list.type.of.created.stylesheet\": \"SCSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.editor\",\r\n    \"ts.external.directory.path\": \"C:\\\\Users\\\\BAZIK\\\\Documents\\\\work\\\\Next\\\\hakaton-repo\\\\node_modules\\\\typescript\\\\lib\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"ChangesTree.GroupingKeys\": [\r\n      \"directory\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\OurTeam\\TeamPhotos\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\Components\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\styles\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\data\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\AdminPage\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\AdminPage\\AdminComponents\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\B1\\Header\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8fd5431a-7e00-4121-91f4-1f26e7a62ad7\" name=\"Changes\" comment=\"\" />\r\n      <created>1676063013687</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676063013687</updated>\r\n      <workItem from=\"1676063014908\" duration=\"1507000\" />\r\n      <workItem from=\"1676270926965\" duration=\"400000\" />\r\n      <workItem from=\"1676488706086\" duration=\"4998000\" />\r\n      <workItem from=\"1676542021998\" duration=\"4171000\" />\r\n      <workItem from=\"1676556361777\" duration=\"3912000\" />\r\n      <workItem from=\"1676570898685\" duration=\"10184000\" />\r\n      <workItem from=\"1676644822066\" duration=\"24763000\" />\r\n      <workItem from=\"1677769231625\" duration=\"668000\" />\r\n      <workItem from=\"1677789835417\" duration=\"2343000\" />\r\n      <workItem from=\"1677840664926\" duration=\"5788000\" />\r\n      <workItem from=\"1677846971693\" duration=\"3446000\" />\r\n      <workItem from=\"1677858241546\" duration=\"1229000\" />\r\n      <workItem from=\"1677868258507\" duration=\"8443000\" />\r\n      <workItem from=\"1677929085936\" duration=\"709000\" />\r\n      <workItem from=\"1678095907280\" duration=\"1088000\" />\r\n      <workItem from=\"1678196112468\" duration=\"809000\" />\r\n      <workItem from=\"1678386945377\" duration=\"8040000\" />\r\n      <workItem from=\"1678397016379\" duration=\"1509000\" />\r\n      <workItem from=\"1678438636811\" duration=\"1407000\" />\r\n      <workItem from=\"1678979238610\" duration=\"963000\" />\r\n      <workItem from=\"1679311052670\" duration=\"205000\" />\r\n      <workItem from=\"1679345054494\" duration=\"3245000\" />\r\n      <workItem from=\"1679348359390\" duration=\"399000\" />\r\n      <workItem from=\"1679394377194\" duration=\"534000\" />\r\n      <workItem from=\"1679827368259\" duration=\"147000\" />\r\n      <workItem from=\"1679839719414\" duration=\"6082000\" />\r\n      <workItem from=\"1679922894518\" duration=\"413000\" />\r\n      <workItem from=\"1679925655672\" duration=\"660000\" />\r\n      <workItem from=\"1680181711730\" duration=\"1006000\" />\r\n      <workItem from=\"1680286229751\" duration=\"12570000\" />\r\n      <workItem from=\"1680299019680\" duration=\"380000\" />\r\n      <workItem from=\"1680342501779\" duration=\"1359000\" />\r\n      <workItem from=\"1681122892552\" duration=\"998000\" />\r\n      <workItem from=\"1681124063342\" duration=\"398000\" />\r\n      <workItem from=\"1681232575031\" duration=\"11686000\" />\r\n      <workItem from=\"1681294674746\" duration=\"6672000\" />\r\n      <workItem from=\"1681382764834\" duration=\"853000\" />\r\n      <workItem from=\"1681489032123\" duration=\"3573000\" />\r\n      <workItem from=\"1681501559037\" duration=\"2088000\" />\r\n      <workItem from=\"1681558805858\" duration=\"5284000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/.idea/workspace.xml	(date 1682501769460)
+@@ -6,7 +6,19 @@
+   <component name="ChangeListManager">
+     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminPage/AdminPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.module.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminPage/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/Login/Login.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.module.scss" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/SuperAdminPage/SuperAdminPage.tsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.module.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/http/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/init.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/redux/Slices/AdminSlice.ts" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,30 +45,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "TODO_SCOPE": "All Places",
+-    "WebServerToolWindowFactoryState": "false",
+-    "codeWithMe.voiceChat.enabledByDefault": "false",
+-    "last_opened_file_path": "C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos",
+-    "list.type.of.created.stylesheet": "SCSS",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "preferences.editor",
+-    "ts.external.directory.path": "C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\node_modules\\typescript\\lib",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos&quot;,
++    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\node_modules\\typescript\\lib&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   },
+-  "keyToStringList": {
+-    "ChangesTree.GroupingKeys": [
+-      "directory"
++  &quot;keyToStringList&quot;: {
++    &quot;ChangesTree.GroupingKeys&quot;: [
++      &quot;directory&quot;
+     ]
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\OurTeam\TeamPhotos" />
+@@ -118,7 +130,9 @@
+       <workItem from="1681382764834" duration="853000" />
+       <workItem from="1681489032123" duration="3573000" />
+       <workItem from="1681501559037" duration="2088000" />
+-      <workItem from="1681558805858" duration="5284000" />
++      <workItem from="1681558805858" duration="5455000" />
++      <workItem from="1681727805278" duration="134000" />
++      <workItem from="1681812976254" duration="1597000" />
+     </task>
+     <servers />
+   </component>
+@@ -136,4 +150,4 @@
+       </map>
+     </option>
+   </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: src/components/AdminPage/AdminPage/AdminPage.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/AdminPage/AdminPage.tsx b/src/components/AdminPage/MainPage/MainPage.tsx
+rename from src/components/AdminPage/AdminPage/AdminPage.tsx
+rename to src/components/AdminPage/MainPage/MainPage.tsx
+--- a/src/components/AdminPage/AdminPage/AdminPage.tsx	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/components/AdminPage/MainPage/MainPage.tsx	(date 1682501769462)
+@@ -1,18 +1,20 @@
+ import {FC} from "react";
+-import s from './AdminPage.module.scss';
++import s from './MainPage.module.scss';
+ import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
+ import {Translation} from "@/models/text";
++import MainScreen from "@/components/AdminPage/AdminComponents/MainScreen/MainScreen";
+ 
+ interface AdminPageProps {
+     Translation: Translation;
+ }
+ 
+-const AdminPage: FC<AdminPageProps> = ({ Translation }) => {
++const MainPage: FC<AdminPageProps> = ({ Translation }) => {
+     return (
+         <div className={s.container}>
++            <MainScreen />
+             <Projects />
+         </div>
+     );
+ };
+ 
+-export default AdminPage;
+\ No newline at end of file
++export default MainPage;
+Index: src/components/HumanitarianAid/HumanitarianAid.module.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.wrapper {\r\n  display: grid;\r\n  grid-template-columns: auto minmax(320px, 1440px) auto;\r\n  grid-template-areas:\r\n    \". content .\";\r\n\r\n  @apply mb-[20px] pt-[40px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];\r\n}\r\n\r\n.container {\r\n  position: relative;\r\n\r\n  width: 100%;\r\n\r\n  grid-area: content;\r\n\r\n\r\n  @apply flex-col md:flex-row;\r\n  @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];\r\n  @apply pt-[20px] 2xl:pt-[50px] xl:pt-[45px] lg:pt-[40px] md:pt-[35px] sm:pt-[30px];\r\n  @apply pb-[110px] md:pb-[130px];\r\n\r\n  .gradient {\r\n    position: absolute;\r\n    left: 0; right: 0; top: 0; bottom: 72px;\r\n\r\n    border-radius: 6px;\r\n\r\n    z-index: -2;\r\n    overflow: hidden;\r\n\r\n    &::after {\r\n      width: 1470px;\r\n      height: 990px;\r\n\r\n      left: 70%;\r\n      top: 60%;\r\n      background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);\r\n    }\r\n\r\n    &::before {\r\n      width: 1300px;\r\n      height: 1180px;\r\n\r\n      left: 20%;\r\n      top: 50%;\r\n      background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);\r\n    }\r\n\r\n    &::after,\r\n    &::before {\r\n      content: \"\";\r\n      position: absolute;\r\n\r\n      opacity: 0.2;\r\n      transform: translate(-50%, -50%);\r\n\r\n      z-index: -10;\r\n    }\r\n  }\r\n\r\n  .inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 38px;\r\n\r\n    width: 100%;\r\n\r\n    .blocks {\r\n      display: flex;\r\n      width: 100%;\r\n\r\n      @apply flex-col md:flex-row gap-[30px] 2xl:gap-[130px] xl:gap-[100px] lg:gap-[75px] md:gap-[55px] sm:gap-[40px];\r\n\r\n      .infoSide {\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: space-between;\r\n        gap: 20px;\r\n\r\n        @apply w-full md:w-[40%];\r\n\r\n        p {\r\n          font-weight: 400;\r\n          font-size: 20px;\r\n          line-height: 30px;\r\n\r\n          color: #FFFFFF;\r\n        }\r\n\r\n        a {\r\n          font-weight: 400;\r\n          font-size: 20px;\r\n          line-height: 30px;\r\n\r\n          text-decoration-line: underline;\r\n\r\n          color: #FFED00;\r\n        }\r\n      }\r\n\r\n      .formSide {\r\n        display: flex;\r\n        gap: 20px;\r\n\r\n        @apply w-full md:w-[60%] flex-col sm:flex-row;\r\n\r\n        .inputs {\r\n          display: flex;\r\n          flex-direction: column;\r\n          gap: 20px;\r\n\r\n          color: #fff;\r\n          font-weight: 500;\r\n          line-height: 24px;\r\n\r\n          @apply w-full sm:w-1/2;\r\n\r\n          input {\r\n            width: 100%;\r\n            padding: 13px 16px;\r\n\r\n            background: none;\r\n            border: 2px solid rgba(255, 255, 255, 0.2);\r\n\r\n            &::placeholder {\r\n              font-weight: 500;\r\n              font-size: 14px;\r\n              line-height: 24px;\r\n              color: rgba(255, 255, 255, 0.5);\r\n            }\r\n          }\r\n        }\r\n\r\n        textarea {\r\n          min-height: 150px;\r\n          padding: 13px 16px;\r\n\r\n          background: none;\r\n          border: 2px solid rgba(255, 255, 255, 0.2);\r\n\r\n          color: #fff;\r\n          font-weight: 500;\r\n          line-height: 24px;\r\n\r\n          resize: none;\r\n\r\n          @apply w-full sm:w-1/2;\r\n\r\n          &::placeholder {\r\n            font-weight: 500;\r\n            font-size: 14px;\r\n            line-height: 24px;\r\n            color: rgba(255, 255, 255, 0.5);\r\n          }\r\n        }\r\n\r\n        .submit {\r\n          position: absolute;\r\n          right: 0;\r\n          bottom: 0;\r\n\r\n          @apply translate-y-[10%] md:translate-y-[-20%];\r\n          @apply translate-x-[-140%] 2xl:translate-x-[50%] xl:translate-x-[40%] lg:translate-x-[40%] md:translate-x-[40%] sm:translate-x-[-200%];\r\n\r\n          button {\r\n            display: flex;\r\n            align-items: center;\r\n            justify-content: center;\r\n\r\n            width: 100%;\r\n            height: 100%;\r\n\r\n            border-radius: 100%;\r\n\r\n            font-size: inherit;\r\n            font-weight: inherit;\r\n            color: inherit;\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/HumanitarianAid/HumanitarianAid.module.scss b/src/components/HumanitarianAid/HumanitarianAid.module.scss
+--- a/src/components/HumanitarianAid/HumanitarianAid.module.scss	(revision 28f1c25004128b7e87433ca5147ba97b07df5e20)
++++ b/src/components/HumanitarianAid/HumanitarianAid.module.scss	(date 1682501769463)
+@@ -98,87 +98,6 @@
+           color: #FFED00;
+         }
+       }
+-
+-      .formSide {
+-        display: flex;
+-        gap: 20px;
+-
+-        @apply w-full md:w-[60%] flex-col sm:flex-row;
+-
+-        .inputs {
+-          display: flex;
+-          flex-direction: column;
+-          gap: 20px;
+-
+-          color: #fff;
+-          font-weight: 500;
+-          line-height: 24px;
+-
+-          @apply w-full sm:w-1/2;
+-
+-          input {
+-            width: 100%;
+-            padding: 13px 16px;
+-
+-            background: none;
+-            border: 2px solid rgba(255, 255, 255, 0.2);
+-
+-            &::placeholder {
+-              font-weight: 500;
+-              font-size: 14px;
+-              line-height: 24px;
+-              color: rgba(255, 255, 255, 0.5);
+-            }
+-          }
+-        }
+-
+-        textarea {
+-          min-height: 150px;
+-          padding: 13px 16px;
+-
+-          background: none;
+-          border: 2px solid rgba(255, 255, 255, 0.2);
+-
+-          color: #fff;
+-          font-weight: 500;
+-          line-height: 24px;
+-
+-          resize: none;
+-
+-          @apply w-full sm:w-1/2;
+-
+-          &::placeholder {
+-            font-weight: 500;
+-            font-size: 14px;
+-            line-height: 24px;
+-            color: rgba(255, 255, 255, 0.5);
+-          }
+-        }
+-
+-        .submit {
+-          position: absolute;
+-          right: 0;
+-          bottom: 0;
+-
+-          @apply translate-y-[10%] md:translate-y-[-20%];
+-          @apply translate-x-[-140%] 2xl:translate-x-[50%] xl:translate-x-[40%] lg:translate-x-[40%] md:translate-x-[40%] sm:translate-x-[-200%];
+-
+-          button {
+-            display: flex;
+-            align-items: center;
+-            justify-content: center;
+-
+-            width: 100%;
+-            height: 100%;
+-
+-            border-radius: 100%;
+-
+-            font-size: inherit;
+-            font-weight: inherit;
+-            color: inherit;
+-          }
+-        }
+-      }
+-    }
+-  }
+-}
+\ No newline at end of file
++    }
++  }
++}
+diff --git a/src/components/AdminPage/AdminPage/AdminPage.module.scss b/src/components/AdminPage/MainPage/MainPage.module.scss
+rename from src/components/AdminPage/AdminPage/AdminPage.module.scss
+rename to src/components/AdminPage/MainPage/MainPage.module.scss

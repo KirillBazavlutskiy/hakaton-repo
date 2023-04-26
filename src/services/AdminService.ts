@@ -1,7 +1,6 @@
 import $api from "@/http/init";
 import Cookies from "universal-cookie";
 import {store} from "@/redux/store";
-import {changeUserType} from "@/redux/Slices/AdminSlice";
 import {toast} from "react-toastify";
 import {IAdmin, IOffer, IProject} from "@/models/data";
 
@@ -12,7 +11,7 @@ export default class AdminService {
             const cookies = new Cookies();
             cookies.set('token', res.data.token);
             cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');
-            store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
+            // store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
         } else {
             toast.error('Помилка!', {
                 position: "top-right",
@@ -31,7 +30,7 @@ export default class AdminService {
         const res = await $api.get('/api/Auth/CheckAuth');
         const cookies = new Cookies();
         if (res?.status === 200) {
-            store.dispatch(changeUserType(cookies.get('status')));
+            // store.dispatch(changeUserType(cookies.get('status')));
         }
     }
 

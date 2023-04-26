@@ -1,10 +1,8 @@
 import {createContext, Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
 import {useAppSelector} from "@/redux/store";
-import AdminService from "@/services/AdminService";
 
 import Login from "@/components/AdminPage/Login/Login";
-import SuperAdminPage from "@/components/AdminPage/SuperAdminPage/SuperAdminPage";
-import AdminPage from "@/components/AdminPage/AdminPage/AdminPage";
+import MainPage from "@/components/AdminPage/MainPage/MainPage";
 
 import 'react-toastify/dist/ReactToastify.css';
 import {Translation} from "@/models/text";
@@ -14,6 +12,7 @@ import fs from "fs";
 import {GetServerSideProps} from "next/types";
 import AdminLanguageSwitcher
     from "@/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher";
+import AuthService from "@/services/AuthService";
 
 interface AdminIndexProps {
     Translation: Translation;
@@ -38,7 +37,7 @@ const Admin: FC<AdminIndexProps> = ({ Translation }) => {
     const [language, setLanguage] = useState('en');
 
     useEffect(() => {
-        AdminService.ChechAuth();
+        AuthService.GetMe();
     }, [])
 
     return (
@@ -49,10 +48,9 @@ const Admin: FC<AdminIndexProps> = ({ Translation }) => {
             language: language,
             setLanguage: setLanguage,
         }}>
-            {user !== 'user' && <AdminLanguageSwitcher />}
-            {user === 'user' && <Login />}
-            {user === 'superadmin' && <SuperAdminPage Translation={localisation} />}
-            {user === 'admin' && <AdminPage Translation={localisation} />}
+            {user === 'Admin' && <AdminLanguageSwitcher />}
+            {user === 'Guest' && <Login />}
+            {user === 'Admin' && <MainPage Translation={localisation} />}
         </TranslationTextContext.Provider>
     );
 };

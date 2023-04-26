@@ -1,4 +1,4 @@
-import { FC } from "react";
+import {FC, useEffect} from "react";
 import {GetStaticProps} from 'next';
 import {IPost} from '@/models/data';
 import {Translation} from "@/models/text";
@@ -19,6 +19,7 @@ import fs from "fs";
 import process from "process";
 import path from "path";
 import {useRouter} from "next/router";
+import AuthService from "@/services/AuthService";
 
 interface IndexProps {
     instagramData: IPost[];
@@ -30,6 +31,10 @@ const Index: FC<IndexProps> = ({ instagramData, translation }) => {
     const router = useRouter();
     const language = router.locale || 'en';
     const localisationText = translation[language];
+
+    useEffect(() => {
+        AuthService.GetMe();
+    }, [])
 
     return (
         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>

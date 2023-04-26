@@ -1,0 +1,13 @@
+.container {
+  @apply absolute backdrop-blur-[10px]
+  top-[-20px] left-[-20px] w-[calc(100%_+_46px)] h-[calc(100%_+_50px)]
+  flex flex-col justify-center items-center gap-[50px];
+
+  h2 {
+    @apply font-medium font-[24px] text-center;
+  }
+
+  button {
+    @apply border-blue-500 border-[1px] rounded-[2px] px-[20px] py-[5px];
+  }
+}
