@@ -4,14 +4,17 @@ export interface IAdmin {
 }
 
 export interface IProject {
-    id: string;
-    publishedBy: string;
     name: string;
     description_EN: string;
     description_UA: string;
     photos: string[];
-    participants: string[];
     createdAt: Date;
+}
+
+export interface IProjectPrivate extends IProject {
+    id: string;
+    publishedBy: string;
+    participants: string[];
 }
 
 export interface ITeam {
