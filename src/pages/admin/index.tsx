@@ -29,7 +29,7 @@ interface TranslationTextContext {
 export const TranslationTextContext = createContext<TranslationTextContext | null>(null);
 
 const Admin: FC<AdminIndexProps> = ({ Translation }) => {
-    const { user } = useAppSelector(state => state.status)
+    const { user } = useAppSelector(state => state.status);
 
     const TranslationCopy = JSON.parse(JSON.stringify(Translation));
 

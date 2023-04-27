@@ -1,3 +1,5 @@
+import {ImageProps} from "next/image";
+
 export interface IAdmin {
     token: string;
     isMaster: boolean;
@@ -18,10 +20,12 @@ export interface ITeam {
 }
 
 export interface IOffer {
-    "name": string,
-    "phone": string,
-    "email": string,
-    "offer": string
+    hcuh: string,
+    name: string,
+    phone: string,
+    email: string,
+    offer: string,
+    image: File[] | null,
 }
 
 export interface IPost {
@@ -42,4 +46,11 @@ interface Children {
 interface Child {
     id: string,
     media_url: string,
+}
+
+export interface OfferRequest {
+    title: string;
+    message: string;
+    photos: File[];
+    files: File[];
 }

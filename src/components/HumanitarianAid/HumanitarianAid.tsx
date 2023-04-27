@@ -5,13 +5,15 @@ import { SectionCaption } from '../SectionCaption/SectionCaption';
 import s from './HumanitarianAid.module.scss';
 import {IWantToHelpWithHumanitarianAid} from "@/models/text";
 import HumanitarianAidForm from "@/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm";
-import NeedToLogin from "@/components/HumanitarianAid/NeedToLogin/NeedToLogin";
+import AuthWindow from "@/components/Login/AuthWindow";
 
 interface HumanitarianAidProps {
     HumanitarianAid: IWantToHelpWithHumanitarianAid;
 }
 
 const HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {
+
+    const [loginMenuActive, setLoginMenuActive] = useState<boolean>(false);
 
     return (
         <div className={s.wrapper}>
@@ -26,10 +28,11 @@ const HumanitarianAid: FC<HumanitarianAidProps> = ({HumanitarianAid}) => {
                             <p>{HumanitarianAid.fillTheForm}</p>
                             <a href="https://docs.google.com/document/d/15VglwvQL6Xn1fCCRMNMvp6wfashimn0D/edit">{HumanitarianAid.listOfNeeds}</a>
                         </div>
-                        <HumanitarianAidForm HumanitarianAidForm={HumanitarianAid} />
+                        <HumanitarianAidForm HumanitarianAidForm={HumanitarianAid} setLoginMenuActive={setLoginMenuActive} />
                     </div>
                 </div>
             </div>
+            {loginMenuActive && <AuthWindow setLoginMenuActive={setLoginMenuActive} loginMenu={loginMenuActive} />}
         </div>
     );
 };

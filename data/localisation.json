@@ -7,6 +7,27 @@
             "partners": "Partners",
             "donate": "Donate"
         },
+        "Auth": {
+            "mainText": "You need to register before filling out the form",
+            "Login": {
+                "loginH1": "Login",
+                "loginH2": "Log before continuing",
+                "toReg": "Don't have an account?",
+                "field": {
+                    "email": "E-mail"
+                }
+            },
+            "Registration": {
+                "loginH1": "Registration",
+                "loginH2": "Log before continuing",
+                "toReg": "Already have an account?",
+                "fields": {
+                    "name": "Name",
+                    "phone": "Phone",
+                    "email": "E-mail"
+                }
+            }
+        },
         "MainText": {
             "main": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
             "button": "Help us maintain the valanteer fund"
@@ -25,12 +46,17 @@
             "main": "I want to help with Humanitarian Aid",
             "fillTheForm": "If u can help and provide something of the current list above, please fill out the form below",
             "listOfNeeds": "List of current Needs",
+            "needToAuth": "You must register before filling out the form",
+            "login": "Login",
             "form": {
+                "hcuh": "How can you help?",
                 "name": "Name",
                 "phone": "Phone",
                 "email": "E-mail",
                 "whatYouCanProvide": "What You Can Provide",
-                "sendButton": "Send"
+                "sendButton": "Send",
+                "imageHaveToAdd": "Add photos",
+                "imageAdded": "Added: "
             }
         },
         "OurPartners": "Our partners",
@@ -55,6 +81,26 @@
             "partners": "Партнери",
             "donate": "Пожертвувати"
         },
+        "Auth": {
+            "Login": {
+                "loginH1": "Логін",
+                "loginH2": "Перш ніж продовжити, увійдіть",
+                "toReg": "Немає облікового запису?",
+                "field": {
+                    "email": "E-mail"
+                }
+            },
+            "Registration": {
+                "loginH1": "Реєстрація",
+                "loginH2": "Перш ніж продовжити, увійдіть",
+                "toReg": "Вже є аккаунт?",
+                "fields": {
+                    "name": "Ім'я",
+                    "phone": "Телефон",
+                    "email": "E-mail"
+                }
+            }
+        },
         "MainText": {
             "main": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
             "button": "Допоможіть нам підтримувати благодійний фонд"
@@ -73,12 +119,17 @@
             "main": "Я хочу допомогти з гуманітарною допомогою",
             "fillTheForm": "Якщо ви можете допомогти та надати щось із поточного списку вище, будь ласка, заповніть форму нижче",
             "listOfNeeds": "Список поточних потреб",
+            "needToAuth": "Перед заповненням форми необхідно зареєструватися",
+            "login": "Увійти",
             "form": {
+                "hcuh": "Як ви можете допомогти?",
                 "name": "Ім'я",
                 "phone": "Номер телефону",
                 "email": "E-mail",
                 "whatYouCanProvide": "Що ви можете запропонувати",
-                "sendButton": "Відправити"
+                "sendButton": "Відправити",
+                "imageHaveToAdd": "Додати фото",
+                "imageAdded": "Додано: "
             }
         },
         "OurPartners": "Наші партнери",

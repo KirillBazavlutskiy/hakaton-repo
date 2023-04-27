@@ -5,6 +5,29 @@ export type HeaderText = {
     partners: string;
     donate: string;
 }
+export type Login = {
+    loginH1: string;
+    loginH2: string;
+    toReg: string;
+    field: {
+        email: string;
+    };
+};
+export type Registration = {
+    loginH1: string;
+    loginH2: string;
+    toReg: string;
+    fields: {
+        name: string;
+        phone: string;
+        email: string;
+    };
+};
+export type Auth = {
+    mainText: string;
+    Login: Login;
+    Registration: Registration;
+}
 export type MainText = {
     main: string;
     button: string;
@@ -23,12 +46,17 @@ export type IWantToHelpWithHumanitarianAid = {
     main: string;
     fillTheForm: string;
     listOfNeeds: string;
+    needToAuth: string;
+    login: string
     form: {
+        hcuh: string;
         name: string;
         phone: string;
         email: string;
         whatYouCanProvide: string;
         sendButton: string;
+        "imageHaveToAdd": string,
+        "imageAdded": string
     };
 };
 export type OurPartners = string;
@@ -47,6 +75,7 @@ export type BottomText = {
 
 export interface TranslatedLanguage {
     HeaderText: HeaderText;
+    Auth: Auth;
     MainText: MainText;
     OurProjects: OurProjects;
     OutLatestNews: OurLatestNews;

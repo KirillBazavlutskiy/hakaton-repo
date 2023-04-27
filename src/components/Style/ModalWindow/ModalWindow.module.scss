@@ -1,0 +1,14 @@
+.container {
+  @apply fixed top-0 left-0 w-screen h-screen z-50 px-[10px]
+  flex justify-center items-center bg-[rgba(0,0,0,0.5)];
+
+  .inner {
+    @apply w-[380px] backdrop-blur-[10px]
+    p-[20px] rounded-[10px] relative
+    flex flex-col justify-between items-center text-center gap-[20px];
+
+    svg {
+      @apply absolute right-[20px] top-[20px] cursor-pointer;
+    }
+  }
+}

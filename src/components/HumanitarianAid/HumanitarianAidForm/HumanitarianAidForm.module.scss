@@ -5,6 +5,8 @@
   @apply w-full relative md:w-[60%] flex-col sm:flex-row;
 
   .inputs {
+    @apply w-full sm:w-1/2;
+
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -13,14 +15,39 @@
     font-weight: 500;
     line-height: 24px;
 
+  }
+
+  .bigFields {
     @apply w-full sm:w-1/2;
 
-    input {
+    label {
+      @apply block w-full py-[13px] px-[16px] bg-transparent
+      border-[2px] border-[#fff]/20;
+
+      p {
+        @apply text-[14px] font-medium text-[#fff]/50
+      }
+
+      input[type="file"] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    textarea {
       width: 100%;
+      min-height: 150px;
       padding: 13px 16px;
 
       background: none;
       border: 2px solid rgba(255, 255, 255, 0.2);
+
+      color: #fff;
+      font-weight: 500;
+      line-height: 24px;
+
+      resize: none;
 
       &::placeholder {
         font-weight: 500;
@@ -29,37 +56,16 @@
         color: rgba(255, 255, 255, 0.5);
       }
     }
-  }
 
-  textarea {
-    min-height: 150px;
-    padding: 13px 16px;
 
-    background: none;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-
-    color: #fff;
-    font-weight: 500;
-    line-height: 24px;
-
-    resize: none;
-
-    @apply w-full sm:w-1/2;
-
-    &::placeholder {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      color: rgba(255, 255, 255, 0.5);
-    }
   }
 
   .submit {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 40px;
 
-    @apply translate-y-[10%] translate-x-[10%];
+    @apply translate-x-[10%];
 
     button {
       display: flex;
