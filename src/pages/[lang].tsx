@@ -18,6 +18,7 @@ import OurTeam from "@/components/OurTeam/OurTeam";
 import fs from "fs";
 import process from "process";
 import path from "path";
+import AboutUs from "@/components/AboutUs/AboutUs";
 
 interface IndexProps {
     instagramData: IPost[];
@@ -33,6 +34,7 @@ const Index: FC<IndexProps> = ({ instagramData, localisationText, language}) => 
         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
             <section id="B1">
                 <IntroText MainText={localisationText.MainText} />
+                <AboutUs languageProps={AboutUs}/>
             </section>
             <section id="B2">
                 <OurProjects OurProjects={localisationText.OurProjects}/>

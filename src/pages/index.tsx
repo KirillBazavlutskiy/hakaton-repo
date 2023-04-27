@@ -45,7 +45,7 @@ const Index: FC<IndexProps> = ({ instagramData, translation, OurProjectsArray, O
         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
             <section id="B1">
                 <IntroText MainText={localisationText.MainText} />
-                <AboutUs/>
+                <AboutUs languageProps={localisationText.AboutUs}/>
             </section>
             <section id="B2">
                 <OurProjects OurProjects={localisationText.OurProjects} Array={OurProjectsArray}/>

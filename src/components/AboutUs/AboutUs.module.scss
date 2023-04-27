@@ -12,11 +12,11 @@
         }
 
         p {
-            @apply text-[15px] lg:text-[20px] text-[#709EAE] font-[500];
+            @apply text-[15px] lg:text-[20px] text-[#709EAE] font-[500] mt-[15px];
         }
 
         .aboutUs {
-            @apply col-start-1 col-end-2 row-start-1 row-end-5 flex flex-col items-start bg-[#00012f] pb-[20px];
+            @apply col-start-1 col-end-2 row-start-1 row-end-5 flex flex-col items-start bg-[#00012f] pb-[20px] pr-[20px];
         }
 
         .mission {
@@ -24,7 +24,7 @@
         }
 
         .value {
-            @apply col-start-1 col-end-2 row-start-5 row-end-7 flex flex-col justify-end bg-[#00012f] mb-[2px] pb-[20px];
+            @apply col-start-1 col-end-2 row-start-5 row-end-7 flex flex-col justify-end bg-[#00012f] mb-[2px] pb-[20px] pr-[20px];
         }
 
         .emptyBlock {
