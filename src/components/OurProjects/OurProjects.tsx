@@ -16,9 +16,10 @@ SwiperCore.use([EffectCoverflow, Pagination]);
 
 interface IntroTextProps {
     OurProjects: OurProjects;
+    Array: IProject[];
 }
 
-const OurProjects: FC<IntroTextProps> = (OurProjects) => {
+const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
 
@@ -26,8 +27,8 @@ const OurProjects: FC<IntroTextProps> = (OurProjects) => {
         name: "Error of projects preload",
         description_EN: "Ops! Something went wrong...",
         description_UA: "Ой! Щось пійшло не так!",
-        imageUrl: "",
-        id: "error",
+        photos: [""],
+        createdAt: ""
     }]);
 
     useEffect(() => {
@@ -88,7 +89,7 @@ const OurProjects: FC<IntroTextProps> = (OurProjects) => {
         <div className={s.wrapper}>
             <div className={s.container}>
                 <SectionCaption>
-                    {OurProjects.OurProjects.main}
+                    {OurProjects.main}
                 </SectionCaption>
                 <Swiper
                     modules={[Navigation]}
@@ -124,7 +125,7 @@ const OurProjects: FC<IntroTextProps> = (OurProjects) => {
                         className={s.swiper}
                     >
                         <SwiperSlide className={s.slideWrapper}>
-                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab]?.imageUrl})` }}></div>
+                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab]?.photos})` }}></div>
                         </SwiperSlide>
                     </Swiper>
                     <div className={s.block}>
@@ -140,7 +141,7 @@ const OurProjects: FC<IntroTextProps> = (OurProjects) => {
                                 key={i}
                             >
                                 <RoundedButton className={s.donate}>
-                                    <a href="#B56">{OurProjects.OurProjects.donateButton}</a>
+                                    <a href="#B56">{OurProjects.donateButton}</a>
                                 </RoundedButton>
                             </div>
                         ))

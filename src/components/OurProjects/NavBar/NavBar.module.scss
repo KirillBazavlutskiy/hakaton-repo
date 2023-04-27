@@ -1,0 +1,30 @@
+.navBar {
+    @apply w-full max-w-[1020px] h-[100px] rounded-lg px-[60px] sm:px-[80px] lg:px-[150px] flex items-center justify-between relative;
+
+    background: rgb(45,67,177);
+    background: radial-gradient(circle, rgba(45,67,177,0.2805497198879552) 0%, rgba(22,40,85,0.16850490196078427) 100%);
+
+    .notActiveBtn {
+      @apply text-[#009CCD] text-2xl font-bold;
+    }
+
+    .activeBtn {
+      @apply text-yellow-300 text-2xl font-black;
+    }
+
+
+    .liftLeft {
+      @apply w-[40px] h-full absolute left-[20px];
+
+      svg {
+        @apply w-full stroke-white;
+      }
+    }
+    .liftRight {
+      @apply w-[40px] h-full absolute right-[20px];
+
+      svg {
+        @apply w-full stroke-white;
+      }
+    }
+  }

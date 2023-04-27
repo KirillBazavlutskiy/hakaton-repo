@@ -4,11 +4,17 @@ export interface IAdmin {
 }
 
 export interface IProject {
-    id: string
     name: string;
     description_EN: string;
     description_UA: string;
-    imageUrl: string;
+    photos: [string];
+    createdAt: any;
+}
+
+export interface ITeam {
+    fullName: string;
+    photo: string;
+    extras: string;
 }
 
 export interface IOffer {

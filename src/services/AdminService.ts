@@ -1,6 +1,5 @@
 import $api from "@/http/init";
 import Cookies from "universal-cookie";
-import {store} from "@/redux/store";
 import {toast} from "react-toastify";
 import {IAdmin, IOffer, IProject} from "@/models/data";
 

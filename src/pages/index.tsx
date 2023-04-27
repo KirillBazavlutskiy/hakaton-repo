@@ -1,6 +1,6 @@
 import {FC, useEffect} from "react";
 import {GetStaticProps} from 'next';
-import {IPost} from '@/models/data';
+import {IPost, IProject, ITeam} from '@/models/data';
 import {Translation} from "@/models/text";
 import axios from 'axios';
 
@@ -20,13 +20,18 @@ import process from "process";
 import path from "path";
 import {useRouter} from "next/router";
 import AuthService from "@/services/AuthService";
+import AboutUs from "@/components/AboutUs/AboutUs";
 
 interface IndexProps {
     instagramData: IPost[];
     translation: Translation;
+
+    OurProjectsArray: IProject[];
+    OurTeamArray: ITeam[];
+    OurPartnersArray: ITeam[];
 }
 
-const Index: FC<IndexProps> = ({ instagramData, translation }) => {
+const Index: FC<IndexProps> = ({ instagramData, translation, OurProjectsArray, OurTeamArray, OurPartnersArray }) => {
 
     const router = useRouter();
     const language = router.locale || 'en';
@@ -40,9 +45,10 @@ const Index: FC<IndexProps> = ({ instagramData, translation }) => {
         <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
             <section id="B1">
                 <IntroText MainText={localisationText.MainText} />
+                <AboutUs/>
             </section>
             <section id="B2">
-                <OurProjects OurProjects={localisationText.OurProjects}/>
+                <OurProjects OurProjects={localisationText.OurProjects} Array={OurProjectsArray}/>
             </section>
             <section id="B3">
                 {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
@@ -55,10 +61,10 @@ const Index: FC<IndexProps> = ({ instagramData, translation }) => {
                 <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
             </section>
             <section id="B7">
-                <OurPartners OurPartners={localisationText.OurPartners}/>
+                <OurPartners OurPartners={localisationText.OurPartners} Array={OurPartnersArray}/>
             </section>
             <section id='B8'>
-                <OurTeam OurTeam={localisationText.OurTeam}/>
+                <OurTeam OurTeam={localisationText.OurTeam} Array={OurTeamArray}/>
             </ section>
             <section id="B9">
                 <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
@@ -75,10 +81,18 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     try {
         const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
 
+        const res = await axios.get<IProject[]>('https://ss.egartsites.pp.ua/Projects/GetPublic');
+        const team__responce = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/Users/GetMembers');
+        const parnters__responce = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/Users/GetPartners');
+
         return {
             props: {
                 instagramData: response,
                 translation: jsonData,
+
+                OurProjectsArray: res.data,
+                OurTeamArray: team__responce.data,
+                OurPartnersArray: parnters__responce.data,
             },
             revalidate: 600,
         };
@@ -88,6 +102,10 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
             props: {
                 instagramData: [],
                 translation: jsonData,
+                
+                OurProjectsArray: [],
+                OurTeamArray: [],
+                OurPartnersArray: [],
             },
             revalidate: 600,
         };
