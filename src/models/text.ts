@@ -76,6 +76,9 @@ export type BottomText = {
 export interface TranslatedLanguage {
     HeaderText: HeaderText;
     Auth: Auth;
+    AboutUs: string;
+    Mission: string;
+    Value: string;
     MainText: MainText;
     OurProjects: OurProjects;
     OutLatestNews: OurLatestNews;

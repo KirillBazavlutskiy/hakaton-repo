@@ -1,0 +1,379 @@
+Index: src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {FC, useContext} from 'react';\r\nimport s from './MainScreen.module.scss';\r\nimport Label from \"@/components/AdminPage/AdminComponents/AdminUI/Label/Label\";\r\nimport {TranslationTextContext} from \"@/pages/admin\";\r\n\r\nconst MainScreen: FC = () => {\r\n\r\n    const context = useContext(TranslationTextContext);\r\n\r\n    return (\r\n        <div className={s.container}>\r\n            {\r\n                context !== null &&\r\n                <>\r\n                    <Label\r\n                        title={'Main text'} type={'textarea'} maxLength={1000}\r\n                        state={context.StateTranslate} path={[ context.language, 'MainText', 'main']} setState={context.setTranslate}\r\n                    />\r\n                    <Label\r\n                        title={'Button text'} type={'textarea'} maxLength={40} height={170}\r\n                        state={context.StateTranslate} path={[ context.language, 'MainText', 'button']} setState={context.setTranslate}\r\n                    />\r\n                </>\r\n            }\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default MainScreen;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx b/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx
+--- a/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx	(date 1682552993773)
+@@ -1,5 +1,4 @@
+ import {FC, useContext} from 'react';
+-import s from './MainScreen.module.scss';
+ import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
+ import {TranslationTextContext} from "@/pages/admin";
+ 
+@@ -8,7 +7,7 @@
+     const context = useContext(TranslationTextContext);
+ 
+     return (
+-        <div className={s.container}>
++        <>
+             {
+                 context !== null &&
+                 <>
+@@ -22,8 +21,8 @@
+                     />
+                 </>
+             }
+-        </div>
++        </>
+     );
+ };
+ 
+-export default MainScreen;
+\ No newline at end of file
++export default MainScreen;
+Index: src/services/AdminService.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import $api from \"@/http/init\";\r\nimport Cookies from \"universal-cookie\";\r\nimport {store} from \"@/redux/store\";\r\nimport {toast} from \"react-toastify\";\r\nimport {IAdmin, IOffer, IProject} from \"@/models/data\";\r\n\r\nexport default class AdminService {\r\n    static Login = async (password: string): Promise<void> => {\r\n        const res = await $api.get<IAdmin>(`/api/Auth/Token?password=${password}`);\r\n        if (res !== undefined) {\r\n            const cookies = new Cookies();\r\n            cookies.set('token', res.data.token);\r\n            cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');\r\n            // store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));\r\n        } else {\r\n            toast.error('Помилка!', {\r\n                position: \"top-right\",\r\n                autoClose: 1000,\r\n                hideProgressBar: false,\r\n                closeOnClick: true,\r\n                pauseOnHover: true,\r\n                draggable: true,\r\n                progress: undefined,\r\n                theme: \"colored\",\r\n            });\r\n        }\r\n    }\r\n\r\n    static ChechAuth = async (): Promise<void> => {\r\n        const res = await $api.get('/api/Auth/CheckAuth');\r\n        const cookies = new Cookies();\r\n        if (res?.status === 200) {\r\n            // store.dispatch(changeUserType(cookies.get('status')));\r\n        }\r\n    }\r\n\r\n    static AddAdmin = async (password: string): Promise<boolean> => {\r\n        const res = await $api.get(`/api/Auth/AddSlavePassword?password=${password}`);\r\n        return 200 < res.status && res.status < 300;\r\n    }\r\n\r\n    static GetAdmins = async (): Promise<string[]> => {\r\n        const { data } = await $api.get<string[]>('/api/Auth/ListSlavePassword');\r\n        return data;\r\n    }\r\n\r\n    static AddOffer = async (offer: IOffer): Promise<void> => {\r\n        await $api.post('/api/HelpOffer/Add', {...offer});\r\n    }\r\n\r\n    static GetProjects = async (): Promise<IProject[]> => {\r\n        try {\r\n            const { data } = await $api.get<IProject[]>('/api/OurProject');\r\n            return data;\r\n        } catch (e) {\r\n            return [];\r\n        }\r\n    }\r\n\r\n    static AddProject = async (project: any) => {\r\n        return await $api.post('/api/OurProject', project);\r\n    }\r\n\r\n    static DeleteProject = async (id: string) => {\r\n        await $api.delete(`/api/OurProject?id=${id}`);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/services/AdminService.ts b/src/services/AdminService.ts
+--- a/src/services/AdminService.ts	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/services/AdminService.ts	(date 1682551805676)
+@@ -1,67 +1,9 @@
++import {UserDTO, UserRole} from "@/models/user";
+ import $api from "@/http/init";
+-import Cookies from "universal-cookie";
+-import {store} from "@/redux/store";
+-import {toast} from "react-toastify";
+-import {IAdmin, IOffer, IProject} from "@/models/data";
+ 
+ export default class AdminService {
+-    static Login = async (password: string): Promise<void> => {
+-        const res = await $api.get<IAdmin>(`/api/Auth/Token?password=${password}`);
+-        if (res !== undefined) {
+-            const cookies = new Cookies();
+-            cookies.set('token', res.data.token);
+-            cookies.set('status', res.data.isMaster ? 'superadmin' : 'admin');
+-            // store.dispatch(changeUserType(res.data.isMaster ? 'superadmin' : 'admin'));
+-        } else {
+-            toast.error('Помилка!', {
+-                position: "top-right",
+-                autoClose: 1000,
+-                hideProgressBar: false,
+-                closeOnClick: true,
+-                pauseOnHover: true,
+-                draggable: true,
+-                progress: undefined,
+-                theme: "colored",
+-            });
+-        }
+-    }
+-
+-    static ChechAuth = async (): Promise<void> => {
+-        const res = await $api.get('/api/Auth/CheckAuth');
+-        const cookies = new Cookies();
+-        if (res?.status === 200) {
+-            // store.dispatch(changeUserType(cookies.get('status')));
+-        }
+-    }
+-
+-    static AddAdmin = async (password: string): Promise<boolean> => {
+-        const res = await $api.get(`/api/Auth/AddSlavePassword?password=${password}`);
+-        return 200 < res.status && res.status < 300;
+-    }
+-
+-    static GetAdmins = async (): Promise<string[]> => {
+-        const { data } = await $api.get<string[]>('/api/Auth/ListSlavePassword');
++    static fetchMembers = async (skip: number, limit: number,  role: UserRole): Promise<UserDTO[]> => {
++        const { data } = await $api.get<UserDTO[]>(`/Users?skip=${skip}&limit=${limit}&role=${role}`);
+         return data;
+     }
+-
+-    static AddOffer = async (offer: IOffer): Promise<void> => {
+-        await $api.post('/api/HelpOffer/Add', {...offer});
+-    }
+-
+-    static GetProjects = async (): Promise<IProject[]> => {
+-        try {
+-            const { data } = await $api.get<IProject[]>('/api/OurProject');
+-            return data;
+-        } catch (e) {
+-            return [];
+-        }
+-    }
+-
+-    static AddProject = async (project: any) => {
+-        return await $api.post('/api/OurProject', project);
+-    }
+-
+-    static DeleteProject = async (id: string) => {
+-        await $api.delete(`/api/OurProject?id=${id}`);
+-    }
+ }
+Index: data/localisation.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n    \"en\": {\r\n        \"HeaderText\": {\r\n            \"projects\": \"Projects\",\r\n            \"news\": \"News\",\r\n            \"statistic\": \"Statistic\",\r\n            \"partners\": \"Partners\",\r\n            \"donate\": \"Donate\"\r\n        },\r\n        \"Auth\": {\r\n            \"mainText\": \"You need to register before filling out the form\",\r\n            \"Login\": {\r\n                \"loginH1\": \"Login\",\r\n                \"loginH2\": \"Log before continuing\",\r\n                \"toReg\": \"Don't have an account?\",\r\n                \"field\": {\r\n                    \"email\": \"E-mail\"\r\n                }\r\n            },\r\n            \"Registration\": {\r\n                \"loginH1\": \"Registration\",\r\n                \"loginH2\": \"Log before continuing\",\r\n                \"toReg\": \"Already have an account?\",\r\n                \"fields\": {\r\n                    \"name\": \"Name\",\r\n                    \"phone\": \"Phone\",\r\n                    \"email\": \"E-mail\"\r\n                }\r\n            }\r\n        },\r\n        \"MainText\": {\r\n            \"main\": \"Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary\",\r\n            \"button\": \"Help us maintain the valanteer fund\"\r\n        },\r\n        \"OurProjects\": {\r\n            \"main\": \"Our Projects\",\r\n            \"donateButton\": \"Donate\"\r\n        },\r\n        \"OutLatestNews\": \"Our Latest news\",\r\n        \"WhatHasAlreadyBeenDone\": \"What has already been done\",\r\n        \"IWantToDonate\": {\r\n            \"main\": \"I want to donate\",\r\n            \"otherWays\": \"Other ways to donate\"\r\n        },\r\n        \"IWantToHelpWithHumanitarianAid\": {\r\n            \"main\": \"I want to help with Humanitarian Aid\",\r\n            \"fillTheForm\": \"If u can help and provide something of the current list above, please fill out the form below\",\r\n            \"listOfNeeds\": \"List of current Needs\",\r\n            \"needToAuth\": \"You must register before filling out the form\",\r\n            \"login\": \"Login\",\r\n            \"form\": {\r\n                \"hcuh\": \"How can you help?\",\r\n                \"name\": \"Name\",\r\n                \"phone\": \"Phone\",\r\n                \"email\": \"E-mail\",\r\n                \"whatYouCanProvide\": \"What You Can Provide\",\r\n                \"sendButton\": \"Send\",\r\n                \"imageHaveToAdd\": \"Add photos\",\r\n                \"imageAdded\": \"Added: \"\r\n            }\r\n        },\r\n        \"OurPartners\": \"Our partners\",\r\n        \"OurTeam\": {\r\n            \"main\": \"Our Team\",\r\n            \"description\": \"Support the Ukrainian Army, territorial defense fighters, refugees, hospitals, animal shelters❤️\"\r\n        },\r\n        \"LinkToForm\": {\r\n            \"main\": \"Template for official aid request for organisations\",\r\n            \"formLink\": \"Fill the form\"\r\n        },\r\n        \"BottomText\": {\r\n            \"privacyPolicy\": \"Privacy Policy\",\r\n            \"donateButton\": \"Donate\"\r\n        }\r\n    },\r\n    \"ua\": {\r\n        \"HeaderText\": {\r\n            \"projects\": \"Проекти\",\r\n            \"news\": \"Новини\",\r\n            \"statistic\": \"Статистика\",\r\n            \"partners\": \"Партнери\",\r\n            \"donate\": \"Пожертвувати\"\r\n        },\r\n        \"Auth\": {\r\n            \"Login\": {\r\n                \"loginH1\": \"Логін\",\r\n                \"loginH2\": \"Перш ніж продовжити, увійдіть\",\r\n                \"toReg\": \"Немає облікового запису?\",\r\n                \"field\": {\r\n                    \"email\": \"E-mail\"\r\n                }\r\n            },\r\n            \"Registration\": {\r\n                \"loginH1\": \"Реєстрація\",\r\n                \"loginH2\": \"Перш ніж продовжити, увійдіть\",\r\n                \"toReg\": \"Вже є аккаунт?\",\r\n                \"fields\": {\r\n                    \"name\": \"Ім'я\",\r\n                    \"phone\": \"Телефон\",\r\n                    \"email\": \"E-mail\"\r\n                }\r\n            }\r\n        },\r\n        \"MainText\": {\r\n            \"main\": \"Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного\",\r\n            \"button\": \"Допоможіть нам підтримувати благодійний фонд\"\r\n        },\r\n        \"OurProjects\": {\r\n            \"main\": \"Наші проекти\",\r\n            \"donateButton\": \"Пожертвувати\"\r\n        },\r\n        \"OutLatestNews\": \"Наші останні новини\",\r\n        \"WhatHasAlreadyBeenDone\": \"Що вже зроблено\",\r\n        \"IWantToDonate\": {\r\n            \"main\": \"Я хочу пожертвувати\",\r\n            \"otherWays\": \"Інші способи пожертвування\"\r\n        },\r\n        \"IWantToHelpWithHumanitarianAid\": {\r\n            \"main\": \"Я хочу допомогти з гуманітарною допомогою\",\r\n            \"fillTheForm\": \"Якщо ви можете допомогти та надати щось із поточного списку вище, будь ласка, заповніть форму нижче\",\r\n            \"listOfNeeds\": \"Список поточних потреб\",\r\n            \"needToAuth\": \"Перед заповненням форми необхідно зареєструватися\",\r\n            \"login\": \"Увійти\",\r\n            \"form\": {\r\n                \"hcuh\": \"Як ви можете допомогти?\",\r\n                \"name\": \"Ім'я\",\r\n                \"phone\": \"Номер телефону\",\r\n                \"email\": \"E-mail\",\r\n                \"whatYouCanProvide\": \"Що ви можете запропонувати\",\r\n                \"sendButton\": \"Відправити\",\r\n                \"imageHaveToAdd\": \"Додати фото\",\r\n                \"imageAdded\": \"Додано: \"\r\n            }\r\n        },\r\n        \"OurPartners\": \"Наші партнери\",\r\n        \"OurTeam\": {\r\n            \"main\": \"Наша команда\",\r\n            \"description\": \"Підтримуйте українську армію, бійців територіальної оборони, біженців, лікарні, притулки для тварин❤️\"\r\n        },\r\n        \"LinkToForm\": {\r\n            \"main\": \"Шаблон офіційного запиту на допомогу для організацій\",\r\n            \"formLink\": \"Заповніть форму\"\r\n        },\r\n        \"BottomText\": {\r\n            \"privacyPolicy\": \"Політика конфіденційності\",\r\n            \"donateButton\": \"Пожертвувати\"\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/data/localisation.json b/data/localisation.json
+--- a/data/localisation.json	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/data/localisation.json	(date 1682553459415)
+@@ -28,6 +28,9 @@
+                 }
+             }
+         },
++        "AboutUs": "We are a team of volunteer friends who have united all our efforts and capabilities to support the volunteer front. We started our volunteer activity by creating a community on Telegram on the third day of the war. Our goal was to simplify communication between volunteers for quick exchange of information - who needs what kind of help, where to find the necessary resources, and how to deliver and close the need. Within just a few days, hundreds of concerned citizens joined us not only from Dnipropetrovsk region but from all over Ukraine, and friends from abroad also joined us. Today our volunteer community continues to grow. In addition to a large number of volunteers, there is a core team of the foundation that directs the vector of development, manages the daily activities of the foundation, and negotiates new partnerships and opportunities. There is a lot of management work to ensure the foundation operates and grows. Each of us does what we do best. But the most important thing is that we have known each other for a long time, many of us are close friends - which gives us a great advantage and trust in each other. We are growing and modernizing our work every month, despite the fact that we all come from",
++        "Mission": "To maintain the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary: Ukrainian military, forced migrants, children, hospitals, shelters",
++        "Value": "Equality and mutual respect, professionalism and transparency in activity, ethics and partnership A person, his life and health, honor and dignity, inviolability and security - the highest social value.",
+         "MainText": {
+             "main": "Our mission is to keep the volunteer front of Ukraine. Carry humanitarian mission to ensure the necessary",
+             "button": "Help us maintain the valanteer fund"
+@@ -101,6 +104,9 @@
+                 }
+             }
+         },
++        "AboutUs": "Ми – команда друзів-волонтерів, яка об’єднала всі свої зусилля та можливості для підтримки волонтерського фронту. Свою волонтерську діяльність ми розпочали зі створення спільноти в Telegram на третій день війни. Нашою метою було спростити спілкування між волонтерами для швидкого обміну інформацією – кому яка допомога потрібна, де знайти необхідні ресурси, як доставити та закрити потребу. Вже за кілька днів до нас приєдналися сотні небайдужих громадян не лише з Дніпропетровщини, а й з усієї України, а також друзі з-за кордону. Сьогодні наша волонтерська спільнота продовжує зростати. Крім великої кількості волонтерів, є основна команда фонду, яка спрямовує вектор розвитку, керує повсякденною діяльністю фонду, домовляється про нові партнерства та можливості. Існує багато управлінської роботи, щоб забезпечити функціонування та розвиток фонду. Кожен з нас робить те, що вміє найкраще. Але найголовніше те, що ми давно знайомі, багато з нас є близькими друзями - це дає нам велику перевагу і довіру один до одного. Щомісяця ми ростемо та модернізуємо свою роботу, незважаючи на те, що всі ми родом",
++        "Mission": "Підтримувати волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного: українських військових, вимушених переселенців, дітей, лікарень, притулків",
++        "Value": "Рівноправність і взаємоповага, професіоналізм і прозорість у діяльності, етичність і партнерство Людина, її життя і здоров'я, честь і гідність, недоторканність і безпека - найвища соціальна цінність.",
+         "MainText": {
+             "main": "Наша місія – зберегти волонтерський фронт України. Виконувати гуманітарну місію для забезпечення необхідного",
+             "button": "Допоможіть нам підтримувати благодійний фонд"
+Index: src/components/AdminPage/MainPage/MainPage.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {FC} from \"react\";\r\nimport s from './MainPage.module.scss';\r\nimport Projects from \"@/components/AdminPage/AdminComponents/Projects/Projects\";\r\nimport {Translation} from \"@/models/text\";\r\nimport MainScreen from \"@/components/AdminPage/AdminComponents/MainScreen/MainScreen\";\r\n\r\ninterface AdminPageProps {\r\n    Translation: Translation;\r\n}\r\n\r\nconst MainPage: FC<AdminPageProps> = ({ Translation }) => {\r\n    return (\r\n        <div className={s.container}>\r\n            <MainScreen />\r\n            <Projects />\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default MainPage;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/MainPage/MainPage.tsx b/src/components/AdminPage/MainPage/MainPage.tsx
+--- a/src/components/AdminPage/MainPage/MainPage.tsx	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/components/AdminPage/MainPage/MainPage.tsx	(date 1682554477795)
+@@ -1,8 +1,10 @@
+ import {FC} from "react";
+ import s from './MainPage.module.scss';
+-import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
+ import {Translation} from "@/models/text";
+ import MainScreen from "@/components/AdminPage/AdminComponents/MainScreen/MainScreen";
++import AboutUs from "@/components/AdminPage/AdminComponents/AboutUs/AboutUs";
++import Mission from "@/components/AdminPage/AdminComponents/Mission/Mission";
++import Value from "@/components/AdminPage/AdminComponents/Value/Value";
+ 
+ interface AdminPageProps {
+     Translation: Translation;
+@@ -12,7 +14,9 @@
+     return (
+         <div className={s.container}>
+             <MainScreen />
+-            <Projects />
++            <AboutUs />
++            <Mission />
++            <Value />
+         </div>
+     );
+ };
+Index: src/models/data.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {ImageProps} from \"next/image\";\r\n\r\nexport interface IAdmin {\r\n    token: string;\r\n    isMaster: boolean;\r\n}\r\n\r\nexport interface IProject {\r\n    id: string\r\n    name: string;\r\n    description_EN: string;\r\n    description_UA: string;\r\n    imageUrl: string;\r\n}\r\n\r\nexport interface IOffer {\r\n    hcuh: string,\r\n    name: string,\r\n    phone: string,\r\n    email: string,\r\n    offer: string,\r\n    image: File[] | null,\r\n}\r\n\r\nexport interface IPost {\r\n    id: string,\r\n    username: string,\r\n    caption: string,\r\n    media_type: string,\r\n    media_url: string,\r\n    timestamp: string,\r\n    permalink: string,\r\n    children: Children\r\n}\r\n\r\ninterface Children {\r\n    data: Child[]\r\n}\r\n\r\ninterface Child {\r\n    id: string,\r\n    media_url: string,\r\n}\r\n\r\nexport interface OfferRequest {\r\n    title: string;\r\n    message: string;\r\n    photos: File[];\r\n    files: File[];\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/models/data.ts b/src/models/data.ts
+--- a/src/models/data.ts	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/models/data.ts	(date 1682554489020)
+@@ -1,5 +1,3 @@
+-import {ImageProps} from "next/image";
+-
+ export interface IAdmin {
+     token: string;
+     isMaster: boolean;
+Index: src/models/text.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>export type HeaderText = {\r\n    projects: string;\r\n    news: string;\r\n    statistic: string;\r\n    partners: string;\r\n    donate: string;\r\n}\r\nexport type Login = {\r\n    loginH1: string;\r\n    loginH2: string;\r\n    toReg: string;\r\n    field: {\r\n        email: string;\r\n    };\r\n};\r\nexport type Registration = {\r\n    loginH1: string;\r\n    loginH2: string;\r\n    toReg: string;\r\n    fields: {\r\n        name: string;\r\n        phone: string;\r\n        email: string;\r\n    };\r\n};\r\nexport type Auth = {\r\n    mainText: string;\r\n    Login: Login;\r\n    Registration: Registration;\r\n}\r\nexport type MainText = {\r\n    main: string;\r\n    button: string;\r\n};\r\nexport type OurProjects = {\r\n    main: string;\r\n    donateButton: string;\r\n};\r\nexport type OurLatestNews = string;\r\nexport type WhatHasAlreadyBeenDone = string;\r\nexport type IWantToDonate = {\r\n    main: string;\r\n    otherWays: string;\r\n};\r\nexport type IWantToHelpWithHumanitarianAid = {\r\n    main: string;\r\n    fillTheForm: string;\r\n    listOfNeeds: string;\r\n    needToAuth: string;\r\n    login: string\r\n    form: {\r\n        hcuh: string;\r\n        name: string;\r\n        phone: string;\r\n        email: string;\r\n        whatYouCanProvide: string;\r\n        sendButton: string;\r\n        \"imageHaveToAdd\": string,\r\n        \"imageAdded\": string\r\n    };\r\n};\r\nexport type OurPartners = string;\r\nexport type OurTeam = {\r\n    main: string;\r\n    description: string;\r\n};\r\nexport type LinkToForm = {\r\n    main: string;\r\n    formLink: string;\r\n};\r\nexport type BottomText = {\r\n    privacyPolicy: string;\r\n    donateButton: string;\r\n};\r\n\r\nexport interface TranslatedLanguage {\r\n    HeaderText: HeaderText;\r\n    Auth: Auth;\r\n    MainText: MainText;\r\n    OurProjects: OurProjects;\r\n    OutLatestNews: OurLatestNews;\r\n    WhatHasAlreadyBeenDone: WhatHasAlreadyBeenDone;\r\n    IWantToDonate: IWantToDonate\r\n    IWantToHelpWithHumanitarianAid: IWantToHelpWithHumanitarianAid;\r\n    OurPartners: OurPartners;\r\n    OurTeam: OurTeam;\r\n    LinkToForm: LinkToForm;\r\n    BottomText: BottomText;\r\n}\r\n\r\nexport interface Translation {\r\n    [language: string]: TranslatedLanguage;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/models/text.ts b/src/models/text.ts
+--- a/src/models/text.ts	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/models/text.ts	(date 1682553513547)
+@@ -76,6 +76,9 @@
+ export interface TranslatedLanguage {
+     HeaderText: HeaderText;
+     Auth: Auth;
++    AboutUs: string;
++    Mission: string;
++    Value: string;
+     MainText: MainText;
+     OurProjects: OurProjects;
+     OutLatestNews: OurLatestNews;
+Index: src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.container {\r\n  @apply relative;\r\n  p {\r\n    @apply font-extrabold text-[32px] text-[#fff];\r\n  }\r\n\r\n  input, textarea {\r\n    @apply w-full bg-[#f1f0ea]/30\r\n    text-[#fff] text-[20px] font-normal rounded-[7px];\r\n  }\r\n\r\n  input {\r\n    @apply py-[12px] px-[10px];\r\n  }\r\n\r\n  textarea {\r\n    @apply p-[20px] resize-none\r\n  }\r\n\r\n  span {\r\n    @apply absolute bottom-[20px] right-[20px];\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss b/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss
+--- a/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss	(date 1682553989279)
+@@ -1,12 +1,12 @@
+ .container {
+   @apply relative;
+   p {
+-    @apply font-extrabold text-[32px] text-[#fff];
++    @apply font-extrabold text-[20px] pl-[20px] text-[#fff] pt-[25px] pb-[5px];
+   }
+ 
+   input, textarea {
+     @apply w-full bg-[#f1f0ea]/30
+-    text-[#fff] text-[20px] font-normal rounded-[7px];
++    text-[#fff] text-[16px] font-normal rounded-[7px];
+   }
+ 
+   input {
+@@ -18,6 +18,6 @@
+   }
+ 
+   span {
+-    @apply absolute bottom-[20px] right-[20px];
++    @apply absolute bottom-[20px] right-[10px] p-[10px] backdrop-blur-[5px];
+   }
+-}
+\ No newline at end of file
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8fd5431a-7e00-4121-91f4-1f26e7a62ad7\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Login/AuthWindow.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/data/localisation.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/data/localisation.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Login/Login.module.scss\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Login/Login.tsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/models/auth.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/models/auth.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/models/data.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/models/data.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/models/text.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/models/text.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/pages/admin/index.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/admin/index.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/services/AuthService.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/services/AuthService.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript JSX File\" />\r\n        <option value=\"SCSS File\" />\r\n        <option value=\"TypeScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2LYzsgbG6npywl4tcMJDcwwrBW7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/BAZIK/Documents/work/Next/hakaton-repo/src/components/OurTeam/TeamPhotos&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,\r\n    &quot;ts.external.directory.path&quot;: &quot;C:\\\\Users\\\\BAZIK\\\\Documents\\\\work\\\\Next\\\\hakaton-repo\\\\node_modules\\\\typescript\\\\lib&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;ChangesTree.GroupingKeys&quot;: [\r\n      &quot;directory&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\OurTeam\\TeamPhotos\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\Components\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\styles\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\data\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\AdminPage\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\AdminPage\\AdminComponents\" />\r\n      <recent name=\"C:\\Users\\BAZIK\\Documents\\work\\Next\\hakaton-repo\\src\\components\\B1\\Header\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8fd5431a-7e00-4121-91f4-1f26e7a62ad7\" name=\"Changes\" comment=\"\" />\r\n      <created>1676063013687</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676063013687</updated>\r\n      <workItem from=\"1676063014908\" duration=\"1507000\" />\r\n      <workItem from=\"1676270926965\" duration=\"400000\" />\r\n      <workItem from=\"1676488706086\" duration=\"4998000\" />\r\n      <workItem from=\"1676542021998\" duration=\"4171000\" />\r\n      <workItem from=\"1676556361777\" duration=\"3912000\" />\r\n      <workItem from=\"1676570898685\" duration=\"10184000\" />\r\n      <workItem from=\"1676644822066\" duration=\"24763000\" />\r\n      <workItem from=\"1677769231625\" duration=\"668000\" />\r\n      <workItem from=\"1677789835417\" duration=\"2343000\" />\r\n      <workItem from=\"1677840664926\" duration=\"5788000\" />\r\n      <workItem from=\"1677846971693\" duration=\"3446000\" />\r\n      <workItem from=\"1677858241546\" duration=\"1229000\" />\r\n      <workItem from=\"1677868258507\" duration=\"8443000\" />\r\n      <workItem from=\"1677929085936\" duration=\"709000\" />\r\n      <workItem from=\"1678095907280\" duration=\"1088000\" />\r\n      <workItem from=\"1678196112468\" duration=\"809000\" />\r\n      <workItem from=\"1678386945377\" duration=\"8040000\" />\r\n      <workItem from=\"1678397016379\" duration=\"1509000\" />\r\n      <workItem from=\"1678438636811\" duration=\"1407000\" />\r\n      <workItem from=\"1678979238610\" duration=\"963000\" />\r\n      <workItem from=\"1679311052670\" duration=\"205000\" />\r\n      <workItem from=\"1679345054494\" duration=\"3245000\" />\r\n      <workItem from=\"1679348359390\" duration=\"399000\" />\r\n      <workItem from=\"1679394377194\" duration=\"534000\" />\r\n      <workItem from=\"1679827368259\" duration=\"147000\" />\r\n      <workItem from=\"1679839719414\" duration=\"6082000\" />\r\n      <workItem from=\"1679922894518\" duration=\"413000\" />\r\n      <workItem from=\"1679925655672\" duration=\"660000\" />\r\n      <workItem from=\"1680181711730\" duration=\"1006000\" />\r\n      <workItem from=\"1680286229751\" duration=\"12570000\" />\r\n      <workItem from=\"1680299019680\" duration=\"380000\" />\r\n      <workItem from=\"1680342501779\" duration=\"1359000\" />\r\n      <workItem from=\"1681122892552\" duration=\"998000\" />\r\n      <workItem from=\"1681124063342\" duration=\"398000\" />\r\n      <workItem from=\"1681232575031\" duration=\"11686000\" />\r\n      <workItem from=\"1681294674746\" duration=\"6672000\" />\r\n      <workItem from=\"1681382764834\" duration=\"853000\" />\r\n      <workItem from=\"1681489032123\" duration=\"3573000\" />\r\n      <workItem from=\"1681501559037\" duration=\"2088000\" />\r\n      <workItem from=\"1681558805858\" duration=\"5455000\" />\r\n      <workItem from=\"1681727805278\" duration=\"134000\" />\r\n      <workItem from=\"1681812976254\" duration=\"1597000\" />\r\n      <workItem from=\"1682535668145\" duration=\"13451000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/.idea/workspace.xml	(date 1682554267401)
+@@ -5,20 +5,22 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/components/Login/AuthWindow.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/data/localisation.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/localisation.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.module.scss" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/models/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/auth.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/models/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/data.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.module.scss" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.tsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/Admins.module.scss" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/Admins.tsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.module.scss" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.tsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.module.scss" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/models/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/text.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,9 +30,9 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
++        <option value="TypeScript File" />
+         <option value="TypeScript JSX File" />
+         <option value="SCSS File" />
+-        <option value="TypeScript File" />
+       </list>
+     </option>
+   </component>
+@@ -133,7 +135,7 @@
+       <workItem from="1681558805858" duration="5455000" />
+       <workItem from="1681727805278" duration="134000" />
+       <workItem from="1681812976254" duration="1597000" />
+-      <workItem from="1682535668145" duration="13451000" />
++      <workItem from="1682535668145" duration="18062000" />
+     </task>
+     <servers />
+   </component>
+Index: src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.container {\r\n  @apply sticky h-[80px] bg-[#fff] px-[20px]\r\n  flex items-center justify-between;\r\n\r\n  .languageSwitch {\r\n    @apply flex items-center gap-[20px];\r\n\r\n    h1 {\r\n      @apply text-[#000] text-[18px] font-medium;\r\n    }\r\n\r\n    .languageList {\r\n      @apply flex border-gray-500 border-[2px];\r\n\r\n      button {\r\n        @apply text-[#000] py-[5px] px-[6px] transition-all;\r\n\r\n        &:hover {\r\n          @apply bg-blue-200;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .resetState {\r\n    button {\r\n      @apply text-[#000] py-[8px] px-[10px]\r\n      border-gray-500 border-[2px] transition-all;\r\n\r\n      &:hover {\r\n        @apply bg-blue-200;\r\n      }\r\n    }\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss b/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss
+--- a/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss	(date 1682552524821)
+@@ -5,8 +5,8 @@
+   .languageSwitch {
+     @apply flex items-center gap-[20px];
+ 
+-    h1 {
+-      @apply text-[#000] text-[18px] font-medium;
++    p {
++      @apply text-[#000];
+     }
+ 
+     .languageList {
+@@ -24,7 +24,7 @@
+ 
+   .resetState {
+     button {
+-      @apply text-[#000] py-[8px] px-[10px]
++      @apply text-[#000] text-[14px] py-[8px] px-[10px]
+       border-gray-500 border-[2px] transition-all;
+ 
+       &:hover {
+@@ -32,4 +32,4 @@
+       }
+     }
+   }
+-}
+\ No newline at end of file
++}
+Index: src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { FC, useContext} from 'react';\r\nimport s from './AdminLanguageSwitcher.module.scss';\r\nimport {TranslationTextContext} from \"@/pages/admin\";\r\nimport {useRouter} from \"next/router\";\r\n\r\nconst AdminLanguageSwitcher: FC = () => {\r\n\r\n    const context = useContext(TranslationTextContext);\r\n    const { locales } = useRouter();\r\n\r\n    return (\r\n        <div className={s.container}>\r\n            <div className={s.languageSwitch}>\r\n                <h1>Перемикання між мовами</h1>\r\n                <div className={s.languageList}>\r\n                    {\r\n                        locales?.map(l => <button key={l} onClick={() => context?.setLanguage(l)}>{l}</button>)\r\n                    }\r\n                </div>\r\n            </div>\r\n            <div className={s.resetState}>\r\n                <button onClick={() => {context?.setTranslate(context?.DefaultTranslate)}}>Відмінити зміни</button>\r\n            </div>\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default AdminLanguageSwitcher;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx b/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx
+--- a/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx	(revision fdf994f39620d0539b5317a86940224a3bc3bdea)
++++ b/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx	(date 1682552482168)
+@@ -11,7 +11,7 @@
+     return (
+         <div className={s.container}>
+             <div className={s.languageSwitch}>
+-                <h1>Перемикання між мовами</h1>
++                <p>Перемикання між мовами</p>
+                 <div className={s.languageList}>
+                     {
+                         locales?.map(l => <button key={l} onClick={() => context?.setLanguage(l)}>{l}</button>)
+@@ -25,4 +25,4 @@
+     );
+ };
+ 
+-export default AdminLanguageSwitcher;
+\ No newline at end of file
++export default AdminLanguageSwitcher;

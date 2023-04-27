@@ -1,12 +1,12 @@
 .container {
   @apply relative;
   p {
-    @apply font-extrabold text-[32px] text-[#fff];
+    @apply font-extrabold text-[20px] pl-[20px] text-[#fff] pt-[25px] pb-[5px];
   }
 
   input, textarea {
     @apply w-full bg-[#f1f0ea]/30
-    text-[#fff] text-[20px] font-normal rounded-[7px];
+    text-[#fff] text-[16px] font-normal rounded-[7px];
   }
 
   input {
@@ -18,6 +18,6 @@
   }
 
   span {
-    @apply absolute bottom-[20px] right-[20px];
+    @apply absolute bottom-[20px] right-[10px] p-[10px] backdrop-blur-[5px];
   }
 }

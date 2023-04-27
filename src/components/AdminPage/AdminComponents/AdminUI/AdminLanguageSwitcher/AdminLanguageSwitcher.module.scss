@@ -5,8 +5,8 @@
   .languageSwitch {
     @apply flex items-center gap-[20px];
 
-    h1 {
-      @apply text-[#000] text-[18px] font-medium;
+    p {
+      @apply text-[#000];
     }
 
     .languageList {
@@ -24,7 +24,7 @@
 
   .resetState {
     button {
-      @apply text-[#000] py-[8px] px-[10px]
+      @apply text-[#000] text-[14px] py-[8px] px-[10px]
       border-gray-500 border-[2px] transition-all;
 
       &:hover {

@@ -11,7 +11,7 @@ const AdminLanguageSwitcher: FC = () => {
     return (
         <div className={s.container}>
             <div className={s.languageSwitch}>
-                <h1>Перемикання між мовами</h1>
+                <p>Перемикання між мовами</p>
                 <div className={s.languageList}>
                     {
                         locales?.map(l => <button key={l} onClick={() => context?.setLanguage(l)}>{l}</button>)

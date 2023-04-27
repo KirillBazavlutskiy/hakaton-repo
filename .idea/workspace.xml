@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Login/AuthWindow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/localisation.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/localisation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/NeedToLogin/NeedToLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminAdd/AdminAdd.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/Admins.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/Admins.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Admins/AdminsList/AdminsList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/MainScreen/MainScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/text.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="SCSS File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -133,7 +135,7 @@
       <workItem from="1681558805858" duration="5455000" />
       <workItem from="1681727805278" duration="134000" />
       <workItem from="1681812976254" duration="1597000" />
-      <workItem from="1682535668145" duration="13451000" />
+      <workItem from="1682535668145" duration="18062000" />
     </task>
     <servers />
   </component>

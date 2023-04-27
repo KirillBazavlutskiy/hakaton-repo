@@ -1,5 +1,4 @@
 import {FC, useContext} from 'react';
-import s from './MainScreen.module.scss';
 import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
 import {TranslationTextContext} from "@/pages/admin";
 
@@ -8,7 +7,7 @@ const MainScreen: FC = () => {
     const context = useContext(TranslationTextContext);
 
     return (
-        <div className={s.container}>
+        <>
             {
                 context !== null &&
                 <>
@@ -22,7 +21,7 @@ const MainScreen: FC = () => {
                     />
                 </>
             }
-        </div>
+        </>
     );
 };
 

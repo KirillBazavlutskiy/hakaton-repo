@@ -1,5 +1,3 @@
-import {ImageProps} from "next/image";
-
 export interface IAdmin {
     token: string;
     isMaster: boolean;
