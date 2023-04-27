@@ -7,8 +7,8 @@ export interface IProject {
     name: string;
     description_EN: string;
     description_UA: string;
-    photos: [string];
-    createdAt: any;
+    photos: string[];
+    createdAt: Date;
 }
 
 export interface ITeam {
