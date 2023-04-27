@@ -30,6 +30,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
         description_UA: "Ой! Щось пійшло не так!",
         photos: [""],
         createdAt: "",
+        createdAt: new Date(),
     }]);
 
     useEffect(() => {

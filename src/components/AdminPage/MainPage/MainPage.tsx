@@ -5,6 +5,7 @@ import MainScreen from "@/components/AdminPage/AdminComponents/MainScreen/MainSc
 import AboutUs from "@/components/AdminPage/AdminComponents/AboutUs/AboutUs";
 import Mission from "@/components/AdminPage/AdminComponents/Mission/Mission";
 import Value from "@/components/AdminPage/AdminComponents/Value/Value";
+import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
 
 interface AdminPageProps {
     Translation: Translation;
@@ -17,6 +18,7 @@ const MainPage: FC<AdminPageProps> = ({ Translation }) => {
             <AboutUs />
             <Mission />
             <Value />
+            <Projects />
         </div>
     );
 };

@@ -11,6 +11,12 @@ export interface IProject {
     createdAt: Date;
 }
 
+export interface IProjectPrivate extends IProject {
+    id: string;
+    publishedBy: string;
+    participants: string[];
+}
+
 export interface ITeam {
     fullName: string;
     photo: string;

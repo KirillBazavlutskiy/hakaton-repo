@@ -10,7 +10,7 @@ export default class AdminService {
 
     static GetProjects = async (): Promise<IProject[]> => {
         try {
-            const { data } = await $api.get<IProject[]>('/api/OurProject');
+            const { data } = await $api.get<IProject[]>('/Projects');
             return data;
         } catch (e) {
             return [];
