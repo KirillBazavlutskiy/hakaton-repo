@@ -11,6 +11,7 @@ import { IProject } from "@/models/data";
 import s from './OurProjects.module.scss';
 import React from 'react';
 import {OurProjects} from "@/models/text";
+import {toFormData} from "axios";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -28,7 +29,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
         description_EN: "Ops! Something went wrong...",
         description_UA: "Ой! Щось пійшло не так!",
         photos: [""],
-        createdAt: ""
+        createdAt: "",
     }]);
 
     useEffect(() => {
