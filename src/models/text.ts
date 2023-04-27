@@ -5,6 +5,14 @@ export type HeaderText = {
     partners: string;
     donate: string;
 }
+export type AboutUs = {
+  about__title: string;
+  about__text: string;
+  mission__title: string;
+  mission__text: string;
+  value__title: string;
+  value__text:string;
+};
 export type Login = {
     loginH1: string;
     loginH2: string;
