@@ -1,35 +1,36 @@
 .container {
-  @apply sticky h-[80px] bg-[#fff] px-[20px]
+  @apply sticky px-[20px] py-[10px]
   flex items-center justify-between;
 
-  .languageSwitch {
-    @apply flex items-center gap-[20px];
-
-    p {
-      @apply text-[#000];
-    }
-
-    .languageList {
-      @apply flex border-gray-500 border-[2px];
-
-      button {
-        @apply text-[#000] py-[5px] px-[6px] transition-all;
-
-        &:hover {
-          @apply bg-blue-200;
-        }
-      }
+  .logo {
+    img {
+      @apply w-[160px] h-[75px];
     }
   }
 
-  .resetState {
-    button {
-      @apply text-[#000] text-[14px] py-[8px] px-[10px]
-      border-gray-500 border-[2px] transition-all;
+  .languageSwitch {
+    @apply flex items-center gap-[50px];
 
-      &:hover {
-        @apply bg-blue-200;
+    .languageList {
+      @apply flex rounded-[2px] overflow-hidden;
+
+      .localeButton {
+        @apply py-[6px] px-[17px];
       }
+
+      .localeButton.notActive {
+        @apply text-[#fff]/60 bg-[#fff]/50;
+      }
+
+      .localeButton.active {
+        @apply text-[#fff] bg-[#05A8FFCC];
+      }
+    }
+
+    .resetButton {
+      @apply bg-transparent px-[13px] py-[7px]
+      font-normal text-[16px] text-[#fff]
+      border-[2px] rounded-[2px] border-[#3D3D5F];
     }
   }
 }
