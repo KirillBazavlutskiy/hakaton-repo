@@ -14,7 +14,7 @@ const AboutUs: FC = () => {
                         title={'About Us'}
                         type={'textarea'} maxLength={1500}
                         state={context.StateTranslate}
-                        path={[ context.language, 'AboutUs' ]}
+                        path={[ context.language, 'AboutUs', 'about__text' ]}
                         setState={context.setTranslate}
                     />
             }

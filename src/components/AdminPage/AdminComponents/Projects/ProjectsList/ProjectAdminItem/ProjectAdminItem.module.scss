@@ -1,31 +1,38 @@
 .projectItem {
-  @apply bg-[#fff] flex flex-col gap-[20px] justify-between
-  rounded-[15px] overflow-hidden
-  p-0 md:p-[20px];
+  @apply w-full flex flex-col items-start;
 
-  img {
-    @apply w-auto h-auto rounded-none md:rounded-[15px];
+  h3 {
+    @apply text-[25px] font-extrabold mb-[20px];
   }
 
-  .projectInfo {
-    @apply flex flex-col
-    p-[10px] usm:p-[15px] md:p-0;
+  .inner {
+    @apply w-full p-[10px] bg-[#E5E5E5]/30 rounded-[6px];
 
-    h2 {
-      @apply text-[#000] font-bold;
+    .photos {
+      @apply bg-[#fff]/10 w-full h-[300px] mb-[17px];
+    }
+
+    span {
+      @apply text-[16px] font-normal mb-[5px];
     }
 
     p {
-      @apply text-[#000] font-semibold;
+      @apply border-[1px] border-[#fff] rounded-[7px] p-[6px] mb-[15px];
     }
 
-    button {
-      @apply mt-[20px] py-2 self-center
-      bg-blue-500 text-[#fff] transition-colors
-      w-full md:w-[200px] rounded-[15px];
+    .buttons {
+      @apply flex justify-center mt-[40px] gap-[40px];
 
-      &:hover {
-        @apply bg-blue-700;
+      button {
+        @apply rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium;
+
+        &:nth-child(1) {
+          @apply bg-[#00A6FF];
+        }
+
+        &:nth-child(2) {
+          @apply bg-[#E90909];
+        }
       }
     }
   }

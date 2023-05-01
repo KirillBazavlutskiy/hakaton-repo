@@ -1,7 +1,9 @@
 import {FC, useState} from 'react';
 import s from './ProjectAdd.module.scss';
 import AdminService from "@/services/AdminService";
-import introText from "@/components/IntroText/IntroText";
+import {IProjectPostRequestBody} from "@/models/data";
+import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
+import ModalWindow from "@/components/Style/ModalWindow/ModalWindow";
 
 interface ProjectAddProps {
     fetchProjects: () => Promise<void>;
@@ -9,38 +11,47 @@ interface ProjectAddProps {
 
 const ProjectAdd: FC<ProjectAddProps> = ({ fetchProjects }) => {
 
-    const [project, setProject] = useState({
+    const [projectState, setProjectState] = useState<IProjectPostRequestBody>({
         name: '',
         description_EN: '',
         description_UA: '',
-        imageUrl: '',
+        photos: [],
+        participants: []
     });
+    const [modalMenuMode, setModalMenuMode] = useState<boolean>(false);
+    const [photoFiles, setPhotoFiles] = useState<File[]>([]);
 
     return (
-        <form onSubmit={async (event) => {
-            event.preventDefault();
-            await AdminService.AddProject(project);
-            await fetchProjects();
-            setProject({ name: '', description_EN: '', description_UA: '', imageUrl: '' })
-        }} className={s.addProject}>
-            <label>
-                <span>Назва</span>
-                <input type="text" value={project.name} onChange={e => setProject(prev => ({ ...prev, name: e.target.value }))}/>
-            </label>
-            <label>
-                <span>Опис англійською</span>
-                <textarea value={project.description_EN} onChange={e => setProject(prev => ({ ...prev, description_EN: e.target.value }))}/>
-            </label>
-            <label>
-                <span>Опис українською</span>
-                <textarea value={project.description_UA} onChange={e => setProject(prev => ({ ...prev, description_UA: e.target.value }))}/>
-            </label>
-            <label>
-                <span>Посилання на фото</span>
-                <input type="text" value={project.imageUrl} onChange={e => setProject(prev => ({ ...prev, imageUrl: e.target.value }))}/>
-            </label>
-            <button type='submit'>Відправити</button>
-        </form>
+        <>
+            <div className={s.container} onClick={() => {
+                setModalMenuMode(true)
+            }}>
+                <h2>Add a new project</h2>
+            </div>
+            <ModalWindow state={modalMenuMode} setState={setModalMenuMode}>
+                <div className={s.modalContainer}>
+                    <Label type={'input'} placeholder={'Name'} maxLength={50} state={projectState} path={['name']} setState={setProjectState} />
+                    <Label type={'textarea'} placeholder={'English Description'} height={200} maxLength={400} state={projectState} path={['description_EN']} setState={setProjectState} />
+                    <Label type={'textarea'} placeholder={'Ukrainian Description'} height={200} maxLength={400} state={projectState} path={['description_UA']} setState={setProjectState} />
+                    <label>
+                        <p>{`Added Photos: ${photoFiles.length}`}</p>
+                        <input
+                            type={'file'}
+                            accept={"image/*"}
+                            multiple
+                            onChange={e =>
+                                e.target.files && setPhotoFiles(Array.from( e.target.files))
+                            }
+                        />
+                    </label>
+                    <button onClick={async () => {
+                        await AdminService.AddProject({ ...projectState, photos: photoFiles })
+                        setModalMenuMode(false);
+                        await fetchProjects();
+                    }}>Save</button>
+                </div>
+            </ModalWindow>
+        </>
     );
 };
 

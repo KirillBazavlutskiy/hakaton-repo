@@ -13,7 +13,7 @@ const Value = () => {
                     title={'About Us'}
                     type={'textarea'} maxLength={500}
                     state={context.StateTranslate}
-                    path={[ context.language, 'Value' ]}
+                    path={[ context.language, 'AboutUs', 'value__text' ]}
                     setState={context.setTranslate}
                 />
             }

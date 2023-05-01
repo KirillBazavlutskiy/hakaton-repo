@@ -1,0 +1,40 @@
+.container {
+  @apply w-full;
+  h3 {
+    @apply text-[20px] font-semibold mb-[10px];
+  }
+
+  p {
+    @apply cursor-pointer py-[13px] px-[16px] bg-transparent
+    border-[2px] border-[#fff]/20 transition-colors;
+
+    &:hover {
+      @apply border-[#fff]/60;
+    }
+  }
+}
+
+.menuContainer {
+  @apply w-full px-[40px] pt-[40px];
+
+  input {
+    @apply w-full py-[13px] px-[16px] bg-transparent
+    border-[2px] border-[#fff]/20 my-[10px];
+  }
+
+  .btns {
+    @apply flex justify-center mt-[40px] gap-[40px];
+
+    button {
+      @apply rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium;
+
+      &:nth-child(1) {
+        @apply bg-[#00A6FF];
+      }
+
+      &:nth-child(2) {
+        @apply bg-[#E90909];
+      }
+    }
+  }
+}

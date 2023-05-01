@@ -1,21 +1,53 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import s from "./ProjectAdminItem.module.scss";
+import {IProjectPrivate} from "@/models/data";
+import PhotoSlider from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider";
+import ModalWindow from "@/components/Style/ModalWindow/ModalWindow";
+import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
 import AdminService from "@/services/AdminService";
-import {IProject} from "@/models/data";
+import ProjectModalWindow from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectModalWindow/ProjectModalWindow";
 
 interface ProjectAdminItem {
     fetchProjects: () => Promise<void>;
-    project: IProject;
+    project: IProjectPrivate;
 }
 
 const ProjectAdminItem: FC<ProjectAdminItem> = ({ project, fetchProjects }) => {
-    return (
-        <div key={project.name} className={s.projectItem}>
-            <h2>{project.name}</h2>
-            <div className={s.inner}>
 
+    const [modalEdit, setModalEdit] = useState<boolean>(false);
+
+    return (
+        <>
+            <div key={project.name} className={s.projectItem}>
+                <h3>{project.name}</h3>
+                <div className={s.inner}>
+                    <div className={s.photos}>
+                        <PhotoSlider images={project.photos} />
+                    </div>
+                    <span>English Text</span>
+                    <p>{project.description_EN.slice(0,
+                        project.description_EN.length < 10 ? project.description_EN.length : 10
+                    )}</p>
+                    <span>Ukrainian Text</span>
+                    <p>{project.description_UA.slice(0,
+                        project.description_UA.length < 10 ? project.description_UA.length : 10
+                    )}</p>
+                    <div className={s.buttons}>
+                        <button onClick={() => setModalEdit(true)}>Edit</button>
+                        <button onClick={async () => {
+                            await AdminService.DeleteProject(project.id);
+                            await fetchProjects();
+                        }}>Delete</button>
+                    </div>
+                </div>
             </div>
-        </div>
+            <ProjectModalWindow
+                modalEdit={modalEdit}
+                setModalEdit={setModalEdit}
+                project={project}
+                fetchProjects={fetchProjects}
+            />
+        </>
     )
 };
 

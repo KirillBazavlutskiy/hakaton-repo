@@ -1,0 +1,13 @@
+.sliderContainer {
+  .swiper {
+    @apply w-[calc(100vw_-_60px)] md:w-full h-[300px];
+
+    .swiperSlide {
+      @apply w-full h-[300px] rounded-[6px] overflow-hidden;
+
+      img {
+        @apply object-cover min-w-full min-h-full;
+      }
+    }
+  }
+}

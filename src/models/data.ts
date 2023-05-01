@@ -11,6 +11,23 @@ export interface IProject {
     createdAt: Date;
 }
 
+export interface IProjectPostRequestBody {
+    name: string,
+    description_UA: string,
+    description_EN: string,
+    photos: File[];
+    participants: string[];
+}
+
+export interface IProjectPutRequestBody {
+    name: string;
+    description_EN: string;
+    description_UA: string;
+    photosFiles: File[];
+    photosLinks: string[];
+    createdAt: Date;
+}
+
 export interface IProjectPrivate extends IProject {
     id: string;
     publishedBy: string;
@@ -29,7 +46,7 @@ export interface IOffer {
     phone: string,
     email: string,
     offer: string,
-    image: File[] | null,
+    image: File[],
 }
 
 export interface IPost {
@@ -57,4 +74,9 @@ export interface OfferRequest {
     message: string;
     photos: File[];
     files: File[];
+}
+
+export interface Option {
+    name: string;
+    value: string;
 }

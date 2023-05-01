@@ -5,13 +5,12 @@ import { RoundedButton } from '../RoundedButton/RoundedButton';
 import cn from "classnames";
 
 import { SectionCaption } from '../SectionCaption/SectionCaption';
-import AdminService from "@/services/AdminService";
 import { IProject } from "@/models/data";
 
 import s from './OurProjects.module.scss';
 import React from 'react';
 import {OurProjects} from "@/models/text";
-import {toFormData} from "axios";
+import UserService from "@/services/UserService";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -29,12 +28,11 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
         description_EN: "Ops! Something went wrong...",
         description_UA: "Ой! Щось пійшло не так!",
         photos: [""],
-        createdAt: "",
         createdAt: new Date(),
     }]);
 
     useEffect(() => {
-        AdminService.GetProjects()
+        UserService.GetProjects()
             .then((response) => setTabs(response))
             .catch((error) => console.log(error));
     }, [])
@@ -127,7 +125,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                         className={s.swiper}
                     >
                         <SwiperSlide className={s.slideWrapper}>
-                            <div className={s.slideBlock} style={{ background: `url(${tabs[activeTab]?.photos})` }}></div>
+                            <div className={s.slideBlock} style={{ background: `url(https://ss.egartsites.pp.ua/${tabs[activeTab].photos})` }}></div>
                         </SwiperSlide>
                     </Swiper>
                     <div className={s.block}>

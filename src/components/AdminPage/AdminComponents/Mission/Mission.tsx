@@ -13,7 +13,7 @@ const Mission: FC = () => {
                     title={'Mission'}
                     type={'textarea'} maxLength={500}
                     state={context.StateTranslate}
-                    path={[ context.language, 'Mission' ]}
+                    path={[ context.language, 'AboutUs', 'mission__text' ]}
                     setState={context.setTranslate}
                 />
             }

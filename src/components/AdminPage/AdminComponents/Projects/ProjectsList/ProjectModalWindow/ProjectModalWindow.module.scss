@@ -1,10 +1,6 @@
-.container {
-  @apply w-full p-[10px] bg-[#E5E5E5]/30 rounded-[6px]
-  flex items-center justify-center text-center cursor-pointer;
-}
-
 .modalContainer {
   @apply w-full;
+
   label {
     @apply cursor-pointer block w-full py-[13px] px-[16px] bg-transparent
     border-[2px] border-[#fff]/20 my-[10px];

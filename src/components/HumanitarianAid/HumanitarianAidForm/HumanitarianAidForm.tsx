@@ -22,7 +22,7 @@ const HumanitarianAidForm: FC<HumanitarianAidFormProps> = ({ HumanitarianAidForm
         phone: '',
         email: '',
         offer: '',
-        image: null,
+        image: [],
     });
 
     const { user } = useAppSelector(state => state.status);
@@ -35,7 +35,7 @@ const HumanitarianAidForm: FC<HumanitarianAidFormProps> = ({ HumanitarianAidForm
                 await UserService.AddHelpOffer({
                     title: userForm.hcuh,
                     message: userForm.offer,
-                    photos: userForm.image || [],
+                    photos: userForm.image,
                     files: [],
                 });
             }
@@ -61,7 +61,7 @@ const HumanitarianAidForm: FC<HumanitarianAidFormProps> = ({ HumanitarianAidForm
                     placeholder={HumanitarianAidForm.form.whatYouCanProvide}>
                 </textarea>
                 <label>
-                    <p>{userForm.image === null ? HumanitarianAidForm.form.imageHaveToAdd : `${HumanitarianAidForm.form.imageAdded}${userForm.image.length}`}</p>
+                    <p>{userForm.image.length === 0 ? HumanitarianAidForm.form.imageHaveToAdd : `${HumanitarianAidForm.form.imageAdded}${userForm.image.length}`}</p>
                     <input
                         type={'file'}
                         accept={"image/*"}

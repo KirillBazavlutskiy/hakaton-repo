@@ -5,7 +5,6 @@ import {UserDTO} from "@/models/user";
 import {changeUserStatus} from "@/redux/Slices/UserSlice";
 import {store} from "@/redux/store";
 import axios from "axios";
-import {setCookie} from "next-auth/next/utils";
 import {toast} from "react-toastify";
 
 export default class AuthService {
@@ -45,7 +44,7 @@ export default class AuthService {
     static RefreshSession = async (): Promise<void> => {
         try {
             const cookies = new Cookies();
-            const res = await axios.get<TokenBody>(`/Auth/RenewToken/${cookies.get('UserId')}`, {
+            const res = await axios.get<TokenBody>(`https://ss.egartsites.pp.ua/api/Auth/RenewToken/${cookies.get('UserId')}`, {
                 headers: {
                     SessionId: cookies.get('sessionId')
                 }

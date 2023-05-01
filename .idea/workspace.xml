@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AboutUs/AboutUs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AboutUs/AboutUs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Mission/Mission.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Mission/Mission.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectAdd/ProjectAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/Projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Value/Value.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Value/Value.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HumanitarianAid/HumanitarianAidForm/HumanitarianAidForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +87,11 @@
       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\AdminPage\AdminComponents\Options\OptionsList" />
+      <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\AdminPage\AdminComponents\Projects\ProjectsList" />
       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\data" />
       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src" />
       <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\AdminPage" />
-      <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\AdminPage\AdminComponents" />
-      <recent name="C:\Users\BAZIK\Documents\work\Next\hakaton-repo\src\components\B1\Header" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -120,7 +144,10 @@
       <workItem from="1681558805858" duration="5455000" />
       <workItem from="1681727805278" duration="134000" />
       <workItem from="1681812976254" duration="1597000" />
-      <workItem from="1682535668145" duration="20081000" />
+      <workItem from="1682535668145" duration="25859000" />
+      <workItem from="1682581523987" duration="9848000" />
+      <workItem from="1682616041660" duration="14989000" />
+      <workItem from="1682673547983" duration="1141000" />
     </task>
     <servers />
   </component>
