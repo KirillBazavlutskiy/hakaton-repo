@@ -73,7 +73,10 @@ export type OurTeam = {
     description: string;
 };
 export type LinkToForm = {
-    main: string;
+    first__main: string;
+
+    second__main: string;
+
     formLink: string;
 };
 export type BottomText = {

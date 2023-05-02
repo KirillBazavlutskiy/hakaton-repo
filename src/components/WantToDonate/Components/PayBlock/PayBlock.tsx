@@ -2,6 +2,8 @@ import styles from './PayBlock.module.scss'
 import {useState} from "react";
 import Image from 'next/image';
 
+import copy from 'copy-to-clipboard';
+
 import BtcImage from './images/btc.png';
 import EthImage from './images/eth.png';
 import UsdtImage from './images/usdt.png';
@@ -18,7 +20,7 @@ const PayBlock = () => {
     const [activeBtn, setActiveBtn] = useState<string>("BTC")
 
     const copy__button__function = (value:any) => {
-        navigator.clipboard.writeText(value);
+        copy(value)
 
         toast.success(`You copied ${activeBtn} receipt`, {
             position: "top-right",
@@ -28,7 +30,7 @@ const PayBlock = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "colored",
             });
     }
 

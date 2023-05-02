@@ -9,12 +9,22 @@ interface OfficialAidRequestProps {
 
 const OfficialAidRequest:FC<OfficialAidRequestProps> = ({OfficialAid}) => {
     return (
-        <div className={s.wrapper}>
-            <div className={s.container}>
-                <SectionCaption className={s.caption}>
-                    {OfficialAid.main}
-                </SectionCaption>
-                <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">{OfficialAid.formLink}</a>
+        <div className={s.main}>
+            <div className={s.wrapper}>
+                <div className={s.container}>
+                    <SectionCaption className={s.caption}>
+                        {OfficialAid.first__main}
+                    </SectionCaption>
+                    <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">{OfficialAid.formLink}</a>
+                </div>
+            </div>
+            <div className={s.wrapper}>
+                <div className={s.container}>
+                    <SectionCaption className={s.caption}>
+                        {OfficialAid.second__main}
+                    </SectionCaption>
+                    <a href="https://forms.gle/mGUJzQgW4qnhYRqRA">{OfficialAid.formLink}</a>
+                </div>
             </div>
         </div>
     );

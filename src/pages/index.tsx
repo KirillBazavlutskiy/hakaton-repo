@@ -60,15 +60,15 @@ const Index: FC<IndexProps> = ({ instagramData, translation, OurProjectsArray, O
                 <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>
                 <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
             </section>
+            <section id="B9">
+                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
+            </section>
             <section id="B7">
                 <OurPartners OurPartners={localisationText.OurPartners} Array={OurPartnersArray}/>
             </section>
             <section id='B8'>
                 <OurTeam OurTeam={localisationText.OurTeam} Array={OurTeamArray}/>
             </ section>
-            <section id="B9">
-                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
-            </section>
         </Layout>
     )
 }

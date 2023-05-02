@@ -75,7 +75,8 @@
             "description": "Support the Ukrainian Army, territorial defense fighters, refugees, hospitals, animal shelters❤️"
         },
         "LinkToForm": {
-            "main": "Template for official aid request for organisations",
+            "first__main": "Please fill this form to receive humanitarian aid",
+            "second__main": "Template for official aid request for organisations",
             "formLink": "Fill the form"
         },
         "BottomText": {
@@ -158,7 +159,8 @@
             "description": "Підтримуйте українську армію, бійців територіальної оборони, біженців, лікарні, притулки для тварин❤️"
         },
         "LinkToForm": {
-            "main": "Шаблон офіційного запиту на допомогу для організацій",
+            "first__main": "Будь ласка, заповніть цю форму для отримання гуманітарної допомоги",
+            "second__main": "Шаблон офіційного запиту на допомогу для організацій",
             "formLink": "Заповніть форму"
         },
         "BottomText": {
