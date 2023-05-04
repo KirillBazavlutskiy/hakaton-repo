@@ -7,6 +7,9 @@ import Mission from "@/components/AdminPage/AdminComponents/Mission/Mission";
 import Value from "@/components/AdminPage/AdminComponents/Value/Value";
 import Projects from "@/components/AdminPage/AdminComponents/Projects/Projects";
 import Options from "@/components/AdminPage/AdminComponents/Options/Options";
+import OurPartners from "@/components/AdminPage/AdminComponents/OurPartners/OurPartners";
+import OurTeam from "@/components/AdminPage/AdminComponents/OurTeam/OurTeam";
+import Admins from "@/components/AdminPage/AdminComponents/Admins/Admins";
 
 interface AdminPageProps {
     Translation: Translation;
@@ -21,6 +24,9 @@ const MainPage: FC<AdminPageProps> = ({ Translation }) => {
             <Value />
             <Projects />
             <Options />
+            <OurTeam />
+            <OurPartners />
+            <Admins />
         </div>
     );
 };

@@ -4,6 +4,7 @@ import {Option} from "@/models/data";
 import AdminHooks from "@/components/AdminPage/hooks";
 import AdminService from "@/services/AdminService";
 import OptionsList from "@/components/AdminPage/AdminComponents/Options/OptionsList/OptionsList";
+import OptionAdd from "@/components/AdminPage/AdminComponents/Options/OptionAdd/OptionAdd";
 
 const Options: FC = () => {
 
@@ -21,6 +22,7 @@ const Options: FC = () => {
         <div className={s.container}>
             <h1>How can you help</h1>
             <OptionsList options={options} fetchOptions={fetchOptions} />
+            <OptionAdd fetchOptions={fetchOptions} />
         </div>
     );
 };

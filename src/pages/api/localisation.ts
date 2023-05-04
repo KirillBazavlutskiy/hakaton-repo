@@ -12,9 +12,9 @@ const localisationHandler = (req: NextApiRequest, res: NextApiResponse) => {
     switch (method) {
         case 'PUT':
             try {
-                const data = JSON.parse(body);
+                const data = JSON.parse(JSON.stringify(body));
                 if (data as Translation) {
-                    fs.writeFileSync(filePath, JSON.stringify(data));
+                    fs.writeFileSync(filePath, JSON.stringify(body))
                     res.status(200).json({ message: 'Successfully Updated!' });
                 } else {
                     res.status(400).json({ message: 'Incorrect json!' });

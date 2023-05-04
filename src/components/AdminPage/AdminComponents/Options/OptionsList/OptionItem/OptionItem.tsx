@@ -28,12 +28,14 @@ const OptionItem: FC<OptionItemProps> = ({ name, value, fetchOptions }) => {
                     />
                     <div className={s.btns}>
                         <button onClick={async () => {
-                            await AdminService.ChangeOption(name, valueState);
+                            await AdminService.SetOption(name, valueState);
                             await fetchOptions();
+                            setMenuActive(false);
                         }}>Save</button>
                         <button onClick={async () => {
                             await AdminService.DeleteOption(name);
                             await fetchOptions();
+                            setMenuActive(false);
                         }}>Delete Value</button>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ const Button: FC<ButtonProps> = ({children, color, size, shadow = false, onClick
                     color === 'red' ? '#E90909' :
                     color === 'blue' ? '#00A6FF' : '#FFED00',
                 color: color === 'yellow' ? '#000' : '#fff',
+                stroke: color === 'yellow' ? '#000' : '#fff',
                 padding: size === 'big' ? '13px 56px' : '7px 40px',
                 boxShadow:
                     color === 'blue' && shadow ? '4px 5px #777AF6' :

@@ -21,7 +21,7 @@
   }
 
   button {
-    @apply rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium
+    @apply w-full sm:w-auto rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium
     bg-[#00A6FF] mt-[10px];
   }
 }

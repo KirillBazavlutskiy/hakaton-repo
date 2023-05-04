@@ -1,0 +1,19 @@
+.partnersList {
+  @apply w-full grid gap-[10px] rounded-[20px] transition-all
+  grid-cols-2 sm:grid-cols-4 xl:grid-cols-5;
+
+  &.deleteMode {
+    @apply bg-[#fff]/10;
+
+    .partnerImgContainer {
+      @apply animate-pulse;
+    }
+  }
+
+  .partnerImgContainer {
+    @apply w-full h-[130px] flex justify-center items-center;
+    img {
+      @apply opacity-[0.8] rounded-[10px];
+    }
+  }
+}

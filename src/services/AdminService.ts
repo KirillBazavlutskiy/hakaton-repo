@@ -1,12 +1,76 @@
-import {UserDTO, UserRole} from "@/models/user";
+import {UserAsPartnerOrMemberDTO, UserDTO, UserRole} from "@/models/user";
 import $api from "@/http/init";
 import {IProjectPostRequestBody, IProjectPrivate, IProjectPutRequestBody, Option} from "@/models/data";
 import {toast} from "react-toastify";
+import {AddUserRequest, UpdateUserRequest} from "@/models/auth";
 
 export default class AdminService {
-    static fetchMembers = async (skip: number, limit: number,  role: UserRole): Promise<UserDTO[]> => {
-        const { data } = await $api.get<UserDTO[]>(`/Users?skip=${skip}&limit=${limit}&role=${role}`);
-        return data;
+    static FetchUsers = async (role: UserRole): Promise<UserDTO[]> => {
+        try {
+            const { data } = await $api.get<UserDTO[]>(`/Users?skip=0&limit=100&role=${role}`);
+            return data;
+        } catch (e) {
+            return [];
+        }
+    }
+
+    static AddUser = async (partner: AddUserRequest): Promise<void> => {
+        try {
+            const photo = await this.SendPhotos(partner.photo);
+            await $api.post('/Users', { ...partner, photo: photo[0] })
+            toast.success('Додано!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static UpdateUser = async (user: UpdateUserRequest): Promise<void> => {
+        try {
+            let photosLinks: string[] = await AdminService.SendPhotos(user.photoFile);
+            await $api.put(`/Users/${user.id}`, {
+                ...user,
+                photo: photosLinks.length === 0 ? user.photoLinks[0] : photosLinks[0]
+            })
+            toast.success('Змінено!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+          console.log(e);
+        }
+    }
+
+    static DeleteUser = async (id: string) => {
+        try {
+            await $api.delete(`/Users/${id}`);
+            toast.info('Видалено!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     static GetProjectsPrivate = async (): Promise<IProjectPrivate[]> => {
@@ -107,9 +171,9 @@ export default class AdminService {
         }
     }
 
-    static ChangeOption = async (name: string, value: string): Promise<void> => {
+    static SetOption = async (name: string, value: string): Promise<void> => {
         try {
-            await $api.put(`/Options/${name}`, value, {
+            await $api.put(`/Options/${name}`, JSON.stringify(value), {
                 headers: {
                     'Content-Type': 'application/json'
                 }

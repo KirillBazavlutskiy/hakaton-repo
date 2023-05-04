@@ -1,0 +1,26 @@
+.container {
+  .btns {
+    @apply flex justify-end;
+  }
+  .modalWindow {
+    @apply w-full;
+    label {
+      @apply cursor-pointer block w-full py-[13px] px-[16px] bg-transparent
+      border-[2px] border-[#fff]/20 my-[30px];
+
+      p {
+        @apply text-[14px] font-medium text-[#fff]/50
+      }
+
+      input[type="file"] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    button {
+      @apply mx-auto;
+    }
+  }
+}

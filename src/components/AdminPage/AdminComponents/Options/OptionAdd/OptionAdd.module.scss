@@ -1,0 +1,15 @@
+.container {
+  @apply w-full flex justify-end mt-[20px];
+  .menuContainer {
+    @apply w-full;
+
+    input {
+      @apply w-full py-[13px] px-[16px] bg-transparent
+      border-[2px] border-[#fff]/20 my-[10px];
+    }
+
+    button {
+      @apply bg-[#00A6FF] mt-[30px] rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium;
+    }
+  }
+}

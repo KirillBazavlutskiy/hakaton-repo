@@ -5,9 +5,20 @@ export interface AddUserRequest {
     email: string;
     phone: string;
     role: UserRole;
-    password: string | null;
-    extras: string | null;
-    photo: string;
+    password?: string;
+    extras?: string;
+    photo: File[];
+}
+
+export interface UpdateUserRequest {
+    id: string;
+    fullName: string;
+    email: string;
+    phone: string;
+    role: UserRole;
+    extras?: string;
+    photoFile: File[];
+    photoLinks: string;
 }
 
 export interface ChangePasswordRequest {
@@ -33,15 +44,6 @@ export interface RegisterRequest {
     fullName: string;
     email: string;
     phone: string;
-}
-
-export interface UpdateUserRequest {
-    fullName: string | null;
-    email: string | null;
-    phone: string | null;
-    role: UserRole | null;
-    extras: string | null;
-    photo: string | null;
 }
 
 export interface OptionDTO {

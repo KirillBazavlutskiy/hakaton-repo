@@ -1,0 +1,45 @@
+.container {
+  @apply flex flex-col items-center justify-center transition-all;
+
+  .adminImageContainer {
+    @apply w-[200px] h-full min-h-[200px] rounded-[20px] overflow-hidden
+    bg-gray-400 flex justify-center items-center mb-[10px];
+
+    img {
+      @apply min-h-full min-w-full text-center;
+    }
+  }
+
+  p {
+    @apply text-[18px] font-semibold;
+  }
+
+  &:hover {
+    @apply scale-[102%];
+  }
+}
+
+.modalWindow {
+  @apply w-full;
+  label {
+    @apply cursor-pointer block w-full py-[13px] px-[16px] bg-transparent
+    border-[2px] border-[#fff]/20 my-[30px];
+
+    p {
+      @apply text-[14px] font-medium text-[#fff]/50
+    }
+
+    input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+  .btns {
+    @apply flex flex-col gap-[10px] sm:flex-row justify-center;
+    button {
+      @apply w-full sm:w-auto rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium
+      bg-[#00A6FF] mt-[10px];
+    }
+  }
+}

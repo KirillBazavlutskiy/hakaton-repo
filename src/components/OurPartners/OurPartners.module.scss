@@ -18,12 +18,16 @@
   border-radius: 6px;
 
   grid-area: content;
-  
+
   .block {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    
-    width: 100%;
+    @apply w-full grid gap-[10px] p-[10px] rounded-[20px] transition-all
+    grid-cols-2 sm:grid-cols-4 xl:grid-cols-5;
+
+    .partnerImgContainer {
+      @apply w-full h-[130px] flex justify-center items-center;
+      img {
+        @apply opacity-[0.8] rounded-[10px];
+      }
+    }
   }
 }

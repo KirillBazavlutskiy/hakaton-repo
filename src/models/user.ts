@@ -1,15 +1,9 @@
 export type UserRole = 'Guest' | 'Client' | 'Partner' | 'Member' | 'Admin';
 
-export interface UserAsMemberDTO {
+export interface UserAsPartnerOrMemberDTO {
     fullName: string;
     photo: string;
-    extras: string;
-}
-
-export interface UserAsPartnerDTO {
-    fullName: string;
-    photo: string;
-    extras: string;
+    extras?: string;
 }
 
 export interface UserDTO {
@@ -22,4 +16,14 @@ export interface UserDTO {
     photo: string;
     workWithUsers: string[];
     participateInProjects: string[];
+}
+
+export interface Statistic {
+    moneyCollected: number;
+    medicalAid: string;
+    militaryPersonnel: string;
+    residentsOfDnipro: string;
+    UkrainiansReceivedAssistance: string;
+    MedicalFacilities: string;
+    ChildrenReceivedAssistance: string;
 }

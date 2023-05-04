@@ -1,0 +1,4 @@
+.container {
+  @apply w-full grid gap-x-[10px] gap-y-[20px] p-[10px] rounded-[20px] transition-all
+  grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+}
