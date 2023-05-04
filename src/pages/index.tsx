@@ -84,12 +84,12 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const jsonData: Translation = JSON.parse(data.toString());
 
     let instagramData: IPost[] = [];
-    try {
-        const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
-        instagramData = response;
-    } catch (e) {
-        console.log(e);
-    }
+    // try {
+    //     const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
+    //     instagramData = response;
+    // } catch (e) {
+    //     console.log(e);
+    // }
 
     let projects: IProject[] = [];
     let team__responce: ITeam[] = [];
