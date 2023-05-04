@@ -27,10 +27,10 @@
         @apply w-full h-1/2 flex items-center mt-[30px]; 
 
         .receipt {
-          @apply w-4/6 lg:w-5/6 h-[40px] bg-[#00C2FF33] flex items-center pl-[10px] relative;
+          @apply w-1/2 lg:w-4/6 h-[40px] bg-[#00C2FF33] flex items-center pl-[10px] relative;
 
           p {
-            @apply w-4/6 lg:w-5/6 text-sm overflow-x-scroll overflow-y-hidden;
+            @apply w-[calc(100%-40px)] text-sm overflow-x-scroll overflow-y-hidden;
           }
 
           button {
