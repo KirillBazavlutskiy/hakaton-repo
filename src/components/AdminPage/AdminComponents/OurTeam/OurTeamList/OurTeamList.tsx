@@ -14,7 +14,7 @@ const OurTeamList: FC<OurTeamListProps> = ({ team, deleteMode, fetchTeam }) => {
     return (
         <div className={cn(s.teamList, deleteMode && s.deleteMode)}>
             {
-                team.map(teammate => <div className={s.teammateContainer}>
+                team.map(teammate => <div key={teammate.id} className={s.teammateContainer}>
                     <div className={s.imageContainer}>
                         <img
                             src={`https://ss.egartsites.pp.ua/${teammate.photo}`}

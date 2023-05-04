@@ -22,7 +22,7 @@ const LanguageSwitcher: FC = () => {
             <div className={cn(s.dropBox, dropBox ? s.showed : s.hidden)}>
                 {
                     locales?.filter(l => l !== locale)
-                    .map(l => <Link href='/' locale={l} className={s.text}>{l?.toUpperCase()}</Link>)
+                    .map(l => <Link href='/' locale={l} key={l} className={s.text}>{l?.toUpperCase()}</Link>)
                 }
             </div>
         </div>

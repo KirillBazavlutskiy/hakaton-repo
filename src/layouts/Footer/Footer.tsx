@@ -13,13 +13,13 @@ interface FooterProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
     footerText: BottomText;
 }
 
-export function Footer({ className, ...props }: FooterProps): JSX.Element {
+export function Footer({ className, footerText, ...props }: FooterProps): JSX.Element {
     return (
         <footer className={cn(s.wrapper, className)} {...props}>
             <div className={cn(s.container)}>
                 <div className={s.side}>
                     <Image src={Logo} alt="logo" />
-                    <a href='#'>{props.footerText.privacyPolicy}</a>
+                    <a href='#'>{footerText.privacyPolicy}</a>
                 </div>
                 <div className={s.contacts}>
                     <a className={s.icon} href='https://www.facebook.com/staysafe.in.ua' target="_blank">
@@ -32,7 +32,7 @@ export function Footer({ className, ...props }: FooterProps): JSX.Element {
                 </div>
                 <div className={s.functionalBlock}>
                     <LanguageSwitcher />
-                    <a className={s.donate} href="#B56">{props.footerText.donateButton}</a>
+                    <a className={s.donate} href="#B56">{footerText.donateButton}</a>
                 </div>
             </div>
         </footer>

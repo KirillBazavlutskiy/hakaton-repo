@@ -11,7 +11,7 @@ interface OptionsListProps {
 const OptionsList: FC<OptionsListProps> = ({ options, fetchOptions }) => {
     return (
         <div className={s.containerList}>{
-            options.map(o => <OptionItem name={o.name} value={o.value} fetchOptions={fetchOptions} />)
+            options.map(o => <OptionItem key={o.name} name={o.name} value={o.value} fetchOptions={fetchOptions} />)
         }</div>
     );
 };

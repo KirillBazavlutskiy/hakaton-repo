@@ -22,7 +22,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({  menuActive, headerText }) => {
             <a href="#B7">{headerText.statistic}</a>
             <div className={s.languageSelector}>{
                     locales?.filter(l => l !== locale)
-                        .map(l => <Link href='/' locale={l} className={s.text}>{l?.toUpperCase()}</Link>)
+                        .map(l => <Link key={l} href='/' locale={l} className={s.text}>{l?.toUpperCase()}</Link>)
             }</div>
             <a href="#B5">{headerText.donate}</a>
         </div>

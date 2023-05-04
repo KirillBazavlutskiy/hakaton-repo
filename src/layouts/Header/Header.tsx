@@ -14,7 +14,7 @@ interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
     headerText: HeaderText;
 }
 
-export const Header: FC<HeaderProps> = ({ className, ...props }) => {
+export const Header: FC<HeaderProps> = ({ className, headerText, ...props }) => {
     const [headerMenu, setHeaderMenu] = useState<boolean>(false);
 
     return (
@@ -25,13 +25,13 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                 </div>
                 <nav className={s.navbar}>
                     <div className={s.menu}>
-                        <a href="#B2">{props.headerText.projects}</a>
-                        <a href="#B3">{props.headerText.news}</a>
-                        <a href="#B4">{props.headerText.news}</a>
-                        <a href="#B7">{props.headerText.statistic}</a>
+                        <a href="#B2">{headerText.projects}</a>
+                        <a href="#B3">{headerText.news}</a>
+                        <a href="#B4">{headerText.news}</a>
+                        <a href="#B7">{headerText.statistic}</a>
                     </div>
                     <LanguageSwitcher />
-                    <a href="#B56" className={s.donate}>{props.headerText.donate}</a>
+                    <a href="#B56" className={s.donate}>{headerText.donate}</a>
                 </nav>
                 <div className={s.burger} onClick={() => setHeaderMenu(prev => !prev)}>
                     <div
@@ -54,7 +54,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                     />
                 </div>
             </div>
-            <HeaderMenu menuActive={headerMenu} headerText={props.headerText} />
+            <HeaderMenu menuActive={headerMenu} headerText={headerText} />
         </header>
     );
 };

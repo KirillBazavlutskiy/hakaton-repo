@@ -14,7 +14,7 @@ const OurPartnersList: FC<OurPartnersListProps> = ({ partners, deleteMode, fetch
     return (
         <div className={cn(s.partnersList, deleteMode && s.deleteMode)}>
             {
-                partners.map(partner => <div className={s.partnerImgContainer}>
+                partners.map(partner => <div key={partner.id} className={s.partnerImgContainer}>
                     <img
                         src={`https://ss.egartsites.pp.ua/${partner.photo}`}
                         alt={partner.photo}

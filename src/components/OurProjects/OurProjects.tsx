@@ -42,7 +42,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
 
         return (
             arr.map((subArray: IProject[], i) => (
-                <SwiperSlide className={s.slideWrapper} key={i}>
+                <SwiperSlide className={s.slideWrapper} key={i * 3}>
                     <div className={s.bar}>
                         <div className={s.scrolled}>
                             {projectsGroupMapping(subArray, i)}
@@ -127,7 +127,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                         {
                             tabs[activeTab].photos.map(p =>
                                 <SwiperSlide className={s.slideWrapper}>
-                                    <div className={s.slideBlock} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>
+                                    <div className={s.slideBlock} key={p} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>
                                 </SwiperSlide>)
                         }
                     </Swiper>

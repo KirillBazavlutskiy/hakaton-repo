@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_04_2023_03_15_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_04_2023_03_15__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[lang].tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Options/OptionsList/OptionsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Options/OptionsList/OptionsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LanguageSwitcher/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LanguageSwitcher/LanguageSwitcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurPartners/OurPartners.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurPartners/OurPartners.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurPartners/Slider/Slider.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurPartners/Slider/Slider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurTeam/OurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurTeam/OurTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/HeaderMenu/HeaderMenu.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +142,7 @@
       <workItem from="1683032814998" duration="4161000" />
       <workItem from="1683106476500" duration="9423000" />
       <workItem from="1683140363985" duration="21668000" />
+      <workItem from="1683189670787" duration="2494000" />
     </task>
     <servers />
   </component>

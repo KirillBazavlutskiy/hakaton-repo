@@ -13,7 +13,7 @@ const AdminsList: FC<AdminsListProps> = ({ admins, fetchAdmins }) => {
     return (
         <div className={s.container}>
             {
-                admins.map(admin => <AdminItem admin={admin} fetchAdmins={fetchAdmins} />)
+                admins.map(admin => <AdminItem key={admin.id} admin={admin} fetchAdmins={fetchAdmins} />)
             }
         </div>
     );

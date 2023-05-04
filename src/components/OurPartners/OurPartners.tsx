@@ -5,7 +5,6 @@ import s from './OurPartners.module.scss';
 import {FC} from "react";
 import {OurPartners} from "@/models/text";
 import { ITeam } from '@/models/data';
-import AdminService from "@/services/AdminService";
 
 interface OurPartnersProps {
     OurPartners: OurPartners;
@@ -21,7 +20,7 @@ const OurPartners:FC<OurPartnersProps> = ({OurPartners, Array}) => {
                 </SectionCaption>
                 <div className={s.block}>
                     {
-                        Array.map(partner => <div className={s.partnerImgContainer}>
+                        Array.map(partner => <div key={partner.fullName} className={s.partnerImgContainer}>
                             <img
                                 src={`https://ss.egartsites.pp.ua/${partner.photo}`}
                                 alt={partner.photo}

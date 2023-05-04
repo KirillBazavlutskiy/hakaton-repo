@@ -11,16 +11,13 @@ interface OurTeamProps {
 }
 
 const OurTeam: FC<OurTeamProps> = ({OurTeam, Array}) => {
-
-    console.log(Array)
-
     return (
         <div className={s.container}>
             <h2>{OurTeam.main}</h2>
             <h3>{OurTeam.description}</h3>
             <div className={s.teamList}>
                 {
-                    Array.map(t => (<PersonCard title={t.fullName} photoSrc={`https://ss.egartsites.pp.ua/${t.photo}`} />))
+                    Array.map(t => (<PersonCard key={t.fullName} title={t.fullName} photoSrc={`https://ss.egartsites.pp.ua/${t.photo}`} />))
                 }
             </div>
         </div>
