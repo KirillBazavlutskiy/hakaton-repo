@@ -3,7 +3,6 @@ import {GetStaticProps} from 'next';
 import {IPost, IProject, ITeam} from '@/models/data';
 import {Translation} from "@/models/text";
 import axios from 'axios';
-
 import { Layout } from '@/layouts/Layout';
 import IntroText from "@/components/IntroText/IntroText";
 import OurProjects from "@/components/OurProjects/OurProjects";
@@ -14,7 +13,6 @@ import HumanitarianAid from '@/components/HumanitarianAid/HumanitarianAid';
 import OurPartners from "@/components/OurPartners/OurPartners";
 import OfficialAidRequest from "@/components/OfficialAidRequest/OfficialAidRequest";
 import OurTeam from "@/components/OurTeam/OurTeam";
-
 import fs from "fs";
 import process from "process";
 import path from "path";
@@ -26,6 +24,7 @@ import {Statistic} from "@/models/user";
 interface IndexProps {
     instagramData: IPost[];
     translation: Translation;
+
     OurProjectsArray: IProject[];
     OurTeamArray: ITeam[];
     OurPartnersArray: ITeam[];
@@ -40,48 +39,45 @@ const Index: FC<IndexProps> =
          OurTeamArray,
          OurPartnersArray,
          StatisticInfo
-    }) => {
+     }) => {
 
-    const router = useRouter();
-    const language = router.locale || 'en';
-    const localisationText = translation[language];
-
-    useEffect(() => {
-        AuthService.GetMe();
-    }, [])
-
-    return (
-        <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
-            <section id="B1">
-                <IntroText MainText={localisationText.MainText} />
-                <AboutUs languageProps={localisationText.AboutUs}/>
-            </section>
-            <section id="B2">
-                <OurProjects OurProjects={localisationText.OurProjects} Array={OurProjectsArray}/>
-            </section>
-            <section id="B3">
-                {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
-            </section>
-            <section id="B4">
-                <WhatHasAlreadyBeenDone Statistic={StatisticInfo}  WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone}/>
-            </section>
-            <section id="B56">
-                <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>
-                <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
-            </section>
-            <section id="B9">
-                <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
-            </section>
-            <section id="B7">
-                <OurPartners OurPartners={localisationText.OurPartners} Array={OurPartnersArray}/>
-            </section>
-            <section id='B8'>
-                <OurTeam OurTeam={localisationText.OurTeam} Array={OurTeamArray}/>
-            </ section>
-        </Layout>
-    )
-}
-
+        const router = useRouter();
+        const language = router.locale || 'en';
+        const localisationText = translation[language];
+        useEffect(() => {
+            AuthService.GetMe();
+        }, [])
+        return (
+            <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
+                <section id="B1">
+                    <IntroText MainText={localisationText.MainText} />
+                    <AboutUs languageProps={localisationText.AboutUs}/>
+                </section>
+                <section id="B2">
+                    <OurProjects OurProjects={localisationText.OurProjects} Array={OurProjectsArray}/>
+                </section>
+                <section id="B3">
+                    {instagramData?.length != 0 && <OurLastestNews instagramData={instagramData} />}
+                </section>
+                <section id="B4">
+                    <WhatHasAlreadyBeenDone Statistic={StatisticInfo}  WhatHasAlreadyBeenDone={localisationText.WhatHasAlreadyBeenDone}/>
+                </section>
+                <section id="B56">
+                    <WantToDonate IWantToDonate={localisationText.IWantToDonate}/>
+                    <HumanitarianAid HumanitarianAid={localisationText.IWantToHelpWithHumanitarianAid}/>
+                </section>
+                <section id="B7">
+                    <OurPartners OurPartners={localisationText.OurPartners} Array={OurPartnersArray}/>
+                </section>
+                <section id='B8'>
+                    <OurTeam OurTeam={localisationText.OurTeam} Array={OurTeamArray}/>
+                </ section>
+                <section id="B9">
+                    <OfficialAidRequest OfficialAid={localisationText.LinkToForm}/>
+                </section>
+            </Layout>
+        )
+    }
 export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const filePath = path.join(process.cwd(), 'data', 'localisation.json');
     const data = fs.readFileSync(filePath);
@@ -109,7 +105,6 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     } catch (e) {
         console.error(e);
     }
-
     const StatisticValue: Statistic = {
         moneyCollected: 0,
         medicalAid: '',
