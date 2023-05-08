@@ -97,26 +97,28 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    position: relative;
 
     width: 100%;
-
-    @apply px-[10px] xl:px-[80px] lg:px-[60px] md:px-[40px] sm:px-[25px];
 
     .swiper {
       overflow: hidden !important;
       border-radius: 15px;
 
-      @apply max-w-[35vh] xl:max-w-[100vh] lg:max-w-[80vh] md:max-w-[65vh] sm:max-w-[50vh];
+      @apply w-full;
 
       .slideWrapper {
-        width: 100%;
-        overflow: hidden;
+        @apply w-full flex justify-center items-center;
+        //overflow: hidden;
 
         .slideBlock {
-          @apply w-[40vh] xl:w-[100vh] lg:w-[80vh] md:w-[65vh] sm:w-[50vh];
-
-          aspect-ratio: 16/10;
+          @apply w-full h-[500px];
+          background-position: center !important;
           background-size: cover !important;
+        }
+
+        img {
+          @apply max-w-full max-h-full;
         }
       }
     }
@@ -135,9 +137,7 @@
 
       overflow: hidden;
 
-      @apply px-[30px] 2xl:px-[80px] xl:px-[70px] lg:px-[60px] md:px-[50px] sm:px-[40px];
-      @apply pt-[20px] 2xl:pt-[50px] xl:pt-[45px] lg:pt-[40px] md:pt-[35px] sm:pt-[30px];
-      @apply pb-[60px] 2xl:pb-[90px] xl:pb-[85px] lg:pb-[80px] md:pb-[75px] sm:pb-[70px];
+      @apply p-[30px];
 
       &::after {
         left: 40%;
@@ -166,65 +166,15 @@
       }
     }
 
-    .statistic {
-      position: relative;
+    .donateButtonContainer {
+      @apply absolute w-full h-full top-0 left-0;
 
       .donate {
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        //@apply translate-y-[-55%];
-        //@apply translate-x-[100%] 2xl:translate-x-[440%] xl:translate-x-[400%] lg:translate-x-[340%] md:translate-x-[270%] sm:translate-x-[230%];
+        @apply absolute bottom-0 right-0 w-[100px] h-[100px]
+        translate-y-[50%] translate-x-[10%] sm:translate-x-[30%];
 
         a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          width: 100%;
-          height: 100%;
-
-          border-radius: 100%;
-        }
-      }
-
-      .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        row-gap: 50px;
-        column-gap: 100px;
-
-        padding: 20px;
-
-        @apply pt-[100px] 2xl:pt-[10px] xl:pt-[15px] lg:pt-[20px] md:pt-[75px] sm:pt-[85px];
-
-        .counter {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-
-          h3 {
-            font-weight: 400;
-            font-size: 54px;
-            line-height: 100%;
-
-            color: #FFFFFF;
-
-            backdrop-filter: blur(0.5px);
-          }
-
-          span {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 100%;
-
-            color: #FFFFFF;
-
-            opacity: 0.6;
-          }
+          @apply font-semibold;
         }
       }
     }

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
 import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react"
 import { RoundedButton } from '../RoundedButton/RoundedButton';
@@ -11,6 +11,7 @@ import s from './OurProjects.module.scss';
 import React from 'react';
 import {OurProjects} from "@/models/text";
 import UserService from "@/services/UserService";
+import {useRouter} from "next/router";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -22,6 +23,7 @@ interface IntroTextProps {
 const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
 
     const [activeTab, setActiveTab] = useState<number>(0);
+    const { locale } = useRouter();
 
     const [tabs, setTabs] = useState<IProject[]>([{
         name: "Error of projects preload",
@@ -93,7 +95,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                 </SectionCaption>
                 <Swiper
                     modules={[Navigation]}
-                    loop={true}
+                    loop={false}
                     effect={"coverflow"}
                     centeredSlides={true}
                     slidesPerView={"auto"}
@@ -127,28 +129,21 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                         {
                             tabs[activeTab].photos.map(p =>
                                 <SwiperSlide className={s.slideWrapper}>
-                                    <div className={s.slideBlock} key={p} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>
+                                    {/*<div className={s.slideBlock} key={p} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>*/}
+                                    <img src={`https://ss.egartsites.pp.ua/${p}`} alt={`https://ss.egartsites.pp.ua/${p}`}/>
                                 </SwiperSlide>)
                         }
                     </Swiper>
                     <div className={s.block}>
                         {
-                            tabs[activeTab]?.description_EN
+                            tabs[activeTab][locale === 'en' ? 'description_EN' : 'description_UA']
                         }
                     </div>
-                    {
-                        tabs.map((el, i) => (
-                            <div
-                                className={s.statistic}
-                                style={{ display: activeTab === i ? 'block' : 'none' }}
-                                key={i}
-                            >
-                                <RoundedButton className={s.donate}>
-                                    <a href="#B56">{OurProjects.donateButton}</a>
-                                </RoundedButton>
-                            </div>
-                        ))
-                    }
+                    <div className={s.donateButtonContainer}>
+                        <RoundedButton className={s.donate}>
+                            <a href="#B56">{OurProjects.donateButton}</a>
+                        </RoundedButton>
+                    </div>
                 </div>
             </div>
         </div>
