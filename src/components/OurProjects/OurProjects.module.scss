@@ -114,11 +114,12 @@
         .slideBlock {
           @apply w-full h-[500px];
           background-position: center !important;
-          background-size: cover !important;
+          background-size: contain !important;
+          background-repeat: no-repeat !important;
         }
 
         img {
-          @apply max-w-full max-h-full;
+          @apply max-w-full max-h-[500px];
         }
       }
     }
