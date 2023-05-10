@@ -2,22 +2,22 @@
     @apply w-full flex flex-col items-center justify-center mb-[30px];
 
     .btnList {
-        @apply w-full max-w-[1020px] flex items-center justify-center mb-[30px];
+        @apply w-full flex items-center justify-center mb-[30px];
 
         button {
-            @apply mr-[50px] text-2xl font-semibold;
+            @apply mr-[10px] sm:mr-[50px] text-2xl font-semibold;
         }
         button:last-child {
             @apply mr-[0];
         }
 
         .activeBtn {
-            text-decoration: underline;
+            @apply text-yellow-300 font-bold;
         }
     }
 
     .container {
-        @apply w-full max-w-[1020px] flex flex-col;
+        @apply w-full max-w-[1170px] flex flex-col;
 
         h1 {
             @apply lg:text-6xl;
@@ -28,7 +28,7 @@
         }
 
         .block {
-            @apply flex flex-col items-start bg-[#00012f] pl-[15px] sm:pl-[0] pb-[20px] pr-[20px];
+            @apply flex flex-col items-start bg-[#00012f] pl-[15px] sm:pl-[0] pb-[20px];
         }
 
     }
