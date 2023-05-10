@@ -1,5 +1,5 @@
 .main {
-  @apply w-full flex flex-col sm:flex-row items-center justify-evenly;
+  @apply w-full flex flex-col sm:flex-row items-center sm:items-start justify-evenly;
   .wrapper {
     display: grid;
     grid-template-columns: auto minmax(320px, 1440px) auto;
