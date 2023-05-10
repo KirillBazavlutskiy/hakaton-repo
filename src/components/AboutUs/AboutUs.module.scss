@@ -1,15 +1,23 @@
 .wrapper {
-    @apply w-full flex flex-col items-center justify-center mb-[30px] px-[10px];
+    @apply w-full flex flex-col items-center justify-center mb-[30px];
 
-    button {
-        @apply w-full max-w-[1020px] h-[50px] border border-white mb-[35px];
+    .btnList {
+        @apply w-full max-w-[1020px] flex items-center justify-center mb-[30px];
+
+        button {
+            @apply mr-[50px] text-2xl font-semibold;
+        }
+        button:last-child {
+            @apply mr-[0];
+        }
+
+        .activeBtn {
+            text-decoration: underline;
+        }
     }
 
     .container {
-        @apply w-full max-w-[1020px] flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-6 sm:gap-[2px];
-
-        background: rgb(52,138,184);
-        background: radial-gradient(circle, rgba(52,138,184,1) 0%, rgba(42,28,53,1) 100%);
+        @apply w-full max-w-[1020px] flex flex-col;
 
         h1 {
             @apply lg:text-6xl;
@@ -19,21 +27,10 @@
             @apply text-[15px] lg:text-[20px] text-[#709EAE] font-[500] mt-[15px];
         }
 
-        .aboutUs {
-            @apply col-start-1 col-end-2 row-start-1 row-end-5 flex flex-col items-start bg-[#00012f] pl-[15px] sm:pl-[0] pb-[20px] pr-[20px];
+        .block {
+            @apply flex flex-col items-start bg-[#00012f] pl-[15px] sm:pl-[0] pb-[20px] pr-[20px];
         }
 
-        .mission {
-            @apply col-start-2 col-end-3 row-start-1 row-end-6 flex flex-col justify-end bg-[#00012f] pl-[15px] sm:pl-[20px] pb-[20px];
-        }
-
-        .value {
-            @apply col-start-1 col-end-2 row-start-5 row-end-7 flex flex-col justify-end bg-[#00012f] pl-[15px] sm:pl-[0] mb-[2px] pb-[20px] pr-[20px];
-        }
-
-        .emptyBlock {
-            @apply col-start-2 col-end-3 row-start-6 row-end-7 bg-[#00012f];
-        }
     }
     .shamil {
         display: none;
