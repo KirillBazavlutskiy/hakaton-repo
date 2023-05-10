@@ -14,69 +14,81 @@
 
   @apply py-[20px] px-[20px] xl:px-[130px] lg:px-[80px] md:px-[60px] sm:px-[40px];
 
-  .bar {
-    position: relative;
+  .slideWrapperGroups {
+    @apply flex flex-col justify-center;
 
-    max-width: 100%;
-    overflow: hidden;
+    .bar {
+      position: relative;
 
-    border-radius: 15px;
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
 
-    @apply py-[30px] px-[60px];
+      border-radius: 15px;
 
-    svg {
-      @apply w-[50px] stroke-white h-[50px];
-    }
+      @apply py-[30px] px-[60px] flex items-center justify-center;
 
-    .scrolled {
-      overflow-x: scroll;
-
-      color: #00C2FF;
-      font-weight: 400;
-      line-height: 140%;
-
-      @apply w-full text-[20px] 2xl:text-[26px] lg:text-[24px] sm:text-[22px] flex gap-[40px] items-center justify-between sm:px-[40px];
-
-      .tab {
-        cursor: pointer;
-        white-space: nowrap;
+      svg {
+        @apply w-[50px] stroke-white h-[50px];
       }
 
-      .active {
-        font-weight: 600;
+      .scrolled {
+        //overflow-x: scroll;
+
+        color: #00C2FF;
+        font-weight: 400;
+        line-height: 140%;
+
+        @apply w-full flex justify-center
+        flex-col md:flex-row gap-[15px] lg:gap-[40px];
+
+        .tab {
+          cursor: pointer;
+          //white-space: nowrap;
+          text-align: center;
+        }
+
+        .active {
+          font-weight: 600;
+        }
+
+        button {
+          white-space: nowrap;
+        }
+
+        span {
+          @apply hidden md:inline;
+        }
       }
 
-      button {
-        white-space: nowrap;
+      &::after {
+        left: 50%;
+        top: 50%;
+        background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
       }
-    }
 
-    &::after {
-      left: 50%;
-      top: 50%;
-      background: radial-gradient(50% 50% at 50% 50%, #FF8A32 0%, rgba(255, 138, 50, 0) 100%);
-    }
+      &::before {
+        left: 70%;
+        top: 70%;
+        background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
+      }
 
-    &::before {
-      left: 70%;
-      top: 70%;
-      background: radial-gradient(50% 50% at 50% 50%, #00C2FF 0%, rgba(0, 194, 255, 0) 100%);
-    }
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
 
-    &::after,
-    &::before {
-      content: "";
-      position: absolute;
+        width: 1657px;
+        height: 383px;
 
-      width: 1657px;
-      height: 383px;
+        opacity: 0.2;
+        transform: translate(-50%, -50%);
 
-      opacity: 0.2;
-      transform: translate(-50%, -50%);
-
-      z-index: -10;
+        z-index: -10;
+      }
     }
   }
+
   .scrollBtn {
     @apply xl:w-full xl:px-[100px] flex flex-row items-center justify-between;
     svg {
@@ -112,14 +124,14 @@
         //overflow: hidden;
 
         .slideBlock {
-          @apply w-full h-[500px];
+          @apply w-full h-full;
           background-position: center !important;
-          background-size: contain !important;
+          background-size: cover !important;
           background-repeat: no-repeat !important;
         }
 
         img {
-          @apply max-w-full max-h-[500px];
+          @apply w-full object-contain object-center;
         }
       }
     }
@@ -138,7 +150,7 @@
 
       overflow: hidden;
 
-      @apply p-[30px];
+      @apply p-[30px] text-[16px] sm:text-[20px];
 
       &::after {
         left: 40%;

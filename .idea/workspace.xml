@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurTeam/OurTeam.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurTeam/OurTeam.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OurTeam/PersonCard/PersonCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurTeam/PersonCard/PersonCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SectionCaption/SectionCaption.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SectionCaption/SectionCaption.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +137,7 @@
       <workItem from="1683189670787" duration="3691000" />
       <workItem from="1683560653173" duration="3413000" />
       <workItem from="1683575683048" duration="3082000" />
-      <workItem from="1683637417843" duration="453000" />
+      <workItem from="1683637417843" duration="5489000" />
     </task>
     <servers />
   </component>
