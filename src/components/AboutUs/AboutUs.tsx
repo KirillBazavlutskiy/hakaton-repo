@@ -1,15 +1,21 @@
 import styles from './AboutUs.module.scss';
 import {FC} from "react";
 import {AboutUs} from "@/models/text";
+import {useState} from "react";
 
 interface AboutUsProps {
     languageProps: AboutUs;
 }
 
 const AboutUs:FC<AboutUsProps> = ({languageProps}) => {
+
+    const [activeBtn, setActiveBtn] = useState<number>(0)
     return (
         <div className={styles.wrapper}>
-            <div className={styles.container}>
+            <button onClick={() => activeBtn === 0 ? setActiveBtn(1) : setActiveBtn(0)}>
+                {activeBtn === 1 ? "Close block" : "Open block"}
+            </button>
+            <div className={activeBtn === 1 ? styles.container : styles.shamil}>
                 <div className={styles.aboutUs}>
                     <h1>{languageProps.about__title}</h1>
                     <p>
