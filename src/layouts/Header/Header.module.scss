@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: auto minmax(320px, 1440px) auto;
-  grid-template-areas: 
+  grid-template-areas:
         ". content .";
 }
 
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   width: 100%;
   height: 90px;
 
@@ -23,6 +23,7 @@
   .logo {
     img {
       width: 150px;
+      height: auto;
     }
   }
 

@@ -1,3 +1,5 @@
+import {DateTime} from "next-auth/providers/kakao";
+
 export interface IAdmin {
     token: string;
     isMaster: boolean;
@@ -47,6 +49,18 @@ export interface IOffer {
     email: string,
     offer: string,
     image: File[],
+}
+
+export interface IOfferAdmin {
+    id: string;
+    publishedBy: string;
+    title: string;
+    message: string;
+    photos: string[];
+    files: string[];
+    tags: string[];
+    viewedBy: null | string;
+    createdAt: DateTime;
 }
 
 export interface IPost {

@@ -1,5 +1,5 @@
 .wrapper {
-    @apply w-full flex flex-col items-center justify-center mb-[30px];
+    @apply w-full px-[20px] sm:px-[40px] md:px-[60px] lg:px-[80px] xl:px-[130px] mb-[30px];
 
     .btnList {
         @apply w-full flex items-center justify-center mb-[30px];

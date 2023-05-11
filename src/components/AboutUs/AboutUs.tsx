@@ -35,6 +35,7 @@ const AboutUs:FC<AboutUsProps> = ({languageProps}) => {
                 {
                     array.map((res:any, index:number) =>
                         <button
+                            key={index}
                             className={activeBtn === index ? styles.activeBtn : styles.notActiveBtn}
                             onClick={() => setActiveBtn(index)}>
                             {res.name}
@@ -45,7 +46,7 @@ const AboutUs:FC<AboutUsProps> = ({languageProps}) => {
             <div className={styles.container}>
                 {
                     array.map((res:any, index:number) =>
-                        <div className={activeBtn === index ? styles.block : styles.shamil}>
+                        <div key={index} className={activeBtn === index ? styles.block : styles.shamil}>
                             <h1>{res.name}</h1>
                             <p>
                                 {res.text}

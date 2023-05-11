@@ -1,10 +1,27 @@
 import {UserAsPartnerOrMemberDTO, UserDTO, UserRole} from "@/models/user";
 import $api from "@/http/init";
-import {IProjectPostRequestBody, IProjectPrivate, IProjectPutRequestBody, Option} from "@/models/data";
+import {IOfferAdmin, IProjectPostRequestBody, IProjectPrivate, IProjectPutRequestBody, Option} from "@/models/data";
 import {toast} from "react-toastify";
 import {AddUserRequest, UpdateUserRequest} from "@/models/auth";
 
 export default class AdminService {
+    static SendPhotos = async (photosFiles: File[]): Promise<string[]> => {
+        let photosLinks: string[] = [];
+        try {
+            await Promise.all(
+                photosFiles.map(async (photo, index) => {
+                    const { data } = await $api.post<string>('/Files/UploadFile', { file: photo },
+                        { headers: {'Content-Type': 'multipart/form-data'} }
+                    );
+                    photosLinks.push(data);
+                })
+            );
+        } catch (e) {
+            console.log(e)
+        }
+        return photosLinks;
+    }
+
     static FetchUsers = async (role: UserRole): Promise<UserDTO[]> => {
         try {
             const { data } = await $api.get<UserDTO[]>(`/Users?skip=0&limit=100&role=${role}`);
@@ -144,23 +161,6 @@ export default class AdminService {
         }
     }
 
-    static SendPhotos = async (photosFiles: File[]): Promise<string[]> => {
-        let photosLinks: string[] = [];
-        try {
-            await Promise.all(
-                photosFiles.map(async (photo, index) => {
-                    const { data } = await $api.post<string>('/Files/UploadFile', { file: photo },
-                        { headers: {'Content-Type': 'multipart/form-data'} }
-                    );
-                    photosLinks.push(data);
-                })
-            );
-        } catch (e) {
-            console.log(e)
-        }
-        return photosLinks;
-    }
-
     static GetOptions = async (): Promise<Option[]> => {
         try {
             const { data } = await $api.get<Option[]>('/Options');
@@ -208,6 +208,100 @@ export default class AdminService {
             });
         } catch (e) {
             console.log(e)
+        }
+    }
+
+    static GetHelpOffers = async (): Promise<IOfferAdmin[]> => {
+        try {
+            const { data } = await $api.get<IOfferAdmin[]>('/HelpOffers')
+            return data;
+        } catch (e) {
+            console.log(e);
+            return [];
+        }
+    }
+
+    static ViewHelpOffer = async (id: string): Promise<void> => {
+        try {
+            await $api.put(`/HelpOffers/${id}`)
+            toast.info('Помічено!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+            console.log(e);
+            toast.error('Помилка!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }
+
+    static HelpOfferAddTag = async (id: string, tag: string): Promise<void> => {
+        try {
+            await $api.post(`/HelpOffers/AddTag/${id}`, tag);
+            toast.success('Додано!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+            console.log(e);
+            toast.error('Помилка!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }
+
+    static HelpOfferRemoveTag = async (id: string, tag: string): Promise<void> => {
+        try {
+            await $api.post(`/HelpOffers/RemoveTag/${id}`, tag);
+            toast.info('Видалено!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        } catch (e) {
+            console.log(e);
+            toast.error('Помилка!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
     }
 }

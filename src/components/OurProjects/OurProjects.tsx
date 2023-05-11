@@ -127,8 +127,8 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                         className={s.swiper}
                     >
                         {
-                            tabs[activeTab].photos.map(p =>
-                                <SwiperSlide className={s.slideWrapper}>
+                            tabs[activeTab].photos.map((p, index) =>
+                                <SwiperSlide className={s.slideWrapper} key={index}>
                                     {/*<div className={s.slideBlock} key={p} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>*/}
                                     <img src={`https://ss.egartsites.pp.ua/${p}`} alt={`https://ss.egartsites.pp.ua/${p}`}/>
                                 </SwiperSlide>)

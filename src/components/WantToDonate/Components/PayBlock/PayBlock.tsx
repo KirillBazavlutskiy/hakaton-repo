@@ -52,7 +52,7 @@ const PayBlock = () => {
                         .filter(res => res.name === activeBtn)
                         .map(res =>
                             <div key={res.name} className={styles.receiptBlock}>
-                                <Image width={120} height={120} src={res.image} alt={res.image}/>
+                                <Image width={120} src={res.image} alt={res.image}/>
                                 <div className={styles.block}>
                                     <div className={styles.receipt}>
                                         <p>{res.receipt}</p>
