@@ -27,8 +27,8 @@ export const Header: FC<HeaderProps> = ({ className, headerText, ...props }) => 
                     <div className={s.menu}>
                         <a href="#B2">{headerText.projects}</a>
                         <a href="#B3">{headerText.news}</a>
-                        <a href="#B4">{headerText.news}</a>
-                        <a href="#B7">{headerText.statistic}</a>
+                        <a href="#B7">{headerText.partners}</a>
+                        <a href="#B4">{headerText.statistic}</a>
                     </div>
                     <LanguageSwitcher />
                     <a href="#B56" className={s.donate}>{headerText.donate}</a>
