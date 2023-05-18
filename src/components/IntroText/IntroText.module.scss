@@ -41,6 +41,10 @@
       @apply pl-[0%] md:pl-[10%];
       @apply w-full items-center md:items-start;
 
+      a {
+        @apply w-full max-w-[280px] md:max-w-[350px];
+      }
+
       ul {
         display: flex;
         flex-direction: column;
