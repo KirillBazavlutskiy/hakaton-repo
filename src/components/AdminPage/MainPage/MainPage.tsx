@@ -10,6 +10,7 @@ import Options from "@/components/AdminPage/AdminComponents/Options/Options";
 import OurPartners from "@/components/AdminPage/AdminComponents/OurPartners/OurPartners";
 import OurTeam from "@/components/AdminPage/AdminComponents/OurTeam/OurTeam";
 import Admins from "@/components/AdminPage/AdminComponents/Admins/Admins";
+import HelpOffersList from "@/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList";
 
 interface AdminPageProps {
     Translation: Translation;
@@ -27,6 +28,7 @@ const MainPage: FC<AdminPageProps> = ({ Translation }) => {
             <OurTeam />
             <OurPartners />
             <Admins />
+            <HelpOffersList />
         </div>
     );
 };

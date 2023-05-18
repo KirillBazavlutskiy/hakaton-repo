@@ -1,5 +1,5 @@
 .projectItem {
-  @apply w-full flex flex-col items-start;
+  @apply w-full flex flex-col justify-between items-start;
 
   h3 {
     @apply text-[25px] font-extrabold mb-[20px];

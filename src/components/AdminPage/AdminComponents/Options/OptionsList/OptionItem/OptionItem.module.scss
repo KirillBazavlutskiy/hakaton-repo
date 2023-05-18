@@ -1,7 +1,7 @@
 .container {
   @apply w-full;
   h3 {
-    @apply text-[20px] font-semibold mb-[10px];
+    @apply text-[20px] font-semibold mb-[10px] break-words;
   }
 
   p {

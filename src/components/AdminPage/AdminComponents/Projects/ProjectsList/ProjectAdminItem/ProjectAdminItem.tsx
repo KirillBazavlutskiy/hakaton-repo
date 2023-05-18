@@ -2,8 +2,6 @@ import React, {FC, useState} from 'react';
 import s from "./ProjectAdminItem.module.scss";
 import {IProjectPrivate} from "@/models/data";
 import PhotoSlider from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider";
-import ModalWindow from "@/components/Style/ModalWindow/ModalWindow";
-import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
 import AdminService from "@/services/AdminService";
 import ProjectModalWindow from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectModalWindow/ProjectModalWindow";
 

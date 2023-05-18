@@ -1,3 +1,4 @@
 .button {
-  @apply w-full usm:w-auto font-medium text-[24px] rounded-[6px] flex items-center justify-center gap-[10px];
+  @apply w-full usm:w-auto font-medium text-[24px] rounded-[6px] transition-all
+  flex items-center justify-center gap-[10px];
 }

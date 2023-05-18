@@ -1,5 +1,5 @@
 .modalContainer {
-  @apply w-full;
+  @apply w-full h-full overflow-y-scroll;
 
   label {
     @apply cursor-pointer block w-full py-[13px] px-[16px] bg-transparent

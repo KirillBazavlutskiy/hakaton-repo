@@ -1,10 +1,10 @@
-import {Dispatch, FC, SetStateAction} from 'react';
+import {Dispatch, FC, ReactNode, SetStateAction} from 'react';
 import s from './ModalWindow.module.scss';
 
 interface ModalWindowProps {
     state: boolean;
     setState: Dispatch<SetStateAction<boolean>>;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 const ModalWindow: FC<ModalWindowProps> = ({ state, setState, children }) => {

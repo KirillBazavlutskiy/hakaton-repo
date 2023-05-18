@@ -211,9 +211,10 @@ export default class AdminService {
         }
     }
 
-    static GetHelpOffers = async (): Promise<IOfferAdmin[]> => {
+    static GetHelpOffers = async (isViewed: boolean, tags: string[]): Promise<IOfferAdmin[]> => {
         try {
-            const { data } = await $api.get<IOfferAdmin[]>('/HelpOffers')
+            const tagsList: string = tags.length !== 0 ? `&tags=${tags.join('&tags=')}` : '';
+            const { data } = await $api.get<IOfferAdmin[]>(`/HelpOffers?skip=0&limit=100&isViewed=${isViewed}${tagsList}`)
             return data;
         } catch (e) {
             console.log(e);

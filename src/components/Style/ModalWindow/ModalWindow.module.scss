@@ -4,9 +4,10 @@
 
   .inner {
     @apply backdrop-blur-[10px]
-    p-[20px] rounded-[10px] relative
-    flex flex-col justify-between items-center text-center gap-[20px]
-    w-full usm:w-[500px];
+    p-[20px] rounded-[10px]
+    flex flex-col items-center justify-center text-center gap-[20px]
+    w-full sm:w-[500px]
+    h-full sm:h-auto;
 
     svg {
       @apply absolute right-[20px] top-[20px] cursor-pointer;

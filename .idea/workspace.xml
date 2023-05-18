@@ -6,12 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AboutUs/AboutUs.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AboutUs/AboutUs.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AboutUs/AboutUs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AboutUs/AboutUs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OurProjects/OurProjects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WantToDonate/Components/PayBlock/PayBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/Label/Label.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Options/OptionsList/OptionItem/OptionItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Options/OptionsList/OptionItem/OptionItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectModalWindow/ProjectModalWindow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectModalWindow/ProjectModalWindow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Style/ModalWindow/ModalWindow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +147,10 @@
       <workItem from="1683637417843" duration="5489000" />
       <workItem from="1683725008033" duration="834000" />
       <workItem from="1683745452574" duration="3109000" />
-      <workItem from="1683801277511" duration="905000" />
+      <workItem from="1683801277511" duration="1044000" />
+      <workItem from="1683811139536" duration="2198000" />
+      <workItem from="1683918653197" duration="4492000" />
+      <workItem from="1684403319232" duration="7191000" />
     </task>
     <servers />
   </component>
