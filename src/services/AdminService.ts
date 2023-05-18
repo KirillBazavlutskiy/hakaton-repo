@@ -31,6 +31,16 @@ export default class AdminService {
         }
     }
 
+    static FetchUser = async (id: string): Promise<UserDTO | null> => {
+        try {
+            const { data } = await $api.get<UserDTO>(`/Users/${id}`);
+            return data;
+        } catch (e) {
+            console.log(e);
+            return null;
+        }
+    }
+
     static AddUser = async (partner: AddUserRequest): Promise<void> => {
         try {
             const photo = await this.SendPhotos(partner.photo);
@@ -52,10 +62,30 @@ export default class AdminService {
 
     static UpdateUser = async (user: UpdateUserRequest): Promise<void> => {
         try {
-            let photosLinks: string[] = await AdminService.SendPhotos(user.photoFile);
+            const currentUser = await this.FetchUser(user.id);
+
+            let changedFields: any = {};
+
+            const userKeys: string[] = Object.keys(user);
+            if (currentUser !== null) {
+                if (currentUser.fullName !== user.fullName) {
+                    changedFields['fullName'] = user.fullName;
+                }
+                if (currentUser.email !== user.email) {
+                    changedFields['email'] = user.email;
+                }
+                if (currentUser.phone !== user.phone) {
+                    changedFields['phone'] = user.phone;
+                }
+                if (currentUser.extras !== user.extras) {
+                    changedFields['extras'] = user.extras;
+                }
+                if (currentUser.photo !== user.photoLinks) {
+                    changedFields['photo'] = await AdminService.SendPhotos(user.photoFile);
+                }
+            }
             await $api.put(`/Users/${user.id}`, {
-                ...user,
-                photo: photosLinks.length === 0 ? user.photoLinks[0] : photosLinks[0]
+                ...changedFields,
             })
             toast.success('Змінено!', {
                 position: "top-right",

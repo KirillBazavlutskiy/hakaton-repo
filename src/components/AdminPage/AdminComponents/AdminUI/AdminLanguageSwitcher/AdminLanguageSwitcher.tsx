@@ -5,6 +5,7 @@ import {useRouter} from "next/router";
 import Logo from '@/images/logo.png';
 import Image from "next/image";
 import cn from "classnames";
+import Link from "next/link";
 
 const AdminLanguageSwitcher: FC = () => {
 
@@ -13,9 +14,9 @@ const AdminLanguageSwitcher: FC = () => {
 
     return (
         <div className={s.container}>
-            <div className={s.logo}>
+            <Link className={s.logo} href={'/'}>
                 <Image src={Logo} alt={'Logo'} />
-            </div>
+            </Link>
             <div className={s.languageSwitch}>
                 <div className={s.languageList}>
                     {

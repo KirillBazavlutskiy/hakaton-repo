@@ -9,7 +9,7 @@
   }
 
   .languageSwitch {
-    @apply flex items-center gap-[50px];
+    @apply flex flex-col-reverse sm:flex-row items-center gap-[10px] sm:gap-[50px];
 
     .languageList {
       @apply flex rounded-[2px] overflow-hidden;
