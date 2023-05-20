@@ -15,7 +15,7 @@ const AuthWindow: FC<LoginProps> = ({ setLoginMenuActive, loginMenu   }) => {
     return (
         <ModalWindow state={loginMenu} setState={setLoginMenuActive}>
             {
-                mode === 'login' ? <Login setMode={setMode} /> : <Registration setMode={setMode} />
+                mode === 'login' ? <Login setMode={setMode} setLoginMenuActive={setLoginMenuActive}/> : <Registration setMode={setMode}  setLoginMenuActive={setLoginMenuActive}/>
             }
         </ModalWindow>
     );

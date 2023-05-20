@@ -3,12 +3,21 @@ import s from './Registration.module.scss';
 import Input from "@/components/Login/Input/Input";
 import {RegisterRequest} from "@/models/auth";
 import AuthService from "@/services/AuthService";
+import {toast} from "react-toastify";
+
 
 interface RegistrationProps {
     setMode: Dispatch<SetStateAction<'login' | 'register'>>
+    setLoginMenuActive: Dispatch<SetStateAction<boolean>>
 }
 
-const Registration: FC<RegistrationProps> = ({ setMode }) => {
+const Registration: FC<RegistrationProps> = ({ setMode, setLoginMenuActive }) => {
+
+    function ClickFunc () {
+        AuthService.Register(regInfo)
+        setLoginMenuActive(false)
+    }
+
     const [ regInfo, setRegInfo ] = useState<RegisterRequest>({
         fullName: '',
         phone: '',
@@ -28,7 +37,7 @@ const Registration: FC<RegistrationProps> = ({ setMode }) => {
                 <p onClick={() => setMode('login')}>Already have an account?</p>
             </div>
             <button onClick={(e) => {
-                AuthService.Register(regInfo);
+                ClickFunc()
             }}>Login</button>
         </div>
     );

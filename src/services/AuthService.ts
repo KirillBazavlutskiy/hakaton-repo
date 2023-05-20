@@ -9,6 +9,7 @@ import {toast} from "react-toastify";
 
 export default class AuthService {
     static Login = async (body: LoginRequest): Promise<void> => {
+        debugger;
         try {
             const res = await $api.post<TokenBody>('/Auth/Login', body);
             this.setCookies({
@@ -70,6 +71,16 @@ export default class AuthService {
                 sessionId: res.data.session.id,
                 sessionExpires: res.data.session.expires
             });
+            await toast.info('Перевірте вашу почтову скриньку!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         } catch (e) {
             console.log(e);
         }
@@ -84,7 +95,7 @@ export default class AuthService {
                 sessionId: res.data.session.id,
                 sessionExpires: res.data.session.expires
             });
-            toast.success('Перевірте вашу почтову скриньку!', {
+            toast.info('Перевірте вашу почтову скриньку!', {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
