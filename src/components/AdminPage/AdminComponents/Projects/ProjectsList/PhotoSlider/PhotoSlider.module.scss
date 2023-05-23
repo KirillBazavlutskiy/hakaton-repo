@@ -1,12 +1,19 @@
 .sliderContainer {
   .swiper {
-    @apply w-[calc(100vw_-_60px)] md:w-full h-[300px];
+    @apply w-full;
 
-    .swiperSlide {
-      @apply w-full h-[300px] rounded-[6px] overflow-hidden;
+    .slideWrapper {
+      @apply w-full flex justify-center items-center;
+
+      .slideBlock {
+        @apply w-full h-full;
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+      }
 
       img {
-        @apply object-cover min-w-full min-h-full;
+        @apply w-full object-contain object-center;
       }
     }
   }

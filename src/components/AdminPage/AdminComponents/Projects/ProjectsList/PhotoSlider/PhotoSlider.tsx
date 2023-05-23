@@ -13,9 +13,9 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
     return (
         <div className={s.sliderContainer}>
             <Swiper
-                autoplay={{
-                    delay: 3000,
-                }}
+                centeredSlides={true}
+                slidesPerView={"auto"}
+                autoplay={{ delay: 4000 }}
                 className={s.swiper}
             >
                 {images.map((image) => (

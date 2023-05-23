@@ -1,0 +1,13 @@
+.container {
+  @apply w-full bg-[#fff]/10 p-[10px] flex flex-col justify-between;
+
+  .textSpace {
+    h1 {
+      @apply text-[30px] my-[20px] font-bold;
+    }
+
+    h2 {
+      @apply text-[28px] font-semibold;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import {FC, useEffect, useState} from 'react';
 import s from './HelpOffersList.module.scss';
 import {IOfferAdmin} from "@/models/data";
 import AdminService from "@/services/AdminService";
+import HelpOfferItem from "@/components/AdminPage/AdminComponents/HelpOffers/HelpOfferItem/HelpOfferItem";
 
 const HelpOffersList: FC = () => {
 
@@ -16,12 +17,10 @@ const HelpOffersList: FC = () => {
 
     return (
         <div className={s.container}>
-            {
-                helpOffers.map(offer => <div>
-                    <h1>{offer.title}</h1>
-                    <h2>{offer.message}</h2>
-                </div>)
-            }
+            <h1>Help Offers</h1>
+            <div className={s.offersList}>{
+                    helpOffers.map(offer => <HelpOfferItem offer={offer} />)
+            }</div>
         </div>
     );
 };

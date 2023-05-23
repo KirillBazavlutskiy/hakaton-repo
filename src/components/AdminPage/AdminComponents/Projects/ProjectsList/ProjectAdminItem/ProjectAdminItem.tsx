@@ -24,12 +24,12 @@ const ProjectAdminItem: FC<ProjectAdminItem> = ({ project, fetchProjects }) => {
                     </div>
                     <span>English Text</span>
                     <p>{project.description_EN.slice(0,
-                        project.description_EN.length < 10 ? project.description_EN.length : 10
-                    )}</p>
+                        project.description_EN.length < 30 ? project.description_EN.length : 30
+                    )}...</p>
                     <span>Ukrainian Text</span>
                     <p>{project.description_UA.slice(0,
-                        project.description_UA.length < 10 ? project.description_UA.length : 10
-                    )}</p>
+                        project.description_UA.length < 30 ? project.description_UA.length : 30
+                    )}...</p>
                     <div className={s.buttons}>
                         <button onClick={() => setModalEdit(true)}>Edit</button>
                         <button onClick={async () => {

@@ -9,7 +9,7 @@
     @apply w-full p-[10px] bg-[#E5E5E5]/30 rounded-[6px];
 
     .photos {
-      @apply bg-[#fff]/10 w-full h-[300px] mb-[17px];
+      @apply bg-[#fff]/10 w-full mb-[17px] rounded-[6px] overflow-hidden;
     }
 
     span {

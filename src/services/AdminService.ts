@@ -80,7 +80,7 @@ export default class AdminService {
                 if (currentUser.extras !== user.extras) {
                     changedFields['extras'] = user.extras;
                 }
-                if (currentUser.photo !== user.photoLinks) {
+                if (user.photoLinks.length !== 0) {
                     changedFields['photo'] = await AdminService.SendPhotos(user.photoFile);
                 }
             }

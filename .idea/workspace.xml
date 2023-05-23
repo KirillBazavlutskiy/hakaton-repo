@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd5431a-7e00-4121-91f4-1f26e7a62ad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/AdminUI/AdminLanguageSwitcher/AdminLanguageSwitcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/HelpOffers/HelpOffersList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage/AdminComponents/Projects/ProjectsList/ProjectAdminItem/ProjectAdminItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +151,11 @@
       <workItem from="1683918653197" duration="4492000" />
       <workItem from="1684403319232" duration="7731000" />
       <workItem from="1684421143269" duration="219000" />
-      <workItem from="1684435669943" duration="3174000" />
+      <workItem from="1684435669943" duration="3601000" />
+      <workItem from="1684589061402" duration="448000" />
+      <workItem from="1684589522159" duration="4966000" />
+      <workItem from="1684781045452" duration="10000" />
+      <workItem from="1684869291683" duration="1335000" />
     </task>
     <servers />
   </component>
