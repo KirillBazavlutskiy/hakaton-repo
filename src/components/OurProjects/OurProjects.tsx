@@ -1,4 +1,4 @@
-import {FC, useEffect, useRef, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import SwiperCore, { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react"
 import { RoundedButton } from '../RoundedButton/RoundedButton';
@@ -12,6 +12,7 @@ import React from 'react';
 import {OurProjects} from "@/models/text";
 import UserService from "@/services/UserService";
 import {useRouter} from "next/router";
+import PhotoSlider from "@/components/AdminPage/AdminComponents/Projects/ProjectsList/PhotoSlider/PhotoSlider";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -131,6 +132,7 @@ const OurProjects: FC<IntroTextProps> = ({OurProjects, Array}) => {
                                 <SwiperSlide className={s.slideWrapper} key={index}>
                                     {/*<div className={s.slideBlock} key={p} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}></div>*/}
                                     <img src={`https://ss.egartsites.pp.ua/${p}`} alt={`https://ss.egartsites.pp.ua/${p}`}/>
+                                    <div className={s.bgImage} style={{ background: `url(https://ss.egartsites.pp.ua/${p})` }}  />
                                 </SwiperSlide>)
                         }
                     </Swiper>

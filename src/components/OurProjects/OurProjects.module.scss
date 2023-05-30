@@ -120,8 +120,7 @@
       @apply w-full;
 
       .slideWrapper {
-        @apply w-full flex justify-center items-center;
-        //overflow: hidden;
+        @apply relative w-full flex justify-center items-center;
 
         .slideBlock {
           @apply w-full h-full;
@@ -131,7 +130,14 @@
         }
 
         img {
-          @apply w-full object-contain object-center;
+          @apply w-full object-contain object-center z-[5];
+        }
+
+        .bgImage {
+          @apply absolute top-0 left-0 w-full h-full z-[4] blur-[8px];
+          background-position: center !important;
+          background-size: cover !important;
+          background-repeat: no-repeat !important;
         }
       }
     }

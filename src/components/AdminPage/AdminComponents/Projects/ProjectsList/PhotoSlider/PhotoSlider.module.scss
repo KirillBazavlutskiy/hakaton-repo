@@ -1,6 +1,7 @@
 .sliderContainer {
   .swiper {
     @apply w-full;
+    overflow: hidden !important;
 
     .slideWrapper {
       @apply w-full flex justify-center items-center;

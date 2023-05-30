@@ -1,13 +1,18 @@
 .container {
-  @apply w-full bg-[#fff]/10 p-[10px] flex flex-col justify-between;
+  @apply w-full bg-[#fff]/10 p-[10px] rounded-[6px]
+  flex flex-col justify-between;
+
+  .photoSlider {
+    @apply rounded-[6px] overflow-hidden;
+  }
 
   .textSpace {
     h1 {
-      @apply text-[30px] my-[20px] font-bold;
+      @apply text-[20px] my-[20px] font-bold;
     }
 
     h2 {
-      @apply text-[28px] font-semibold;
+      @apply text-[18px] font-semibold;
     }
   }
 }

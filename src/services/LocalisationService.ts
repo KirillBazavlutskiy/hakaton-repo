@@ -1,27 +1,24 @@
 import {Translation} from "@/models/text";
-import axios from "axios";
-import {toast} from "react-toastify";
+import UserService from "@/services/UserService";
 
 export default class LocalisationService {
-    static GetLocalisation = async (): Promise<Translation> => {
-        const { data } = await axios.get<Translation>('/api/localisation');
-        return data;
-    }
-    static SetLocalisation = async (translation: Translation): Promise<void> => {
-        try {
-            await axios.put('/api/localisation', translation);
-            toast.success('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-        } catch (e) {
-            console.log(e);
-        }
+    static PrepareTranslationText = async (translation: Translation): Promise<Translation> => {
+
+        translation["en"].MainText.main = await UserService.GetOptionByName("MainTextEN");
+        translation["ua"].MainText.main = await UserService.GetOptionByName("MainTextUA");
+
+        translation["en"].MainText.button = await UserService.GetOptionByName("ButtonTextEN");
+        translation["ua"].MainText.button = await UserService.GetOptionByName("ButtonTextUA");
+
+        translation["en"].AboutUs.about__text = await UserService.GetOptionByName("AboutUsEN");
+        translation["ua"].AboutUs.about__text = await UserService.GetOptionByName("AboutUsUA");
+
+        translation["en"].AboutUs.mission__text = await UserService.GetOptionByName("OurMissionEN");
+        translation["ua"].AboutUs.mission__text = await UserService.GetOptionByName("OurMissionUA");
+
+        translation["en"].AboutUs.value__text = await UserService.GetOptionByName("ValueEN");
+        translation["ua"].AboutUs.value__text = await UserService.GetOptionByName("ValueUA");
+
+        return translation;
     }
 }

@@ -27,6 +27,7 @@ const AboutUs:FC<AboutUsProps> = ({languageProps}) => {
             { name: languageProps.mission__title, text: languageProps.mission__text },
             { name: languageProps.value__title, text: languageProps.value__text }
         ]);
+        console.log(array);
     }, [languageProps]); // Add languageProps as a dependency
 
     return (
@@ -47,7 +48,7 @@ const AboutUs:FC<AboutUsProps> = ({languageProps}) => {
                 {
                     array.map((res:any, index:number) =>
                         <div key={index} className={activeBtn === index ? styles.block : styles.shamil}>
-                            <h1>{res.name}</h1>
+                            {/*<h1>{res.name}</h1>*/}
                             <p>
                                 {res.text}
                             </p>

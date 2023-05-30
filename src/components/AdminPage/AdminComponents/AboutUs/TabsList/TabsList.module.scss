@@ -1,0 +1,37 @@
+.tabsList {
+  @apply w-full mb-[20px] flex flex-col sm:flex-row gap-[10px]
+  justify-between items-center px-[10px];
+
+  .btns {
+    @apply flex gap-[25px] flex-col md:flex-row;
+
+    .mainSectionTabs,
+    .aboutUsSectionTabs {
+      @apply flex justify-center gap-[20px] flex-col usm:flex-row;
+    }
+
+    button {
+      @apply text-2xl font-semibold;
+
+      &.activeTab {
+        @apply text-yellow-300 font-bold;
+      }
+    }
+  }
+
+  .languageSwitcher {
+    @apply flex rounded-[2px] overflow-hidden;
+
+    .localeButton {
+      @apply py-[6px] px-[17px];
+    }
+
+    .localeButton.notActive {
+      @apply text-[#fff]/60 bg-[#fff]/50;
+    }
+
+    .localeButton.active {
+      @apply text-[#fff] bg-[#05A8FFCC];
+    }
+  }
+}

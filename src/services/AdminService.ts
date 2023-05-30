@@ -1,8 +1,9 @@
-import {UserAsPartnerOrMemberDTO, UserDTO, UserRole} from "@/models/user";
+import {UserDTO, UserRole} from "@/models/user";
 import $api from "@/http/init";
 import {IOfferAdmin, IProjectPostRequestBody, IProjectPrivate, IProjectPutRequestBody, Option} from "@/models/data";
-import {toast} from "react-toastify";
 import {AddUserRequest, UpdateUserRequest} from "@/models/auth";
+import {AboutUsOptionsStateType} from "@/components/AdminPage/AdminComponents/AboutUs/AboutUs";
+import MessageService from "@/services/MessageService";
 
 export default class AdminService {
     static SendPhotos = async (photosFiles: File[]): Promise<string[]> => {
@@ -45,16 +46,8 @@ export default class AdminService {
         try {
             const photo = await this.SendPhotos(partner.photo);
             await $api.post('/Users', { ...partner, photo: photo[0] })
-            toast.success('Додано!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageSuccess("Додано!");
+
         } catch (e) {
             console.log(e);
         }
@@ -87,16 +80,8 @@ export default class AdminService {
             await $api.put(`/Users/${user.id}`, {
                 ...changedFields,
             })
-            toast.success('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageSuccess("Змінено!");
+
         } catch (e) {
           console.log(e);
         }
@@ -105,16 +90,8 @@ export default class AdminService {
     static DeleteUser = async (id: string) => {
         try {
             await $api.delete(`/Users/${id}`);
-            toast.info('Видалено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageInfo("Видалено!");
+
         } catch (e) {
             console.log(e);
         }
@@ -136,16 +113,8 @@ export default class AdminService {
                 ...project,
                 photos: photosLinks,
             })
-            toast.success('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageInfo("Змінено!");
+
         } catch (e) {
             console.log(e);
         }
@@ -158,16 +127,8 @@ export default class AdminService {
                 ...project,
                 photos: photosLinks.length === 0 ? project.photosLinks : photosLinks
             })
-            toast.success('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageSuccess("Змінено!");
+
         } catch (e) {
             console.log(e);
         }
@@ -176,16 +137,7 @@ export default class AdminService {
     static DeleteProject = async (id: string): Promise<void> => {
         try {
             await $api.delete(`/Projects/${id}`);
-            toast.info('Видалено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageInfo("Додано!");
         } catch (e) {
             console.log(e);
         }
@@ -194,30 +146,52 @@ export default class AdminService {
     static GetOptions = async (): Promise<Option[]> => {
         try {
             const { data } = await $api.get<Option[]>('/Options');
-            return data;
+            return data.filter((option) =>
+                option.name !== "AboutUsEN" && option.name !== "OurMissionEN" && option.name !== "ValueEN" && option.name !== "MainTextEN" && option.name !== "ButtonTextEN"
+                && option.name !== "AboutUsUA" && option.name !== "OurMissionUA" && option.name !== "ValueUA" && option.name !== "MainTextUA" && option.name !== "ButtonTextUA");
         } catch (e) {
             console.log(e);
             return [];
         }
     }
 
-    static SetOption = async (name: string, value: string): Promise<void> => {
+    static GetOptionsForAboutUsSection = async (language: "EN" | "UA"): Promise<Option[]> => {
+        try {
+            const { data } = await $api.get<Option[]>('/Options');
+            if (language === "EN") {
+                return  data.filter((option) =>
+                    option.name === "AboutUsEN" || option.name === "OurMissionEN" || option.name === "ValueEN" || option.name === "MainTextEN" || option.name === "ButtonTextEN");
+            } else {
+                return data.filter((option) =>
+                    option.name === "AboutUsUA" || option.name === "OurMissionUA" || option.name === "ValueUA" || option.name === "MainTextUA" || option.name === "ButtonTextUA");
+            }
+        } catch (e) {
+            console.log(e);
+            return [];
+        }
+    }
+
+    static SetOptionsForAboutSection = async (options: AboutUsOptionsStateType): Promise<void> => {
+        try {
+            await Promise.all(
+                [ ...options.EN, ...options.UA ].map(async (option) => {
+                    await this.SetOption(option.name, option.value, false);
+                })
+            );
+            MessageService.ShowMessageSuccess("Змінено!");
+        } catch (e) {
+            MessageService.ShowMessageError("Помилка!");
+        }
+    }
+
+    static SetOption = async (name: string, value: string, showMessage: boolean = true): Promise<void> => {
         try {
             await $api.put(`/Options/${name}`, JSON.stringify(value), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-            toast.success('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            if (showMessage) MessageService.ShowMessageSuccess("Змінено!");
         } catch (e) {
             console.log(e)
         }
@@ -226,16 +200,7 @@ export default class AdminService {
     static DeleteOption = async (name: string): Promise<void> => {
         try {
             await $api.delete(`/Options/${name}`);
-            toast.info('Змінено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageSuccess("Змінено!");
         } catch (e) {
             console.log(e)
         }
@@ -255,84 +220,30 @@ export default class AdminService {
     static ViewHelpOffer = async (id: string): Promise<void> => {
         try {
             await $api.put(`/HelpOffers/${id}`)
-            toast.info('Помічено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageInfo("Помічено!");
         } catch (e) {
             console.log(e);
-            toast.error('Помилка!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageError("Помилка!");
         }
     }
 
     static HelpOfferAddTag = async (id: string, tag: string): Promise<void> => {
         try {
             await $api.post(`/HelpOffers/AddTag/${id}`, tag);
-            toast.success('Додано!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageSuccess("Додано!");
         } catch (e) {
             console.log(e);
-            toast.error('Помилка!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageError("Помилка!");
         }
     }
 
     static HelpOfferRemoveTag = async (id: string, tag: string): Promise<void> => {
         try {
             await $api.post(`/HelpOffers/RemoveTag/${id}`, tag);
-            toast.info('Видалено!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageInfo("Видалено!");
         } catch (e) {
             console.log(e);
-            toast.error('Помилка!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageError("Помилка!");
         }
     }
 }

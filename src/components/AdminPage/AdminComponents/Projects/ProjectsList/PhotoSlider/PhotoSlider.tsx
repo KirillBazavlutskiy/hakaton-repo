@@ -15,14 +15,16 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
             <Swiper
                 centeredSlides={true}
                 slidesPerView={"auto"}
-                autoplay={{ delay: 4000 }}
                 className={s.swiper}
             >
-                {images.map((image) => (
-                    <SwiperSlide key={image} className={s.swiperSlide}>
-                        <img src={'https://ss.egartsites.pp.ua/' + image} alt={image} />
-                    </SwiperSlide>
-                ))}
+                {images.map((image) => {
+                    return (
+                        <SwiperSlide key={image} className={s.slideWrapper}>
+                            {/*<div className={s.slideBlock} key={image} style={{ background: `url(https://ss.egartsites.pp.ua/${image})` }}></div>*/}
+                            <img src={'https://ss.egartsites.pp.ua/' + image} alt={image} />
+                        </SwiperSlide>
+                    );
+                })}
             </Swiper>
         </div>
     );

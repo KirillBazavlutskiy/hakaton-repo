@@ -19,7 +19,7 @@ const HelpOffersList: FC = () => {
         <div className={s.container}>
             <h1>Help Offers</h1>
             <div className={s.offersList}>{
-                    helpOffers.map(offer => <HelpOfferItem offer={offer} />)
+                    helpOffers.map(offer => <HelpOfferItem offer={offer} key={offer.id} />)
             }</div>
         </div>
     );

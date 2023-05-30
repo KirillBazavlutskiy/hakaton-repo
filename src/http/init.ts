@@ -2,6 +2,7 @@ import axios from 'axios';
 import Cookies from "universal-cookie";
 import {toast} from "react-toastify";
 import AuthService from "@/services/AuthService";
+import MessageService from "@/services/MessageService";
 
 export const BASE_URL = 'https://ss.egartsites.pp.ua/api';
 
@@ -33,28 +34,10 @@ $api.interceptors.response.use(
             try {
                 await AuthService.RefreshSession();
             } catch (e) {
-                toast.error('Помилка авторизації!', {
-                    position: "top-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                MessageService.ShowMessageError('Помилка авторизації!');
             }
         } else {
-            toast.error('Помилка!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            MessageService.ShowMessageError('Помилка!');
         }
     }
 );

@@ -1,0 +1,17 @@
+.container {
+  @apply w-full flex flex-col items-center my-[40px];
+
+  .valuesList {
+    @apply w-full;
+    textarea {
+     @apply w-full bg-[#f1f0ea]/30 h-[250px]
+     text-[#fff] text-[16px] font-normal rounded-[7px]
+     py-[12px] px-[10px] resize-none;
+    }
+  }
+
+  .btnsGeneral {
+    @apply w-full mt-[10px] gap-[10px]
+    flex flex-col usm:flex-row justify-between;
+  }
+}

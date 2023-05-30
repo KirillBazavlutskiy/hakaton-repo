@@ -20,6 +20,9 @@ import {useRouter} from "next/router";
 import AuthService from "@/services/AuthService";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import {Statistic} from "@/models/user";
+import UserService from "@/services/UserService";
+import {number} from "prop-types";
+import LocalisationService from "@/services/LocalisationService";
 
 interface IndexProps {
     instagramData: IPost[];
@@ -82,6 +85,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const filePath = path.join(process.cwd(), 'data', 'localisation.json');
     const data = fs.readFileSync(filePath);
     const jsonData: Translation = JSON.parse(data.toString());
+    const preparedTranslation = await LocalisationService.PrepareTranslationText(jsonData);
 
     let instagramData: IPost[] = [];
     // try {
@@ -92,57 +96,29 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     // }
 
     let projects: IProject[] = [];
-    let team__responce: ITeam[] = [];
-    let parnters__responce: ITeam[] = [];
+    let teamResponse: ITeam[] = [];
+    let partnersResponse: ITeam[] = [];
 
     try {
         const projectsData = await axios.get<IProject[]>('https://ss.egartsites.pp.ua/api/Projects/GetPublic?skip=0&limit=100');
-        const team__responceData = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/api/Users/GetMembers');
-        const parnters__responceData = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/api/Users/GetPartners');
+        const teamData = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/api/Users/GetMembers');
+        const partnersData = await axios.get<ITeam[]>('https://ss.egartsites.pp.ua/api/Users/GetPartners');
         projects = projectsData.data;
-        team__responce = team__responceData.data;
-        parnters__responce = parnters__responceData.data;
+        teamResponse = teamData.data;
+        partnersResponse = partnersData.data;
     } catch (e) {
         console.error(e);
     }
-    const StatisticValue: Statistic = {
-        moneyCollected: 0,
-        medicalAid: '',
-        militaryPersonnel: '',
-        residentsOfDnipro: '',
-        UkrainiansReceivedAssistance: '',
-        MedicalFacilities: '',
-        ChildrenReceivedAssistance: ''
-    }
-
-    try {
-        const moneyCollectedValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/Money%20Collected');
-        const medicalAidValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/MedicalAid');
-        const militaryPersonnelValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/MilitaryPersonnel');
-        const residentsOfDniproValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/ResidentsOfDnipro');
-        const ukrainiansReceivedAssistanceValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/UkrainiansRecievedAssistance');
-        const MedicalFacilitiesValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/MedicalFacilities');
-        const ChildrenReceivedAssistanceValue = await axios.get('https://ss.egartsites.pp.ua/api/Options/ChildrenReceivedAssistance');
-
-        StatisticValue.moneyCollected = moneyCollectedValue.data;
-        StatisticValue.medicalAid = medicalAidValue.data;
-        StatisticValue.militaryPersonnel = militaryPersonnelValue.data;
-        StatisticValue.residentsOfDnipro = residentsOfDniproValue.data;
-        StatisticValue.UkrainiansReceivedAssistance = ukrainiansReceivedAssistanceValue.data;
-        StatisticValue.MedicalFacilities = MedicalFacilitiesValue.data;
-        StatisticValue.ChildrenReceivedAssistance = ChildrenReceivedAssistanceValue.data;
-    } catch (e) {
-        console.log(e);
-    }
+    const StatisticValue: Statistic = await UserService.GetAllStatistic();
 
     return {
         props: {
             instagramData: [],
-            translation: jsonData,
+            translation: preparedTranslation,
 
             OurProjectsArray: projects,
-            OurTeamArray: team__responce,
-            OurPartnersArray: parnters__responce,
+            OurTeamArray: teamResponse,
+            OurPartnersArray: partnersResponse,
             StatisticInfo: StatisticValue,
         },
         revalidate: 600,

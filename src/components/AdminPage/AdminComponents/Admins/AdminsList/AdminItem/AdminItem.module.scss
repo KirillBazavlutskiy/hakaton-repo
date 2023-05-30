@@ -36,10 +36,10 @@
     }
   }
   .btns {
-    @apply flex flex-col gap-[10px] sm:flex-row justify-center;
-    button {
-      @apply w-full sm:w-auto rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium
-      bg-[#00A6FF] mt-[10px];
-    }
+    @apply flex flex-col gap-[10px] sm:flex-row justify-between;
+    //button {
+    //  @apply w-full sm:w-auto rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium
+    //  bg-[#00A6FF] mt-[10px];
+    //}
   }
 }

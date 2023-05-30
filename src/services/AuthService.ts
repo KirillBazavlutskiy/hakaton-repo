@@ -9,7 +9,6 @@ import {toast} from "react-toastify";
 
 export default class AuthService {
     static Login = async (body: LoginRequest): Promise<void> => {
-        debugger;
         try {
             const res = await $api.post<TokenBody>('/Auth/Login', body);
             this.setCookies({

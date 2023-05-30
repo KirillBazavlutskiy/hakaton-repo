@@ -19,7 +19,7 @@ export interface UserDTO {
 }
 
 export interface Statistic {
-    moneyCollected: number;
+    moneyCollected: string;
     medicalAid: string;
     militaryPersonnel: string;
     residentsOfDnipro: string;

@@ -19,7 +19,9 @@ const HelpOfferItem: FC<HelpOfferItemProps> = ({ offer }) => {
 
     return (
         <div className={s.container}>
-            <PhotoSlider images={offer.photos} />
+            <div className={s.photoSlider}>
+                <PhotoSlider images={offer.photos} />
+            </div>
             <div className={s.textSpace}>
                 <h1>{offer.title}</h1>
                 <h2>{offer.message}</h2>
