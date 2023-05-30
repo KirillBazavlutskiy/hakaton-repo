@@ -13,7 +13,6 @@ const OurTeam: FC = () => {
     }
 
     const [teamList, setTeamList] = useState<UserDTO[]>([]);
-    const [deleteMode, setDeleteMode] = useState<boolean>(false);
 
     useEffect(() => {
         fetchTeam();
@@ -22,8 +21,8 @@ const OurTeam: FC = () => {
     return (
         <div className={s.container}>
             <h1>Our Team</h1>
-            <OurTeamList team={teamList} deleteMode={deleteMode} fetchTeam={fetchTeam} />
-            <OurTeamAdd setDeleteMode={setDeleteMode} fetchTeam={fetchTeam} />
+            <OurTeamList team={teamList} fetchTeam={fetchTeam} />
+            <OurTeamAdd fetchTeam={fetchTeam} />
         </div>
     );
 };

@@ -1,29 +1,25 @@
 import {FC} from 'react';
 import cn from "classnames";
 import s from './OurPartnersList.module.scss';
-import AdminService from "@/services/AdminService";
 import {UserDTO} from "@/models/user";
+import PartnerItem from "@/components/AdminPage/AdminComponents/OurPartners/OurPartnersList/PartnerItem/PartnerItem";
 
 interface OurPartnersListProps {
     partners: UserDTO[];
-    deleteMode: boolean;
     fetchPartners: () => Promise<void>;
 }
 
-const OurPartnersList: FC<OurPartnersListProps> = ({ partners, deleteMode, fetchPartners }) => {
+const OurPartnersList: FC<OurPartnersListProps> = ({ partners, fetchPartners }) => {
     return (
-        <div className={cn(s.partnersList, deleteMode && s.deleteMode)}>
+        <div className={s.partnersList}>
             {
-                partners.map(partner => <div key={partner.id} className={s.partnerImgContainer}>
-                    <img
-                        src={`https://ss.egartsites.pp.ua/${partner.photo}`}
-                        alt={partner.photo}
-                        onClick={async () => {
-                            if (deleteMode) await AdminService.DeleteUser(partner.id);
-                            await fetchPartners();
-                        }}
+                partners.map(partner =>
+                    <PartnerItem
+                        key={partner.id}
+                        partner={partner}
+                        fetchPartners={fetchPartners}
                     />
-                </div>)
+                )
             }
         </div>
     );

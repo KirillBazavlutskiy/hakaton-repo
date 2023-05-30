@@ -9,15 +9,17 @@ interface ProjectAddProps {
     fetchProjects: () => Promise<void>;
 }
 
+const projectDefaultState: IProjectPostRequestBody = {
+    name: '',
+    description_EN: '',
+    description_UA: '',
+    photos: [],
+    participants: []
+}
+
 const ProjectAdd: FC<ProjectAddProps> = ({ fetchProjects }) => {
 
-    const [projectState, setProjectState] = useState<IProjectPostRequestBody>({
-        name: '',
-        description_EN: '',
-        description_UA: '',
-        photos: [],
-        participants: []
-    });
+    const [projectState, setProjectState] = useState<IProjectPostRequestBody>(projectDefaultState);
     const [modalMenuMode, setModalMenuMode] = useState<boolean>(false);
     const [photoFiles, setPhotoFiles] = useState<File[]>([]);
 
@@ -45,10 +47,11 @@ const ProjectAdd: FC<ProjectAddProps> = ({ fetchProjects }) => {
                         />
                     </label>
                     <button onClick={async () => {
-                        await AdminService.AddProject({ ...projectState, photos: photoFiles })
-                        setModalMenuMode(false);
+                        await AdminService.AddProject({ ...projectState, photos: photoFiles });
                         await fetchProjects();
-                    }}>Save</button>
+                        setProjectState(projectDefaultState);
+                        setModalMenuMode(false);
+                    }}>Add Project</button>
                 </div>
             </ModalWindow>
         </>

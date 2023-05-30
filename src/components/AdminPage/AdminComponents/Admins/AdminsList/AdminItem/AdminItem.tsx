@@ -49,10 +49,12 @@ const AdminItem: FC<AdminItemProps> = ({ admin, fetchAdmins }) => {
                                 photoLinks: adminState.photo,
                             })
                             await fetchAdmins();
+                            setModalWindow(false);
                         }}>Save</Button>
                         <Button color={'red'} size={'small'} onClick={async () => {
                             await AdminService.DeleteUser(admin.id);
                             await fetchAdmins();
+                            setModalWindow(false);
                         }}>Delete</Button>
                     </div>
                 </div>

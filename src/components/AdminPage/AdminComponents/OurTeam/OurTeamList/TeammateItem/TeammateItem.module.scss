@@ -1,21 +1,18 @@
-.container {
-  @apply flex flex-col items-center justify-center transition-all;
-
-  .adminImageContainer {
-    @apply w-[200px] h-full min-h-[200px] rounded-[20px] overflow-hidden
-    bg-gray-400 flex justify-center items-center mb-[10px];
-
-    img {
-      @apply min-h-full min-w-full text-center;
-    }
-  }
-
-  p {
-    @apply text-[18px] font-semibold;
-  }
+.teammateContainer {
+  @apply w-full h-full flex flex-col gap-[10px] justify-center items-center transition-all;
 
   &:hover {
     @apply scale-[102%];
+  }
+
+  .imageContainer {
+    @apply bg-[#fff] w-[180px] h-[200px] rounded-[20px] overflow-hidden flex justify-center items-end;
+    img {
+      @apply w-full;
+    }
+  }
+  p {
+    @apply font-medium text-[18px];
   }
 }
 

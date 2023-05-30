@@ -7,7 +7,6 @@ import AdminService from "@/services/AdminService";
 import {AddUserRequest} from "@/models/auth";
 
 interface OurPartnersAddProps {
-    setDeleteMode: Dispatch<SetStateAction<boolean>>;
     fetchPartners: () => Promise<void>;
 }
 
@@ -19,7 +18,7 @@ const partnerStateDefault: AddUserRequest = {
     photo: [],
 }
 
-const OurPartnersAdd: FC<OurPartnersAddProps> = ({ setDeleteMode, fetchPartners }) => {
+const OurPartnersAdd: FC<OurPartnersAddProps> = ({ fetchPartners }) => {
 
     const [modalMenu, setModalMenu] = useState<boolean>(false);
     const [partner, setPartner] = useState<AddUserRequest>(partnerStateDefault);
@@ -27,9 +26,6 @@ const OurPartnersAdd: FC<OurPartnersAddProps> = ({ setDeleteMode, fetchPartners 
     return (
         <div className={s.container}>
             <div className={s.btns}>
-                <Button color={'yellow'} size={'small'} shadow onClick={() => setDeleteMode(prev => !prev)}>
-                    Delete partner
-                </Button>
                 <Button color={'blue'} size={'small'} shadow onClick={() => {setModalMenu(true)}}>Add Partner +</Button>
             </div>
             <ModalWindow state={modalMenu} setState={setModalMenu}>

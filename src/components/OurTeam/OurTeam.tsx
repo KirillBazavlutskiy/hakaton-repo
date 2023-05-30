@@ -1,9 +1,8 @@
-import {FC, useEffect, useState} from 'react';
+import {FC} from 'react';
 import s from './OurTeam.module.scss';
 import PersonCard from "@/components/OurTeam/PersonCard/PersonCard";
 import {OurTeam} from "@/models/text";
 import {ITeam} from "@/models/data";
-import axios from "axios";
 
 interface OurTeamProps {
     OurTeam: OurTeam;

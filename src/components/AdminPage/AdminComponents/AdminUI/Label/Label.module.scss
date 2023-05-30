@@ -13,6 +13,10 @@
     @apply py-[12px] px-[10px];
   }
 
+  input::placeholder {
+    @apply text-[#fff];
+  }
+
   textarea {
     @apply py-[12px] px-[10px] resize-none;
   }

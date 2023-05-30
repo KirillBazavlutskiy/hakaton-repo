@@ -7,7 +7,6 @@ import Label from "@/components/AdminPage/AdminComponents/AdminUI/Label/Label";
 import AdminService from "@/services/AdminService";
 
 interface OurPartnersAddProps {
-    setDeleteMode: Dispatch<SetStateAction<boolean>>;
     fetchTeam: () => Promise<void>;
 }
 
@@ -20,7 +19,7 @@ const teammateStateDefault: AddUserRequest = {
     photo: [],
 }
 
-const OurTeamAdd: FC<OurPartnersAddProps> = ({ setDeleteMode, fetchTeam }) => {
+const OurTeamAdd: FC<OurPartnersAddProps> = ({ fetchTeam }) => {
 
     const [modalMenu, setModalMenu] = useState<boolean>(false);
     const [teammate, setTeammate] = useState<AddUserRequest>(teammateStateDefault);
@@ -28,9 +27,6 @@ const OurTeamAdd: FC<OurPartnersAddProps> = ({ setDeleteMode, fetchTeam }) => {
     return (
         <div className={s.container}>
             <div className={s.btns}>
-                <Button color={'yellow'} size={'small'} shadow onClick={() => setDeleteMode(prev => !prev)}>
-                    Delete Teammate
-                </Button>
                 <Button color={'blue'} size={'small'} shadow onClick={() => {setModalMenu(true)}}>Add Teammate +</Button>
             </div>
             <ModalWindow state={modalMenu} setState={setModalMenu}>

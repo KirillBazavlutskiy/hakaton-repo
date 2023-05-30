@@ -1,21 +1,13 @@
-.container {
-  @apply flex flex-col items-center justify-center transition-all;
-
-  .adminImageContainer {
-    @apply w-[200px] h-full min-h-[200px] rounded-[20px] overflow-hidden
-    bg-gray-400 flex justify-center items-center mb-[10px];
-
-    img {
-      @apply min-h-full min-w-full text-center;
-    }
-  }
-
-  p {
-    @apply text-[18px] font-semibold;
-  }
+.partnerImgContainer {
+  @apply w-full h-[130px] transition-all
+  flex justify-center items-center;
 
   &:hover {
     @apply scale-[102%];
+  }
+
+  img {
+    @apply opacity-[0.8] rounded-[10px];
   }
 }
 

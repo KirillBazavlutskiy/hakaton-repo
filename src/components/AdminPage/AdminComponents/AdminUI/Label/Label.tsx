@@ -29,28 +29,34 @@ function getValue(state: any, keys: string[]): string {
 
 function updateValue<T>(state: T, keys: string[], newValue: string, maxLength: number, setState: Dispatch<SetStateAction<T>>): void {
     setState(prevState => {
-        if (newValue.length <= maxLength) {
-            const updatedState: T = { ...prevState }
-            let currentState: any = updatedState;
-            keys.forEach((key) => {
-                if (!currentState.hasOwnProperty(key)) {
-                    return prevState;
-                }
-                if (typeof currentState[key] === "string") {
-                    currentState[key] = newValue;
-                } else {
-                    currentState = currentState[key];
-                }
-            })
-            return updatedState;
-        } else {
-            return prevState;
-        }
+        const updatedState: T = { ...prevState }
+        let currentState: any = updatedState;
+        keys.forEach((key) => {
+            if (!currentState.hasOwnProperty(key)) {
+                return prevState;
+            }
+            if (typeof currentState[key] === "string") {
+                currentState[key] = newValue;
+            } else {
+                currentState = currentState[key];
+            }
+        })
+        return updatedState;
     });
 }
 
 
-function Label<T>({ title, type = 'input', placeholder = '', height = 300, maxLength = 600, state, path, setState }: LabelProps<T>) {
+function Label<T>(
+    {
+        title,
+        type = 'input',
+        placeholder = '',
+        height = 300,
+        maxLength = 600,
+        state,
+        path,
+        setState
+    }: LabelProps<T>) {
     return (
         <div className={s.container}>
             <p>{title}</p>
@@ -69,6 +75,7 @@ function Label<T>({ title, type = 'input', placeholder = '', height = 300, maxLe
                             style={{
                                 height: `${height}px`
                             }}
+                            maxLength={maxLength}
                             placeholder={placeholder}
                             value={getValue(state, path)}
                             onChange={e => updateValue(state, path, e.target.value, maxLength, setState)}

@@ -13,7 +13,6 @@ const OurPartners: FC = () => {
     }
 
     const [partners, setPartners] = useState<UserDTO[]>([]);
-    const [deleteMode, setDeleteMode] = useState<boolean>(false);
 
     useEffect(() => {
         fetchPartners();
@@ -22,8 +21,8 @@ const OurPartners: FC = () => {
     return (
         <div className={s.container}>
             <h1>Our Partners</h1>
-            <OurPartnersList partners={partners} deleteMode={deleteMode} fetchPartners={fetchPartners} />
-            <OurPartnersAdd setDeleteMode={setDeleteMode} fetchPartners={fetchPartners} />
+            <OurPartnersList partners={partners} fetchPartners={fetchPartners} />
+            <OurPartnersAdd fetchPartners={fetchPartners} />
         </div>
     );
 };
