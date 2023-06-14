@@ -29,7 +29,7 @@ const AboutUs: FC = () => {
         setAboutUsOptionsDefault
     ] = useState<AboutUsOptionsStateType>(AboutUsOptionsStateDefault);
 
-    const [ activeSection, setActiveSection ] = useState<number>(0);
+    const [ activeSection, setActiveSection ] = useState<number>(3);
     const [ activeLanguage, setActiveLanguage ] = useState<"EN" | "UA">("EN");
 
     const fetchAboutUsOptions = async () => {
@@ -54,6 +54,7 @@ const AboutUs: FC = () => {
                     aboutUsOptions[activeLanguage].map((option, index) => (
                         <textarea
                             key={option.name}
+                            name={option.name}
                             className={activeSection === index ? "block" : "hidden"}
                             value={option.value}
                             onChange={(e) => {

@@ -8,6 +8,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 import s from './Header.module.scss';
 import Logo from "@/images/logo.png";
 import {HeaderText} from "@/models/text";
+import {useAppSelector} from "@/redux/store";
 
 
 interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -16,6 +17,7 @@ interface HeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
 
 export const Header: FC<HeaderProps> = ({ className, headerText, ...props }) => {
     const [headerMenu, setHeaderMenu] = useState<boolean>(false);
+    const { user } = useAppSelector(state => state.status);
 
     return (
         <header className={cn(s.wrapper, className)} {...props}>

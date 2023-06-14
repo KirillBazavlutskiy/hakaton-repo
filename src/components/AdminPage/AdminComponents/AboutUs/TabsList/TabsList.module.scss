@@ -3,15 +3,15 @@
   justify-between items-center px-[10px];
 
   .btns {
-    @apply flex gap-[25px] flex-col md:flex-row;
+    @apply flex gap-[10px] usm:gap-[25px] flex-col md:flex-row;
 
     .mainSectionTabs,
     .aboutUsSectionTabs {
-      @apply flex justify-center gap-[20px] flex-col usm:flex-row;
+      @apply flex justify-center gap-[20px] flex-row;
     }
 
     button {
-      @apply text-2xl font-semibold;
+      @apply text-2xl font-semibold text-[16px] usm:text-[18px] sm:text-[20px];
 
       &.activeTab {
         @apply text-yellow-300 font-bold;

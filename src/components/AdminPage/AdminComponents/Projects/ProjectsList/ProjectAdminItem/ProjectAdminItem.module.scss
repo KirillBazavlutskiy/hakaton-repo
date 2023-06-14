@@ -21,7 +21,7 @@
     }
 
     .buttons {
-      @apply flex justify-center mt-[40px] gap-[40px];
+      @apply flex justify-between mt-[40px];
 
       button {
         @apply rounded-[4px] px-[30px] py-[7px] text-[#fff] text-[20px] font-medium;

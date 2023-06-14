@@ -1,18 +1,39 @@
 .container {
   @apply w-full bg-[#fff]/10 p-[10px] rounded-[6px]
-  flex flex-col justify-between;
+  flex flex-col justify-between gap-[10px];
 
-  .photoSlider {
-    @apply rounded-[6px] overflow-hidden;
+  .offerForm {
+
+    .photoSlider {
+      @apply rounded-[6px] overflow-hidden mb-[20px];
+    }
+
+    .textSpace {
+      @apply mb-[15px];
+
+      h2 {
+        @apply text-[20px] font-bold my-[0] mb-[10px];
+      }
+
+      h3 {
+        @apply text-[18px] font-semibold mb-[15px];
+      }
+
+      a {
+        @apply text-[#fff] transition-colors;
+
+        &:hover {
+          @apply text-[#fff]/60;
+        }
+      }
+
+      p {
+        @apply text-[#fff]/50;
+      }
+    }
   }
 
-  .textSpace {
-    h1 {
-      @apply text-[20px] my-[20px] font-bold;
-    }
-
-    h2 {
-      @apply text-[18px] font-semibold;
-    }
+  .btn {
+    @apply w-full flex justify-center;
   }
 }

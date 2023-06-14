@@ -40,7 +40,7 @@ const WhatHasAlreadyBeenDone: FC<WhatHasAlreadyBeenDoneProps> = ({WhatHasAlready
                 <div className={s.content}>
                     <div className={s.info}>
                         <div className={s.collected}>
-                            <h3>{currentPageYOffset >= heightToAnimate ? <Counter val={Statistic.moneyCollected} /> : <>0</>}&nbsp;uah</h3>
+                            <h3>{currentPageYOffset >= heightToAnimate ? <Counter val={+Statistic.moneyCollected.replaceAll(" ", "")} /> : <>0</>}&nbsp;uah</h3>
                             <span>Collected</span>
                         </div>
                         <a href="#" className={s.report}>

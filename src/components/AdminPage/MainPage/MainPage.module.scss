@@ -1,3 +1,9 @@
 .container {
   @apply p-[20px];
+
+  h1 {
+    @apply font-extrabold text-center
+    my-[30px] sm:my-[40px] md:my-[50px]
+    text-[20px] sm:text-[30px] lg:text-[40px];
+  }
 }

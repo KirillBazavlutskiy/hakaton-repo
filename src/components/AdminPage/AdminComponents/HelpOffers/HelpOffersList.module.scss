@@ -1,9 +1,5 @@
 .container {
-  h1 {
-    @apply mt-[70px] mb-[70px] text-[40px] font-extrabold;
-  }
-
   .offersList {
-    @apply grid gap-[10px] grid-cols-1 sm:grid-cols-2;
+    @apply grid gap-[10px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
   }
 }
