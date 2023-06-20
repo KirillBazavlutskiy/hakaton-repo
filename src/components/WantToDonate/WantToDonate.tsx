@@ -17,9 +17,10 @@ const WantToDonate:FC<WantToDonateProps> = ({IWantToDonate}) => {
                         {IWantToDonate.main}
                     </SectionCaption>
                     <div className={s.buttons}>
-                        {/*TODO: liqpay api & mono api*/}
-                        <a href="https://send.monobank.ua/5av2nCFLGA">monobank</a>
-                        <a href="https://www.privat24.ua/rd/transfer_to_card?hash=rd/transfer_to_card/%7B%22from%22:%22%22,%22to%22:%224149%204993%209933%203333%22,%22ccy%22:%22UAH%22,%22amt%22:%22100%22%7D">Privatbank</a>
+                        <a href="https://send.monobank.ua/jar/5GnEwUjFHZ">monobank</a>
+                        <a href="https://www.privat24.ua/rd/transfer_to_card?hash=rd/transfer_to_card/%7B%22from%22:%22%22,%22to%22:%225169%203600%200040%202093%22,%22ccy%22:%22UAH%22,%22amt%22:%22100%22%7D">
+                            PrivatBank
+                        </a>
                     </div>
                 </div>
                 <PayBlock/>

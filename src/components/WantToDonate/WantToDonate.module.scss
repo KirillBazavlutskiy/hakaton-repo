@@ -49,8 +49,24 @@
       .buttons {
         @apply w-full h-1/2 flex flex-col items-start justify-between mt-[10px];
 
-        a {
-          @apply w-full mb-[15px] lg:w-3/6 h-[40px] lg:h-[60px] bg-yellow-300 text-black rounded-lg flex items-center justify-center;
+        a:last-child {
+          @apply w-full border border-yellow-300 mb-[15px] lg:w-2/6 h-[40px] lg:h-[40px] bg-transparent rounded-lg text-yellow-300 flex items-center justify-center;
+          transition: .3s;
+        }
+
+        img {
+          @apply w-5/6;
+        }
+
+        a:first-child {
+          @apply w-full border border-blue-300 mb-[15px] lg:w-2/6 h-[40px] lg:h-[40px] bg-transparent text-blue-300 rounded-lg flex items-center justify-center;
+          transition: .3s;
+        }
+        a:first-child:hover {
+          @apply bg-blue-300 text-white;
+        }
+        a:last-child:hover {
+          @apply bg-yellow-300 text-white;
         }
       }
     }
