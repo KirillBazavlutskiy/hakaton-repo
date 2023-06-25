@@ -1,11 +1,9 @@
 import { SectionCaption } from '../SectionCaption/SectionCaption';
 import { PostsGrid } from '../PostsGrid/PostsGrid';
-
-
 import s from "./OurLatestNews.module.scss";
 
 const OurLastestNews = (props: any) => {
-    // console.log(props.instagramData)
+
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
