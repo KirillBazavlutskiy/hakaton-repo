@@ -66,7 +66,7 @@ export interface IOfferAdmin {
 export interface IPost {
     id: string,
     username: string,
-    caption: string,
+    caption?: string,
     media_type: string,
     media_url: string,
     timestamp: string,

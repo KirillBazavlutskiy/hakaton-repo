@@ -50,6 +50,7 @@ const Index: FC<IndexProps> =
         useEffect(() => {
             AuthService.GetMe();
         }, [])
+
         return (
             <Layout title={"Головна"} keywords={""} lang={language} headerText={localisationText.HeaderText} bottomText={localisationText.BottomText}>
                 <section id="B1">
@@ -87,13 +88,15 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
     const jsonData: Translation = JSON.parse(data.toString());
     const preparedTranslation = await LocalisationService.PrepareTranslationText(jsonData);
 
-    let instagramData: IPost[] = [];
-    // try {
-    //     const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_KEY}`);
-    //     instagramData = response;
-    // } catch (e) {
-    //     console.log(e);
-    // }
+    // const url = `https://graph.instagram.com/me?fields=id,username&access_token=${process.env.INSTAGRAM_API}`;
+    let instagramData:IPost[] = [];
+    try {
+        const { data: response } = await axios.get<IPost[]>(`https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,children{media_url,thumbnail_url},timestamp,permalink&access_token=${process.env.INSTAGRAM_API}`);
+        instagramData = response;
+        // console.log(response)
+    } catch (e) {
+        console.log(e);
+    }
 
     let projects: IProject[] = [];
     let teamResponse: ITeam[] = [];
@@ -113,7 +116,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async (context) => {
 
     return {
         props: {
-            instagramData: [],
+            instagramData: instagramData,
             translation: preparedTranslation,
 
             OurProjectsArray: projects,

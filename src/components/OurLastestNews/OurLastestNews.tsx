@@ -5,6 +5,7 @@ import { PostsGrid } from '../PostsGrid/PostsGrid';
 import s from "./OurLatestNews.module.scss";
 
 const OurLastestNews = (props: any) => {
+    // console.log(props.instagramData)
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
@@ -12,7 +13,7 @@ const OurLastestNews = (props: any) => {
                     Our Lastest news
                 </SectionCaption>
                 <div className={s.posts}>
-                    <PostsGrid posts={props.instagramData} />
+                    <PostsGrid posts={props.instagramData.data} />
                 </div>
             </div>
         </div>
