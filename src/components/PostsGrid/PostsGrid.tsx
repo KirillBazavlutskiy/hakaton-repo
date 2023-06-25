@@ -7,7 +7,6 @@ interface PostsGridProps {
 }
 
 export function PostsGrid({ posts }: PostsGridProps): JSX.Element {
-    console.log(posts)
     return (
         <div className={s.grid}>
             {posts && posts.map((responce:IPost, number:number) => {
